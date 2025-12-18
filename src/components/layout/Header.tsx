@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import logo from "@/assets/logo.svg";
 
 const navigation = [
   { name: "Services", href: "/services" },
@@ -20,7 +21,8 @@ export function Header() {
       <nav className="container mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex items-center gap-3">
+            <img src={logo} alt="CTO Mentor" className="h-8 w-8 rounded" />
             <span className="font-heading text-xl lg:text-2xl font-semibold text-heading tracking-tight">
               CTO Mentor
             </span>
