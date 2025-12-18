@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import logo from "@/assets/logo.svg";
 
 const navigation = {
   services: [
@@ -24,7 +25,8 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link to="/" className="inline-block">
+            <Link to="/" className="inline-flex items-center gap-3">
+              <img src={logo} alt="CTO Mentor" className="h-8 w-8 rounded" />
               <span className="font-heading text-2xl font-semibold tracking-tight">
                 CTO Mentor
               </span>
