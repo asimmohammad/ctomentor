@@ -32,6 +32,15 @@ export default function About() {
             
             {/* Bio */}
             <div className="lg:w-2/3 space-y-8">
+              <div>
+                <h2 className="font-heading text-3xl font-semibold text-heading">
+                  Asim Mohammad
+                </h2>
+                <p className="mt-1 text-base font-body text-subtle italic">
+                  (pronounced "Ah-Seem")
+                </p>
+              </div>
+              
               <p className="text-lg font-body text-foreground leading-relaxed">
                 I've spent my career building and leading technology organizations
                 — from early-stage startups to complex enterprise environments. My
