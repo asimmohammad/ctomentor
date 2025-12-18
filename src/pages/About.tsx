@@ -1,6 +1,7 @@
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import profilePhoto from "@/assets/profile-photo.jpeg";
 
 export default function About() {
   return (
@@ -19,13 +20,24 @@ export default function About() {
       {/* Content */}
       <section className="bg-background">
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <div className="max-w-3xl space-y-8">
-            <p className="text-lg font-body text-foreground leading-relaxed">
-              I've spent my career building and leading technology organizations
-              — from early-stage startups to complex enterprise environments. My
-              work spans architecture, data, AI, and the organizational systems
-              that make technical execution actually work.
-            </p>
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
+            {/* Photo */}
+            <div className="lg:w-1/3 flex-shrink-0">
+              <img
+                src={profilePhoto}
+                alt="Profile photo"
+                className="w-full max-w-sm rounded-lg shadow-lg object-cover aspect-[3/4]"
+              />
+            </div>
+            
+            {/* Bio */}
+            <div className="lg:w-2/3 space-y-8">
+              <p className="text-lg font-body text-foreground leading-relaxed">
+                I've spent my career building and leading technology organizations
+                — from early-stage startups to complex enterprise environments. My
+                work spans architecture, data, AI, and the organizational systems
+                that make technical execution actually work.
+              </p>
 
             <p className="text-lg font-body text-foreground leading-relaxed">
               I hold patents in data lineage and discovery, have led global
@@ -58,6 +70,7 @@ export default function About() {
                 <li>Board-level advisory roles</li>
                 <li>AI adoption strategy & implementation</li>
               </ul>
+            </div>
             </div>
           </div>
         </div>
