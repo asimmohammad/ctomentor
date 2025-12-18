@@ -37,7 +37,7 @@ export default function About() {
                   Asim Mohammad
                 </h2>
                 <p className="mt-1 text-base font-body text-subtle italic">
-                  (pronounced "Ah-Seem")
+                  (pronounced "Ah-Sem")
                 </p>
               </div>
               
