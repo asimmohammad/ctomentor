@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/select";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 export default function Apply() {
   const { toast } = useToast();
@@ -21,16 +22,42 @@ export default function Apply() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    const formData = new FormData(e.currentTarget);
+    const applicationData = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      company: formData.get("company") as string,
+      role: formData.get("role") as string,
+      stage: formData.get("stage") as string,
+      teamSize: formData.get("team-size") as string,
+      stack: formData.get("stack") as string,
+      challenge: formData.get("challenge") as string,
+      budget: formData.get("budget") as string,
+      timeline: formData.get("timeline") as string,
+    };
 
-    toast({
-      title: "Application received",
-      description: "Thank you. I'll be in touch within 2 business days.",
-    });
+    try {
+      const { error } = await supabase.functions.invoke("send-application", {
+        body: applicationData,
+      });
 
-    setIsSubmitting(false);
-    (e.target as HTMLFormElement).reset();
+      if (error) throw error;
+
+      toast({
+        title: "Application received",
+        description: "Thank you. I'll be in touch within 2 business days.",
+      });
+      (e.target as HTMLFormElement).reset();
+    } catch (error) {
+      console.error("Error submitting application:", error);
+      toast({
+        title: "Error",
+        description: "Failed to submit application. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
