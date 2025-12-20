@@ -17,9 +17,23 @@ import { supabase } from "@/integrations/supabase/client";
 export default function Apply() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [stage, setStage] = useState<string>("");
+  const [budget, setBudget] = useState<string>("");
+  const [timeline, setTimeline] = useState<string>("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
+    // Validate required fields
+    if (!stage) {
+      toast({
+        title: "Validation Error",
+        description: "Please select a company stage.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
     const formData = new FormData(e.currentTarget);
@@ -28,31 +42,40 @@ export default function Apply() {
       email: formData.get("email") as string,
       company: formData.get("company") as string,
       role: formData.get("role") as string,
-      stage: formData.get("stage") as string,
+      stage: stage,
       teamSize: formData.get("team-size") as string,
       stack: formData.get("stack") as string,
       challenge: formData.get("challenge") as string,
-      budget: formData.get("budget") as string,
-      timeline: formData.get("timeline") as string,
+      budget: budget || "",
+      timeline: timeline || "",
     };
 
     try {
-      const { error } = await supabase.functions.invoke("send-application", {
+      const { data, error } = await supabase.functions.invoke("send-application", {
         body: applicationData,
       });
 
-      if (error) throw error;
+      if (error) {
+        console.error("Supabase function error:", error);
+        throw error;
+      }
+
+      console.log("Application submitted successfully:", data);
 
       toast({
         title: "Application received",
         description: "Thank you. I'll be in touch within 2 business days.",
       });
       (e.target as HTMLFormElement).reset();
-    } catch (error) {
+      setStage("");
+      setBudget("");
+      setTimeline("");
+    } catch (error: any) {
       console.error("Error submitting application:", error);
+      const errorMessage = error?.message || "Failed to submit application. Please try again.";
       toast({
         title: "Error",
-        description: "Failed to submit application. Please try again.",
+        description: errorMessage,
         variant: "destructive",
       });
     } finally {
@@ -141,7 +164,7 @@ export default function Apply() {
                   <Label className="text-sm font-body font-medium text-heading">
                     Company Stage
                   </Label>
-                  <Select name="stage" required>
+                  <Select value={stage} onValueChange={setStage} required>
                     <SelectTrigger className="bg-card border-divider">
                       <SelectValue placeholder="Select stage" />
                     </SelectTrigger>
@@ -200,7 +223,7 @@ export default function Apply() {
                   <Label className="text-sm font-body font-medium text-heading">
                     Budget Range
                   </Label>
-                  <Select name="budget">
+                  <Select value={budget} onValueChange={setBudget}>
                     <SelectTrigger className="bg-card border-divider">
                       <SelectValue placeholder="Select range" />
                     </SelectTrigger>
@@ -217,7 +240,7 @@ export default function Apply() {
                   <Label className="text-sm font-body font-medium text-heading">
                     Timeline
                   </Label>
-                  <Select name="timeline">
+                  <Select value={timeline} onValueChange={setTimeline}>
                     <SelectTrigger className="bg-card border-divider">
                       <SelectValue placeholder="Select timeline" />
                     </SelectTrigger>
