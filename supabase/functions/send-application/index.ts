@@ -64,7 +64,7 @@ const handler = async (req: Request): Promise<Response> => {
       },
       body: JSON.stringify({
         from: "CTO Mentor <onboarding@resend.dev>",
-        to: ["asim@ctomentor.com"],
+        to: ["asim@thectomentor.com"],
         reply_to: data.email,
         subject: `New Application: ${data.name} from ${data.company}`,
         html: emailHtml,
