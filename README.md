@@ -94,21 +94,30 @@ The Submit Application form sends emails via Resend. To enable this functionalit
 
 ### Step 3: Deploy the Edge Function
 
-If you haven't already deployed the `send-application` function:
+**IMPORTANT:** The edge function MUST be deployed for emails to work. If emails aren't sending, the function likely isn't deployed.
+
+To deploy the `send-application` function:
 
 ```bash
 # Install Supabase CLI (if not already installed)
+brew install supabase/tap/supabase
+# OR
 npm install -g supabase
 
-# Login to Supabase
+# Login to Supabase (will open browser)
 supabase login
 
 # Link to your project
 supabase link --project-ref mzndfyiejmyeuyshjtfe
 
 # Deploy the function
-supabase functions deploy send-application
+supabase functions deploy send-application --project-ref mzndfyiejmyeuyshjtfe
 ```
+
+**Verify deployment:**
+- Go to Supabase Dashboard → Edge Functions
+- You should see `send-application` listed
+- Check the function logs if emails aren't working
 
 ### Alternative: Using Supabase CLI
 

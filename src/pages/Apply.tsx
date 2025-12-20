@@ -24,8 +24,11 @@ export default function Apply() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
+    console.log("[APPLY FORM] Form submission started at", new Date().toISOString());
+    
     // Validate required fields
     if (!stage) {
+      console.warn("[APPLY FORM] Validation failed: stage not selected");
       toast({
         title: "Validation Error",
         description: "Please select a company stage.",
@@ -34,6 +37,7 @@ export default function Apply() {
       return;
     }
 
+    console.log("[APPLY FORM] Validation passed, collecting form data...");
     setIsSubmitting(true);
 
     const formData = new FormData(e.currentTarget);
@@ -50,35 +54,89 @@ export default function Apply() {
       timeline: timeline || "",
     };
 
+    console.log("[APPLY FORM] Form data collected:", {
+      ...applicationData,
+      challenge: applicationData.challenge.substring(0, 50) + "...", // Truncate for logging
+    });
+
+    // Check Supabase client
+    if (!supabase) {
+      console.error("[APPLY FORM] Supabase client not initialized");
+      toast({
+        title: "Error",
+        description: "Application service unavailable. Please refresh and try again.",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
+      console.log("[APPLY FORM] Invoking Supabase function 'send-application'...");
+      console.log("[APPLY FORM] Supabase URL:", import.meta.env.VITE_SUPABASE_URL ? "Configured" : "Missing");
+      
+      const startTime = Date.now();
       const { data, error } = await supabase.functions.invoke("send-application", {
         body: applicationData,
       });
+      const duration = Date.now() - startTime;
+
+      console.log(`[APPLY FORM] Function invocation completed in ${duration}ms`);
+      console.log("[APPLY FORM] Supabase function response:", { 
+        data, 
+        error,
+        hasData: !!data,
+        hasError: !!error,
+      });
 
       if (error) {
-        console.error("Supabase function error:", error);
+        console.error("[APPLY FORM] Supabase function error:", {
+          message: error.message,
+          status: error.status,
+          context: error.context,
+          error,
+        });
         throw error;
       }
 
-      console.log("Application submitted successfully:", data);
+      if (data?.error) {
+        console.error("[APPLY FORM] Function returned error in response:", data.error);
+        throw new Error(data.error);
+      }
+
+      console.log("[APPLY FORM] Application submitted successfully:", data);
+      console.log("[APPLY FORM] Form submission completed successfully at", new Date().toISOString());
 
       toast({
         title: "Application received",
         description: "Thank you. I'll be in touch within 2 business days.",
       });
+      
+      console.log("[APPLY FORM] Resetting form...");
       (e.target as HTMLFormElement).reset();
       setStage("");
       setBudget("");
       setTimeline("");
+      console.log("[APPLY FORM] Form reset complete");
     } catch (error: any) {
-      console.error("Error submitting application:", error);
-      const errorMessage = error?.message || "Failed to submit application. Please try again.";
+      console.error("[APPLY FORM] Error submitting application:", {
+        message: error?.message,
+        name: error?.name,
+        stack: error?.stack,
+        error,
+        timestamp: new Date().toISOString(),
+      });
+      
+      const errorMessage = error?.message || error?.error?.message || "Failed to submit application. Please try again.";
+      console.error("[APPLY FORM] Displaying error toast:", errorMessage);
+      
       toast({
         title: "Error",
         description: errorMessage,
         variant: "destructive",
       });
     } finally {
+      console.log("[APPLY FORM] Setting isSubmitting to false");
       setIsSubmitting(false);
     }
   };
