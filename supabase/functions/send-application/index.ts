@@ -27,6 +27,18 @@ const handler = async (req: Request): Promise<Response> => {
     return new Response(null, { headers: corsHeaders });
   }
 
+  // Validate RESEND_API_KEY is configured
+  if (!RESEND_API_KEY) {
+    console.error("RESEND_API_KEY is not configured");
+    return new Response(
+      JSON.stringify({ error: "Email service is not configured. Please contact support." }),
+      {
+        status: 500,
+        headers: { "Content-Type": "application/json", ...corsHeaders },
+      }
+    );
+  }
+
   try {
     const data: ApplicationData = await req.json();
     console.log("Received application:", data);

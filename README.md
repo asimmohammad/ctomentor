@@ -71,3 +71,59 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+
+## Setting up Email Notifications (RESEND_API_KEY)
+
+The Submit Application form sends emails via Resend. To enable this functionality, you need to configure the `RESEND_API_KEY` environment variable in your Supabase project.
+
+### Step 1: Get your Resend API Key
+
+1. Sign up or log in to [Resend](https://resend.com)
+2. Navigate to **API Keys** in your dashboard
+3. Create a new API key or copy an existing one
+
+### Step 2: Configure in Supabase Dashboard
+
+1. Go to your [Supabase Dashboard](https://supabase.com/dashboard)
+2. Select your project (Project ID: `mzndfyiejmyeuyshjtfe`)
+3. Navigate to **Project Settings** → **Edge Functions** → **Secrets**
+4. Click **Add Secret**
+5. Set the name to: `RESEND_API_KEY`
+6. Paste your Resend API key as the value
+7. Click **Save**
+
+### Step 3: Deploy the Edge Function
+
+If you haven't already deployed the `send-application` function:
+
+```bash
+# Install Supabase CLI (if not already installed)
+npm install -g supabase
+
+# Login to Supabase
+supabase login
+
+# Link to your project
+supabase link --project-ref mzndfyiejmyeuyshjtfe
+
+# Deploy the function
+supabase functions deploy send-application
+```
+
+### Alternative: Using Supabase CLI
+
+If you have Supabase CLI installed:
+
+```bash
+# Set the secret
+supabase secrets set RESEND_API_KEY=your_resend_api_key_here --project-ref mzndfyiejmyeuyshjtfe
+```
+
+### Testing
+
+After configuration, test the form submission:
+1. Fill out the application form on `/apply`
+2. Submit the form
+3. Check your email at `asim@thectomentor.com` for the notification
+
+The function will validate that `RESEND_API_KEY` is configured and provide helpful error messages if it's missing.
