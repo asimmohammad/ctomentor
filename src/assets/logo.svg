@@ -9,9 +9,9 @@
     fill="#ffffff" 
     text-anchor="middle" 
     dominant-baseline="central"
-    letter-spacing="8"
+    letter-spacing="4"
     style="font-weight: 900;"
   >
-    TCM
+    #TCM
   </text>
 </svg>
