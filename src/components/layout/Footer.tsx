@@ -26,9 +26,9 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link to="/" className="inline-flex items-center gap-3">
-              <img src={logo} alt="CTO Mentor" className="h-8 w-auto" />
+              <img src={logo} alt="The CTO Mentor" className="h-8 w-auto" />
               <span className="font-heading text-2xl font-semibold tracking-tight">
-                CTO Mentor
+                The CTO Mentor
               </span>
             </Link>
             <p className="mt-4 text-sm text-primary-foreground/70 font-body leading-relaxed max-w-xs">
@@ -96,7 +96,7 @@ export function Footer() {
 
         <div className="mt-16 pt-8 border-t border-primary-foreground/10">
           <p className="text-xs font-body text-primary-foreground/50">
-            © {new Date().getFullYear()} CTO Mentor. All rights reserved.
+            © {new Date().getFullYear()} The CTO Mentor. All rights reserved.
           </p>
         </div>
       </div>

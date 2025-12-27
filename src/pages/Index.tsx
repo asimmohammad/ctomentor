@@ -199,7 +199,7 @@ export default function Index() {
       {/* Proof Section */}
       <section className="bg-primary text-primary-foreground">
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <h2 className="font-heading text-3xl md:text-4xl font-semibold">
+          <h2 className="font-heading text-3xl md:text-4xl font-semibold text-white">
             Results that compound.
           </h2>
           <ul className="mt-10 space-y-4 max-w-2xl">

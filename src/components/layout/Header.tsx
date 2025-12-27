@@ -22,9 +22,9 @@ export function Header() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
-            <img src={logo} alt="CTO Mentor" className="h-8 w-auto" />
+            <img src={logo} alt="The CTO Mentor" className="h-8 w-auto" />
             <span className="font-heading text-xl lg:text-2xl font-semibold text-heading tracking-tight">
-              CTO Mentor
+              The CTO Mentor
             </span>
           </Link>
 
