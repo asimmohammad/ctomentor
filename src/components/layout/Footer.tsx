@@ -26,7 +26,7 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link to="/" className="inline-flex items-center gap-3">
-              <img src={logo} alt="CTO Mentor" className="h-8 w-8 rounded" />
+              <img src={logo} alt="CTO Mentor" className="h-8 w-auto" />
               <span className="font-heading text-2xl font-semibold tracking-tight">
                 CTO Mentor
               </span>
