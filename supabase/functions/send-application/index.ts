@@ -143,7 +143,14 @@ const handler = async (req: Request): Promise<Response> => {
     }
 
     console.log(`[EDGE FUNCTION] Parsing successful response...`);
-    const result = JSON.parse(responseText);
+    let result;
+    try {
+      result = JSON.parse(responseText);
+    } catch (parseError) {
+      console.error(`[EDGE FUNCTION] Failed to parse response as JSON:`, responseText);
+      throw new Error(`Invalid response from Resend API: ${responseText}`);
+    }
+    
     console.log(`[EDGE FUNCTION] Email sent successfully:`, {
       id: result.id,
       from: result.from,
