@@ -25,6 +25,9 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Brand */}
           <div className="lg:col-span-1">
+            <Link to="/" className="inline-flex items-center gap-3 mb-4">
+              <img src={logo} alt="The CTO Mentor" className="h-16 w-auto" />
+            </Link>
             <p className="text-sm text-primary-foreground/70 font-body leading-relaxed max-w-xs">
               Technology leadership that turns chaos into clarity.
             </p>
