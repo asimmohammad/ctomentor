@@ -409,11 +409,9 @@ export default function Apply() {
                                 </SelectTrigger>
                               </FormControl>
                               <SelectContent>
-                                <SelectItem value="under-7.5k">Under $7,500/mo</SelectItem>
-                                <SelectItem value="7.5k-12.5k">$7,500 – $12,500/mo</SelectItem>
-                                <SelectItem value="12.5k-18k">$12,500 – $18,000/mo</SelectItem>
-                                <SelectItem value="18k-plus">$18,000+/mo</SelectItem>
-                                <SelectItem value="circle">CTO Mentor Circle ($2,500/mo)</SelectItem>
+                                <SelectItem value="strategic-cto-advisor">Strategic CTO Advisor - $25K/month</SelectItem>
+                                <SelectItem value="operating-cto-partner">Operating CTO Partner - $35K/month</SelectItem>
+                                <SelectItem value="enterprise-turnaround">Enterprise Turnaround - $50K/month</SelectItem>
                               </SelectContent>
                             </Select>
                             <FormDescription className="text-xs text-muted-foreground">
