@@ -98,7 +98,7 @@ const handler = async (req: Request): Promise<Response> => {
     console.log(`[EDGE FUNCTION] Constructing email payload...`);
     const emailPayload = {
       from: "The CTO Mentor <onboarding@resend.dev>",
-      to: ["asim@thectomentor.com"],
+      to: ["amohammad@gmail.com"], // Using verified email for testing domain
       reply_to: data.email,
       subject: `New Application: ${data.name} from ${data.company}`,
       html: emailHtml,
