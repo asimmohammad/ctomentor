@@ -1,58 +1,190 @@
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Check, X } from "lucide-react";
+import { Check, ChevronDown } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
-const tiers = [
+// Service data structure
+interface Service {
+  id: string;
+  name: string;
+  oneLine: string;
+  bestFor: string;
+  outcomes: string[];
+  deliverables: string[];
+  engagementRhythm: string;
+  pricing: string;
+}
+
+const services: Service[] = [
   {
-    name: "CTO-Lite",
-    price: "$7,500",
-    period: "/month",
-    description: "Best for: Pre-seed / Seed startups",
-    includes: [
-      "Architecture & stack decisions",
-      "Hiring strategy & interviews",
-      "Vendor evaluation",
-      "Monthly executive sync",
+    id: "turnaround",
+    name: "CTO Turnaround (90-Day Reset)",
+    oneLine: "A rapid, board-visible intervention to stabilize, reset, and realign a broken technology organization.",
+    bestFor: "Chaos, stalled delivery, architecture sprawl, vendor/offshore failure, rising burn.",
+    outcomes: [
+      "Restored technical leadership and decision velocity",
+      "Architecture and platform clarity",
+      "Org design + accountability reset",
+      "Vendor/offshore triage and governance",
+      "Board-ready execution narrative",
     ],
-    excludes: ["Hands-on coding", "Daily team management"],
+    deliverables: [
+      "Current-state assessment (people, process, platform)",
+      "90-day stabilization plan + 12-month roadmap",
+      "Architecture decision memo",
+      "Operating cadence (weekly exec rhythm + metrics)",
+    ],
+    engagementRhythm: "Weekly exec sync, bi-weekly deep dives, monthly board memo",
+    pricing: "$75k–$150k (fixed fee)",
   },
   {
-    name: "Growth CTO",
-    price: "$12,500",
-    period: "/month",
-    description: "Best for: Scaling startups",
-    recommended: true,
-    includes: [
-      "Engineering org design",
-      "Delivery accountability",
-      "AI adoption strategy",
-      "Roadmap & priority governance",
-      "Direct leadership of tech leads / EMs",
+    id: "operating-cto",
+    name: "Operating CTO (CTO Office as a Service)",
+    oneLine: "Ongoing CTO leadership delivered as a managed service—so execution stays tight without hiring a full-time CTO.",
+    bestFor: "Scaling teams needing senior technical leadership, architecture authority, and operational discipline.",
+    outcomes: [
+      "CTO-level decision-making and leadership",
+      "Platform and architecture ownership",
+      "Hiring and org scaling plan",
+      "Vendor + budget control",
+      "Board and investor alignment",
     ],
-    excludes: [],
+    deliverables: [
+      "Weekly operating rhythm and decision log",
+      "Architecture reviews and roadmap management",
+      "Hiring scorecards + team performance system",
+      "Budget + vendor governance",
+    ],
+    engagementRhythm: "Weekly exec sync, bi-weekly architecture reviews, monthly board memo",
+    pricing: "$30k–$45k/month (6–12 month minimum)",
   },
   {
-    name: "Strategic CTO",
-    price: "$18,000+",
-    period: "/month",
-    description: "Best for: Complex, regulated, or PE-backed companies",
-    includes: [
-      "Board-level reporting",
-      "Multi-vendor orchestration",
-      "Risk & compliance oversight",
-      "M&A technical diligence",
+    id: "scale-ai",
+    name: "Scale Readiness & AI Enablement (8–10 Weeks)",
+    oneLine: "A focused program to prepare your platform, team, and operating model for growth and AI adoption.",
+    bestFor: "Post-PMF companies about to break under scale, preparing for platform shifts, AI adoption, or M&A.",
+    outcomes: [
+      "Scalable architecture blueprint",
+      "AI and data readiness plan",
+      "Cost and complexity reduction",
+      "Org maturity and capability gaps addressed",
+      "Clear execution roadmap",
     ],
-    excludes: [],
+    deliverables: [
+      "Scale readiness assessment",
+      "Target architecture + migration strategy",
+      "AI use-case prioritization + build/buy plan",
+      "Execution roadmap with milestones",
+    ],
+    engagementRhythm: "Weekly workshops, stakeholder interviews, executive readout",
+    pricing: "$40k–$80k (fixed scope)",
+  },
+  {
+    id: "board-advisory",
+    name: "Board & Investor Technical Advisory",
+    oneLine: "Independent technical authority for boards, investors, and executives who need clarity—not optimism.",
+    bestFor: "Board oversight, diligence, CTO/VP Eng evaluation, risk assessment, M&A readiness.",
+    outcomes: [
+      "Clear risk visibility and execution truth",
+      "Leadership and capability assessment",
+      "Scalability + security + data maturity evaluation",
+      "Post-deal remediation clarity",
+    ],
+    deliverables: [
+      "Board-grade advisory memos",
+      "Due diligence findings (red/yellow/green)",
+      "Remediation plan and operating recommendations",
+    ],
+    engagementRhythm: "Monthly advisory cadence + ad hoc calls as needed",
+    pricing: "$25k–$60k per engagement OR $10k–$20k/month",
+  },
+  {
+    id: "crisis-interim",
+    name: "Crisis & Interim CTO (Selective)",
+    oneLine: "High-intensity, short-term leadership during critical moments—CTO exits, outages, security events, or board escalations.",
+    bestFor: "Emergency stabilization and leadership continuity.",
+    outcomes: [
+      "Rapid stabilization and incident leadership",
+      "Executive and board communication control",
+      "Short-term execution plan and handoff",
+    ],
+    deliverables: [
+      "Immediate triage + stabilization plan",
+      "Interim leadership for team/vendor alignment",
+      "Handoff plan to internal leader or hired CTO",
+    ],
+    engagementRhythm: "Daily/near-daily cadence during crisis, weekly thereafter",
+    pricing: "$40k–$60k/month (interim) OR $15k–$30k/week (crisis)",
   },
 ];
 
-const advisoryServices = [
-  "Architecture reviews",
-  "AI readiness assessments",
-  "Vendor & cost audits",
-  "Delivery risk analysis",
+const whoWeHelp = [
+  "Founder-led teams moving fast but breaking systems",
+  "Post-fundraise execution chaos",
+  "CTO/VP Eng gap or leadership misalignment",
+  "Scaling pressure, platform strain, and rising burn",
 ];
+
+const engagementModels = [
+  {
+    name: "Fixed-scope (Turnaround / Scale Program)",
+    description: "Defined outcomes, clear deliverables, fixed fee structure.",
+  },
+  {
+    name: "Monthly retainer (Operating CTO / Board Advisory)",
+    description: "Ongoing leadership and advisory with predictable monthly investment.",
+  },
+  {
+    name: "Rapid response (Crisis / Interim)",
+    description: "High-intensity, short-term engagements for critical situations.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Do you write code?",
+    answer: "No. I provide CTO-level leadership, architecture decisions, and organizational structure. I work with your team and vendors to execute, but I don't write production code. This keeps me focused on strategy, execution discipline, and outcomes—not tickets.",
+  },
+  {
+    question: "Do you replace a full-time CTO?",
+    answer: "Yes, in many cases. Operating CTO engagements provide full CTO-level leadership and decision-making authority. For companies that don't need or can't afford a full-time CTO, this delivers the same outcomes at a fraction of the cost. For larger organizations, I often work alongside or in place of an existing CTO during transitions or when additional capacity is needed.",
+  },
+  {
+    question: "What size companies do you work with?",
+    answer: "I work with founder-led, tech-enabled companies typically between $5M–$100M in revenue or equivalent funding stage. The sweet spot is post-seed through Series B, but I also work with PE-backed companies and later-stage startups where the CTO function needs reset or scaling support.",
+  },
+  {
+    question: "Can you work with our existing team and vendors?",
+    answer: "Absolutely. In fact, that's the norm. I assess your current team structure, vendor relationships, and capabilities, then build on what works and fix what doesn't. I don't replace teams—I provide the leadership, structure, and accountability that makes them effective.",
+  },
+  {
+    question: "How do we start?",
+    answer: "Book a Strategy Call. In one conversation, we'll identify your root constraints, your fastest path to stability, and what a clean execution plan looks like. If there's a fit, we'll define the engagement scope, timeline, and investment. No long sales cycles—just clarity and a path forward.",
+  },
+  {
+    question: "Do you take equity?",
+    answer: "No. I work on a fee-for-service basis. This keeps incentives aligned: I'm paid for outcomes, not promises. Equity arrangements can create misaligned incentives and complicate board relationships. Cash compensation ensures I'm focused on your success, not exit timing.",
+  },
+  {
+    question: "What's the difference between Turnaround and Operating CTO?",
+    answer: "Turnaround is a fixed-scope, 90-day intensive reset for broken organizations. It's a rapid intervention with clear deliverables and a defined end. Operating CTO is ongoing monthly leadership—CTO Office as a Service—for companies that need sustained technical leadership without a full-time hire. Turnaround fixes what's broken; Operating CTO prevents it from breaking again.",
+  },
+];
+
+// Scroll to section helper
+const scrollToSection = (id: string) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+};
 
 export default function Services() {
   return (
@@ -62,139 +194,346 @@ export default function Services() {
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
           <div className="max-w-3xl">
             <h1 className="font-heading text-4xl md:text-5xl font-semibold text-heading leading-tight">
-              Choose the level of ownership you need.
+              Technology leadership that turns chaos into clarity.
             </h1>
-            <p className="mt-6 text-xl font-body text-subtle">
-              I don't sell hours. I take responsibility for outcomes.
+            <p className="mt-6 text-xl font-body text-subtle leading-relaxed">
+              TCM is a turnaround-and-scale firm for founder-led, tech-enabled companies where the CTO function is broken, immature, or misaligned with the business.
             </p>
+            
+            {/* Credibility bullets */}
+            <div className="mt-8 flex flex-wrap gap-4 text-sm font-body text-subtle">
+              <span className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                Turnarounds & rescues
+              </span>
+              <span className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                Operating CTO leadership
+              </span>
+              <span className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                Board & investor alignment
+              </span>
+            </div>
+
+            {/* CTAs */}
+            <div className="mt-10 flex flex-col sm:flex-row gap-4">
+              <Link to="/apply">
+                <Button variant="primary" size="xl">
+                  Book a Strategy Call
+                </Button>
+              </Link>
+              <Button
+                variant="outline"
+                size="xl"
+                onClick={() => scrollToSection("engagement-models")}
+              >
+                See Our Engagement Models
+              </Button>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Pricing Tiers */}
+      {/* Anchor Navigation */}
+      <section className="bg-background border-b border-divider sticky top-16 lg:top-20 z-40">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="flex flex-wrap items-center justify-center gap-4 lg:gap-6 py-4 text-sm font-body">
+            <button
+              onClick={() => scrollToSection("turnaround")}
+              className="text-subtle hover:text-heading transition-colors"
+            >
+              Turnaround
+            </button>
+            <span className="text-divider">|</span>
+            <button
+              onClick={() => scrollToSection("operating-cto")}
+              className="text-subtle hover:text-heading transition-colors"
+            >
+              Operating CTO
+            </button>
+            <span className="text-divider">|</span>
+            <button
+              onClick={() => scrollToSection("scale-ai")}
+              className="text-subtle hover:text-heading transition-colors"
+            >
+              Scale & AI
+            </button>
+            <span className="text-divider">|</span>
+            <button
+              onClick={() => scrollToSection("board-advisory")}
+              className="text-subtle hover:text-heading transition-colors"
+            >
+              Board Advisory
+            </button>
+            <span className="text-divider">|</span>
+            <button
+              onClick={() => scrollToSection("crisis-interim")}
+              className="text-subtle hover:text-heading transition-colors"
+            >
+              Crisis/Interim
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Who We Help */}
       <section className="bg-background">
-        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <h2 className="font-heading text-2xl md:text-3xl font-semibold text-heading mb-12">
-            Fractional CTO Engagements
+        <div className="container mx-auto px-6 lg:px-8 py-16 lg:py-20">
+          <h2 className="font-heading text-2xl md:text-3xl font-semibold text-heading mb-8">
+            Who We Help
           </h2>
-          <div className="grid lg:grid-cols-3 gap-8">
-            {tiers.map((tier) => (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {whoWeHelp.map((item, index) => (
               <div
-                key={tier.name}
-                className={`relative bg-card border p-8 ${
-                  tier.recommended
-                    ? "border-accent"
-                    : "border-divider"
-                }`}
+                key={index}
+                className="bg-card border border-divider p-6 rounded-lg"
               >
-                {tier.recommended && (
-                  <span className="absolute -top-3 left-8 bg-accent text-accent-foreground px-3 py-1 text-xs font-body font-semibold uppercase tracking-wider">
-                    Recommended
-                  </span>
-                )}
-                <h3 className="font-heading text-xl font-semibold text-heading">
-                  {tier.name}
-                </h3>
-                <div className="mt-4 flex items-baseline gap-1">
-                  <span className="font-heading text-3xl font-semibold text-heading">
-                    {tier.price}
-                  </span>
-                  <span className="font-body text-subtle">{tier.period}</span>
-                </div>
-                <p className="mt-2 text-sm font-body text-subtle">
-                  {tier.description}
+                <p className="text-sm font-body text-foreground leading-relaxed">
+                  {item}
                 </p>
-
-                <div className="mt-8">
-                  <h4 className="text-xs font-body font-semibold uppercase tracking-wider text-heading mb-4">
-                    Includes
-                  </h4>
-                  <ul className="space-y-3">
-                    {tier.includes.map((item) => (
-                      <li
-                        key={item}
-                        className="flex items-start gap-3 text-sm font-body text-foreground"
-                      >
-                        <Check
-                          size={16}
-                          className="text-accent flex-shrink-0 mt-0.5"
-                        />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {tier.excludes.length > 0 && (
-                  <div className="mt-6">
-                    <h4 className="text-xs font-body font-semibold uppercase tracking-wider text-subtle mb-4">
-                      Excludes
-                    </h4>
-                    <ul className="space-y-3">
-                      {tier.excludes.map((item) => (
-                        <li
-                          key={item}
-                          className="flex items-start gap-3 text-sm font-body text-subtle"
-                        >
-                          <X
-                            size={16}
-                            className="text-subtle/50 flex-shrink-0 mt-0.5"
-                          />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Advisory Section */}
-      <section className="bg-section-gradient border-t border-divider">
+      {/* Our Services - Grid */}
+      <section className="bg-section-gradient border-y border-divider">
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="font-heading text-2xl md:text-3xl font-semibold text-heading">
-                Advisory & Audits
-              </h2>
-              <p className="mt-4 text-lg font-body text-subtle">
-                Fixed-scope engagements including:
-              </p>
-              <ul className="mt-6 space-y-3">
-                {advisoryServices.map((service) => (
-                  <li
-                    key={service}
-                    className="flex items-center gap-3 text-base font-body text-foreground"
+          <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-12">
+            Our Services
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            {services.map((service) => (
+              <Card
+                key={service.id}
+                className="border-divider hover:border-accent/30 transition-colors"
+              >
+                <CardHeader>
+                  <CardTitle className="font-heading text-xl font-semibold text-heading">
+                    {service.name}
+                  </CardTitle>
+                  <CardDescription className="text-base font-body text-subtle mt-2">
+                    {service.oneLine}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm font-body font-medium text-heading mb-4">
+                    Best for: {service.bestFor}
+                  </p>
+                  
+                  <div className="mb-6">
+                    <h4 className="text-xs font-body font-semibold uppercase tracking-wider text-heading mb-3">
+                      Outcomes
+                    </h4>
+                    <ul className="space-y-2">
+                      {service.outcomes.map((outcome, idx) => (
+                        <li
+                          key={idx}
+                          className="flex items-start gap-3 text-sm font-body text-foreground"
+                        >
+                          <Check
+                            size={16}
+                            className="text-accent flex-shrink-0 mt-0.5"
+                          />
+                          {outcome}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="mb-6 pb-6 border-b border-divider">
+                    <p className="text-sm font-body text-subtle">
+                      <span className="font-medium text-heading">Typical investment: </span>
+                      {service.pricing}
+                    </p>
+                  </div>
+
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => scrollToSection(service.id)}
+                    className="w-full"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
-                    {service}
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-8 text-base font-body text-heading font-medium">
-                Outcome: Clear recommendations, not theoretical decks.
-              </p>
-            </div>
-            <div className="lg:pl-12">
-              <div className="bg-card border border-divider p-8">
-                <p className="font-body text-subtle text-sm uppercase tracking-wider">
-                  Ready to start?
-                </p>
-                <h3 className="mt-2 font-heading text-xl font-semibold text-heading">
-                  Let's discuss your challenges.
+                    Explore this service
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Service Details - Accordions */}
+      <section className="bg-background">
+        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
+          <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-12">
+            Service Details
+          </h2>
+          <Accordion type="single" collapsible className="space-y-4">
+            {services.map((service) => (
+              <AccordionItem
+                key={service.id}
+                value={service.id}
+                id={service.id}
+                className="bg-card border border-divider rounded-lg px-6"
+              >
+                <AccordionTrigger className="font-heading text-xl font-semibold text-heading hover:no-underline">
+                  {service.name}
+                </AccordionTrigger>
+                <AccordionContent className="pt-4 pb-6">
+                  <div className="space-y-6">
+                    {/* When to use this */}
+                    <div>
+                      <h4 className="text-sm font-body font-semibold uppercase tracking-wider text-heading mb-3">
+                        When to use this
+                      </h4>
+                      <p className="text-base font-body text-foreground">
+                        {service.bestFor}
+                      </p>
+                    </div>
+
+                    {/* What we do */}
+                    <div>
+                      <h4 className="text-sm font-body font-semibold uppercase tracking-wider text-heading mb-3">
+                        What we do
+                      </h4>
+                      <p className="text-base font-body text-foreground">
+                        {service.oneLine}
+                      </p>
+                    </div>
+
+                    {/* Key deliverables */}
+                    <div>
+                      <h4 className="text-sm font-body font-semibold uppercase tracking-wider text-heading mb-3">
+                        Key deliverables
+                      </h4>
+                      <ul className="space-y-2">
+                        {service.deliverables.map((deliverable, idx) => (
+                          <li
+                            key={idx}
+                            className="flex items-start gap-3 text-base font-body text-foreground"
+                          >
+                            <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                            {deliverable}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Engagement rhythm */}
+                    <div>
+                      <h4 className="text-sm font-body font-semibold uppercase tracking-wider text-heading mb-3">
+                        Engagement rhythm
+                      </h4>
+                      <p className="text-base font-body text-foreground">
+                        {service.engagementRhythm}
+                      </p>
+                    </div>
+
+                    {/* Pricing */}
+                    <div>
+                      <h4 className="text-sm font-body font-semibold uppercase tracking-wider text-heading mb-3">
+                        Pricing
+                      </h4>
+                      <p className="text-base font-body text-foreground font-medium">
+                        {service.pricing}
+                      </p>
+                    </div>
+
+                    {/* CTA */}
+                    <div className="pt-4">
+                      <Link to="/apply">
+                        <Button variant="primary" size="lg">
+                          Book a Call About This
+                        </Button>
+                      </Link>
+                    </div>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+
+      {/* Engagement Models */}
+      <section
+        id="engagement-models"
+        className="bg-section-gradient border-y border-divider"
+      >
+        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
+          <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-4">
+            Engagement Models
+          </h2>
+          <p className="text-lg font-body text-subtle mb-12 max-w-2xl">
+            We don't do hourly consulting or staff augmentation. Every engagement is structured for clear outcomes and accountability.
+          </p>
+          <div className="grid md:grid-cols-3 gap-8">
+            {engagementModels.map((model, index) => (
+              <div
+                key={index}
+                className="bg-card border border-divider p-8 rounded-lg"
+              >
+                <h3 className="font-heading text-xl font-semibold text-heading mb-3">
+                  {model.name}
                 </h3>
-                <div className="mt-6">
-                  <Link to="/apply">
-                    <Button variant="primary" size="lg" className="w-full">
-                      Apply to Work Together
-                    </Button>
-                  </Link>
-                </div>
+                <p className="text-base font-body text-subtle leading-relaxed">
+                  {model.description}
+                </p>
               </div>
-            </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="bg-background">
+        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
+          <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-12">
+            Frequently Asked Questions
+          </h2>
+          <Accordion type="single" collapsible className="space-y-4 max-w-3xl">
+            {faqs.map((faq, index) => (
+              <AccordionItem
+                key={index}
+                value={`faq-${index}`}
+                className="bg-card border border-divider rounded-lg px-6"
+              >
+                <AccordionTrigger className="font-heading text-lg font-semibold text-heading hover:no-underline text-left">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="pt-4 pb-6">
+                  <p className="text-base font-body text-foreground leading-relaxed">
+                    {faq.answer}
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="bg-primary text-primary-foreground">
+        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
+          <div className="max-w-2xl">
+            <h2 className="font-heading text-3xl md:text-4xl font-semibold text-white mb-6">
+              If your tech org is slowing the business down, we should talk.
+            </h2>
+            <p className="text-lg font-body text-primary-foreground/90 leading-relaxed mb-10">
+              In one call, we'll identify the root constraints, your fastest path to stability, and what a clean execution plan looks like.
+            </p>
+            <Link to="/apply">
+              <Button
+                variant="outline"
+                size="xl"
+                className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+              >
+                Book a Strategy Call
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
