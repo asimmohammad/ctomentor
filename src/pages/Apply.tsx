@@ -412,7 +412,9 @@ export default function Apply() {
                                 <SelectItem value="under-7.5k">Under $7,500/mo</SelectItem>
                                 <SelectItem value="7.5k-12.5k">$7,500 – $12,500/mo</SelectItem>
                                 <SelectItem value="12.5k-18k">$12,500 – $18,000/mo</SelectItem>
-                                <SelectItem value="18k-plus">$18,000+/mo</SelectItem>
+                                <SelectItem value="18k-25k">$18,000 - $25,000/mo</SelectItem>
+                                <SelectItem value="25k-50k">$25,000-$50,000/mo</SelectItem>
+                                <SelectItem value="50k-plus">$50,000+/mo</SelectItem>
                                 <SelectItem value="circle">CTO Mentor Circle ($2,500/mo)</SelectItem>
                               </SelectContent>
                             </Select>
