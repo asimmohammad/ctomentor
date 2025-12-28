@@ -9,6 +9,14 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 
 // Service data structure
 interface Service {
@@ -361,6 +369,120 @@ export default function Services() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Comparison Table */}
+      <section className="bg-background">
+        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
+          <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-4">
+            Which TCM Engagement Is Right for You?
+          </h2>
+          <p className="text-lg font-body text-subtle mb-12 max-w-3xl">
+            Each engagement is designed for a specific stage and level of urgency. Use this guide to quickly identify the right starting point.
+          </p>
+
+          {/* Responsive table wrapper - horizontal scroll on mobile */}
+          <div className="overflow-x-auto -mx-6 lg:mx-0">
+            <div className="inline-block min-w-full align-middle px-6 lg:px-0">
+              <Table>
+                <TableHeader>
+                  <TableRow className="border-divider">
+                    <TableHead className="font-heading font-semibold text-heading">Service</TableHead>
+                    <TableHead className="font-heading font-semibold text-heading">Best When</TableHead>
+                    <TableHead className="font-heading font-semibold text-heading">Primary Goal</TableHead>
+                    <TableHead className="font-heading font-semibold text-heading">Typical Duration</TableHead>
+                    <TableHead className="font-heading font-semibold text-heading">Engagement Style</TableHead>
+                    <TableHead className="font-heading font-semibold text-heading">Typical Investment</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  <TableRow className="border-divider hover:bg-card/50">
+                    <TableCell className="font-heading font-semibold text-heading">
+                      CTO Turnaround (90-Day Reset)
+                    </TableCell>
+                    <TableCell className="font-body text-foreground">
+                      Things are broken and confidence is low
+                    </TableCell>
+                    <TableCell className="font-body text-foreground">
+                      Stabilize, reset, and restore control
+                    </TableCell>
+                    <TableCell className="font-body text-foreground">90 days</TableCell>
+                    <TableCell className="font-body text-foreground">Fixed-scope intervention</TableCell>
+                    <TableCell className="font-body text-foreground font-medium">$75k–$150k</TableCell>
+                  </TableRow>
+                  <TableRow className="border-divider hover:bg-card/50">
+                    <TableCell className="font-heading font-semibold text-heading">
+                      Operating CTO (CTO Office as a Service)
+                    </TableCell>
+                    <TableCell className="font-body text-foreground">
+                      You need ongoing senior technical leadership
+                    </TableCell>
+                    <TableCell className="font-body text-foreground">
+                      Run the CTO function without hiring full-time
+                    </TableCell>
+                    <TableCell className="font-body text-foreground">6–12 months</TableCell>
+                    <TableCell className="font-body text-foreground">Monthly retainer</TableCell>
+                    <TableCell className="font-body text-foreground font-medium">$30k–$45k / month</TableCell>
+                  </TableRow>
+                  <TableRow className="border-divider hover:bg-card/50">
+                    <TableCell className="font-heading font-semibold text-heading">
+                      Scale Readiness & AI Enablement
+                    </TableCell>
+                    <TableCell className="font-body text-foreground">
+                      Growth or AI adoption will break the platform
+                    </TableCell>
+                    <TableCell className="font-body text-foreground">
+                      Prepare systems, teams, and architecture for scale
+                    </TableCell>
+                    <TableCell className="font-body text-foreground">8–10 weeks</TableCell>
+                    <TableCell className="font-body text-foreground">Fixed-scope program</TableCell>
+                    <TableCell className="font-body text-foreground font-medium">$40k–$80k</TableCell>
+                  </TableRow>
+                  <TableRow className="border-divider hover:bg-card/50">
+                    <TableCell className="font-heading font-semibold text-heading">
+                      Board & Investor Technical Advisory
+                    </TableCell>
+                    <TableCell className="font-body text-foreground">
+                      Boards or investors need execution truth
+                    </TableCell>
+                    <TableCell className="font-body text-foreground">
+                      Independent technical oversight and diligence
+                    </TableCell>
+                    <TableCell className="font-body text-foreground">Ongoing or per engagement</TableCell>
+                    <TableCell className="font-body text-foreground">Advisory</TableCell>
+                    <TableCell className="font-body text-foreground font-medium">$10k–$20k / month or $25k–$60k</TableCell>
+                  </TableRow>
+                  <TableRow className="border-divider hover:bg-card/50">
+                    <TableCell className="font-heading font-semibold text-heading">
+                      Crisis & Interim CTO (Selective)
+                    </TableCell>
+                    <TableCell className="font-body text-foreground">
+                      Leadership gaps or technical emergencies
+                    </TableCell>
+                    <TableCell className="font-body text-foreground">
+                      Immediate stabilization and continuity
+                    </TableCell>
+                    <TableCell className="font-body text-foreground">Short-term</TableCell>
+                    <TableCell className="font-body text-foreground">High-intensity response</TableCell>
+                    <TableCell className="font-body text-foreground font-medium">$15k–$30k / week or $40k–$60k / month</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </div>
+          </div>
+
+          {/* Helper callout */}
+          <div className="mt-12 bg-card border border-divider rounded-lg p-8 max-w-3xl">
+            <p className="text-base font-body text-foreground leading-relaxed mb-6">
+              Not sure where you fit? In one conversation, we'll identify the root constraint and recommend the fastest, cleanest engagement—no upsell, no fluff.
+            </p>
+            <Link to="/apply">
+              <Button variant="primary" size="lg">
+                Book a Strategy Call
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
