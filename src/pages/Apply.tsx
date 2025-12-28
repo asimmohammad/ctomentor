@@ -359,7 +359,7 @@ export default function Apply() {
                 <div className="space-y-6">
                   <div>
                     <h2 className="text-xl font-heading font-semibold text-heading mb-4">
-                      Tell Me About Your Challenge
+                      Tell Us About Your Challenge(s)
                     </h2>
                     <FormField
                       control={form.control}
