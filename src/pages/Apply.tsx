@@ -415,7 +415,6 @@ export default function Apply() {
                                 <SelectItem value="18k-25k">$18,000 - $25,000/mo</SelectItem>
                                 <SelectItem value="25k-50k">$25,000-$50,000/mo</SelectItem>
                                 <SelectItem value="50k-plus">$50,000+/mo</SelectItem>
-                                <SelectItem value="circle">CTO Mentor Circle ($2,500/mo)</SelectItem>
                               </SelectContent>
                             </Select>
                             <FormDescription className="text-xs text-muted-foreground">
