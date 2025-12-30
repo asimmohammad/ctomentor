@@ -30,7 +30,9 @@ import { useState } from "react";
 const applicationSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters").max(100, "Name is too long"),
   email: z.string().email("Please enter a valid email address"),
+  phone: z.string().optional(),
   company: z.string().min(2, "Company name must be at least 2 characters").max(100, "Company name is too long"),
+  companyWebsite: z.string().optional(),
   role: z.string().min(2, "Role must be at least 2 characters").max(100, "Role is too long"),
   stage: z.enum(["pre-seed", "seed", "series-a", "later"], {
     required_error: "Please select a company stage",
@@ -53,7 +55,9 @@ export default function Apply() {
     defaultValues: {
       name: "",
       email: "",
+      phone: "",
       company: "",
+      companyWebsite: "",
       role: "",
       stage: undefined,
       teamSize: "",
@@ -222,6 +226,29 @@ export default function Apply() {
                           </FormItem>
                         )}
                       />
+                      <FormField
+                        control={form.control}
+                        name="phone"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-sm font-body font-medium text-heading">
+                              Contact Phone Number
+                            </FormLabel>
+                            <FormControl>
+                              <Input
+                                type="tel"
+                                placeholder="+1 (555) 123-4567"
+                                className="bg-card border-divider focus:border-accent"
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormDescription className="text-xs text-muted-foreground">
+                              Optional
+                            </FormDescription>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
                     </div>
                   </div>
                 </div>
@@ -252,6 +279,31 @@ export default function Apply() {
                           </FormItem>
                         )}
                       />
+                      <FormField
+                        control={form.control}
+                        name="companyWebsite"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-sm font-body font-medium text-heading">
+                              Company Website
+                            </FormLabel>
+                            <FormControl>
+                              <Input
+                                type="url"
+                                placeholder="https://www.company.com"
+                                className="bg-card border-divider focus:border-accent"
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormDescription className="text-xs text-muted-foreground">
+                              Optional
+                            </FormDescription>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                    <div className="grid sm:grid-cols-2 gap-6 mt-6">
                       <FormField
                         control={form.control}
                         name="role"
