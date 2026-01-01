@@ -73,7 +73,7 @@ export default function Index() {
               Technology leadership that turns chaos into clarity.
             </h1>
             <p className="mt-6 text-lg md:text-xl font-body text-subtle leading-relaxed max-w-2xl animate-fade-in-up animation-delay-100">
-              I help founders and boards scale technology organizations with
+              We help founders and boards scale technology organizations with
               discipline, authority, and AI-first leverage — without burning
               teams or capital.
             </p>
