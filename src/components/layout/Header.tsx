@@ -10,14 +10,13 @@ import {
 } from "@/components/ui/dropdown-menu";
 import logo from "@/assets/logo.svg";
 
-const navigation = [
-  { name: "Pricing", href: "/pricing" },
-];
+const navigation = [];
 
 const servicesMenu = {
   name: "Services",
   href: "/services",
   items: [
+    { name: "Pricing", href: "/pricing" },
     { name: "CTO Mentor Circle", href: "/circle" },
   ],
 };
@@ -58,7 +57,7 @@ export function Header() {
           <div className="hidden lg:flex items-center gap-8">
             <DropdownMenu>
               <DropdownMenuTrigger className={`text-sm font-body font-medium transition-colors flex items-center gap-1 outline-none ${
-                location.pathname === servicesMenu.href || location.pathname === "/circle"
+                location.pathname === servicesMenu.href || location.pathname === "/pricing" || location.pathname === "/circle"
                   ? "text-heading"
                   : "text-subtle hover:text-heading"
               }`}>
