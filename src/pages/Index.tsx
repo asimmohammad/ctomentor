@@ -70,22 +70,23 @@ export default function Index() {
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-32">
           <div className="max-w-4xl">
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold text-heading leading-tight animate-fade-in-up">
-              Technology leadership that turns chaos into clarity.
+              Operator-in-Residence: Own the CTO function. Execute with accountability.
             </h1>
             <p className="mt-6 text-lg md:text-xl font-body text-subtle leading-relaxed max-w-2xl animate-fade-in-up animation-delay-100">
-              We help founders and boards scale technology organizations with
-              discipline, authority, and AI-first leverage — without burning
-              teams or capital.
+              This is not fractional consulting or part-time advisory. We embed as your temporary co-founder—owning decisions, driving execution, and taking accountability for outcomes that matter.
+            </p>
+            <p className="mt-4 text-base font-body text-subtle leading-relaxed max-w-2xl animate-fade-in-up animation-delay-100">
+              For founder-led companies where technology execution is critical and the cost of getting it wrong is high.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row gap-4 animate-fade-in-up animation-delay-200">
               <Link to="/apply">
                 <Button variant="primary" size="xl">
-                  Apply to Work Together
+                  Apply for an Operator-in-Residence Engagement
                 </Button>
               </Link>
-              <Link to="/circle">
+              <Link to="/services">
                 <Button variant="outline" size="xl">
-                  Join CTO Mentor Circle
+                  See How This Is Different
                 </Button>
               </Link>
             </div>
