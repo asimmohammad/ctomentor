@@ -87,7 +87,7 @@ export function Header() {
           <div className="hidden lg:flex items-center gap-4">
             <Link to="/apply">
               <Button variant="primary" size="default">
-                Apply to Work Together
+                Apply for an Operator-in-Residence Engagement
               </Button>
             </Link>
           </div>
@@ -152,7 +152,7 @@ export function Header() {
               <div className="pt-4 border-t border-divider">
                 <Link to="/apply" onClick={() => setMobileMenuOpen(false)}>
                   <Button variant="primary" size="lg" className="w-full">
-                    Apply to Work Together
+                    Apply for an Operator-in-Residence Engagement
                   </Button>
                 </Link>
               </div>

@@ -373,12 +373,12 @@ export default function Index() {
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <Link to="/apply">
                 <Button variant="primary" size="xl">
-                  Apply to Work Together
+                  Apply for an Operator-in-Residence Engagement
                 </Button>
               </Link>
-              <Link to="/circle">
+              <Link to="/services">
                 <Button variant="outline" size="xl">
-                  Join CTO Mentor Circle
+                  See How This Is Different
                 </Button>
               </Link>
             </div>

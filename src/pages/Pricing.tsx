@@ -141,15 +141,15 @@ export default function Pricing() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <h3 className="text-sm font-body font-semibold text-heading mb-2">Monthly Cash Range</h3>
-                    <p className="text-base font-body text-foreground">$30,000–$50,000/month</p>
+                    <p className="text-base font-body text-foreground">$18,000–$30,000/month</p>
                   </div>
                   <div>
-                    <h3 className="text-sm font-body font-semibold text-heading mb-2">Typical Equity Range</h3>
-                    <p className="text-base font-body text-foreground">0.5%–2.0%</p>
+                    <h3 className="text-sm font-body font-semibold text-heading mb-2">Equity Range</h3>
+                    <p className="text-base font-body text-foreground">0.5%–3.0%</p>
                   </div>
                   <div>
                     <h3 className="text-sm font-body font-semibold text-heading mb-2">Typical Duration</h3>
-                    <p className="text-base font-body text-foreground">6–12 months minimum</p>
+                    <p className="text-base font-body text-foreground">3–9 months</p>
                   </div>
                   <div>
                     <h3 className="text-sm font-body font-semibold text-heading mb-2">Equity Vesting</h3>
@@ -203,7 +203,15 @@ export default function Pricing() {
                   </div>
                   <div>
                     <h3 className="text-sm font-body font-semibold text-heading mb-2">Equity Range</h3>
-                    <p className="text-base font-body text-foreground">1.0%–3.0%</p>
+                    <p className="text-base font-body text-foreground">1.5%–5.0%</p>
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-body font-semibold text-heading mb-2">Typical Duration</h3>
+                    <p className="text-base font-body text-foreground">6–12 months</p>
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-body font-semibold text-heading mb-2">Equity Vesting</h3>
+                    <p className="text-base font-body text-foreground">4-year standard, 1-year cliff</p>
                   </div>
                 </div>
                 <div className="pt-4 border-t border-divider">
@@ -238,9 +246,15 @@ export default function Pricing() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div>
-                  <h3 className="text-sm font-body font-semibold text-heading mb-2">One-Time Pricing Range</h3>
-                  <p className="text-base font-body text-foreground">$25,000–$60,000</p>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h3 className="text-sm font-body font-semibold text-heading mb-2">One-Time Pricing Range</h3>
+                    <p className="text-base font-body text-foreground">$12,500–$25,000</p>
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-body font-semibold text-heading mb-2">Typical Duration</h3>
+                    <p className="text-base font-body text-foreground">2–6 weeks</p>
+                  </div>
                 </div>
                 <div className="pt-4 border-t border-divider">
                   <h3 className="text-sm font-body font-semibold text-heading mb-3">Typical Buyers</h3>
@@ -302,11 +316,11 @@ export default function Pricing() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <h3 className="text-sm font-body font-semibold text-heading mb-2">Monthly Pricing Range</h3>
-                    <p className="text-base font-body text-foreground">$40,000–$60,000/month</p>
+                    <p className="text-base font-body text-foreground">$15,000–$22,000/month</p>
                   </div>
                   <div>
                     <h3 className="text-sm font-body font-semibold text-heading mb-2">Duration</h3>
-                    <p className="text-base font-body text-foreground">1–3 months</p>
+                    <p className="text-base font-body text-foreground">2–4 months</p>
                   </div>
                 </div>
                 <div className="pt-4 border-t border-divider">

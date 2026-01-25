@@ -9,12 +9,13 @@ const navigation = {
   ],
   company: [
     { name: "About", href: "/about" },
+    { name: "Our Experience", href: "/experience" },
     { name: "Pricing", href: "/pricing" },
     { name: "Case Studies", href: "/case-studies" },
     { name: "Insights", href: "/insights" },
   ],
   connect: [
-    { name: "Apply to Work Together", href: "/apply" },
+    { name: "Apply for an Operator-in-Residence Engagement", href: "/apply" },
     { name: "LinkedIn", href: "#" },
   ],
 };
