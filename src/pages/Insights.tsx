@@ -3,6 +3,14 @@ import { Link } from "react-router-dom";
 
 const posts = [
   {
+    slug: "fix-after-launch",
+    title: "Why \"We'll Fix It After Launch\" Is How Startups Die",
+    excerpt:
+      "Nearly every startup makes a quiet promise: 'We'll fix it after launch.' What makes this promise dangerous isn't that it's dishonest—it's that it's based on a future that almost never exists.",
+    date: "January 2026",
+    category: "Leadership",
+  },
+  {
     slug: "many-faces-cto",
     title: "The Many Faces of the CTO — And Why Most Startups Hire the Wrong One",
     excerpt:

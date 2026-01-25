@@ -122,6 +122,150 @@ const articles: Record<string, {
       </div>
     ),
   },
+  "fix-after-launch": {
+    title: "Why \"We'll Fix It After Launch\" Is How Startups Die",
+    date: "January 11, 2026",
+    category: "Leadership",
+    content: (
+      <div className="prose prose-lg max-w-none">
+        <p className="text-lg font-body text-foreground leading-relaxed mb-6">
+          Nearly every startup, at some point, makes a quiet promise to itself.
+        </p>
+        <p className="text-lg font-body text-foreground leading-relaxed mb-6">
+          The promise usually sounds reasonable, even responsible:
+        </p>
+        <p className="text-xl font-body text-foreground leading-relaxed mb-8 font-medium">
+          We'll fix it after launch.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-6">
+          It's spoken in moments of urgency—when timelines are tight, resources are limited, and momentum feels fragile. The product isn't perfect, but it's "good enough." The architecture is a bit messy, but it works. The team knows there are corners being cut, but everyone believes there will be time to clean things up once the pressure eases.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-8">
+          What makes this promise dangerous isn't that it's dishonest. It's that it's based on a future that almost never exists.
+        </p>
+
+        <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-6">
+          The Myth of "After"
+        </h2>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Startups often imagine launch as a finish line—a moment when chaos subsides and clarity returns. In reality, launch is not an ending. It is a transformation.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Before launch, the primary pressure is internal: building something that works. After launch, pressure multiplies and becomes external. Customers now depend on the product. Sales commitments introduce urgency. Support requests arrive immediately. Investors start watching metrics instead of demos. Every decision suddenly carries consequences beyond the team.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          The idea that there will be spare time to revisit foundational decisions after launch misunderstands what launch actually does. It doesn't relieve pressure—it formalizes it. It converts potential problems into contractual obligations.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-8 font-medium">
+          "After launch" is not a quieter phase. It is a more constrained one.
+        </p>
+
+        <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-6">
+          What "We'll Fix It Later" Really Signals
+        </h2>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          When leaders say they'll fix something later, they are rarely making a purely technical choice. More often, they are making a psychological one.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          It is a way of postponing discomfort. Of avoiding trade-offs that feel politically difficult or emotionally costly in the moment. It allows teams to move forward without confronting hard questions about scope, ownership, and long-term consequences.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          In small doses, this can be rational. Speed matters. Markets move. Not every decision needs to be perfect.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          The problem emerges when "later" becomes a strategy rather than an exception.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-8">
+          At that point, shortcuts stop being tools and start becoming structural features of the company. Decisions made under pressure harden into systems that define how the organization operates. What was once temporary becomes invisible—and therefore untouchable.
+        </p>
+
+        <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-6">
+          Why Early Speed So Often Becomes Later Paralysis
+        </h2>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          The most insidious impact of a rushed launch is not that systems break. It's that people change their behavior around them.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          As complexity accumulates, engineers grow cautious. They slow down not because they lack skill, but because every change feels risky. Product teams stop trusting timelines because past estimates were based on optimism rather than reality. Leadership becomes frustrated, sensing that the company is busy but not advancing.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          The organization enters a subtle but dangerous phase: high activity, low progress.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          At this stage, teams often respond by pushing harder. More urgency. More hires. More pressure to deliver. Yet none of this addresses the underlying issue—the system itself has become fragile.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-8">
+          What looked like speed early on was actually deferred complexity. And now the bill is due.
+        </p>
+
+        <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-6">
+          The CTO's Silent Trade-Off
+        </h2>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          CTOs often see this coming before anyone else. They understand the implications of certain shortcuts. They know which decisions will be expensive to reverse and which will quietly limit the company's future.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          But many CTOs operate with constrained authority, especially in early-stage companies. They are caught between founder urgency, investor expectations, and the desire to be seen as enablers rather than blockers.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          So compromises are made. Not because the risks are misunderstood, but because they feel unavoidable.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-8">
+          Once the product is live, however, those compromises become entrenched. The cost of revisiting them grows exponentially, while the organization's tolerance for disruption shrinks. The moment when change was easiest has passed.
+        </p>
+
+        <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-6">
+          What Mature Organizations Understand
+        </h2>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          More experienced teams do not reject speed. They simply treat it differently.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          They recognize that every shortcut is a form of leverage—and that leverage must be priced. They make trade-offs explicit rather than implicit. They assign ownership not just for building features, but for maintaining and evolving the systems beneath them.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-8">
+          Most importantly, they resist the comforting fiction of "later." Instead, they ask harder questions in the moment: What will this decision make harder in six months? What options does it remove? Who will bear the cost when it comes due?
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-8 font-medium">
+          This doesn't eliminate risk. It makes it visible.
+        </p>
+
+        <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-6">
+          The Question That Actually Matters
+        </h2>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Founders often ask whether they can afford to slow down.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4 font-medium">
+          The more important question is whether they can afford to lock in decisions they don't yet understand.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Because startups rarely fail at launch. They fail after—when early optimism gives way to operational drag, when trust erodes between teams, and when the product can no longer support the ambition that created it.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-8">
+          By then, the company isn't short on ideas or effort. It's short on room to maneuver.
+        </p>
+
+        <div className="mt-12 pt-8 border-t border-divider">
+          <p className="text-base font-body text-foreground leading-relaxed mb-4">
+            "We'll fix it after launch" is not a plan. It's a hope.
+          </p>
+          <p className="text-base font-body text-foreground leading-relaxed mb-4">
+            And hope, while powerful, is not a substitute for deliberate decision-making.
+          </p>
+          <p className="text-base font-body text-foreground leading-relaxed mb-4">
+            Launch is the moment when choices become permanent, when systems solidify, and when the future becomes more constrained, not less. Treating it as a temporary phase misunderstands its role entirely.
+          </p>
+          <p className="text-base font-body text-foreground leading-relaxed mb-4 font-medium">
+            Speed achieved by ignoring consequences is not speed—it is borrowed time.
+          </p>
+          <p className="text-base font-body text-foreground leading-relaxed">
+            And most startups that make this bargain discover, too late, that the interest rate is unforgiving.
+          </p>
+        </div>
+      </div>
+    ),
+  },
 };
 
 export default function Article() {
