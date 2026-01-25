@@ -11,12 +11,18 @@ import {
 import logo from "@/assets/logo.svg";
 
 const navigation = [
-  { name: "Services", href: "/services" },
   { name: "Pricing", href: "/pricing" },
-  { name: "CTO Mentor Circle", href: "/circle" },
   { name: "Case Studies", href: "/case-studies" },
   { name: "Insights", href: "/insights" },
 ];
+
+const servicesMenu = {
+  name: "Services",
+  href: "/services",
+  items: [
+    { name: "CTO Mentor Circle", href: "/circle" },
+  ],
+};
 
 const aboutMenu = {
   name: "About",
@@ -44,6 +50,30 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
+            <DropdownMenu>
+              <DropdownMenuTrigger className={`text-sm font-body font-medium transition-colors flex items-center gap-1 outline-none ${
+                location.pathname === servicesMenu.href || location.pathname === "/circle"
+                  ? "text-heading"
+                  : "text-subtle hover:text-heading"
+              }`}>
+                {servicesMenu.name}
+                <ChevronDown className="h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="min-w-[160px]">
+                <Link to={servicesMenu.href}>
+                  <DropdownMenuItem className="cursor-pointer">
+                    Services
+                  </DropdownMenuItem>
+                </Link>
+                {servicesMenu.items.map((item) => (
+                  <Link key={item.name} to={item.href}>
+                    <DropdownMenuItem className="cursor-pointer">
+                      {item.name}
+                    </DropdownMenuItem>
+                  </Link>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -106,6 +136,35 @@ export function Header() {
         {mobileMenuOpen && (
           <div className="lg:hidden py-6 border-t border-divider animate-fade-in">
             <div className="flex flex-col gap-4">
+              <div className="py-2">
+                <Link
+                  to={servicesMenu.href}
+                  className={`text-base font-body font-medium py-2 ${
+                    location.pathname === servicesMenu.href
+                      ? "text-heading"
+                      : "text-subtle"
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Services
+                </Link>
+                <div className="ml-4 mt-2 flex flex-col gap-2">
+                  {servicesMenu.items.map((item) => (
+                    <Link
+                      key={item.name}
+                      to={item.href}
+                      className={`text-sm font-body font-medium py-1 ${
+                        location.pathname === item.href
+                          ? "text-heading"
+                          : "text-subtle"
+                      }`}
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
               {navigation.map((item) => (
                 <Link
                   key={item.name}
