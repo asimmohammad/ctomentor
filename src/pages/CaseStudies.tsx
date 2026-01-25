@@ -128,7 +128,7 @@ export default function CaseStudies() {
 
                   <div>
                     <h3 className="text-xs font-body font-semibold uppercase tracking-wider text-heading mb-4">
-                      What I Did
+                      Approach Taken
                     </h3>
                     <ul className="space-y-2">
                       {study.approach.map((item) => (
