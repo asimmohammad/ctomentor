@@ -23,8 +23,125 @@ export default function Experience() {
         </div>
       </section>
 
-      {/* Early-Stage Venture Build and Scale */}
+      {/* Where We've Been Brought In */}
       <section className="bg-background">
+        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
+          <div className="max-w-3xl">
+            <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-6">
+              Where We've Been Brought In
+            </h2>
+            <p className="text-lg font-body text-foreground leading-relaxed mb-8">
+              These are the scenarios where we've been engaged. Not companies or roles—situations where technology execution was existential and an Operator-in-Residence model was required.
+            </p>
+            <div className="space-y-8">
+              <div>
+                <h3 className="font-heading text-xl font-semibold text-heading mb-3">
+                  Pre-revenue platforms struggling to reach product-market fit
+                </h3>
+                <ul className="space-y-2 ml-4">
+                  <li className="text-base font-body text-foreground">
+                    <strong>Situation:</strong> Product exists but isn't finding market traction. Engineering velocity is slow, architecture decisions compound, and runway is burning.
+                  </li>
+                  <li className="text-base font-body text-foreground">
+                    <strong>Why technology was existential:</strong> Product-market fit requires rapid iteration. Slow delivery velocity kills experiments before they can validate. Architecture that doesn't scale blocks growth when traction arrives.
+                  </li>
+                  <li className="text-base font-body text-foreground">
+                    <strong>Why Operator-in-Residence was required:</strong> Founders need execution authority, not advice. Fractional consulting doesn't own outcomes. Full-time CTO hire is premature and expensive. Embedded operator owns delivery and makes decisions that hold.
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="font-heading text-xl font-semibold text-heading mb-3">
+                  Post-seed and Series A companies with scaling pain
+                </h3>
+                <ul className="space-y-2 ml-4">
+                  <li className="text-base font-body text-foreground">
+                    <strong>Situation:</strong> Company has traction and revenue, but systems are breaking under load. Engineering team is firefighting. Growth is constrained by technical limitations.
+                  </li>
+                  <li className="text-base font-body text-foreground">
+                    <strong>Why technology was existential:</strong> Scaling pain kills growth momentum. Customer experience degrades. Engineering team burns out. Investors lose confidence when execution stalls.
+                  </li>
+                  <li className="text-base font-body text-foreground">
+                    <strong>Why Operator-in-Residence was required:</strong> Scaling requires immediate decisions and execution authority. Advisory doesn't fix broken systems. Full-time CTO search takes months. Embedded operator stabilizes, scales, and transitions to permanent leadership.
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="font-heading text-xl font-semibold text-heading mb-3">
+                  Founder-led engineering teams that outgrew their architecture
+                </h3>
+                <ul className="space-y-2 ml-4">
+                  <li className="text-base font-body text-foreground">
+                    <strong>Situation:</strong> Founder built the initial product, but architecture doesn't scale. Team is growing, but technical decisions are ad-hoc. Technical debt compounds faster than it's addressed.
+                  </li>
+                  <li className="text-base font-body text-foreground">
+                    <strong>Why technology was existential:</strong> Architecture that worked at 10 customers breaks at 100. Founder time is split between product and infrastructure. Team velocity slows as systems become harder to change.
+                  </li>
+                  <li className="text-base font-body text-foreground">
+                    <strong>Why Operator-in-Residence was required:</strong> Architecture decisions require immediate authority and execution. Founders need to focus on product and customers, not infrastructure. Embedded operator owns architecture while founder transitions to strategic leadership.
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="font-heading text-xl font-semibold text-heading mb-3">
+                  Companies with high burn and low delivery velocity
+                </h3>
+                <ul className="space-y-2 ml-4">
+                  <li className="text-base font-body text-foreground">
+                    <strong>Situation:</strong> Engineering spend is high, but delivery is slow. Team is large but output is low. Runway is burning without corresponding progress.
+                  </li>
+                  <li className="text-base font-body text-foreground">
+                    <strong>Why technology was existential:</strong> High burn with low velocity kills companies. Investors lose confidence. Runway compresses. Team morale collapses when effort doesn't translate to outcomes.
+                  </li>
+                  <li className="text-base font-body text-foreground">
+                    <strong>Why Operator-in-Residence was required:</strong> Velocity problems require immediate diagnosis and intervention. Advisory doesn't fix broken processes. Full-time hire takes too long. Embedded operator owns delivery velocity and makes hard decisions about team and process.
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="font-heading text-xl font-semibold text-heading mb-3">
+                  Boards losing confidence in technical execution
+                </h3>
+                <ul className="space-y-2 ml-4">
+                  <li className="text-base font-body text-foreground">
+                    <strong>Situation:</strong> Board is questioning technical leadership. Execution is inconsistent. Technical risk is compounding. Investors need clarity on technology strategy and execution.
+                  </li>
+                  <li className="text-base font-body text-foreground">
+                    <strong>Why technology was existential:</strong> Board confidence is required for fundraising and strategic decisions. Technical execution risk blocks growth. Investors need execution truth, not optimism.
+                  </li>
+                  <li className="text-base font-body text-foreground">
+                    <strong>Why Operator-in-Residence was required:</strong> Boards need technical leadership they can trust. Advisory doesn't restore confidence. Full-time hire is risky when execution is already in question. Embedded operator provides immediate credibility and execution truth.
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="font-heading text-xl font-semibold text-heading mb-3">
+                  Transitions after CTO departure or failed hires
+                </h3>
+                <ul className="space-y-2 ml-4">
+                  <li className="text-base font-body text-foreground">
+                    <strong>Situation:</strong> CTO left or was terminated. Engineering team is adrift. Technical decisions are stalled. Product development is blocked.
+                  </li>
+                  <li className="text-base font-body text-foreground">
+                    <strong>Why technology was existential:</strong> Technical leadership vacuum kills momentum. Engineering team loses direction. Product development stalls. Customers and investors notice when execution stops.
+                  </li>
+                  <li className="text-base font-body text-foreground">
+                    <strong>Why Operator-in-Residence was required:</strong> Transitions require immediate leadership and stabilization. Full-time CTO search takes months. Team needs direction now. Embedded operator provides immediate leadership, stabilizes execution, and transitions to permanent hire.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Early-Stage Venture Build and Scale */}
+      <section className="bg-section-gradient border-y border-divider">
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
           <div className="max-w-3xl">
             <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-6">
