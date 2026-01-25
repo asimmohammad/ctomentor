@@ -24,8 +24,8 @@ export default function Circle() {
               For CTOs who want to lead — not just survive.
             </h1>
             <p className="mt-6 text-xl font-body text-subtle">
-              A peer-level advisory group for CTOs ready to operate with
-              authority, clarity, and confidence.
+              A peer-level operating group for CTOs ready to lead with
+              authority, clarity, and execution discipline.
             </p>
           </div>
         </div>

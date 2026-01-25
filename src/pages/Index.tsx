@@ -29,13 +29,13 @@ const services = [
   {
     title: "CTO Mentor Circle",
     description:
-      "A peer-level advisory group for CTOs ready to operate at a higher altitude.",
+      "A peer-level operating group for CTOs ready to lead with authority and execution discipline.",
     href: "/circle",
   },
   {
-    title: "Advisory & Audits",
+    title: "Technical Assessments & Execution Plans",
     description:
-      "Fixed-scope architecture, AI, and delivery assessments with clear recommendations.",
+      "Fixed-scope architecture, AI, and delivery assessments with clear execution roadmaps and ownership.",
     href: "/services",
   },
 ];
@@ -111,7 +111,7 @@ export default function Index() {
               <span className="text-heading font-medium">
                 Data & AI Specialist
               </span>{" "}
-              · <span className="text-heading font-medium">Board-Level Advisor</span>
+              · <span className="text-heading font-medium">Board-Level Operator</span>
             </p>
             <p className="text-xs md:text-sm">
               Patents in data lineage & discovery · Global teams · Regulated

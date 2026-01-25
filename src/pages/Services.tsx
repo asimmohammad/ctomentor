@@ -103,15 +103,15 @@ const compensationPhilosophy = [
 const exitScenarios = [
   {
     scenario: "Transition to Full-Time CTO",
-    description: "When you're ready to hire a full-time CTO, we facilitate the transition. We help recruit, onboard, and ensure knowledge transfer. Our role shifts to advisory during the transition period, then we exit cleanly.",
+    description: "When you're ready to hire a full-time CTO, we facilitate the transition. We help recruit, onboard, and ensure knowledge transfer. Our role shifts to execution support during the transition period, then we exit cleanly.",
   },
   {
     scenario: "Internal Leader Promotion",
-    description: "If an internal leader is ready to step up, we help develop them into the role. We provide coaching, structure, and support during the transition, then step back as they take full ownership.",
+    description: "If an internal leader is ready to step up, we help develop them into the role. We provide execution support, structure, and leadership development during the transition, then step back as they take full ownership.",
   },
   {
     scenario: "Engagement Completion",
-    description: "For fixed-scope engagements (turnarounds, scale programs), we complete deliverables, document systems, and hand off to your team. We remain available for advisory on a defined basis if needed.",
+    description: "For fixed-scope engagements (turnarounds, scale programs), we complete deliverables, document systems, and hand off to your team. We remain available for defined execution support if needed.",
   },
   {
     scenario: "Strategic Pivot or Exit",

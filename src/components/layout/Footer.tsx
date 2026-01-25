@@ -5,7 +5,7 @@ const navigation = {
   services: [
     { name: "Operator-in-Residence", href: "/services" },
     { name: "CTO Mentor Circle", href: "/circle" },
-    { name: "Advisory & Audits", href: "/services" },
+    { name: "Technical Assessments", href: "/services" },
   ],
   company: [
     { name: "About", href: "/about" },
