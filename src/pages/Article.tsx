@@ -803,6 +803,200 @@ const articles: Record<string, {
       </div>
     ),
   },
+  "founder-cto-transition": {
+    title: "The Founder-to-CTO Transition Nobody Talks About",
+    date: "October 2024",
+    category: "Leadership",
+    content: (
+      <div className="prose prose-lg max-w-none">
+        <p className="text-lg font-body text-foreground leading-relaxed mb-6">
+          Technical founders often struggle to delegate effectively. The path forward requires deliberate role design—not just hiring.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Some of the strongest startups are built by technical founders.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          They understand the product at a molecular level.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          They can ship faster than anyone else.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          They make early decisions that define the company's DNA.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          And then, quietly, that same strength becomes a constraint.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Not because the founder lacks ability—but because the role they're playing no longer matches the company they're leading.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-8 font-medium">
+          This is the founder-to-CTO transition nobody prepares you for.
+        </p>
+
+        <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-6">
+          When "Being Technical" Stops Being the Advantage
+        </h2>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          In the early days, the technical founder is the system.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          They write the code, fix the bugs, make the architectural calls, and push features live. Speed comes from proximity—no handoffs, no translation loss, no bureaucracy.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          But as the company grows, the work changes.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Engineering stops being about building features and starts being about building capacity. Decisions are no longer local. Trade-offs span teams, timelines, and customers. The founder's time becomes the bottleneck.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-8">
+          What once felt like dedication now quietly turns into drag.
+        </p>
+
+        <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-6">
+          Why Delegation Feels So Hard for Technical Founders
+        </h2>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          The difficulty isn't ego.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-6">
+          It's identity.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Technical founders don't struggle to delegate because they want control—they struggle because delegation requires trusting decisions made in contexts they deeply understand.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Letting go feels risky when you can see the edge cases others might miss.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          So instead of delegating outcomes, founders delegate tasks:
+        </p>
+        <ul className="list-disc list-inside space-y-2 mb-6 text-base font-body text-foreground">
+          <li>Code reviews instead of architecture ownership</li>
+          <li>Tickets instead of decision rights</li>
+          <li>Hiring without authority</li>
+          <li>Responsibility without accountability</li>
+        </ul>
+        <p className="text-base font-body text-foreground leading-relaxed mb-8">
+          The result is a team that executes—but never truly owns.
+        </p>
+
+        <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-6">
+          Hiring Doesn't Solve This by Itself
+        </h2>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Many founders respond by hiring a senior engineer or even a CTO, assuming the problem will fix itself.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-6">
+          It rarely does.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          If the founder hasn't redesigned their own role, the new hire operates in the shadow of implicit authority. Decisions still float upward. Alignment still requires founder approval. The organization remains centralized—even if the org chart says otherwise.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          This is why many early CTO hires churn.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-8">
+          Not due to lack of talent—but lack of space.
+        </p>
+
+        <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-6">
+          The Real Transition Is Structural, Not Personal
+        </h2>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          The founder-to-CTO transition isn't about coding less.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-6">
+          It's about deciding differently.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          At scale, the CTO's role shifts from:
+        </p>
+        <ul className="list-disc list-inside space-y-2 mb-6 text-base font-body text-foreground">
+          <li>Making decisions → designing decision systems</li>
+          <li>Writing code → building leadership</li>
+          <li>Solving problems → creating clarity</li>
+        </ul>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          This requires explicit role design:
+        </p>
+        <ul className="list-disc list-inside space-y-2 mb-6 text-base font-body text-foreground">
+          <li>What decisions does the CTO own outright?</li>
+          <li>Where does the founder stay involved—and where do they step back?</li>
+          <li>How are disagreements resolved?</li>
+          <li>What does "good" look like in this new structure?</li>
+        </ul>
+        <p className="text-base font-body text-foreground leading-relaxed mb-8">
+          Without answering these questions, delegation remains symbolic.
+        </p>
+
+        <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-6">
+          Why Role Design Matters More Than Titles
+        </h2>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Titles don't change behavior.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-6">
+          Structures do.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          When decision rights, expectations, and success metrics are explicit, trust can form. Teams move faster because they know where authority lives. Founders regain leverage because they are no longer the final checkpoint for everything technical.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-8">
+          When role design is vague, the organization stalls—regardless of how talented the people are.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-8">
+          This is the inflection point most technical founders hit, often without realizing it.
+        </p>
+
+        <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-6">
+          The Path Forward
+        </h2>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          The most successful technical founders don't "step away" from technology.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-6">
+          They step up into leadership.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          They:
+        </p>
+        <ul className="list-disc list-inside space-y-2 mb-6 text-base font-body text-foreground">
+          <li>Redesign their role intentionally</li>
+          <li>Transfer ownership, not just tasks</li>
+          <li>Protect new leaders from constant override</li>
+          <li>Measure success by team autonomy, not personal output</li>
+        </ul>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          This transition is uncomfortable—but necessary.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-8">
+          Because the goal isn't to be the best engineer in the room forever.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-8">
+          The goal is to build a system where engineering excellence scales without you.
+        </p>
+
+        <div className="mt-12 pt-8 border-t border-divider">
+          <h3 className="font-heading text-xl font-semibold text-heading mb-4">
+            Closing Thought
+          </h3>
+          <p className="text-base font-body text-foreground leading-relaxed mb-4">
+            The hardest part of being a technical founder isn't building the product.
+          </p>
+          <p className="text-base font-body text-foreground leading-relaxed mb-4">
+            It's knowing when—and how—to stop being the bottleneck that made it possible.
+          </p>
+          <p className="text-base font-body text-foreground leading-relaxed mb-4">
+            The founder-to-CTO transition doesn't happen automatically. It has to be designed.
+          </p>
+          <p className="text-base font-body text-foreground leading-relaxed font-medium">
+            And the companies that get it right don't just grow faster—they grow healthier.
+          </p>
+        </div>
+      </div>
+    ),
+  },
 };
 
 export default function Article() {
