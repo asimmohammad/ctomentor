@@ -53,25 +53,6 @@ const engagementModels = [
   },
 ];
 
-const equityFactors = [
-  {
-    factor: "Company Stage",
-    description: "Earlier stage companies typically require higher equity to align risk and reward. Pre-seed and seed companies may see 1.0%–2.0%, while Series A and later typically see 0.5%–1.0%.",
-  },
-  {
-    factor: "Engagement Scope",
-    description: "Full Operator-in-Residence engagements with complete CTO mandate command higher equity than fixed-scope programs. Ongoing monthly engagements typically see 0.5%–2.0%, while fixed-scope turnarounds see 0.25%–1.0%.",
-  },
-  {
-    factor: "Engagement Duration",
-    description: "Longer engagements (12+ months) may see higher equity participation, reflecting deeper commitment and value creation over time.",
-  },
-  {
-    factor: "Risk Profile",
-    description: "Higher-risk situations—turnarounds, crisis interventions, or companies with significant technical debt—may command higher equity to align incentives with the challenge level.",
-  },
-];
-
 const faqs = [
   {
     question: "Why is pricing structured as cash + equity?",
@@ -371,26 +352,63 @@ export default function Pricing() {
               How Equity Is Determined
             </h2>
             <p className="text-lg font-body text-foreground leading-relaxed mb-8">
-              Equity participation is standard for Operator-in-Residence and turnaround engagements. It's not optional—it's essential for alignment. Here's how we determine equity structure:
+              Equity participation is tied to risk and leverage, not generosity. The more critical technology execution is to business outcomes, and the more risk we take on, the higher the equity participation. This isn't negotiation—it's alignment.
             </p>
-            <div className="space-y-6">
-              {equityFactors.map((factor, index) => (
-                <Card key={index} className="border-divider">
-                  <CardContent className="p-6">
-                    <h3 className="font-heading text-lg font-semibold text-heading mb-3">
-                      {factor.factor}
-                    </h3>
-                    <p className="text-base font-body text-foreground leading-relaxed">
-                      {factor.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-            <div className="mt-8 bg-card border border-divider rounded-lg p-8">
-              <p className="text-base font-body text-foreground leading-relaxed">
-                <strong className="font-semibold">Equity structure is defined upfront</strong> in the engagement agreement. No surprises, no renegotiation, no misaligned incentives. We align on compensation (cash + equity) before we start, ensuring both parties are committed to long-term value creation.
-              </p>
+            <div className="space-y-4">
+              <div className="flex items-start gap-4">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                <div>
+                  <h3 className="font-heading text-lg font-semibold text-heading mb-2">Company Stage</h3>
+                  <p className="text-base font-body text-foreground leading-relaxed">
+                    Earlier stage companies (pre-seed, seed) typically require higher equity because the risk is higher and the leverage is greater. A technical decision at this stage can determine company trajectory. Series A and later companies may see lower equity percentages, reflecting reduced risk and more established systems.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                <div>
+                  <h3 className="font-heading text-lg font-semibold text-heading mb-2">Burn Rate and Cash Constraints</h3>
+                  <p className="text-base font-body text-foreground leading-relaxed">
+                    Companies with high burn rates or limited cash runway may structure higher equity participation relative to cash compensation. This aligns incentives when cash is constrained but equity value creation is the primary goal.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                <div>
+                  <h3 className="font-heading text-lg font-semibold text-heading mb-2">Dependency on Technology</h3>
+                  <p className="text-base font-body text-foreground leading-relaxed">
+                    The more the business depends on technology execution for revenue, growth, or competitive advantage, the higher the equity participation. If technology failure directly impacts business outcomes, the operator's leverage and risk are higher, which equity reflects.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                <div>
+                  <h3 className="font-heading text-lg font-semibold text-heading mb-2">Existing Team Quality and Technical Debt</h3>
+                  <p className="text-base font-body text-foreground leading-relaxed">
+                    Companies with strong existing teams and minimal technical debt may see lower equity percentages. Companies with significant technical debt, team gaps, or architectural problems require higher equity because the operator is taking on more risk and delivering more leverage.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                <div>
+                  <h3 className="font-heading text-lg font-semibold text-heading mb-2">Equity Discussions Happen Early</h3>
+                  <p className="text-base font-body text-foreground leading-relaxed">
+                    We define equity structure upfront, before engagement begins. This prevents misaligned incentives, avoids awkward renegotiations, and ensures both parties are committed to the same outcomes from day one. Early alignment benefits everyone—the company gets committed execution, and the operator gets clear ownership stakes.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                <div>
+                  <h3 className="font-heading text-lg font-semibold text-heading mb-2">Why This Benefits Both Parties</h3>
+                  <p className="text-base font-body text-foreground leading-relaxed">
+                    For the company, equity alignment ensures the operator is building long-term value, not just billing hours. For the operator, equity participation reflects the risk and leverage we take on, creating a fair exchange for the responsibility we own. Both parties are aligned on outcomes that compound, not just deliverables that bill.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
