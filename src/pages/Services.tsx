@@ -311,6 +311,28 @@ export default function Services() {
         </div>
       </section>
 
+      {/* How Engagements Are Priced */}
+      <section className="bg-background">
+        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
+          <div className="max-w-3xl">
+            <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-6">
+              How Engagements Are Priced
+            </h2>
+            <p className="text-lg font-body text-foreground leading-relaxed mb-6">
+              Pricing reflects ownership and outcomes, not hours or time allocation. We structure engagements as cash + equity because the responsibility we take, the risk we own, and the outcomes we deliver justify the premium.
+            </p>
+            <p className="text-lg font-body text-foreground leading-relaxed mb-8">
+              For detailed pricing ranges, engagement models, and how equity is determined, see our <Link to="/pricing" className="text-accent hover:text-accent/80 font-medium underline">pricing page</Link>.
+            </p>
+            <Link to="/pricing">
+              <Button variant="outline" size="lg">
+                View Pricing Details
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Exit & Transition Scenarios */}
       <section className="bg-background">
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
