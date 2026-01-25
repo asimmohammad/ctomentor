@@ -162,7 +162,7 @@ const faqs = [
   },
   {
     question: "Do you replace a full-time CTO?",
-    answer: "Yes, in many cases. Operating CTO engagements provide full CTO-level leadership and decision-making authority. For companies that don't need or can't afford a full-time CTO, this delivers the same outcomes at a fraction of the cost. For larger organizations, I often work alongside or in place of an existing CTO during transitions or when additional capacity is needed.",
+    answer: "Yes, in many cases. Operating CTO engagements provide full CTO-level leadership and decision-making authority with embedded execution accountability. We operate as an Operator-in-Residence—temporary co-founder, not contractor—bringing the same ownership and outcomes as a full-time CTO. For larger organizations, we often work alongside or in place of an existing CTO during transitions or when additional leadership capacity is needed.",
   },
   {
     question: "What size companies do you work with?",

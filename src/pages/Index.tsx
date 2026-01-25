@@ -13,9 +13,9 @@ const problems = [
 
 const services = [
   {
-    title: "Fractional CTO Leadership",
+    title: "Operator-in-Residence / Equity CTO",
     description:
-      "Board-level technology ownership for startups that need real authority — not more tickets closed.",
+      "Embedded execution leadership with full accountability — temporary co-founder, not contractor.",
     href: "/services",
   },
   {
@@ -98,7 +98,7 @@ export default function Index() {
         <div className="container mx-auto px-6 lg:px-8 py-8">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-sm font-body text-subtle">
             <p>
-              <span className="text-heading font-medium">Fractional CTO</span> ·{" "}
+              <span className="text-heading font-medium">Operator-in-Residence</span> ·{" "}
               <span className="text-heading font-medium">
                 Data & AI Specialist
               </span>{" "}
@@ -145,7 +145,7 @@ export default function Index() {
       <section className="bg-section-gradient border-y border-divider">
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
           <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading max-w-2xl">
-            I bring structure, ownership, and execution discipline.
+            We bring structure, ownership, and execution discipline.
           </h2>
           <div className="mt-12 grid md:grid-cols-3 gap-8">
             {services.map((service) => (

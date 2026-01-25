@@ -143,7 +143,11 @@ export default function About() {
                 </li>
                 <li className="flex items-start gap-3 text-base font-body text-foreground">
                   <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
-                  Embedded in decision-making, not observing from the sidelines
+                  Operator-in-Residence: temporary co-founder, not contractor
+                </li>
+                <li className="flex items-start gap-3 text-base font-body text-foreground">
+                  <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
+                  Embedded in decision-making with full accountability
                 </li>
                 <li className="flex items-start gap-3 text-base font-body text-foreground">
                   <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
@@ -170,7 +174,7 @@ export default function About() {
               Our Operating Model
             </h2>
             <p className="text-lg font-body text-foreground leading-relaxed mb-8">
-              TCM engages as an embedded leadership function, not an external observer.
+              TCM engages as an embedded leadership function—Operator-in-Residence with full execution accountability. We operate as temporary co-founders, not external observers or part-time advisors.
             </p>
             <p className="text-lg font-body text-foreground leading-relaxed mb-8">
               Every engagement is built around:

@@ -3,7 +3,7 @@ import logo from "@/assets/logo.svg";
 
 const navigation = {
   services: [
-    { name: "Fractional CTO", href: "/services" },
+    { name: "Operator-in-Residence", href: "/services" },
     { name: "CTO Mentor Circle", href: "/circle" },
     { name: "Advisory & Audits", href: "/services" },
   ],
