@@ -140,8 +140,83 @@ export default function Experience() {
         </div>
       </section>
 
-      {/* Early-Stage Venture Build and Scale */}
+      {/* Scope of Experience */}
       <section className="bg-section-gradient border-y border-divider">
+        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
+          <div className="max-w-3xl">
+            <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-6">
+              Scope of Experience
+            </h2>
+            <p className="text-lg font-body text-foreground leading-relaxed mb-8">
+              Our operating experience spans company stages, business models, technical domains, organizational complexity, and risk environments. This breadth enables pattern recognition across similar situations, even when the specifics differ.
+            </p>
+            <div className="space-y-8">
+              <div>
+                <h3 className="font-heading text-xl font-semibold text-heading mb-4">
+                  Company Stages
+                </h3>
+                <p className="text-base font-body text-foreground leading-relaxed mb-3">
+                  We have operated across the full company lifecycle: pre-seed platforms building product-market fit, post-seed and Series A companies scaling under growth pressure, growth-stage companies managing complexity at scale, and mature organizations executing strategic transformations.
+                </p>
+                <p className="text-base font-body text-foreground leading-relaxed">
+                  Each stage requires different operating approaches. Early-stage needs architecture that scales. Growth-stage needs systems that hold under load. Mature organizations need transformation without disruption. We've operated in all of these contexts.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-heading text-xl font-semibold text-heading mb-4">
+                  Business Models
+                </h3>
+                <p className="text-base font-body text-foreground leading-relaxed mb-3">
+                  Our experience includes multi-tenant SaaS platforms serving thousands of customers, B2B2C marketplaces connecting multiple stakeholder groups, fintech-adjacent platforms requiring regulatory compliance, and data platforms monetizing information assets.
+                </p>
+                <p className="text-base font-body text-foreground leading-relaxed">
+                  Different business models require different technical architectures and operating models. SaaS needs multi-tenancy and scale. Marketplaces need real-time matching and transaction processing. Fintech-adjacent requires compliance and risk controls. Data platforms need ingestion, processing, and delivery at scale. We've built and operated all of these.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-heading text-xl font-semibold text-heading mb-4">
+                  Technical Domains
+                </h3>
+                <p className="text-base font-body text-foreground leading-relaxed mb-3">
+                  We have owned responsibility for cloud platform architecture and operations, data pipeline design and execution, AI and machine learning systems in production, payments and transaction processing, identity and access management, and platform APIs consumed internally and externally.
+                </p>
+                <p className="text-base font-body text-foreground leading-relaxed">
+                  Technical depth matters when making architecture decisions. We've owned these domains end-to-end: design, build, operate, scale. This experience enables us to make informed decisions about tradeoffs, risks, and outcomes.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-heading text-xl font-semibold text-heading mb-4">
+                  Organizational Complexity
+                </h3>
+                <p className="text-base font-body text-foreground leading-relaxed mb-3">
+                  We have led engineering organizations spanning multiple countries and time zones, managed vendor ecosystems with dozens of technology partners, executed M&A transitions where technical integration was critical, and coordinated cross-functional teams across product, engineering, data, and operations.
+                </p>
+                <p className="text-base font-body text-foreground leading-relaxed">
+                  Organizational complexity compounds technical complexity. Global teams require different operating cadences. Vendor ecosystems require integration and relationship management. M&A transitions require technical due diligence and integration planning. We've managed all of these.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-heading text-xl font-semibold text-heading mb-4">
+                  Risk Environments
+                </h3>
+                <p className="text-base font-body text-foreground leading-relaxed mb-3">
+                  We have operated in heavily regulated industries including banking, insurance, and professional services, built and operated revenue-critical systems where downtime directly impacts business outcomes, managed data governance and compliance programs, and executed technical transformations where failure risk was high.
+                </p>
+                <p className="text-base font-body text-foreground leading-relaxed">
+                  Risk environments require different operating discipline. Regulated industries need compliance and auditability. Revenue-critical systems need reliability and redundancy. High-risk transformations need careful planning and execution. We've operated in all of these contexts.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Early-Stage Venture Build and Scale */}
+      <section className="bg-background">
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
           <div className="max-w-3xl">
             <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-6">
