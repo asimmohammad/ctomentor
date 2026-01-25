@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { Link } from "react-router-dom";
 import {
   Select,
   SelectContent,
@@ -25,6 +26,8 @@ import * as z from "zod";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { useState } from "react";
+import { Check, X } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 
 // Form validation schema
 const applicationSchema = z.object({
@@ -42,9 +45,45 @@ const applicationSchema = z.object({
   challenge: z.string().min(10, "Please provide at least 10 characters describing your challenge").max(2000, "Challenge description is too long"),
   budget: z.string().optional(),
   timeline: z.string().optional(),
+  equityAlignment: z.string().optional(),
 });
 
 type ApplicationFormValues = z.infer<typeof applicationSchema>;
+
+const whoShouldApply = [
+  "Founder-led companies where technology execution is blocking business outcomes",
+  "Post-fundraise companies facing execution pressure and scaling challenges",
+  "Organizations with CTO/VP Eng gaps or leadership misalignment creating execution risk",
+  "Companies preparing for scale, platform shifts, or M&A where technical readiness is critical",
+  "Boards and investors who need execution truth, not optimism",
+];
+
+const minimumReadiness = [
+  "Technology is core to your business model, not a support function",
+  "You have meaningful revenue or funding that supports premium engagement",
+  "You're ready to give real decision-making authority, not just seek advice",
+  "The cost of getting technology wrong is high—this isn't a nice-to-have",
+  "You understand that Operator-in-Residence engagements require cash + equity alignment",
+];
+
+const engagementStructure = [
+  {
+    element: "Compensation",
+    description: "Cash (monthly retainer or fixed fee) + meaningful equity participation. Equity typically ranges from 0.5%–2% depending on stage, scope, and engagement duration. This alignment ensures we're building value, not billing hours.",
+  },
+  {
+    element: "Authority",
+    description: "Full execution authority for technology decisions, architecture, team structure, and vendor governance. We operate with CEO-level partnership and explicit decision rights.",
+  },
+  {
+    element: "Accountability",
+    description: "We own outcomes. No excuses, no handoffs, no fractional time-splitting. If we engage, we're fully embedded and accountable for results.",
+  },
+  {
+    element: "Duration",
+    description: "Engagements typically range from 6–12 months for ongoing Operator-in-Residence roles, or 90 days for fixed-scope turnarounds. We design transitions from day one.",
+  },
+];
 
 export default function Apply() {
   const { toast } = useToast();
@@ -65,20 +104,20 @@ export default function Apply() {
       challenge: "",
       budget: "",
       timeline: "",
+      equityAlignment: "",
     },
-    mode: "onBlur", // Validate on blur for better UX
+    mode: "onBlur",
   });
 
   const onSubmit = async (data: ApplicationFormValues) => {
     console.log("[APPLY FORM] Form submission started at", new Date().toISOString());
     console.log("[APPLY FORM] Validated form data:", {
       ...data,
-      challenge: data.challenge.substring(0, 50) + "...", // Truncate for logging
+      challenge: data.challenge.substring(0, 50) + "...",
     });
 
     setIsSubmitting(true);
 
-    // Check Supabase client
     if (!supabase) {
       console.error("[APPLY FORM] Supabase client not initialized");
       toast({
@@ -92,7 +131,6 @@ export default function Apply() {
 
     try {
       console.log("[APPLY FORM] Invoking Supabase function 'send-application'...");
-      console.log("[APPLY FORM] Supabase URL:", import.meta.env.VITE_SUPABASE_URL ? "Configured" : "Missing");
 
       const startTime = Date.now();
       const { data: responseData, error } = await supabase.functions.invoke("send-application", {
@@ -128,7 +166,7 @@ export default function Apply() {
 
       toast({
         title: "Application received",
-        description: "Thank you. I'll be in touch within 2 business days.",
+        description: "Thank you. We review every application and will respond within 2 business days.",
       });
 
       console.log("[APPLY FORM] Resetting form...");
@@ -162,14 +200,138 @@ export default function Apply() {
       {/* Hero */}
       <section className="bg-warm-gradient">
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <div className="max-w-2xl">
+          <div className="max-w-3xl">
             <h1 className="font-heading text-4xl md:text-5xl font-semibold text-heading leading-tight">
-              Apply to Work Together
+              Apply for an Operator-in-Residence Engagement
             </h1>
-            <p className="mt-6 text-xl font-body text-subtle">
-              Tell me about your situation. I review every application
-              personally and respond within 2 business days.
+            <p className="mt-6 text-xl font-body text-subtle leading-relaxed">
+              This is a mutual selection process. We're selective about engagements, and you should be selective about partners. If technology execution is critical and the stakes are high, let's talk.
             </p>
+            <p className="mt-4 text-lg font-body text-foreground leading-relaxed font-medium">
+              We review every application personally and respond within 2 business days.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Who Should Apply */}
+      <section className="bg-background">
+        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
+          <div className="max-w-3xl">
+            <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-6">
+              Who Should Apply
+            </h2>
+            <p className="text-lg font-body text-foreground leading-relaxed mb-8">
+              Operator-in-Residence engagements are for companies where technology execution is critical and the cost of getting it wrong is unacceptable. If you're looking for cheap help, part-time advisory, or fractional consulting, we're not the right partner.
+            </p>
+            <ul className="space-y-4">
+              {whoShouldApply.map((item, index) => (
+                <li key={index} className="flex items-start gap-3 text-base font-body text-foreground">
+                  <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Minimum Readiness Criteria */}
+      <section className="bg-section-gradient border-y border-divider">
+        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
+          <div className="max-w-3xl">
+            <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-6">
+              Minimum Readiness Criteria
+            </h2>
+            <p className="text-lg font-body text-foreground leading-relaxed mb-8">
+              Before applying, ensure you meet these criteria. We're direct about fit because misalignment wastes everyone's time.
+            </p>
+            <ul className="space-y-4">
+              {minimumReadiness.map((item, index) => (
+                <li key={index} className="flex items-start gap-3 text-base font-body text-foreground">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-8 bg-card border border-divider rounded-lg p-6">
+              <p className="text-base font-body text-foreground leading-relaxed">
+                <strong className="font-semibold">If you're looking for:</strong> hourly consulting, part-time advisory, staff augmentation, or fractional CTO services—we're not the right partner. We operate as embedded leadership with full accountability and equity alignment.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How Engagements Are Structured */}
+      <section className="bg-background">
+        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
+          <div className="max-w-3xl">
+            <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-6">
+              How Engagements Are Structured
+            </h2>
+            <p className="text-lg font-body text-foreground leading-relaxed mb-8">
+              Every Operator-in-Residence engagement is structured around outcomes and alignment, not hours or time allocation. Here's what to expect:
+            </p>
+            <div className="space-y-6">
+              {engagementStructure.map((item, index) => (
+                <Card key={index} className="border-divider">
+                  <CardContent className="p-6">
+                    <h3 className="font-heading text-lg font-semibold text-heading mb-3">
+                      {item.element}
+                    </h3>
+                    <p className="text-base font-body text-foreground leading-relaxed">
+                      {item.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What Happens After You Apply */}
+      <section className="bg-section-gradient border-y border-divider">
+        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
+          <div className="max-w-3xl">
+            <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-6">
+              What Happens After You Apply
+            </h2>
+            <div className="space-y-6">
+              <div>
+                <h3 className="font-heading text-lg font-semibold text-heading mb-3">
+                  Initial Review (2 Business Days)
+                </h3>
+                <p className="text-base font-body text-foreground leading-relaxed">
+                  We review every application personally. If there's a potential fit, we'll schedule a 30-minute discovery call to understand your situation, assess alignment, and determine if an Operator-in-Residence engagement makes sense.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-heading text-lg font-semibold text-heading mb-3">
+                  Discovery & Alignment (1–2 Weeks)
+                </h3>
+                <p className="text-base font-body text-foreground leading-relaxed">
+                  If we proceed, we'll conduct a deeper assessment: current-state analysis, stakeholder interviews, technical review. We'll define engagement scope, compensation structure (cash + equity), decision rights, and operating cadence. This is mutual selection—we're assessing fit on both sides.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-heading text-lg font-semibold text-heading mb-3">
+                  Engagement Start
+                </h3>
+                <p className="text-base font-body text-foreground leading-relaxed">
+                  If we align, we'll execute a simple engagement agreement and begin immediately. We don't do long sales cycles or complex contracting. We focus on clarity, alignment, and execution.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-heading text-lg font-semibold text-heading mb-3">
+                  If We're Not a Fit
+                </h3>
+                <p className="text-base font-body text-foreground leading-relaxed">
+                  We'll tell you directly. If we're not the right partner—whether due to stage, budget, scope, or misalignment—we'll recommend alternatives or suggest when to reconnect. No ghosting, no long delays, no false promises.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -178,14 +340,23 @@ export default function Apply() {
       <section className="bg-background">
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
           <div className="max-w-2xl">
+            <div className="mb-8">
+              <h2 className="font-heading text-2xl md:text-3xl font-semibold text-heading mb-4">
+                Application Form
+              </h2>
+              <p className="text-base font-body text-subtle">
+                Be direct and specific. The more clarity you provide, the better we can assess fit.
+              </p>
+            </div>
+
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                 {/* Contact Information Section */}
                 <div className="space-y-6">
                   <div>
-                    <h2 className="text-xl font-heading font-semibold text-heading mb-4">
+                    <h3 className="text-lg font-heading font-semibold text-heading mb-4">
                       Contact Information
-                    </h2>
+                    </h3>
                     <div className="grid sm:grid-cols-2 gap-6">
                       <FormField
                         control={form.control}
@@ -256,9 +427,9 @@ export default function Apply() {
                 {/* Company Information Section */}
                 <div className="space-y-6">
                   <div>
-                    <h2 className="text-xl font-heading font-semibold text-heading mb-4">
+                    <h3 className="text-lg font-heading font-semibold text-heading mb-4">
                       Company Information
-                    </h2>
+                    </h3>
                     <div className="grid sm:grid-cols-2 gap-6">
                       <FormField
                         control={form.control}
@@ -314,7 +485,7 @@ export default function Apply() {
                             </FormLabel>
                             <FormControl>
                               <Input
-                                placeholder="CTO, Founder, etc."
+                                placeholder="CEO, Founder, CTO, etc."
                                 className="bg-card border-divider focus:border-accent"
                                 {...field}
                               />
@@ -323,8 +494,6 @@ export default function Apply() {
                           </FormItem>
                         )}
                       />
-                    </div>
-                    <div className="grid sm:grid-cols-2 gap-6 mt-6">
                       <FormField
                         control={form.control}
                         name="stage"
@@ -350,6 +519,8 @@ export default function Apply() {
                           </FormItem>
                         )}
                       />
+                    </div>
+                    <div className="mt-6">
                       <FormField
                         control={form.control}
                         name="teamSize"
@@ -379,9 +550,9 @@ export default function Apply() {
                 {/* Technical Information Section */}
                 <div className="space-y-6">
                   <div>
-                    <h2 className="text-xl font-heading font-semibold text-heading mb-4">
+                    <h3 className="text-lg font-heading font-semibold text-heading mb-4">
                       Technical Information
-                    </h2>
+                    </h3>
                     <FormField
                       control={form.control}
                       name="stack"
@@ -398,7 +569,7 @@ export default function Apply() {
                             />
                           </FormControl>
                           <FormDescription className="text-xs text-muted-foreground">
-                            Optional - Help me understand your current technology landscape
+                            Optional - Help us understand your current technology landscape
                           </FormDescription>
                           <FormMessage />
                         </FormItem>
@@ -410,9 +581,9 @@ export default function Apply() {
                 {/* Challenge Section */}
                 <div className="space-y-6">
                   <div>
-                    <h2 className="text-xl font-heading font-semibold text-heading mb-4">
+                    <h3 className="text-lg font-heading font-semibold text-heading mb-4">
                       Tell Us About Your Challenge(s)
-                    </h2>
+                    </h3>
                     <FormField
                       control={form.control}
                       name="challenge"
@@ -424,13 +595,13 @@ export default function Apply() {
                           <FormControl>
                             <Textarea
                               rows={6}
-                              placeholder="What's the primary technology or organizational challenge you're facing? Be as detailed as you'd like."
+                              placeholder="What's the primary technology or organizational challenge you're facing? Be specific about the stakes and why this matters now."
                               className="bg-card border-divider focus:border-accent resize-none"
                               {...field}
                             />
                           </FormControl>
                           <FormDescription className="text-xs text-muted-foreground">
-                            Minimum 10 characters. The more detail, the better I can help.
+                            Minimum 10 characters. The more detail, the better we can assess fit.
                           </FormDescription>
                           <FormMessage />
                         </FormItem>
@@ -442,9 +613,9 @@ export default function Apply() {
                 {/* Budget & Timeline Section */}
                 <div className="space-y-6">
                   <div>
-                    <h2 className="text-xl font-heading font-semibold text-heading mb-4">
-                      Budget & Timeline
-                    </h2>
+                    <h3 className="text-lg font-heading font-semibold text-heading mb-4">
+                      Engagement Parameters
+                    </h3>
                     <div className="grid sm:grid-cols-2 gap-6">
                       <FormField
                         control={form.control}
@@ -461,17 +632,14 @@ export default function Apply() {
                                 </SelectTrigger>
                               </FormControl>
                               <SelectContent>
-                                <SelectItem value="under-7.5k">Under $7,500/mo</SelectItem>
-                                <SelectItem value="7.5k-12.5k">$7,500 – $12,500/mo</SelectItem>
-                                <SelectItem value="12.5k-18k">$12,500 – $18,000/mo</SelectItem>
-                                <SelectItem value="18k-25k">$18,000 - $25,000/mo</SelectItem>
-                                <SelectItem value="25k-50k">$25,000-$50,000/mo</SelectItem>
+                                <SelectItem value="25k-50k">$25,000–$50,000/mo</SelectItem>
                                 <SelectItem value="50k-plus">$50,000+/mo</SelectItem>
-                                <SelectItem value="circle">CTO Mentors Circle ($2,500/mo)</SelectItem>
+                                <SelectItem value="fixed-scope">Fixed-scope engagement</SelectItem>
+                                <SelectItem value="exploring">Exploring options</SelectItem>
                               </SelectContent>
                             </Select>
                             <FormDescription className="text-xs text-muted-foreground">
-                              Optional
+                              Optional - Engagements are structured as cash + equity
                             </FormDescription>
                             <FormMessage />
                           </FormItem>
@@ -505,6 +673,31 @@ export default function Apply() {
                         )}
                       />
                     </div>
+                    <div className="mt-6">
+                      <FormField
+                        control={form.control}
+                        name="equityAlignment"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-sm font-body font-medium text-heading">
+                              Equity Alignment
+                            </FormLabel>
+                            <FormControl>
+                              <Textarea
+                                rows={3}
+                                placeholder="Are you open to equity participation as part of compensation? Any thoughts on structure or alignment? (Optional, but helpful for alignment discussions)"
+                                className="bg-card border-divider focus:border-accent resize-none"
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormDescription className="text-xs text-muted-foreground">
+                              Optional - Equity participation is standard for Operator-in-Residence engagements
+                            </FormDescription>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
                   </div>
                 </div>
 
@@ -532,6 +725,32 @@ export default function Apply() {
                 </div>
               </form>
             </Form>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="bg-primary text-primary-foreground">
+        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
+          <div className="max-w-2xl">
+            <h2 className="font-heading text-3xl md:text-4xl font-semibold text-white mb-6">
+              We're selective. You should be too.
+            </h2>
+            <p className="text-lg font-body text-primary-foreground/90 leading-relaxed mb-6">
+              We take on a limited number of Operator-in-Residence engagements each year. We're selective because execution at this level requires full commitment—from both sides.
+            </p>
+            <p className="text-lg font-body text-primary-foreground/90 leading-relaxed mb-10">
+              If technology execution is critical to your business and the stakes are high, apply. If you're looking for cheap help or part-time advisory, we're not the right partner.
+            </p>
+            <Link to="/services">
+              <Button
+                variant="outline"
+                size="xl"
+                className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+              >
+                Learn More About How We Operate
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
