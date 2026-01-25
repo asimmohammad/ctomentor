@@ -243,7 +243,7 @@ export default function Experience() {
               </li>
               <li className="flex items-start gap-3 text-base font-body text-foreground">
                 <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
-                Operated as technical co-founder or acting CTO during critical growth phases
+                Operated in technical co-founder or acting CTO capacity during critical growth phases
               </li>
             </ul>
           </div>
@@ -453,7 +453,7 @@ export default function Experience() {
               </li>
               <li className="flex items-start gap-3 text-base font-body text-foreground">
                 <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
-                Operated as investor and advisor to multiple startups, providing technical due diligence and strategic guidance
+                Served as investors and advisors to multiple startups, providing technical due diligence and strategic guidance
               </li>
               <li className="flex items-start gap-3 text-base font-body text-foreground">
                 <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
