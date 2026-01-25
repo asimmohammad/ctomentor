@@ -23,102 +23,251 @@ export default function Experience() {
         </div>
       </section>
 
-      {/* Operating Experience */}
+      {/* Early-Stage Venture Build and Scale */}
       <section className="bg-background">
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
           <div className="max-w-3xl">
             <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-6">
-              Operating Experience
+              Early-Stage Venture Build and Scale
             </h2>
             <p className="text-lg font-body text-foreground leading-relaxed mb-6">
-              TCM has led and supported CTO and acting-CTO roles in high-growth and high-stress environments. This includes organizations scaling from $5M to $100M+ in revenue, managing teams from 10 to 200+ engineers, and operating under board and investor scrutiny during moments of execution risk.
+              Our team has led technical execution for early-stage companies from founding through growth stages. Across multiple engagements, we have built product and technology functions from the ground up, established operating discipline before scale becomes a constraint, and prepared companies for rapid growth.
             </p>
             <p className="text-lg font-body text-foreground leading-relaxed mb-6">
-              The firm has stabilized organizations following vendor failure, architectural sprawl, and leadership gaps. This pattern repeats: companies that grew fast without technical discipline, organizations that outsourced critical decisions, and teams that lost execution velocity under scaling pressure.
+              We have repeatedly been brought in when early-stage companies need technical leadership but aren't ready for a full-time CTO hire. These engagements require building systems that can scale, establishing technical culture and processes, and making architecture decisions that hold under growth pressure.
             </p>
-            <p className="text-lg font-body text-foreground leading-relaxed">
-              Experience across these scenarios creates pattern recognition. When we see similar patterns, we know what works, what doesn't, and how to move quickly without repeating mistakes.
-            </p>
+            <ul className="space-y-3">
+              <li className="flex items-start gap-3 text-base font-body text-foreground">
+                <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
+                Built product and technology functions from zero to scale-ready operations
+              </li>
+              <li className="flex items-start gap-3 text-base font-body text-foreground">
+                <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
+                Established technical architecture and operating models before technical debt compounds
+              </li>
+              <li className="flex items-start gap-3 text-base font-body text-foreground">
+                <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
+                Prepared companies for 10x growth without requiring platform rewrites
+              </li>
+              <li className="flex items-start gap-3 text-base font-body text-foreground">
+                <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
+                Operated as technical co-founder or acting CTO during critical growth phases
+              </li>
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* Platform & Architecture Experience */}
+      {/* Multi-Tenant SaaS and Platform Architecture */}
       <section className="bg-section-gradient border-y border-divider">
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
           <div className="max-w-3xl">
             <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-6">
-              Platform & Architecture Experience
+              Multi-Tenant SaaS and Platform Architecture
             </h2>
             <p className="text-lg font-body text-foreground leading-relaxed mb-6">
-              TCM has designed, governed, and modernized multi-tenant platforms, data systems, and AI-enabled infrastructure. This includes platforms processing millions of transactions daily, data systems handling petabytes of information, and AI infrastructure supporting regulated environments.
+              Our team has designed, built, and scaled multi-tenant SaaS platforms serving thousands of customers. Across multiple engagements, we have architected platforms that support high-volume transaction processing, real-time data processing, and scalable microservices architectures.
             </p>
             <p className="text-lg font-body text-foreground leading-relaxed mb-6">
-              The firm has managed architecture decisions at scale: when to rebuild versus refactor, when to buy versus build, when to consolidate versus diversify. These decisions compound over time—getting them wrong creates technical debt that compounds. Getting them right enables growth without breaking.
+              We have repeatedly been brought in when companies need to modernize monolithic systems, scale platforms under load, or build new platform capabilities. These engagements require understanding tradeoffs between rebuild and refactor, buy versus build, and consolidation versus diversification.
             </p>
-            <p className="text-lg font-body text-foreground leading-relaxed">
-              Experience across multiple platforms and architectures provides perspective. We've seen what works at different scales, what breaks under load, and how to make decisions that hold over time.
-            </p>
+            <ul className="space-y-3">
+              <li className="flex items-start gap-3 text-base font-body text-foreground">
+                <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
+                Architected multi-tenant platforms processing millions of transactions daily
+              </li>
+              <li className="flex items-start gap-3 text-base font-body text-foreground">
+                <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
+                Designed and deployed microservices architectures with real-time processing capabilities
+              </li>
+              <li className="flex items-start gap-3 text-base font-body text-foreground">
+                <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
+                Built platform capabilities consumed internally and externally through APIs
+              </li>
+              <li className="flex items-start gap-3 text-base font-body text-foreground">
+                <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
+                Modernized legacy systems to support new business models and scale requirements
+              </li>
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* Board & Investor Experience */}
+      {/* Data, Analytics, and AI Systems */}
       <section className="bg-background">
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
           <div className="max-w-3xl">
             <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-6">
-              Board & Investor Experience
+              Data, Analytics, and AI Systems
             </h2>
             <p className="text-lg font-body text-foreground leading-relaxed mb-6">
-              TCM has worked directly with CEOs, boards, and investors during moments of execution risk and transition. This includes post-fundraise execution pressure, CTO transitions, M&A technical diligence, and board escalations where technology execution threatened business outcomes.
+              Our team has built data systems handling petabytes of information, machine learning platforms supporting real-time recommendations, and analytics infrastructure enabling data-driven decision-making. Across multiple engagements, we have designed data architectures that support high-volume ingestion, near real-time processing, and scalable delivery mechanisms.
             </p>
             <p className="text-lg font-body text-foreground leading-relaxed mb-6">
-              The firm understands how boards and investors think about technology risk. They need execution truth, not optimism. They need clarity on what's broken, what's fixable, and what it costs to fix. They need confidence that technical decisions align with business priorities.
+              We have repeatedly been brought in when companies need to build data capabilities from scratch, modernize legacy data infrastructure, or enable AI and machine learning at scale. These engagements require understanding data governance, privacy controls, and how to build systems that support both operational and analytical workloads.
             </p>
-            <p className="text-lg font-body text-foreground leading-relaxed">
-              Experience communicating technical reality to non-technical stakeholders creates credibility. We speak the language of boards and investors—outcomes, risk, and execution—not just technology.
-            </p>
+            <ul className="space-y-3">
+              <li className="flex items-start gap-3 text-base font-body text-foreground">
+                <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
+                Built big data execution architectures supporting high-volume ingestion and real-time machine learning
+              </li>
+              <li className="flex items-start gap-3 text-base font-body text-foreground">
+                <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
+                Designed data lineage and governance systems for regulatory compliance and risk management
+              </li>
+              <li className="flex items-start gap-3 text-base font-body text-foreground">
+                <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
+                Implemented machine learning platforms leveraging open-source technologies for personalization and recommendations
+              </li>
+              <li className="flex items-start gap-3 text-base font-body text-foreground">
+                <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
+                Reduced data infrastructure costs by millions through optimized architecture and vendor management
+              </li>
+              <li className="flex items-start gap-3 text-base font-body text-foreground">
+                <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
+                Filed multiple patents related to data collection, processing, and analytics frameworks
+              </li>
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* Turnaround & Stabilization Experience */}
+      {/* Regulated and Compliance-Heavy Environments */}
       <section className="bg-section-gradient border-y border-divider">
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
           <div className="max-w-3xl">
             <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-6">
-              Turnaround & Stabilization Experience
+              Regulated and Compliance-Heavy Environments
             </h2>
             <p className="text-lg font-body text-foreground leading-relaxed mb-6">
-              TCM has stabilized organizations where delivery had stalled, confidence had eroded, and execution risk was compounding. This includes companies where vendor relationships failed, offshore teams lost alignment, architecture sprawl created unmaintainable systems, and technical debt blocked growth.
+              Our team has operated in heavily regulated environments including banking, insurance, and professional services. Across multiple engagements, we have built systems that meet regulatory requirements, reduce compliance risk, and enable business outcomes within strict governance frameworks.
             </p>
             <p className="text-lg font-body text-foreground leading-relaxed mb-6">
-              The firm has executed rapid interventions: 90-day turnarounds where the first 30 days diagnose reality, the next 30 days stabilize systems and teams, and the final 30 days establish operating discipline. These interventions require immediate authority, clear decision-making, and execution velocity.
+              We have repeatedly been brought in when companies need to reduce regulatory risk, implement data governance programs, or build systems that meet compliance requirements. These engagements require understanding regulatory frameworks, designing systems for auditability, and balancing compliance with business velocity.
             </p>
-            <p className="text-lg font-body text-foreground leading-relaxed">
-              Experience with turnarounds creates urgency and precision. We know what needs to happen first, what can wait, and how to move fast without breaking things further.
-            </p>
+            <ul className="space-y-3">
+              <li className="flex items-start gap-3 text-base font-body text-foreground">
+                <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
+                Built data governance and regulatory risk systems that freed hundreds of millions in capital reserve
+              </li>
+              <li className="flex items-start gap-3 text-base font-body text-foreground">
+                <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
+                Designed and implemented data lineage and discovery tools for regulatory compliance
+              </li>
+              <li className="flex items-start gap-3 text-base font-body text-foreground">
+                <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
+                Executed EU and US data privacy controls including GDPR compliance
+              </li>
+              <li className="flex items-start gap-3 text-base font-body text-foreground">
+                <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
+                Managed technology functions in regulated industries with strict audit and compliance requirements
+              </li>
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* Scale & Growth Experience */}
+      {/* Global and Distributed Engineering Organizations */}
       <section className="bg-background">
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
           <div className="max-w-3xl">
             <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-6">
-              Scale & Growth Experience
+              Global and Distributed Engineering Organizations
             </h2>
             <p className="text-lg font-body text-foreground leading-relaxed mb-6">
-              TCM has prepared companies for scale, platform shifts, and M&A where technical readiness was critical. This includes companies preparing for 10x growth, organizations modernizing legacy systems, and businesses preparing for acquisition where technical due diligence would determine deal terms.
+              Our team has led engineering organizations spanning multiple countries, time zones, and cultures. Across multiple engagements, we have managed distributed teams, coordinated development across international locations, and established operating cadences that work across boundaries.
             </p>
             <p className="text-lg font-body text-foreground leading-relaxed mb-6">
-              The firm has managed scale transitions: when systems break under load, when teams outgrow processes, when architecture needs to support new business models. These transitions require forward-looking decisions—building for scale before it's needed, not after it's broken.
+              We have repeatedly been brought in when companies need to scale engineering teams globally, coordinate work across distributed locations, or establish operating discipline in organizations that span multiple regions. These engagements require understanding how to build culture, processes, and systems that work across time zones and cultural differences.
             </p>
-            <p className="text-lg font-body text-foreground leading-relaxed">
-              Experience with scale creates perspective on what breaks and when. We know how to prepare platforms, teams, and operating models for growth without over-engineering or under-preparing.
+            <ul className="space-y-3">
+              <li className="flex items-start gap-3 text-base font-body text-foreground">
+                <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
+                Led unified stakeholder groups across multiple international locations including DBAs, architects, developers, and infrastructure engineers
+              </li>
+              <li className="flex items-start gap-3 text-base font-body text-foreground">
+                <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
+                Managed engineering teams of 150+ resources with budgets exceeding $20M
+              </li>
+              <li className="flex items-start gap-3 text-base font-body text-foreground">
+                <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
+                Established agile methodologies that compressed development lifecycle times by 50%
+              </li>
+              <li className="flex items-start gap-3 text-base font-body text-foreground">
+                <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
+                Coordinated company-wide proof of concepts and rollouts involving 25+ senior leaders
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Turnarounds, Recoveries, and Stalled-Product Interventions */}
+      <section className="bg-section-gradient border-y border-divider">
+        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
+          <div className="max-w-3xl">
+            <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-6">
+              Turnarounds, Recoveries, and Stalled-Product Interventions
+            </h2>
+            <p className="text-lg font-body text-foreground leading-relaxed mb-6">
+              Our team has stabilized organizations where delivery had stalled, products were failing, and execution risk was compounding. Across multiple engagements, we have executed rapid interventions to restore delivery velocity, fix broken systems, and reestablish operating discipline.
             </p>
+            <p className="text-lg font-body text-foreground leading-relaxed mb-6">
+              We have repeatedly been brought in when companies need immediate stabilization, when vendor relationships have failed, or when technical debt has blocked product development. These engagements require rapid diagnosis, immediate decision-making authority, and execution velocity to restore confidence and momentum.
+            </p>
+            <ul className="space-y-3">
+              <li className="flex items-start gap-3 text-base font-body text-foreground">
+                <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
+                Stabilized organizations where vendor relationships failed and offshore teams lost alignment
+              </li>
+              <li className="flex items-start gap-3 text-base font-body text-foreground">
+                <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
+                Executed rapid interventions to restore delivery velocity and reestablish operating discipline
+              </li>
+              <li className="flex items-start gap-3 text-base font-body text-foreground">
+                <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
+                Fixed broken systems and processes that were blocking product development and business outcomes
+              </li>
+              <li className="flex items-start gap-3 text-base font-body text-foreground">
+                <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
+                Reduced vendor expenses by 70% through negotiation and vendor consolidation
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Board-Level and Investor-Facing Technical Leadership */}
+      <section className="bg-background">
+        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
+          <div className="max-w-3xl">
+            <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-6">
+              Board-Level and Investor-Facing Technical Leadership
+            </h2>
+            <p className="text-lg font-body text-foreground leading-relaxed mb-6">
+              Our team has worked directly with boards, investors, and executives during moments of execution risk and transition. Across multiple engagements, we have provided technical leadership that boards and investors trust, delivered execution truth instead of optimism, and aligned technical decisions with business and investor priorities.
+            </p>
+            <p className="text-lg font-body text-foreground leading-relaxed mb-6">
+              We have repeatedly been brought in when boards need technical clarity, when investors need execution truth, or when executives need technical leadership they can trust. These engagements require understanding how boards and investors think about technology risk, communicating technical reality in business terms, and building confidence through execution.
+            </p>
+            <ul className="space-y-3">
+              <li className="flex items-start gap-3 text-base font-body text-foreground">
+                <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
+                Served as board members and advisors providing technical oversight and strategic guidance
+              </li>
+              <li className="flex items-start gap-3 text-base font-body text-foreground">
+                <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
+                Prepared and delivered executive-level presentations to internal and external audiences including boards and investors
+              </li>
+              <li className="flex items-start gap-3 text-base font-body text-foreground">
+                <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
+                Operated as investor and advisor to multiple startups, providing technical due diligence and strategic guidance
+              </li>
+              <li className="flex items-start gap-3 text-base font-body text-foreground">
+                <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
+                Aligned technical execution with business priorities and investor expectations during critical growth phases
+              </li>
+            </ul>
           </div>
         </div>
       </section>
