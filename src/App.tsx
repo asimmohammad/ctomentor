@@ -10,6 +10,7 @@ import Circle from "./pages/Circle";
 import Apply from "./pages/Apply";
 import Insights from "./pages/Insights";
 import About from "./pages/About";
+import Experience from "./pages/Experience";
 import Pricing from "./pages/Pricing";
 import NotFound from "./pages/NotFound";
 
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/apply" element={<Apply />} />
           <Route path="/insights" element={<Insights />} />
           <Route path="/about" element={<About />} />
+          <Route path="/experience" element={<Experience />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

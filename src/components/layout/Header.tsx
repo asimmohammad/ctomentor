@@ -1,7 +1,13 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import logo from "@/assets/logo.svg";
 
 const navigation = [
@@ -10,8 +16,15 @@ const navigation = [
   { name: "CTO Mentor Circle", href: "/circle" },
   { name: "Case Studies", href: "/case-studies" },
   { name: "Insights", href: "/insights" },
-  { name: "About", href: "/about" },
 ];
+
+const aboutMenu = {
+  name: "About",
+  href: "/about",
+  items: [
+    { name: "Our Experience", href: "/experience" },
+  ],
+};
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -44,6 +57,30 @@ export function Header() {
                 {item.name}
               </Link>
             ))}
+            <DropdownMenu>
+              <DropdownMenuTrigger className={`text-sm font-body font-medium transition-colors flex items-center gap-1 outline-none ${
+                location.pathname === aboutMenu.href || location.pathname === "/experience"
+                  ? "text-heading"
+                  : "text-subtle hover:text-heading"
+              }`}>
+                {aboutMenu.name}
+                <ChevronDown className="h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="min-w-[160px]">
+                <Link to={aboutMenu.href}>
+                  <DropdownMenuItem className="cursor-pointer">
+                    About
+                  </DropdownMenuItem>
+                </Link>
+                {aboutMenu.items.map((item) => (
+                  <Link key={item.name} to={item.href}>
+                    <DropdownMenuItem className="cursor-pointer">
+                      {item.name}
+                    </DropdownMenuItem>
+                  </Link>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
 
           {/* Desktop CTA */}
@@ -83,6 +120,35 @@ export function Header() {
                   {item.name}
                 </Link>
               ))}
+              <div className="py-2">
+                <Link
+                  to={aboutMenu.href}
+                  className={`text-base font-body font-medium py-2 ${
+                    location.pathname === aboutMenu.href
+                      ? "text-heading"
+                      : "text-subtle"
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  About
+                </Link>
+                <div className="ml-4 mt-2 flex flex-col gap-2">
+                  {aboutMenu.items.map((item) => (
+                    <Link
+                      key={item.name}
+                      to={item.href}
+                      className={`text-sm font-body font-medium py-1 ${
+                        location.pathname === item.href
+                          ? "text-heading"
+                          : "text-subtle"
+                      }`}
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
               <div className="pt-4 border-t border-divider">
                 <Link to="/apply" onClick={() => setMobileMenuOpen(false)}>
                   <Button variant="primary" size="lg" className="w-full">
