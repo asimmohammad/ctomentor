@@ -6,6 +6,7 @@ import logo from "@/assets/logo.svg";
 
 const navigation = [
   { name: "Services", href: "/services" },
+  { name: "Pricing", href: "/pricing" },
   { name: "CTO Mentor Circle", href: "/circle" },
   { name: "Case Studies", href: "/case-studies" },
   { name: "Insights", href: "/insights" },
