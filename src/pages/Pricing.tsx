@@ -55,32 +55,28 @@ const engagementModels = [
 
 const faqs = [
   {
-    question: "Why is pricing structured as cash + equity?",
-    answer: "Cash ensures execution focus—we're paid for outcomes, not promises. Equity ensures long-term value creation—we're building value, not billing hours. Together, they create the right incentive structure for co-founder-level partnership. This alignment is what makes the Operator-in-Residence model work.",
+    question: "Why are you more expensive than a Fractional CTO?",
+    answer: "Because we're not fractional. Fractional CTOs split time across multiple clients, bill hourly, and have no equity—they're incentivized to bill hours, not create value. We're fully embedded with full accountability and equity alignment. We own outcomes, not just show up for meetings. The premium reflects the responsibility, risk, and outcomes we take on—not the time we bill.",
   },
   {
-    question: "Can we do cash-only engagements?",
-    answer: "For Board & Investor Technical Advisory engagements, cash-only is standard. For Operator-in-Residence and turnaround engagements, equity participation is expected. Equity alignment reflects the co-founder-level ownership we take and ensures we're invested in outcomes that compound, not just deliverables that bill.",
+    question: "Why do you require equity in some engagements?",
+    answer: "Equity alignment ensures we're building long-term value, not just billing hours. For Operator-in-Residence and turnaround engagements, equity participation is standard because we're taking co-founder-level ownership and risk. Equity reflects the leverage we provide and the outcomes we own. It's not optional—it's essential for alignment.",
   },
   {
-    question: "How is equity structured?",
-    answer: "Equity is typically structured as stock options or restricted stock, with standard vesting schedules (typically 4 years with 1-year cliff). Vesting may be tied to engagement milestones or time-based. Structure is defined upfront and documented in the engagement agreement.",
+    question: "Can we start without equity?",
+    answer: "For Board & Investor Technical Advisory engagements, cash-only is standard. For Operator-in-Residence and turnaround engagements, equity participation is expected. If you're not ready for equity alignment, we're likely not the right partner. Equity isn't negotiable—it's fundamental to how the Operator-in-Residence model works.",
   },
   {
-    question: "What if we can't afford these rates?",
-    answer: "If these rates are outside your budget, we're likely not the right partner. Operator-in-Residence engagements require meaningful investment because they require full commitment and accountability. If you're looking for lower-cost options, consider fractional CTO services or part-time advisory—though those won't deliver the same outcomes or accountability.",
+    question: "How long do engagements usually last?",
+    answer: "Operator-in-Residence engagements typically last 6–12 months minimum. Fixed-scope turnarounds are 90 days. Transition & Stabilization engagements are 1–3 months. Duration is defined upfront based on engagement scope and outcomes. We design transitions from day one—no dependency creation, no open-ended commitments.",
   },
   {
-    question: "Do you negotiate pricing?",
-    answer: "We structure pricing based on engagement scope, risk profile, and alignment needs—not arbitrary negotiation. If there's a fit, we'll define compensation structure (cash + equity) that aligns incentives for both parties. We don't discount to win business; we align to create value.",
+    question: "Do you help hire or transition to a full-time CTO?",
+    answer: "Yes. When you're ready to hire a full-time CTO, we facilitate the transition. We help recruit, onboard, and ensure knowledge transfer. Our role shifts to execution support during the transition period, then we exit cleanly. We build systems and teams that can operate independently—transition planning is built into every engagement.",
   },
   {
-    question: "Why is this more expensive than a fractional CTO?",
-    answer: "Because we're not fractional. We're fully embedded with full accountability and equity alignment. Fractional CTOs split time across clients, bill hourly, and have no equity—they're incentivized to bill hours, not create value. We're temporary co-founders with skin in the game. The premium reflects the responsibility, risk, and outcomes we own.",
-  },
-  {
-    question: "What happens to equity if the engagement ends early?",
-    answer: "Equity vesting follows standard schedules defined in the engagement agreement. If an engagement ends early, unvested equity typically remains unvested. Vested equity remains with the operator. This structure ensures alignment throughout the engagement and prevents misaligned incentives around exit timing.",
+    question: "Is this a consulting engagement?",
+    answer: "No. This is not consulting. We're not advisors offering guidance from the sidelines. We're embedded operators with full execution authority and accountability. We make decisions, drive execution, and own outcomes. If you're looking for consulting or advisory services, we're not the right partner.",
   },
 ];
 
