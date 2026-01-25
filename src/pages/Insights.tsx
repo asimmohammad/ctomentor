@@ -3,6 +3,14 @@ import { Link } from "react-router-dom";
 
 const posts = [
   {
+    slug: "many-faces-cto",
+    title: "The Many Faces of the CTO — And Why Most Startups Hire the Wrong One",
+    excerpt:
+      "CTO is one of the most overloaded titles in modern companies. Two people can hold the same title and solve entirely different problems. When founders misunderstand this distinction, they don't just hire the wrong CTO—they design the wrong expectations, incentives, and operating model.",
+    date: "January 2026",
+    category: "Leadership",
+  },
+  {
     slug: "decision-rights",
     title: "Why Decision Rights Matter More Than Technology Choices",
     excerpt:
