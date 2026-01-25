@@ -422,44 +422,45 @@ export default function Pricing() {
               Why This Is Cheaper Than a Bad CTO
             </h2>
             <p className="text-lg font-body text-foreground leading-relaxed mb-6">
-              A full-time CTO costs $200,000–$400,000+ annually in salary, equity, and benefits. A bad CTO costs far more: missed timelines, technical debt, team churn, lost opportunities, and execution risk that compounds over time.
+              A full-time CTO hire costs $200,000–$400,000+ annually in salary, equity, and benefits. But the real cost isn't the salary—it's the opportunity cost, time-to-impact, and the compounding cost of getting it wrong.
             </p>
-            <p className="text-lg font-body text-foreground leading-relaxed mb-8">
-              Operator-in-Residence engagements deliver CTO-level leadership and outcomes at a fraction of the cost, with equity alignment ensuring we're building value, not just collecting a salary. The premium reflects the responsibility, risk, and outcomes we own—not the time we bill.
-            </p>
-            <div className="grid md:grid-cols-2 gap-6">
-              <Card className="border-divider">
-                <CardContent className="p-6">
-                  <h3 className="font-heading text-lg font-semibold text-heading mb-4">
-                    Full-Time CTO Cost
-                  </h3>
-                  <ul className="space-y-2 text-base font-body text-foreground">
-                    <li>• $200k–$400k+ annual salary</li>
-                    <li>• 1.0%–3.0% equity</li>
-                    <li>• Benefits, overhead, recruiting costs</li>
-                    <li>• Risk of misalignment or poor fit</li>
-                    <li>• Long-term commitment regardless of outcomes</li>
-                  </ul>
-                </CardContent>
-              </Card>
-              <Card className="border-divider">
-                <CardContent className="p-6">
-                  <h3 className="font-heading text-lg font-semibold text-heading mb-4">
-                    Operator-in-Residence
-                  </h3>
-                  <ul className="space-y-2 text-base font-body text-foreground">
-                    <li>• $30k–$50k/month ($360k–$600k annually)</li>
-                    <li>• 0.5%–2.0% equity (aligned with outcomes)</li>
-                    <li>• No benefits, no overhead, no recruiting</li>
-                    <li>• Equity alignment ensures value creation</li>
-                    <li>• Flexible engagement with clear outcomes</li>
-                  </ul>
-                </CardContent>
-              </Card>
+            <div className="space-y-6 mb-8">
+              <div>
+                <h3 className="font-heading text-lg font-semibold text-heading mb-3">
+                  Opportunity Cost
+                </h3>
+                <p className="text-base font-body text-foreground leading-relaxed">
+                  While you're recruiting a full-time CTO—typically 3–6 months—technology execution stalls, technical debt compounds, and competitive windows close. Every month of delay is a month of lost momentum, missed opportunities, and rising execution risk. Operator-in-Residence engagements start immediately, delivering impact from day one.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-heading text-lg font-semibold text-heading mb-3">
+                  Time-to-Impact
+                </h3>
+                <p className="text-base font-body text-foreground leading-relaxed">
+                  A new full-time CTO needs 3–6 months to understand the business, build relationships, and establish credibility before making meaningful decisions. During that ramp period, critical technical decisions are deferred, architecture drifts, and teams operate without clear leadership. We operate with full authority from day one—no ramp period, no deferred decisions.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-heading text-lg font-semibold text-heading mb-3">
+                  Cost of Mis-Hires
+                </h3>
+                <p className="text-base font-body text-foreground leading-relaxed">
+                  A bad CTO hire costs far more than their salary: 6–12 months of poor decisions, team churn, technical debt accumulation, and lost opportunities. When you realize the fit is wrong, you face expensive separation, another 3–6 month search, and the compounding cost of the mistakes made during their tenure. Operator-in-Residence engagements are structured for clear outcomes and clean exits—if the fit isn't right, the engagement ends without long-term salary commitments or expensive separations.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-heading text-lg font-semibold text-heading mb-3">
+                  Cost of Technical Debt and Stalled Execution
+                </h3>
+                <p className="text-base font-body text-foreground leading-relaxed">
+                  Every month of stalled execution or poor technical decisions compounds. Technical debt accumulates. Architecture drifts. Team morale erodes. Competitive position weakens. The cost isn't just the CTO's salary—it's the opportunity cost of what could have been built, the cost of fixing what was broken, and the cost of lost momentum that may never be recovered.
+                </p>
+              </div>
             </div>
-            <div className="mt-8 bg-card border border-divider rounded-lg p-8">
-              <p className="text-base font-body text-foreground leading-relaxed font-medium">
-                The difference: we're accountable for outcomes, not just present. We take equity because we're building value. We exit cleanly when it's time. And if we're not the right fit, the engagement ends—no long-term salary commitment, no expensive separation.
+            <div className="bg-card border border-divider rounded-lg p-8">
+              <p className="text-lg font-body text-foreground leading-relaxed font-medium">
+                The question isn't whether you can afford an Operator-in-Residence engagement—it's whether you can afford the cost of getting technology leadership wrong.
               </p>
             </div>
           </div>
