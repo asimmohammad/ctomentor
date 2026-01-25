@@ -511,6 +511,69 @@ export default function Experience() {
         </div>
       </section>
 
+      {/* What This Experience Enables */}
+      <section className="bg-background">
+        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
+          <div className="max-w-3xl">
+            <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-6">
+              What This Experience Enables
+            </h2>
+            <p className="text-lg font-body text-foreground leading-relaxed mb-8">
+              This operating history directly enables Operator-in-Residence effectiveness. When we engage, we deliver immediate impact without the onboarding drag that slows typical CTO hires or the learning curve that constrains advisory relationships.
+            </p>
+            <div className="space-y-6">
+              <div>
+                <h3 className="font-heading text-xl font-semibold text-heading mb-3">
+                  Faster Diagnosis
+                </h3>
+                <p className="text-base font-body text-foreground leading-relaxed">
+                  We've seen similar situations before. We know what questions to ask, what signals to look for, and what risks to assess first. This enables rapid diagnosis of technical problems, organizational issues, and execution blockers without weeks of discovery.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-heading text-xl font-semibold text-heading mb-3">
+                  Fewer False Starts
+                </h3>
+                <p className="text-base font-body text-foreground leading-relaxed">
+                  Pattern recognition prevents repeating mistakes we've seen before. We know which approaches work and which don't in similar contexts. This reduces false starts, wasted effort, and the cost of learning through failure.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-heading text-xl font-semibold text-heading mb-3">
+                  Better Executive Judgment Under Pressure
+                </h3>
+                <p className="text-base font-body text-foreground leading-relaxed">
+                  We've made critical decisions under pressure before. We've balanced speed, risk, and quality when stakes were high. This experience enables better judgment when execution is critical and the cost of getting it wrong is unacceptable.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-heading text-xl font-semibold text-heading mb-3">
+                  Clearer Tradeoffs Between Speed, Risk, and Quality
+                </h3>
+                <p className="text-base font-body text-foreground leading-relaxed">
+                  We've navigated the tension between moving fast and building right. We've seen what happens when you optimize for speed at the expense of quality, and when you optimize for quality at the expense of speed. This enables clearer tradeoff decisions that align with business priorities.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-heading text-xl font-semibold text-heading mb-3">
+                  Credibility with Boards, Investors, and Senior Engineers
+                </h3>
+                <p className="text-base font-body text-foreground leading-relaxed">
+                  We've worked directly with boards and investors. We've led senior engineering teams. We've delivered execution truth instead of optimism. This credibility enables trust and confidence when technical leadership is questioned or when execution risk is high.
+                </p>
+              </div>
+            </div>
+            <p className="text-lg font-body text-foreground leading-relaxed mt-10 pt-8 border-t border-divider">
+              This is why Operator-in-Residence engagements deliver immediate impact. We're not a typical CTO hire who needs months to learn your business, and we're not an advisory relationship that provides guidance without execution authority. We're operators who have operated in similar situations before, bringing that experience to bear from day one.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="bg-primary text-primary-foreground">
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
