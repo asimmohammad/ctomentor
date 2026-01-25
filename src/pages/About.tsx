@@ -1,7 +1,8 @@
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Check } from "lucide-react";
+import { Check, X } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function About() {
   return (
@@ -9,44 +10,27 @@ export default function About() {
       {/* Hero */}
       <section className="bg-warm-gradient">
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <div className="max-w-3xl">
+          <div className="max-w-4xl">
             <h1 className="font-heading text-4xl md:text-5xl font-semibold text-heading leading-tight">
-              Technology leadership for moments that actually matter.
+              An operating firm for high-risk, high-leverage moments.
             </h1>
             <p className="mt-6 text-xl font-body text-subtle leading-relaxed">
-              The CTO Mentor (TCM) is a turnaround-and-scale firm for founder-led, tech-enabled companies where the CTO function is broken, underpowered, or misaligned with the business.
+              The CTO Mentor is brought in when technology execution is critical, the stakes are high, and the cost of getting it wrong is unacceptable. We operate as embedded leadership—not advisors, not consultants, not fractional contractors.
+            </p>
+            <p className="mt-4 text-lg font-body text-foreground leading-relaxed">
+              We take ownership. We drive execution. We own outcomes. We take equity because we're building value, not billing hours.
             </p>
             
-            {/* Supporting bullets */}
-            <ul className="mt-8 space-y-3">
-              <li className="flex items-start gap-3 text-base font-body text-foreground">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                We fix failing technology organizations
-              </li>
-              <li className="flex items-start gap-3 text-base font-body text-foreground">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                We run the CTO function when leadership is missing or stretched
-              </li>
-              <li className="flex items-start gap-3 text-base font-body text-foreground">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                We prepare companies to scale, modernize, or withstand scrutiny
-              </li>
-              <li className="flex items-start gap-3 text-base font-body text-foreground">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                We align engineering reality with business and board expectations
-              </li>
-            </ul>
-
             {/* CTAs */}
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <Link to="/apply">
                 <Button variant="primary" size="xl">
-                  Book a Strategy Call
+                  Apply for an Operator-in-Residence Engagement
                 </Button>
               </Link>
               <Link to="/services">
                 <Button variant="outline" size="xl">
-                  See Our Services
+                  See How We Operate
                 </Button>
               </Link>
             </div>
@@ -54,52 +38,101 @@ export default function About() {
         </div>
       </section>
 
-      {/* Why We Exist */}
+      {/* Why The CTO Mentor Exists */}
       <section className="bg-background">
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
           <div className="max-w-3xl">
             <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-6">
-              Why We Exist
+              Why The CTO Mentor Exists
             </h2>
             <p className="text-lg font-body text-foreground leading-relaxed mb-6">
-              Most technology failures don't happen because of bad engineers or the wrong tools.
+              Most technology failures aren't technical. They're organizational. They happen because no one owns real decisions, leadership avoids hard tradeoffs, architecture drifts faster than the business, and boards receive optimism instead of truth.
             </p>
             <p className="text-lg font-body text-foreground leading-relaxed mb-6">
-              They happen because:
+              The CTO Mentor exists to operate in that gap. We're brought in at moments when:
             </p>
             <ul className="space-y-3 mb-8">
               <li className="flex items-start gap-3 text-base font-body text-foreground">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                No one owns real technical decisions
+                Technology execution is blocking business outcomes
               </li>
               <li className="flex items-start gap-3 text-base font-body text-foreground">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                Leadership avoids hard tradeoffs
+                Leadership gaps or misalignment are creating execution risk
               </li>
               <li className="flex items-start gap-3 text-base font-body text-foreground">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                Architecture drifts faster than the business
+                Scale, platform shifts, or M&A require technical readiness
               </li>
               <li className="flex items-start gap-3 text-base font-body text-foreground">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                Boards and executives receive optimism instead of truth
+                Boards and investors need execution truth, not optimism
               </li>
             </ul>
-            <p className="text-lg font-body text-foreground leading-relaxed mb-4">
-              The CTO Mentor was built to operate in that gap.
-            </p>
-            <p className="text-lg font-body text-foreground leading-relaxed">
-              TCM exists to bring clarity, authority, and execution discipline to technology organizations under pressure—when the cost of getting it wrong is high and the tolerance for experimentation is gone.
+            <p className="text-lg font-body text-foreground leading-relaxed font-medium">
+              We operate when the cost of getting it wrong is high and the tolerance for experimentation is gone.
             </p>
           </div>
         </div>
       </section>
 
-      {/* How TCM Is Different */}
+      {/* How We Operate */}
       <section className="bg-section-gradient border-y border-divider">
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
+          <div className="max-w-3xl">
+            <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-6">
+              How We Operate
+            </h2>
+            <p className="text-lg font-body text-foreground leading-relaxed mb-8">
+              We engage as Operator-in-Residence—embedded leadership with full execution authority and accountability. This is not remote advisory or part-time consulting. We operate where decisions are made.
+            </p>
+            
+            <div className="space-y-6 mb-8">
+              <div>
+                <h3 className="font-heading text-xl font-semibold text-heading mb-3">
+                  Ownership & Authority
+                </h3>
+                <p className="text-base font-body text-foreground leading-relaxed">
+                  We take full ownership of the CTO mandate: technical strategy, architecture decisions, execution velocity, team structure, vendor governance, and board communication. We have explicit decision rights and operate with CEO-level partnership.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-heading text-xl font-semibold text-heading mb-3">
+                  Operating Cadence
+                </h3>
+                <p className="text-base font-body text-foreground leading-relaxed">
+                  Every engagement has a defined operating rhythm: weekly exec syncs, bi-weekly deep dives, monthly board memos. We bring structure without bureaucracy, urgency without chaos, and progress without theatrics.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-heading text-xl font-semibold text-heading mb-3">
+                  Patterns & Outcomes
+                </h3>
+                <p className="text-base font-body text-foreground leading-relaxed">
+                  We've stabilized organizations following vendor failure, architectural sprawl, and leadership gaps. We've designed and modernized multi-tenant platforms, data systems, and AI-enabled infrastructure. We've worked directly with CEOs, boards, and investors during moments of execution risk and transition.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-heading text-xl font-semibold text-heading mb-3">
+                  Transition Planning
+                </h3>
+                <p className="text-base font-body text-foreground leading-relaxed">
+                  We design transitions from day one—building systems and teams that can operate independently. When it's time to transition to a full-time CTO or internal leader, we ensure continuity and clean handoff. No dependency creation.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How We Are Different */}
+      <section className="bg-background">
+        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
           <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-12">
-            How TCM Is Different
+            How We Are Different
           </h2>
           <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
             {/* What We Are Not */}
@@ -109,20 +142,24 @@ export default function About() {
               </h3>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3 text-base font-body text-foreground">
-                  <span className="text-subtle">—</span>
-                  A staff augmentation firm
+                  <X size={20} className="text-subtle flex-shrink-0 mt-0.5" />
+                  A fractional CTO splitting time across multiple clients
                 </li>
                 <li className="flex items-start gap-3 text-base font-body text-foreground">
-                  <span className="text-subtle">—</span>
-                  A dev shop selling capacity
+                  <X size={20} className="text-subtle flex-shrink-0 mt-0.5" />
+                  A staff augmentation firm or dev shop selling capacity
                 </li>
                 <li className="flex items-start gap-3 text-base font-body text-foreground">
-                  <span className="text-subtle">—</span>
-                  A slide-driven consultancy
+                  <X size={20} className="text-subtle flex-shrink-0 mt-0.5" />
+                  A slide-driven consultancy offering advice from the sidelines
                 </li>
                 <li className="flex items-start gap-3 text-base font-body text-foreground">
-                  <span className="text-subtle">—</span>
-                  An hourly advisory service
+                  <X size={20} className="text-subtle flex-shrink-0 mt-0.5" />
+                  An hourly advisory service billing for time, not outcomes
+                </li>
+                <li className="flex items-start gap-3 text-base font-body text-foreground">
+                  <X size={20} className="text-subtle flex-shrink-0 mt-0.5" />
+                  A personal consulting brand—we're an operating firm
                 </li>
               </ul>
             </div>
@@ -135,19 +172,19 @@ export default function About() {
               <ul className="space-y-4">
                 <li className="flex items-start gap-3 text-base font-body text-foreground">
                   <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
-                  A CTO Office, not a single individual
+                  An operating firm built for high-risk, high-leverage moments
                 </li>
                 <li className="flex items-start gap-3 text-base font-body text-foreground">
                   <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
-                  A firm built for turnarounds and scale
+                  Operator-in-Residence with full execution authority and accountability
                 </li>
                 <li className="flex items-start gap-3 text-base font-body text-foreground">
                   <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
-                  Operator-in-Residence: temporary co-founder, not contractor
+                  Embedded in decision-making, not observing from the sidelines
                 </li>
                 <li className="flex items-start gap-3 text-base font-body text-foreground">
                   <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
-                  Embedded in decision-making with full accountability
+                  Equity-aligned temporary co-founder, not contractor
                 </li>
                 <li className="flex items-start gap-3 text-base font-body text-foreground">
                   <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
@@ -160,208 +197,112 @@ export default function About() {
           {/* Anchor statement */}
           <div className="mt-12 pt-12 border-t border-divider">
             <p className="text-xl font-heading font-semibold text-heading text-center max-w-2xl mx-auto">
-              We don't advise from the sidelines. We operate where decisions are made.
+              We don't advise from the sidelines. We operate where decisions are made, and we own the outcomes.
             </p>
           </div>
         </div>
       </section>
 
-      {/* How We Work */}
-      <section className="bg-background">
-        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <div className="max-w-3xl">
-            <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-6">
-              Our Operating Model
-            </h2>
-            <p className="text-lg font-body text-foreground leading-relaxed mb-8">
-              TCM engages as an embedded leadership function—Operator-in-Residence with full execution accountability. We operate as temporary co-founders, not external observers or part-time advisors.
-            </p>
-            <p className="text-lg font-body text-foreground leading-relaxed mb-8">
-              Every engagement is built around:
-            </p>
-            <ul className="space-y-3 mb-8">
-              <li className="flex items-start gap-3 text-base font-body text-foreground">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                Clear ownership of the CTO mandate
-              </li>
-              <li className="flex items-start gap-3 text-base font-body text-foreground">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                A defined operating cadence
-              </li>
-              <li className="flex items-start gap-3 text-base font-body text-foreground">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                Explicit decision rights
-              </li>
-              <li className="flex items-start gap-3 text-base font-body text-foreground">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                Board-ready communication
-              </li>
-            </ul>
-            <p className="text-lg font-body text-foreground leading-relaxed mb-8">
-              We bring structure without bureaucracy, urgency without chaos, and progress without theatrics.
-            </p>
-          </div>
-
-          {/* 4 Steps Visual */}
-          <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div>
-              <span className="text-xs font-body font-semibold text-accent tracking-wider">01</span>
-              <h3 className="mt-2 font-heading text-xl font-semibold text-heading">
-                Diagnose reality
-              </h3>
-            </div>
-            <div>
-              <span className="text-xs font-body font-semibold text-accent tracking-wider">02</span>
-              <h3 className="mt-2 font-heading text-xl font-semibold text-heading">
-                Stabilize leadership and systems
-              </h3>
-            </div>
-            <div>
-              <span className="text-xs font-body font-semibold text-accent tracking-wider">03</span>
-              <h3 className="mt-2 font-heading text-xl font-semibold text-heading">
-                Establish operating discipline
-              </h3>
-            </div>
-            <div>
-              <span className="text-xs font-body font-semibold text-accent tracking-wider">04</span>
-              <h3 className="mt-2 font-heading text-xl font-semibold text-heading">
-                Prepare for scale or transition
-              </h3>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Credentials */}
+      {/* Our View on Incentives & Equity */}
       <section className="bg-section-gradient border-y border-divider">
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
           <div className="max-w-3xl">
             <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-6">
-              Credentials That Matter
-            </h2>
-            <p className="text-lg font-body text-foreground leading-relaxed mb-8">
-              TCM's credibility comes from repeated exposure to real operating complexity—not abstract theory.
-            </p>
-            <p className="text-lg font-body text-foreground leading-relaxed mb-8">
-              As a firm, we have:
-            </p>
-            <ul className="space-y-3 mb-8">
-              <li className="flex items-start gap-3 text-base font-body text-foreground">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                Led and supported CTO and acting-CTO roles in high-growth and high-stress environments
-              </li>
-              <li className="flex items-start gap-3 text-base font-body text-foreground">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                Stabilized organizations following vendor failure, architectural sprawl, or leadership gaps
-              </li>
-              <li className="flex items-start gap-3 text-base font-body text-foreground">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                Designed, governed, and modernized multi-tenant platforms, data systems, and AI-enabled infrastructure
-              </li>
-              <li className="flex items-start gap-3 text-base font-body text-foreground">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                Worked directly with CEOs, boards, and investors during moments of execution risk and transition
-              </li>
-            </ul>
-            <p className="text-lg font-body text-foreground leading-relaxed mb-8">
-              Our experience spans technology, operations, data, and governance—because in practice, these domains fail together.
-            </p>
-            <div className="bg-card border border-divider rounded-lg p-8">
-              <h3 className="font-heading text-xl font-semibold text-heading mb-4">
-                We are trusted when:
-              </h3>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3 text-base font-body text-foreground">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  Delivery has stalled
-                </li>
-                <li className="flex items-start gap-3 text-base font-body text-foreground">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  Confidence has eroded
-                </li>
-                <li className="flex items-start gap-3 text-base font-body text-foreground">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  Scale is exposing weak foundations
-                </li>
-                <li className="flex items-start gap-3 text-base font-body text-foreground">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  Leadership needs clarity, not noise
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Who We Work With */}
-      <section className="bg-background">
-        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <div className="max-w-3xl">
-            <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-6">
-              Who We Work With
+              Our View on Incentives & Equity
             </h2>
             <p className="text-lg font-body text-foreground leading-relaxed mb-6">
-              TCM works with organizations where technology is core to the business—not a support function.
+              We structure compensation as cash + equity because alignment matters. Cash ensures execution focus. Equity ensures long-term value creation. Together, they create the right incentive structure for co-founder-level partnership.
             </p>
-            <p className="text-lg font-body text-foreground leading-relaxed mb-8">
-              Typical clients include:
+            <p className="text-lg font-body text-foreground leading-relaxed mb-6">
+              Here's our view:
             </p>
-            <ul className="space-y-3 mb-8">
-              <li className="flex items-start gap-3 text-base font-body text-foreground">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                Founder-led companies post-fundraise
-              </li>
-              <li className="flex items-start gap-3 text-base font-body text-foreground">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                Growth-stage businesses outgrowing their original architecture
-              </li>
-              <li className="flex items-start gap-3 text-base font-body text-foreground">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                Boards navigating CTO transitions or execution risk
-              </li>
-              <li className="flex items-start gap-3 text-base font-body text-foreground">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                Investors seeking clarity before or after capital deployment
-              </li>
-            </ul>
+            
+            <div className="space-y-6 mb-8">
+              <Card className="border-divider">
+                <CardContent className="p-6">
+                  <h3 className="font-heading text-lg font-semibold text-heading mb-3">
+                    Equity Justifies Premium
+                  </h3>
+                  <p className="text-base font-body text-foreground leading-relaxed">
+                    Equity participation reflects the co-founder-level ownership we take. We're not contractors—we're temporary partners with skin in the game. This justifies premium pricing and ensures we're invested in outcomes that compound, not just deliverables that bill.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-divider">
+                <CardContent className="p-6">
+                  <h3 className="font-heading text-lg font-semibold text-heading mb-3">
+                    Cash Ensures Execution Focus
+                  </h3>
+                  <p className="text-base font-body text-foreground leading-relaxed">
+                    Cash compensation ensures we're paid for execution, not promises. It keeps us focused on your success, not exit timing. The combination of cash + equity creates the right incentive structure for both parties: we're rewarded for both immediate execution and long-term value creation.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-divider">
+                <CardContent className="p-6">
+                  <h3 className="font-heading text-lg font-semibold text-heading mb-3">
+                    Transparent Structure
+                  </h3>
+                  <p className="text-base font-body text-foreground leading-relaxed">
+                    Compensation structure is defined upfront: cash component (retainer or fixed fee), equity component (typically 0.5%–2% depending on stage and scope), and clear milestones or triggers for equity vesting. No surprises, no renegotiation, no misaligned incentives.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+
             <p className="text-lg font-body text-foreground leading-relaxed font-medium">
-              If execution matters more than optics, TCM is usually a fit.
+              We take equity because we're building value, not billing hours. That alignment is what makes the Operator-in-Residence model work.
             </p>
           </div>
         </div>
       </section>
 
-      {/* What Clients Can Expect */}
-      <section className="bg-section-gradient border-y border-divider">
+      {/* When We Say No */}
+      <section className="bg-background">
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
           <div className="max-w-3xl">
             <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-6">
-              What You Can Expect When Working With TCM
+              When We Say No
             </h2>
-            <ul className="space-y-4">
+            <p className="text-lg font-body text-foreground leading-relaxed mb-6">
+              We're explicit about fit because misalignment wastes everyone's time. We say no to:
+            </p>
+            
+            <ul className="space-y-4 mb-8">
               <li className="flex items-start gap-3 text-base font-body text-foreground">
-                <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
-                Direct, senior-level engagement
+                <X size={20} className="text-subtle flex-shrink-0 mt-0.5" />
+                Companies seeking hourly consulting or part-time advisory—we're not fractional contractors
               </li>
               <li className="flex items-start gap-3 text-base font-body text-foreground">
-                <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
-                Clear recommendations, not hedged advice
+                <X size={20} className="text-subtle flex-shrink-0 mt-0.5" />
+                Organizations looking for staff augmentation or dev shop capacity—we're not selling hours
               </li>
               <li className="flex items-start gap-3 text-base font-body text-foreground">
-                <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
-                Respect for existing teams paired with accountability
+                <X size={20} className="text-subtle flex-shrink-0 mt-0.5" />
+                Early-stage startups pre-product-market fit without clear technical needs—we operate at higher stakes
               </li>
               <li className="flex items-start gap-3 text-base font-body text-foreground">
-                <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
-                Honest communication with executives and boards
+                <X size={20} className="text-subtle flex-shrink-0 mt-0.5" />
+                Companies with budgets under $25k/month for ongoing engagements—our model requires meaningful investment
               </li>
               <li className="flex items-start gap-3 text-base font-body text-foreground">
-                <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
-                A bias toward stability, clarity, and momentum
+                <X size={20} className="text-subtle flex-shrink-0 mt-0.5" />
+                Organizations that want slide-driven strategy without execution accountability—we own outcomes
+              </li>
+              <li className="flex items-start gap-3 text-base font-body text-foreground">
+                <X size={20} className="text-subtle flex-shrink-0 mt-0.5" />
+                Founders who aren't ready to give real decision-making authority—we need CEO-level partnership
+              </li>
+              <li className="flex items-start gap-3 text-base font-body text-foreground">
+                <X size={20} className="text-subtle flex-shrink-0 mt-0.5" />
+                Companies where technology isn't core to business outcomes—we're not a support function
               </li>
             </ul>
-            <p className="mt-8 text-lg font-body text-foreground leading-relaxed font-medium">
-              No theatrics. No jargon. No dependency creation.
+
+            <p className="text-lg font-body text-foreground leading-relaxed font-medium">
+              If you're looking for fractional consulting, hourly billing, or part-time advice, we're not the right partner. If technology execution is critical and the stakes are high, we should talk.
             </p>
           </div>
         </div>
@@ -372,13 +313,13 @@ export default function About() {
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
           <div className="max-w-2xl">
             <h2 className="font-heading text-3xl md:text-4xl font-semibold text-white mb-6">
-              When technology becomes a constraint, leadership matters.
+              When technology execution is critical, we should talk.
             </h2>
             <p className="text-lg font-body text-primary-foreground/90 leading-relaxed mb-10">
-              If your organization is experiencing stalled delivery, leadership gaps, or scaling pressure, one conversation can bring clarity.
+              In one conversation, we'll assess fit, define the engagement scope, and determine if Operator-in-Residence is the right model for your situation. No long sales cycles—just clarity and a path forward.
             </p>
             <p className="text-lg font-body text-primary-foreground/90 leading-relaxed mb-10">
-              We'll assess the situation quickly and recommend the cleanest path forward—even if that means we're not the right fit.
+              We'll recommend the cleanest path forward—even if that means we're not the right fit.
             </p>
             <Link to="/apply">
               <Button
@@ -386,7 +327,7 @@ export default function About() {
                 size="xl"
                 className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary"
               >
-                Book a Strategy Call
+                Apply for an Operator-in-Residence Engagement
               </Button>
             </Link>
           </div>
