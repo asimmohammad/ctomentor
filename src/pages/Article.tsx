@@ -266,6 +266,261 @@ const articles: Record<string, {
       </div>
     ),
   },
+  "decision-rights": {
+    title: "Why Decision Rights Matter More Than Technology Choices",
+    date: "December 2024",
+    category: "Leadership",
+    content: (
+      <div className="prose prose-lg max-w-none">
+        <p className="text-lg font-body text-foreground leading-relaxed mb-6">
+          The most common cause of engineering dysfunction isn't technical debt — it's unclear ownership.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-6">
+          When engineering organizations struggle, the instinctive diagnosis is almost always technical.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          The codebase is messy.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          The architecture is outdated.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          The tooling choices were wrong.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-6">
+          There's too much technical debt.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-6">
+          These explanations feel concrete and actionable. You can refactor code. You can rewrite systems. You can migrate stacks.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-8">
+          But in my experience, these are rarely the root cause.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-8 font-medium">
+          The most common cause of engineering dysfunction is not what technology was chosen — it's who has the right to decide.
+        </p>
+
+        <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-6">
+          Technology Problems Are Usually Management Problems in Disguise
+        </h2>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Engineering systems reflect the organizations that build them.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          When ownership is clear, even imperfect technology can move forward. Teams know who decides, how trade-offs are made, and what success looks like.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          When ownership is unclear, even "best-in-class" technology degrades into chaos.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          You see the symptoms quickly:
+        </p>
+        <ul className="list-disc list-inside space-y-2 mb-6 text-base font-body text-foreground">
+          <li>Decisions get revisited repeatedly</li>
+          <li>Roadmaps change without explanation</li>
+          <li>Engineers hedge instead of committing</li>
+          <li>Meetings replace progress</li>
+          <li>Everyone is involved, but no one is accountable</li>
+        </ul>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          From the outside, this looks like a technical slowdown.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-8">
+          From the inside, it feels like paralysis.
+        </p>
+
+        <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-6">
+          The Hidden Cost of Ambiguous Decision Rights
+        </h2>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Unclear decision rights create a subtle but destructive dynamic.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Engineers begin optimizing for safety instead of outcomes. Product managers push for features without understanding system constraints. CTOs spend more time mediating than leading. Founders step into technical debates they shouldn't have to referee.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Every decision becomes a negotiation.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Every change requires consensus.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Every disagreement slows delivery.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Velocity doesn't disappear overnight — it erodes quietly, sprint by sprint.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-8">
+          And because no one can point to a single "bad decision," the organization assumes the problem must be technical.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-8 font-medium">
+          It isn't.
+        </p>
+
+        <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-6">
+          What Decision Rights Actually Are (And Aren't)
+        </h2>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Decision rights are not about hierarchy or control.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-6">
+          They are about clarity.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          They answer questions like:
+        </p>
+        <ul className="list-disc list-inside space-y-2 mb-6 text-base font-body text-foreground">
+          <li>Who decides when speed outweighs stability?</li>
+          <li>Who owns architectural trade-offs?</li>
+          <li>Who can say "no" when everything feels urgent?</li>
+          <li>Who is accountable when a decision creates downstream consequences?</li>
+        </ul>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          In healthy organizations, these answers are explicit — even if they aren't written down.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-8">
+          In dysfunctional ones, they are implied, assumed, or constantly renegotiated.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-8">
+          That's when systems start to break.
+        </p>
+
+        <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-6">
+          How Engineering Teams Behave When Ownership Is Unclear
+        </h2>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          When decision rights are fuzzy, engineers adapt — but not in ways leadership expects.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          They:
+        </p>
+        <ul className="list-disc list-inside space-y-2 mb-6 text-base font-body text-foreground">
+          <li>Avoid making irreversible changes</li>
+          <li>Defer decisions upward unnecessarily</li>
+          <li>Over-document to protect themselves</li>
+          <li>Slow down releases to reduce risk</li>
+          <li>Build workaround upon workaround</li>
+        </ul>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          From a distance, it looks like overengineering or lack of urgency.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-8">
+          In reality, it's rational behavior in an unsafe system.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-8 font-medium">
+          People move fastest when they know who owns the call — and what happens after the call is made.
+        </p>
+
+        <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-6">
+          Diagnosing the Real Problem
+        </h2>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          If you're a founder or CEO, ask yourself these questions:
+        </p>
+        <ul className="list-disc list-inside space-y-2 mb-6 text-base font-body text-foreground">
+          <li>When engineering and product disagree, who breaks the tie?</li>
+          <li>Can engineers explain why certain trade-offs were made?</li>
+          <li>Do decisions survive leadership meetings — or get reopened?</li>
+          <li>Is accountability clear when outcomes miss expectations?</li>
+        </ul>
+        <p className="text-base font-body text-foreground leading-relaxed mb-8">
+          If the answers are vague, inconsistent, or political, you don't have a technology problem.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-8 font-medium">
+          You have a decision-rights problem.
+        </p>
+
+        <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-6">
+          Why Rewrites and New Tools Rarely Fix This
+        </h2>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          This is why companies repeatedly invest in:
+        </p>
+        <ul className="list-disc list-inside space-y-2 mb-6 text-base font-body text-foreground">
+          <li>New architectures</li>
+          <li>New frameworks</li>
+          <li>New processes</li>
+          <li>New hires</li>
+        </ul>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          …and see little improvement.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Without clear ownership, new technology simply inherits old dysfunction.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          The stack changes.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-8">
+          The behavior doesn't.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-8 font-medium">
+          Until decision rights are clarified, every technical improvement is temporary.
+        </p>
+
+        <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-6">
+          What High-Functioning Teams Do Differently
+        </h2>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Strong engineering organizations don't avoid disagreement.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-6">
+          They resolve it decisively.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          They:
+        </p>
+        <ul className="list-disc list-inside space-y-2 mb-6 text-base font-body text-foreground">
+          <li>Make ownership explicit</li>
+          <li>Define who decides under which conditions</li>
+          <li>Protect decision-makers from constant reversal</li>
+          <li>Hold people accountable for outcomes, not activity</li>
+        </ul>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          This creates trust.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Engineers move faster because they know the rules. Product teams plan better because decisions stick. Leadership spends less time in the weeds and more time steering the company.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-8">
+          Technology becomes an enabler again — not a scapegoat.
+        </p>
+
+        <div className="mt-12 pt-8 border-t border-divider">
+          <h3 className="font-heading text-xl font-semibold text-heading mb-4">
+            The Real Leverage Point
+          </h3>
+          <p className="text-base font-body text-foreground leading-relaxed mb-4">
+            If you want to fix engineering dysfunction, don't start with the codebase.
+          </p>
+          <p className="text-base font-body text-foreground leading-relaxed mb-4">
+            Start with clarity.
+          </p>
+          <p className="text-base font-body text-foreground leading-relaxed mb-4">
+            Clarify who owns decisions.
+          </p>
+          <p className="text-base font-body text-foreground leading-relaxed mb-4">
+            Clarify what authority comes with each role.
+          </p>
+          <p className="text-base font-body text-foreground leading-relaxed mb-4">
+            Clarify how disagreements get resolved.
+          </p>
+          <p className="text-base font-body text-foreground leading-relaxed mb-4">
+            Only then does it make sense to talk about architecture, tooling, or refactoring.
+          </p>
+          <p className="text-base font-body text-foreground leading-relaxed mb-4 font-medium">
+            Because the truth is simple:
+          </p>
+          <p className="text-base font-body text-foreground leading-relaxed mb-4">
+            Great technology choices can't save unclear ownership.
+          </p>
+          <p className="text-base font-body text-foreground leading-relaxed font-medium">
+            But clear decision rights can save almost any technology stack.
+          </p>
+        </div>
+      </div>
+    ),
+  },
 };
 
 export default function Article() {
