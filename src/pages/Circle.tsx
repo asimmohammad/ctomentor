@@ -21,7 +21,7 @@ export default function Circle() {
               CTO Mentor Circle
             </span>
             <h1 className="mt-4 font-heading text-4xl md:text-5xl font-semibold text-heading leading-tight">
-              For CTOs who want to lead — not just survive.
+              For CTOs who want to lead with authority and execution discipline.
             </h1>
             <p className="mt-6 text-xl font-body text-subtle">
               A peer-level operating group for CTOs ready to lead with
@@ -91,8 +91,7 @@ export default function Circle() {
             </h2>
             <p className="mt-6 text-lg font-body text-subtle leading-relaxed">
               This is for technology leaders who are past the early chaos but
-              want to operate at a higher altitude. You're not looking for
-              tactical tips — you want strategic clarity and the perspective of
+              want to operate at a higher altitude. You want strategic clarity and the perspective of
               peers who understand the weight of the role.
             </p>
             <p className="mt-4 text-lg font-body text-subtle leading-relaxed">

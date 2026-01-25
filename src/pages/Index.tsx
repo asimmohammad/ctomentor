@@ -23,7 +23,7 @@ const services = [
   {
     title: "Operator-in-Residence / Equity CTO",
     description:
-      "Embedded execution leadership with full accountability — temporary co-founder, not contractor.",
+      "Embedded execution leadership with full accountability — operating executive with equity alignment.",
     href: "/services",
   },
   {
@@ -81,7 +81,7 @@ export default function Index() {
               Operator-in-Residence: Own the CTO function. Execute with accountability.
             </h1>
             <p className="mt-6 text-lg md:text-xl font-body text-subtle leading-relaxed max-w-2xl animate-fade-in-up animation-delay-100">
-              This is not fractional consulting or part-time advisory. We embed as your temporary co-founder—owning decisions, driving execution, and taking accountability for outcomes that matter.
+              We embed as your temporary co-founder—owning decisions, driving execution, and taking accountability for outcomes that matter.
             </p>
             <p className="mt-4 text-base font-body text-subtle leading-relaxed max-w-2xl animate-fade-in-up animation-delay-100">
               For founder-led companies where technology execution is critical and the cost of getting it wrong is high.
@@ -228,7 +228,7 @@ export default function Index() {
                     <TableCell className="font-body text-foreground text-sm">Low—can attribute failures to time constraints or other client priorities</TableCell>
                     <TableCell className="font-body text-foreground text-sm">High for operations, but technology accountability is indirect</TableCell>
                     <TableCell className="font-body text-foreground text-sm">High within assigned domain, but scope may be narrow</TableCell>
-                    <TableCell className="font-body text-foreground text-sm font-medium bg-accent/5">Full accountability for technology outcomes—no excuses, no handoffs</TableCell>
+                    <TableCell className="font-body text-foreground text-sm font-medium bg-accent/5">Full accountability for technology outcomes—complete ownership, dedicated focus</TableCell>
                   </TableRow>
                   <TableRow className="border-divider hover:bg-card/50">
                     <TableCell className="font-heading font-semibold text-heading">Incentive Alignment</TableCell>
@@ -236,7 +236,7 @@ export default function Index() {
                     <TableCell className="font-body text-foreground text-sm">Hourly/retainer fees, no equity—incentive to bill hours, not create value</TableCell>
                     <TableCell className="font-body text-foreground text-sm">Salary + equity, but technology is not primary focus</TableCell>
                     <TableCell className="font-body text-foreground text-sm">Equity participation, but may lack technical depth</TableCell>
-                    <TableCell className="font-body text-foreground text-sm font-medium bg-accent/5">Cash + meaningful equity—aligned with long-term value creation, not billing hours</TableCell>
+                    <TableCell className="font-body text-foreground text-sm font-medium bg-accent/5">Cash + meaningful equity—aligned with long-term value creation and outcomes</TableCell>
                   </TableRow>
                   <TableRow className="border-divider hover:bg-card/50">
                     <TableCell className="font-heading font-semibold text-heading">Relationship to CEO</TableCell>
@@ -244,7 +244,7 @@ export default function Index() {
                     <TableCell className="font-body text-foreground text-sm">External consultant, part-time advisor relationship</TableCell>
                     <TableCell className="font-body text-foreground text-sm">Strategic partner, operations-focused</TableCell>
                     <TableCell className="font-body text-foreground text-sm">Embedded partner, typically operations or product-focused</TableCell>
-                    <TableCell className="font-body text-foreground text-sm font-medium bg-accent/5">Temporary co-founder—CEO-level partnership with execution authority</TableCell>
+                    <TableCell className="font-body text-foreground text-sm font-medium bg-accent/5">Operating executive—CEO-level partnership with execution authority</TableCell>
                   </TableRow>
                   <TableRow className="border-divider hover:bg-card/50">
                     <TableCell className="font-heading font-semibold text-heading">Technical Depth</TableCell>
@@ -295,10 +295,10 @@ export default function Index() {
           <div className="mt-12 max-w-4xl">
             <div className="bg-card border border-divider rounded-lg p-8">
               <p className="text-base font-body text-foreground leading-relaxed mb-4">
-                The CTO Mentor's Operator-in-Residence / Equity CTO model sits in a unique category: it combines the execution authority and accountability of a full-time CTO with the fresh perspective and flexibility of an embedded partner, while avoiding the limitations of fractional consulting (split focus, no equity) and the narrow scope of traditional operators (operations-focused, limited technical depth).
+                The CTO Mentor's Operator-in-Residence / Equity CTO model sits in a unique category: it combines the execution authority and accountability of a full-time CTO with the fresh perspective and flexibility of an embedded partner, delivering the focus and equity alignment that fractional consulting lacks and the technical depth that traditional operators often miss.
               </p>
               <p className="text-base font-body text-foreground leading-relaxed">
-                Unlike a COO, we own technology outcomes directly. Unlike a fractional CTO, we're not splitting time across clients—we're fully embedded with equity alignment. The result is a temporary co-founder who takes full responsibility for technology execution when the stakes are high and the cost of getting it wrong is unacceptable.
+                We own technology outcomes directly—with the embedded execution of an operating executive and the equity alignment that ensures long-term value creation. The result is an operating executive who takes full responsibility for technology execution when the stakes are high and the cost of getting it wrong is unacceptable.
               </p>
             </div>
           </div>

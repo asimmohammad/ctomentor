@@ -31,7 +31,7 @@ export default function Experience() {
               Where We've Been Brought In
             </h2>
             <p className="text-lg font-body text-foreground leading-relaxed mb-8">
-              These are the scenarios where we've been engaged. Not companies or roles—situations where technology execution was existential and an Operator-in-Residence model was required.
+              These are the scenarios where we've been engaged. Situations where technology execution was existential and an Operator-in-Residence model was required.
             </p>
             <div className="space-y-8">
               <div>
@@ -46,7 +46,7 @@ export default function Experience() {
                     <strong>Why technology was existential:</strong> Product-market fit requires rapid iteration. Slow delivery velocity kills experiments before they can validate. Architecture that doesn't scale blocks growth when traction arrives.
                   </li>
                   <li className="text-base font-body text-foreground">
-                    <strong>Why Operator-in-Residence was required:</strong> Founders need execution authority, not advice. Fractional consulting doesn't own outcomes. Full-time CTO hire is premature and expensive. Embedded operator owns delivery and makes decisions that hold.
+                    <strong>Why Operator-in-Residence was required:</strong> Founders need execution authority and ownership. Full-time CTO hire is premature and expensive. Embedded operator owns delivery and makes decisions that hold.
                   </li>
                 </ul>
               </div>
@@ -63,7 +63,7 @@ export default function Experience() {
                     <strong>Why technology was existential:</strong> Scaling pain kills growth momentum. Customer experience degrades. Engineering team burns out. Investors lose confidence when execution stalls.
                   </li>
                   <li className="text-base font-body text-foreground">
-                    <strong>Why Operator-in-Residence was required:</strong> Scaling requires immediate decisions and execution authority. Advisory doesn't fix broken systems. Full-time CTO search takes months. Embedded operator stabilizes, scales, and transitions to permanent leadership.
+                    <strong>Why Operator-in-Residence was required:</strong> Scaling requires immediate decisions and execution authority. Full-time CTO search takes months. Embedded operator stabilizes, scales, and transitions to permanent leadership.
                   </li>
                 </ul>
               </div>
@@ -97,7 +97,7 @@ export default function Experience() {
                     <strong>Why technology was existential:</strong> High burn with low velocity kills companies. Investors lose confidence. Runway compresses. Team morale collapses when effort doesn't translate to outcomes.
                   </li>
                   <li className="text-base font-body text-foreground">
-                    <strong>Why Operator-in-Residence was required:</strong> Velocity problems require immediate diagnosis and intervention. Advisory doesn't fix broken processes. Full-time hire takes too long. Embedded operator owns delivery velocity and makes hard decisions about team and process.
+                    <strong>Why Operator-in-Residence was required:</strong> Velocity problems require immediate diagnosis and intervention. Full-time hire takes too long. Embedded operator owns delivery velocity and makes hard decisions about team and process.
                   </li>
                 </ul>
               </div>
@@ -114,7 +114,7 @@ export default function Experience() {
                     <strong>Why technology was existential:</strong> Board confidence is required for fundraising and strategic decisions. Technical execution risk blocks growth. Investors need execution truth, not optimism.
                   </li>
                   <li className="text-base font-body text-foreground">
-                    <strong>Why Operator-in-Residence was required:</strong> Boards need technical leadership they can trust. Advisory doesn't restore confidence. Full-time hire is risky when execution is already in question. Embedded operator provides immediate credibility and execution truth.
+                    <strong>Why Operator-in-Residence was required:</strong> Boards need technical leadership they can trust. Full-time hire is risky when execution is already in question. Embedded operator provides immediate credibility and execution truth.
                   </li>
                 </ul>
               </div>
@@ -472,13 +472,13 @@ export default function Experience() {
               What This Means for Engagements
             </h2>
             <p className="text-lg font-body text-foreground leading-relaxed mb-6">
-              This experience translates directly into Operator-in-Residence and Equity CTO engagements. When we engage, we're not learning on your dime. We're applying patterns we've seen before, decisions we've made before, and outcomes we've delivered before.
+              This experience translates directly into Operator-in-Residence and Equity CTO engagements. When we engage, we're applying patterns we've seen before, decisions we've made before, and outcomes we've delivered before.
             </p>
             <p className="text-lg font-body text-foreground leading-relaxed mb-6">
               Pattern recognition accelerates execution. We know what questions to ask, what risks to assess, and what decisions need to happen first. We've seen similar situations before, so we can move faster and with more confidence.
             </p>
             <p className="text-lg font-body text-foreground leading-relaxed mb-8">
-              This is why Operator-in-Residence engagements work. We're not advisors learning your business—we're operators who have operated in similar situations before, bringing that experience to bear immediately.
+              This is why Operator-in-Residence engagements work. We're operators who have operated in similar situations before, bringing that experience to bear immediately.
             </p>
             <div className="bg-card border border-divider rounded-lg p-8">
               <h3 className="font-heading text-xl font-semibold text-heading mb-4">
@@ -487,7 +487,7 @@ export default function Experience() {
               <ul className="space-y-3">
                 <li className="flex items-start gap-3 text-base font-body text-foreground">
                   <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
-                  Repeated exposure to real operating complexity, not abstract theory
+                  Repeated exposure to real operating complexity and proven execution patterns
                 </li>
                 <li className="flex items-start gap-3 text-base font-body text-foreground">
                   <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
@@ -568,7 +568,7 @@ export default function Experience() {
               </div>
             </div>
             <p className="text-lg font-body text-foreground leading-relaxed mt-10 pt-8 border-t border-divider">
-              This is why Operator-in-Residence engagements deliver immediate impact. We're not a typical CTO hire who needs months to learn your business, and we're not an advisory relationship that provides guidance without execution authority. We're operators who have operated in similar situations before, bringing that experience to bear from day one.
+              This is why Operator-in-Residence engagements deliver immediate impact. We're operators who have operated in similar situations before, bringing that experience to bear from day one. We move faster because we've seen these patterns before.
             </p>
           </div>
         </div>
@@ -582,7 +582,7 @@ export default function Experience() {
               When technology execution is critical, experience matters.
             </h2>
             <p className="text-lg font-body text-primary-foreground/90 leading-relaxed mb-10">
-              This experience is what you're hiring when you engage TCM as Operator-in-Residence. Not abstract theory. Not learning on the job. Battle-tested operators who have seen these patterns before.
+              This experience is what you're hiring when you engage TCM as Operator-in-Residence. Battle-tested operators who have seen these patterns before and deliver immediate impact.
             </p>
             <Link to="/apply">
               <Button

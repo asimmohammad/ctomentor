@@ -56,19 +56,19 @@ const engagementModels = [
 const faqs = [
   {
     question: "Why are you more expensive than a Fractional CTO?",
-    answer: "Because we're not fractional. Fractional CTOs split time across multiple clients, bill hourly, and have no equity—they're incentivized to bill hours, not create value. We're fully embedded with full accountability and equity alignment. We own outcomes, not just show up for meetings. The premium reflects the responsibility, risk, and outcomes we take on—not the time we bill.",
+    answer: "We're fully embedded with full accountability and equity alignment. We own outcomes and drive execution. The premium reflects the responsibility, risk, and outcomes we take on. We operate with dedicated focus on your business, with equity participation that aligns incentives for long-term value creation.",
   },
   {
     question: "Why do you require equity in some engagements?",
-    answer: "Equity alignment ensures we're building long-term value, not just billing hours. For Operator-in-Residence and turnaround engagements, equity participation is standard because we're taking co-founder-level ownership and risk. Equity reflects the leverage we provide and the outcomes we own. It's not optional—it's essential for alignment.",
+    answer: "Equity alignment ensures we're building long-term value and creating outcomes that compound. For Operator-in-Residence and turnaround engagements, equity participation is standard because we're taking operating executive-level ownership and risk. Equity reflects the leverage we provide and the outcomes we own. It's essential for alignment.",
   },
   {
     question: "Can we start without equity?",
-    answer: "For Board & Investor Technical Advisory engagements, cash-only is standard. For Operator-in-Residence and turnaround engagements, equity participation is expected. If you're not ready for equity alignment, we're likely not the right partner. Equity isn't negotiable—it's fundamental to how the Operator-in-Residence model works.",
+    answer: "For Board & Investor Technical Advisory engagements, cash-only is standard. For Operator-in-Residence and turnaround engagements, equity participation is expected. Equity is fundamental to how the Operator-in-Residence model works—it ensures alignment and long-term value creation.",
   },
   {
     question: "How long do engagements usually last?",
-    answer: "Operator-in-Residence engagements typically last 6–12 months minimum. Fixed-scope turnarounds are 90 days. Transition & Stabilization engagements are 1–3 months. Duration is defined upfront based on engagement scope and outcomes. We design transitions from day one—no dependency creation, no open-ended commitments.",
+    answer: "Operator-in-Residence engagements typically last 6–12 months minimum. Fixed-scope turnarounds are 90 days. Transition & Stabilization engagements are 1–3 months. Duration is defined upfront based on engagement scope and outcomes. We design transitions from day one—building for independence and clear timelines.",
   },
   {
     question: "Do you help hire or transition to a full-time CTO?",
@@ -76,7 +76,7 @@ const faqs = [
   },
   {
     question: "Is this a consulting engagement?",
-    answer: "No. This is not consulting. We're not advisors offering guidance from the sidelines. We're embedded operators with full execution authority and accountability. We make decisions, drive execution, and own outcomes. If you're looking for consulting or advisory services, we're not the right partner.",
+    answer: "We're embedded operators with full execution authority and accountability. We make decisions, drive execution, and own outcomes. We provide operating executive leadership, not consulting or advisory services.",
   },
 ];
 
@@ -94,7 +94,7 @@ export default function Pricing() {
               Operator-in-Residence engagements are structured as cash + equity because alignment matters. We're not billing hours or selling capacity—we're taking ownership of outcomes that matter.
             </p>
             <p className="mt-4 text-lg font-body text-foreground leading-relaxed font-medium">
-              If you're looking for cheap help or hourly consulting, we're not the right partner. If technology execution is critical and the stakes are high, let's talk.
+              If technology execution is critical and the stakes are high, let's talk. We provide operating executive leadership with full accountability and equity alignment.
             </p>
           </div>
         </div>
@@ -108,13 +108,13 @@ export default function Pricing() {
               Pricing Philosophy
             </h2>
             <p className="text-lg font-body text-foreground leading-relaxed mb-6">
-              Pricing is based on responsibility, not time. When you engage us as Operator-in-Residence, you're transferring risk from your shoulders to ours. We own the CTO function—decisions, execution, and outcomes. If technology fails, that's on us. If delivery stalls, that's on us. If architecture drifts and costs spiral, that's on us. The pricing reflects the responsibility we take and the risk we absorb.
+              Pricing is based on responsibility and outcomes. When you engage us as Operator-in-Residence, you're transferring risk from your shoulders to ours. We own the CTO function—decisions, execution, and outcomes. If technology fails, that's on us. If delivery stalls, that's on us. If architecture drifts and costs spiral, that's on us. The pricing reflects the responsibility we take and the risk we absorb.
             </p>
             <p className="text-lg font-body text-foreground leading-relaxed mb-6">
-              This is fundamentally different from fractional CTO models that bill hourly or by days per week. Fractional CTOs are incentivized to bill hours, not create value. They split time across clients, have no equity, and can attribute failures to time constraints. We're fully embedded with equity alignment—we're building value, not billing hours. Equity isn't a concession; it's alignment. It ensures we're invested in outcomes that compound, not just deliverables that bill.
+              We're fully embedded with equity alignment—building long-term value and creating outcomes that compound. Equity is alignment. It ensures we're invested in outcomes that compound and create sustainable value. We operate with dedicated focus on your business, with equity participation that aligns incentives for long-term success.
             </p>
             <p className="text-lg font-body text-foreground leading-relaxed">
-              The premium reflects risk transfer. You're paying for someone to own the outcomes, not just show up for meetings. When technology execution is critical and the cost of getting it wrong is high, that transfer of risk and responsibility is worth the premium.
+              The premium reflects risk transfer. You're paying for someone to own the outcomes and drive execution. When technology execution is critical and the cost of getting it wrong is high, that transfer of risk and responsibility is worth the premium.
             </p>
           </div>
         </div>
@@ -223,7 +223,7 @@ export default function Pricing() {
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                      Founders seeking co-founder-level technical leadership with significant equity participation
+                      Founders seeking operating executive-level technical leadership with significant equity participation
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
@@ -406,7 +406,7 @@ export default function Pricing() {
                 <div>
                   <h3 className="font-heading text-lg font-semibold text-heading mb-2">Equity Discussions Happen Early</h3>
                   <p className="text-base font-body text-foreground leading-relaxed">
-                    We define equity structure upfront, before engagement begins. This prevents misaligned incentives, avoids awkward renegotiations, and ensures both parties are committed to the same outcomes from day one. Early alignment benefits everyone—the company gets committed execution, and the operator gets clear ownership stakes.
+                    We define equity structure upfront, before engagement begins. This ensures aligned incentives, clear expectations, and commitment to the same outcomes from day one. Early alignment benefits everyone—the company gets committed execution, and the operator gets clear ownership stakes.
                   </p>
                 </div>
               </div>
@@ -415,7 +415,7 @@ export default function Pricing() {
                 <div>
                   <h3 className="font-heading text-lg font-semibold text-heading mb-2">Why This Benefits Both Parties</h3>
                   <p className="text-base font-body text-foreground leading-relaxed">
-                    For the company, equity alignment ensures the operator is building long-term value, not just billing hours. For the operator, equity participation reflects the risk and leverage we take on, creating a fair exchange for the responsibility we own. Both parties are aligned on outcomes that compound, not just deliverables that bill.
+                    For the company, equity alignment ensures the operator is building long-term value and creating outcomes that compound. For the operator, equity participation reflects the risk and leverage we take on, creating a fair exchange for the responsibility we own. Both parties are aligned on outcomes that compound and create sustainable value.
                   </p>
                 </div>
               </div>
@@ -512,7 +512,7 @@ export default function Pricing() {
               If technology execution is critical, let's talk.
             </h2>
             <p className="text-lg font-body text-primary-foreground/90 leading-relaxed mb-10">
-              Pricing reflects responsibility, risk, and outcomes. If these ranges align with your needs and the stakes justify the investment, we should have a conversation. If you're looking for cheap help or hourly consulting, we're not the right partner.
+              Pricing reflects responsibility, risk, and outcomes. If these ranges align with your needs and the stakes justify the investment, we should have a conversation. We provide operating executive leadership with full accountability and equity alignment.
             </p>
             <Link to="/apply">
               <Button

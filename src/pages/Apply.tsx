@@ -61,7 +61,7 @@ const whoShouldApply = [
 const minimumReadiness = [
   "Technology is core to your business model, not a support function",
   "You have meaningful revenue or funding that supports premium engagement",
-  "You're ready to give real decision-making authority, not just seek advice",
+  "You're ready to give real decision-making authority and execution ownership",
   "The cost of getting technology wrong is high—this isn't a nice-to-have",
   "You understand that Operator-in-Residence engagements require cash + equity alignment",
 ];
@@ -77,7 +77,7 @@ const engagementStructure = [
   },
   {
     element: "Accountability",
-    description: "We own outcomes. No excuses, no handoffs, no fractional time-splitting. If we engage, we're fully embedded and accountable for results.",
+    description: "We own outcomes. Full accountability, complete ownership, dedicated focus. If we engage, we're fully embedded and accountable for results.",
   },
   {
     element: "Duration",
@@ -256,7 +256,7 @@ export default function Apply() {
             </ul>
             <div className="mt-8 bg-card border border-divider rounded-lg p-6">
               <p className="text-base font-body text-foreground leading-relaxed">
-                <strong className="font-semibold">If you're looking for:</strong> hourly consulting, part-time advisory, staff augmentation, or fractional CTO services—we're not the right partner. We operate as embedded leadership with full accountability and equity alignment.
+                <strong className="font-semibold">We operate as:</strong> embedded leadership with full accountability and equity alignment. We provide executive-level technology leadership, not hourly consulting, part-time advisory, staff augmentation, or fractional CTO services.
               </p>
             </div>
           </div>
@@ -328,7 +328,7 @@ export default function Apply() {
                   If We're Not a Fit
                 </h3>
                 <p className="text-base font-body text-foreground leading-relaxed">
-                  We'll tell you directly. If we're not the right partner—whether due to stage, budget, scope, or misalignment—we'll recommend alternatives or suggest when to reconnect. No ghosting, no long delays, no false promises.
+                  We'll tell you directly. If we're not the right partner—whether due to stage, budget, scope, or misalignment—we'll recommend alternatives or suggest when to reconnect. Direct communication, clear timelines, honest assessment.
                 </p>
               </div>
             </div>

@@ -69,7 +69,7 @@ const engagementModel = [
   },
   {
     phase: "Embedded Execution",
-    description: "We operate as your temporary co-founder—embedded in decision-making, owning outcomes, and driving execution. This is not remote advisory. We're in the trenches where decisions are made.",
+    description: "We operate as an operating executive—embedded in decision-making, owning outcomes, and driving execution. We're in the trenches where decisions are made, with direct access to teams and real-time context.",
   },
   {
     phase: "Ongoing Leadership",
@@ -84,11 +84,11 @@ const engagementModel = [
 const compensationPhilosophy = [
   {
     principle: "Cash + Equity Alignment",
-    description: "We structure compensation as cash (monthly retainer or fixed fee) plus meaningful equity participation. This aligns our incentives with long-term value creation, not just short-term deliverables.",
+    description: "We structure compensation as cash (monthly retainer or fixed fee) plus meaningful equity participation. This aligns our incentives with long-term value creation and outcomes that compound.",
   },
   {
     principle: "Equity Justifies Premium",
-    description: "Equity participation reflects the co-founder-level ownership we take. We're not contractors—we're temporary partners with skin in the game. This justifies premium pricing and ensures we're invested in outcomes that compound.",
+    description: "Equity participation reflects the operating executive-level ownership we take. We're partners with skin in the game. This justifies premium pricing and ensures we're invested in outcomes that compound.",
   },
   {
     principle: "Cash Ensures Execution Focus",
@@ -130,10 +130,10 @@ export default function Services() {
               Operator-in-Residence / Equity CTO
             </h1>
             <p className="mt-6 text-xl font-body text-subtle leading-relaxed">
-              Embedded execution leadership with full accountability. We operate as your temporary co-founder—owning the CTO function, driving outcomes, and taking responsibility for results that matter.
+              Embedded execution leadership with full accountability. We operate as an operating executive—owning the CTO function, driving outcomes, and taking responsibility for results that matter.
             </p>
             <p className="mt-4 text-lg font-body text-foreground leading-relaxed">
-              This is not fractional consulting, part-time advisory, or hourly work. This is CEO-level partnership with execution authority and equity alignment.
+              CEO-level partnership with execution authority and equity alignment. We embed directly into the business with full ownership of technology outcomes.
             </p>
             
             {/* CTAs */}
@@ -161,10 +161,10 @@ export default function Services() {
               What Is an Operator-in-Residence?
             </h2>
             <p className="text-lg font-body text-foreground leading-relaxed mb-6">
-              An Operator-in-Residence is a temporary co-founder who embeds in your organization with full execution authority and accountability. Unlike fractional CTOs who split time across multiple clients, or part-time advisors who offer guidance from the sidelines, we own the CTO function with the same responsibility as a full-time executive.
+              An Operator-in-Residence is an operating executive who embeds in your organization with full execution authority and accountability. We operate with dedicated focus on your business, owning the CTO function with the same responsibility as a full-time executive.
             </p>
             <p className="text-lg font-body text-foreground leading-relaxed mb-6">
-              We make decisions. We drive execution. We own outcomes. We take equity because we're building value, not just providing services.
+              We make decisions. We drive execution. We own outcomes. We take equity because we're building long-term value and creating outcomes that compound.
             </p>
             <p className="text-lg font-body text-foreground leading-relaxed font-medium">
               This model works for founder-led companies where technology execution is critical, the stakes are high, and the cost of getting it wrong is unacceptable.
@@ -260,8 +260,8 @@ export default function Services() {
           <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-6">
             Engagement Model
           </h2>
-          <p className="text-lg font-body text-subtle mb-12 max-w-3xl">
-            We structure engagements around outcomes and accountability, not hours or time allocation. Every engagement follows a clear operating cadence with defined decision rights and communication rhythms.
+            <p className="text-lg font-body text-subtle mb-12 max-w-3xl">
+            We structure engagements around outcomes and accountability. Every engagement follows a clear operating cadence with defined decision rights and communication rhythms.
           </p>
           <div className="space-y-6 max-w-4xl">
             {engagementModel.map((phase, index) => (
@@ -291,8 +291,8 @@ export default function Services() {
           <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-6">
             Compensation Philosophy
           </h2>
-          <p className="text-lg font-body text-subtle mb-12 max-w-3xl">
-            We structure compensation as cash + equity because alignment matters. Cash ensures execution focus. Equity ensures long-term value creation. Together, they create the right incentive structure for co-founder-level partnership.
+            <p className="text-lg font-body text-subtle mb-12 max-w-3xl">
+            We structure compensation as cash + equity because alignment matters. Cash ensures execution focus. Equity ensures long-term value creation. Together, they create the right incentive structure for operating executive partnership.
           </p>
           <div className="grid md:grid-cols-2 gap-8">
             {compensationPhilosophy.map((principle, index) => (
@@ -319,7 +319,7 @@ export default function Services() {
               How Engagements Are Priced
             </h2>
             <p className="text-lg font-body text-foreground leading-relaxed mb-6">
-              Pricing reflects ownership and outcomes, not hours or time allocation. We structure engagements as cash + equity because the responsibility we take, the risk we own, and the outcomes we deliver justify the premium.
+              Pricing reflects ownership and outcomes. We structure engagements as cash + equity because the responsibility we take, the risk we own, and the outcomes we deliver justify the premium.
             </p>
             <p className="text-lg font-body text-foreground leading-relaxed mb-8">
               For detailed pricing ranges, engagement models, and how equity is determined, see our <Link to="/pricing" className="text-accent hover:text-accent/80 font-medium underline">pricing page</Link>.
@@ -367,7 +367,7 @@ export default function Services() {
               If technology execution is critical to your business, we should talk.
             </h2>
             <p className="text-lg font-body text-primary-foreground/90 leading-relaxed mb-10">
-              In one conversation, we'll assess fit, define the engagement scope, and determine if Operator-in-Residence is the right model for your situation. No long sales cycles—just clarity and a path forward.
+              In one conversation, we'll assess fit, define the engagement scope, and determine if Operator-in-Residence is the right model for your situation. We move quickly to clarity and a path forward.
             </p>
             <Link to="/apply">
               <Button

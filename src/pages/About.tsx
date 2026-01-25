@@ -15,10 +15,10 @@ export default function About() {
               An operating firm for high-risk, high-leverage moments.
             </h1>
             <p className="mt-6 text-xl font-body text-subtle leading-relaxed">
-              The CTO Mentor is brought in when technology execution is critical, the stakes are high, and the cost of getting it wrong is unacceptable. We operate as embedded leadership—not advisors, not consultants, not fractional contractors.
+              The CTO Mentor is brought in when technology execution is critical, the stakes are high, and the cost of getting it wrong is unacceptable. We operate as embedded leadership—operating executives with execution authority and equity alignment.
             </p>
             <p className="mt-4 text-lg font-body text-foreground leading-relaxed">
-              We take ownership. We drive execution. We own outcomes. We take equity because we're building value, not billing hours.
+              We take ownership. We drive execution. We own outcomes. We take equity because we're building long-term value and creating outcomes that compound.
             </p>
             
             {/* CTAs */}
@@ -66,7 +66,7 @@ export default function About() {
               </li>
               <li className="flex items-start gap-3 text-base font-body text-foreground">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                Boards and investors need execution truth, not optimism
+                Boards and investors need execution truth and clear accountability
               </li>
             </ul>
             <p className="text-lg font-body text-foreground leading-relaxed font-medium">
@@ -84,7 +84,7 @@ export default function About() {
               How We Operate
             </h2>
             <p className="text-lg font-body text-foreground leading-relaxed mb-8">
-              We engage as Operator-in-Residence—embedded leadership with full execution authority and accountability. This is not remote advisory or part-time consulting. We operate where decisions are made.
+              We engage as Operator-in-Residence—embedded leadership with full execution authority and accountability. We operate where decisions are made, with direct access to teams and real-time context.
             </p>
             
             <div className="space-y-6 mb-8">
@@ -120,7 +120,7 @@ export default function About() {
                   Transition Planning
                 </h3>
                 <p className="text-base font-body text-foreground leading-relaxed">
-                  We design transitions from day one—building systems and teams that can operate independently. When it's time to transition to a full-time CTO or internal leader, we ensure continuity and clean handoff. No dependency creation.
+                  We design transitions from day one—building systems and teams that can operate independently. When it's time to transition to a full-time CTO or internal leader, we ensure continuity and clean handoff. We build for independence from the start.
                 </p>
               </div>
             </div>
@@ -180,11 +180,11 @@ export default function About() {
                 </li>
                 <li className="flex items-start gap-3 text-base font-body text-foreground">
                   <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
-                  Embedded in decision-making, not observing from the sidelines
+                  Embedded in decision-making with direct access to teams and real-time context
                 </li>
                 <li className="flex items-start gap-3 text-base font-body text-foreground">
                   <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
-                  Equity-aligned temporary co-founder, not contractor
+                  Equity-aligned operating executive with skin in the game
                 </li>
                 <li className="flex items-start gap-3 text-base font-body text-foreground">
                   <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
@@ -197,7 +197,7 @@ export default function About() {
           {/* Anchor statement */}
           <div className="mt-12 pt-12 border-t border-divider">
             <p className="text-xl font-heading font-semibold text-heading text-center max-w-2xl mx-auto">
-              We don't advise from the sidelines. We operate where decisions are made, and we own the outcomes.
+              We operate where decisions are made, and we own the outcomes.
             </p>
           </div>
         </div>
@@ -211,7 +211,7 @@ export default function About() {
               Our View on Incentives & Equity
             </h2>
             <p className="text-lg font-body text-foreground leading-relaxed mb-6">
-              We structure compensation as cash + equity because alignment matters. Cash ensures execution focus. Equity ensures long-term value creation. Together, they create the right incentive structure for co-founder-level partnership.
+              We structure compensation as cash + equity because alignment matters. Cash ensures execution focus. Equity ensures long-term value creation. Together, they create the right incentive structure for operating executive partnership.
             </p>
             <p className="text-lg font-body text-foreground leading-relaxed mb-6">
               Here's our view:
@@ -224,7 +224,7 @@ export default function About() {
                     Equity Justifies Premium
                   </h3>
                   <p className="text-base font-body text-foreground leading-relaxed">
-                    Equity participation reflects the co-founder-level ownership we take. We're not contractors—we're temporary partners with skin in the game. This justifies premium pricing and ensures we're invested in outcomes that compound, not just deliverables that bill.
+                    Equity participation reflects the operating executive ownership we take. We're partners with skin in the game. This justifies premium pricing and ensures we're invested in outcomes that compound and create long-term value.
                   </p>
                 </CardContent>
               </Card>
@@ -235,7 +235,7 @@ export default function About() {
                     Cash Ensures Execution Focus
                   </h3>
                   <p className="text-base font-body text-foreground leading-relaxed">
-                    Cash compensation ensures we're paid for execution, not promises. It keeps us focused on your success, not exit timing. The combination of cash + equity creates the right incentive structure for both parties: we're rewarded for both immediate execution and long-term value creation.
+                    Cash compensation ensures we're paid for execution and outcomes. It keeps us focused on your success and immediate results. The combination of cash + equity creates the right incentive structure for both parties: we're rewarded for both immediate execution and long-term value creation.
                   </p>
                 </CardContent>
               </Card>
@@ -246,14 +246,14 @@ export default function About() {
                     Transparent Structure
                   </h3>
                   <p className="text-base font-body text-foreground leading-relaxed">
-                    Compensation structure is defined upfront: cash component (retainer or fixed fee), equity component (typically 0.5%–2% depending on stage and scope), and clear milestones or triggers for equity vesting. No surprises, no renegotiation, no misaligned incentives.
+                    Compensation structure is defined upfront: cash component (retainer or fixed fee), equity component (typically 0.5%–2% depending on stage and scope), and clear milestones or triggers for equity vesting. Transparent, aligned, and committed from day one.
                   </p>
                 </CardContent>
               </Card>
             </div>
 
             <p className="text-lg font-body text-foreground leading-relaxed font-medium">
-              We take equity because we're building value, not billing hours. That alignment is what makes the Operator-in-Residence model work.
+              We take equity because we're building long-term value and creating outcomes that compound. That alignment is what makes the Operator-in-Residence model work.
             </p>
           </div>
         </div>
@@ -273,11 +273,11 @@ export default function About() {
             <ul className="space-y-4 mb-8">
               <li className="flex items-start gap-3 text-base font-body text-foreground">
                 <X size={20} className="text-subtle flex-shrink-0 mt-0.5" />
-                Companies seeking hourly consulting or part-time advisory—we're not fractional contractors
+                Companies seeking hourly consulting or part-time advisory—we operate as embedded executives
               </li>
               <li className="flex items-start gap-3 text-base font-body text-foreground">
                 <X size={20} className="text-subtle flex-shrink-0 mt-0.5" />
-                Organizations looking for staff augmentation or dev shop capacity—we're not selling hours
+                Organizations looking for staff augmentation or dev shop capacity—we provide executive leadership
               </li>
               <li className="flex items-start gap-3 text-base font-body text-foreground">
                 <X size={20} className="text-subtle flex-shrink-0 mt-0.5" />
@@ -297,12 +297,12 @@ export default function About() {
               </li>
               <li className="flex items-start gap-3 text-base font-body text-foreground">
                 <X size={20} className="text-subtle flex-shrink-0 mt-0.5" />
-                Companies where technology isn't core to business outcomes—we're not a support function
+                Companies where technology isn't core to business outcomes—we focus on technology-critical businesses
               </li>
             </ul>
 
             <p className="text-lg font-body text-foreground leading-relaxed font-medium">
-              If you're looking for fractional consulting, hourly billing, or part-time advice, we're not the right partner. If technology execution is critical and the stakes are high, we should talk.
+              If technology execution is critical and the stakes are high, we should talk. If you're looking for fractional consulting, hourly billing, or part-time advice, we're not the right partner.
             </p>
           </div>
         </div>
@@ -316,10 +316,10 @@ export default function About() {
               When technology execution is critical, we should talk.
             </h2>
             <p className="text-lg font-body text-primary-foreground/90 leading-relaxed mb-10">
-              In one conversation, we'll assess fit, define the engagement scope, and determine if Operator-in-Residence is the right model for your situation. No long sales cycles—just clarity and a path forward.
+              In one conversation, we'll assess fit, define the engagement scope, and determine if Operator-in-Residence is the right model for your situation. We move quickly to clarity and a path forward.
             </p>
             <p className="text-lg font-body text-primary-foreground/90 leading-relaxed mb-10">
-              We'll recommend the cleanest path forward—even if that means we're not the right fit.
+              We'll recommend the cleanest path forward—even if that means recommending a different approach.
             </p>
             <Link to="/apply">
               <Button
