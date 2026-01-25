@@ -131,34 +131,14 @@ export default function Pricing() {
               Pricing Philosophy
             </h2>
             <p className="text-lg font-body text-foreground leading-relaxed mb-6">
-              Our pricing reflects three things: responsibility, risk, and outcomes. We take full ownership of the CTO function—decisions, execution, and results. We take on the risk of failure. We're accountable for outcomes that compound.
+              Pricing is based on responsibility, not time. When you engage us as Operator-in-Residence, you're transferring risk from your shoulders to ours. We own the CTO function—decisions, execution, and outcomes. If technology fails, that's on us. If delivery stalls, that's on us. If architecture drifts and costs spiral, that's on us. The pricing reflects the responsibility we take and the risk we absorb.
             </p>
             <p className="text-lg font-body text-foreground leading-relaxed mb-6">
-              This isn't hourly consulting or capacity-based selling. This is co-founder-level partnership with equity alignment. The premium reflects the responsibility we take, the risk we own, and the outcomes we deliver.
+              This is fundamentally different from fractional CTO models that bill hourly or by days per week. Fractional CTOs are incentivized to bill hours, not create value. They split time across clients, have no equity, and can attribute failures to time constraints. We're fully embedded with equity alignment—we're building value, not billing hours. Equity isn't a concession; it's alignment. It ensures we're invested in outcomes that compound, not just deliverables that bill.
             </p>
-            <div className="bg-card border border-divider rounded-lg p-8 mt-8">
-              <h3 className="font-heading text-xl font-semibold text-heading mb-4">
-                What Pricing Reflects
-              </h3>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3 text-base font-body text-foreground">
-                  <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
-                  Full execution authority and decision-making responsibility
-                </li>
-                <li className="flex items-start gap-3 text-base font-body text-foreground">
-                  <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
-                  Risk ownership for technology outcomes—no excuses, no handoffs
-                </li>
-                <li className="flex items-start gap-3 text-base font-body text-foreground">
-                  <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
-                  Equity alignment ensuring long-term value creation, not hourly billing
-                </li>
-                <li className="flex items-start gap-3 text-base font-body text-foreground">
-                  <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
-                  CEO-level partnership and embedded leadership, not remote advisory
-                </li>
-              </ul>
-            </div>
+            <p className="text-lg font-body text-foreground leading-relaxed">
+              The premium reflects risk transfer. You're paying for someone to own the outcomes, not just show up for meetings. When technology execution is critical and the cost of getting it wrong is high, that transfer of risk and responsibility is worth the premium.
+            </p>
           </div>
         </div>
       </section>
