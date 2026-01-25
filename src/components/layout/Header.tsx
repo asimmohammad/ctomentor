@@ -12,8 +12,6 @@ import logo from "@/assets/logo.svg";
 
 const navigation = [
   { name: "Pricing", href: "/pricing" },
-  { name: "Case Studies", href: "/case-studies" },
-  { name: "Insights", href: "/insights" },
 ];
 
 const servicesMenu = {
@@ -21,6 +19,14 @@ const servicesMenu = {
   href: "/services",
   items: [
     { name: "CTO Mentor Circle", href: "/circle" },
+  ],
+};
+
+const caseStudiesMenu = {
+  name: "Case Studies and Articles",
+  href: "/case-studies",
+  items: [
+    { name: "Articles", href: "/insights" },
   ],
 };
 
@@ -87,6 +93,30 @@ export function Header() {
                 {item.name}
               </Link>
             ))}
+            <DropdownMenu>
+              <DropdownMenuTrigger className={`text-sm font-body font-medium transition-colors flex items-center gap-1 outline-none ${
+                location.pathname === caseStudiesMenu.href || location.pathname === "/insights"
+                  ? "text-heading"
+                  : "text-subtle hover:text-heading"
+              }`}>
+                {caseStudiesMenu.name}
+                <ChevronDown className="h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="min-w-[200px]">
+                <Link to={caseStudiesMenu.href}>
+                  <DropdownMenuItem className="cursor-pointer">
+                    Case Studies and Articles
+                  </DropdownMenuItem>
+                </Link>
+                {caseStudiesMenu.items.map((item) => (
+                  <Link key={item.name} to={item.href}>
+                    <DropdownMenuItem className="cursor-pointer">
+                      {item.name}
+                    </DropdownMenuItem>
+                  </Link>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
             <DropdownMenu>
               <DropdownMenuTrigger className={`text-sm font-body font-medium transition-colors flex items-center gap-1 outline-none ${
                 location.pathname === aboutMenu.href || location.pathname === "/experience"
@@ -179,6 +209,35 @@ export function Header() {
                   {item.name}
                 </Link>
               ))}
+              <div className="py-2">
+                <Link
+                  to={caseStudiesMenu.href}
+                  className={`text-base font-body font-medium py-2 ${
+                    location.pathname === caseStudiesMenu.href
+                      ? "text-heading"
+                      : "text-subtle"
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {caseStudiesMenu.name}
+                </Link>
+                <div className="ml-4 mt-2 flex flex-col gap-2">
+                  {caseStudiesMenu.items.map((item) => (
+                    <Link
+                      key={item.name}
+                      to={item.href}
+                      className={`text-sm font-body font-medium py-1 ${
+                        location.pathname === item.href
+                          ? "text-heading"
+                          : "text-subtle"
+                      }`}
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
               <div className="py-2">
                 <Link
                   to={aboutMenu.href}
