@@ -152,39 +152,213 @@ export default function Pricing() {
           <p className="text-lg font-body text-subtle mb-12 max-w-3xl">
             Every engagement is structured around outcomes and accountability, not hours or time allocation. Pricing ranges reflect engagement scope, risk profile, and alignment needs.
           </p>
-          <div className="space-y-6">
-            {engagementModels.map((model, index) => (
-              <Card key={index} className="border-divider">
-                <CardHeader>
-                  <CardTitle className="font-heading text-xl font-semibold text-heading">
-                    {model.name}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-base font-body text-foreground leading-relaxed">
-                    {model.description}
-                  </p>
-                  <div className="grid md:grid-cols-2 gap-6 pt-4 border-t border-divider">
-                    <div>
-                      <p className="text-sm font-body font-semibold text-heading mb-2">Cash Component</p>
-                      <p className="text-base font-body text-foreground">{model.cashRange}</p>
-                    </div>
-                    <div>
-                      <p className="text-sm font-body font-semibold text-heading mb-2">Equity Component</p>
-                      <p className="text-base font-body text-foreground">{model.equityRange}</p>
-                    </div>
-                    <div>
-                      <p className="text-sm font-body font-semibold text-heading mb-2">Duration</p>
-                      <p className="text-base font-body text-foreground">{model.duration}</p>
-                    </div>
-                    <div>
-                      <p className="text-sm font-body font-semibold text-heading mb-2">Best For</p>
-                      <p className="text-base font-body text-foreground">{model.bestFor}</p>
-                    </div>
+          <div className="space-y-12">
+            {/* Operator-in-Residence */}
+            <Card className="border-divider">
+              <CardHeader>
+                <CardTitle className="font-heading text-2xl font-semibold text-heading">
+                  Operator-in-Residence
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h3 className="text-sm font-body font-semibold text-heading mb-2">Monthly Cash Range</h3>
+                    <p className="text-base font-body text-foreground">$30,000–$50,000/month</p>
                   </div>
-                </CardContent>
-              </Card>
-            ))}
+                  <div>
+                    <h3 className="text-sm font-body font-semibold text-heading mb-2">Typical Equity Range</h3>
+                    <p className="text-base font-body text-foreground">0.5%–2.0%</p>
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-body font-semibold text-heading mb-2">Typical Duration</h3>
+                    <p className="text-base font-body text-foreground">6–12 months minimum</p>
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-body font-semibold text-heading mb-2">Equity Vesting</h3>
+                    <p className="text-base font-body text-foreground">4-year standard, 1-year cliff</p>
+                  </div>
+                </div>
+                <div className="pt-4 border-t border-divider">
+                  <h3 className="text-sm font-body font-semibold text-heading mb-3">Outcomes Owned</h3>
+                  <ul className="space-y-2 text-base font-body text-foreground">
+                    <li className="flex items-start gap-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                      Technical strategy and architecture decisions with full accountability
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                      Delivery velocity and quality standards
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                      Team structure, hiring, and performance management
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                      Vendor and offshore governance
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                      Budget control and cost optimization
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                      Board and investor technical communication
+                    </li>
+                  </ul>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Equity CTO */}
+            <Card className="border-divider">
+              <CardHeader>
+                <CardTitle className="font-heading text-2xl font-semibold text-heading">
+                  Equity CTO
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h3 className="text-sm font-body font-semibold text-heading mb-2">Monthly Cash Range</h3>
+                    <p className="text-base font-body text-foreground">$25,000–$40,000/month</p>
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-body font-semibold text-heading mb-2">Equity Range</h3>
+                    <p className="text-base font-body text-foreground">1.0%–3.0%</p>
+                  </div>
+                </div>
+                <div className="pt-4 border-t border-divider">
+                  <h3 className="text-sm font-body font-semibold text-heading mb-3">When This Model Is Used</h3>
+                  <ul className="space-y-2 text-base font-body text-foreground">
+                    <li className="flex items-start gap-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                      Early-stage companies (pre-seed, seed) where equity alignment is primary compensation driver
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                      Founders seeking co-founder-level technical leadership with significant equity participation
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                      Companies with limited cash runway but strong equity value proposition
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                      Situations where long-term value creation alignment is more important than immediate cash compensation
+                    </li>
+                  </ul>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Technical Due Diligence & Operator Review */}
+            <Card className="border-divider">
+              <CardHeader>
+                <CardTitle className="font-heading text-2xl font-semibold text-heading">
+                  Technical Due Diligence & Operator Review
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div>
+                  <h3 className="text-sm font-body font-semibold text-heading mb-2">One-Time Pricing Range</h3>
+                  <p className="text-base font-body text-foreground">$25,000–$60,000</p>
+                </div>
+                <div className="pt-4 border-t border-divider">
+                  <h3 className="text-sm font-body font-semibold text-heading mb-3">Typical Buyers</h3>
+                  <ul className="space-y-2 text-base font-body text-foreground">
+                    <li className="flex items-start gap-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                      Venture capital and private equity firms conducting technical diligence
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                      Corporate development teams evaluating acquisition targets
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                      Boards requiring independent technical assessment of execution risk
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                      Investors seeking execution truth before or after capital deployment
+                    </li>
+                  </ul>
+                </div>
+                <div className="pt-4 border-t border-divider">
+                  <h3 className="text-sm font-body font-semibold text-heading mb-3">Deliverables</h3>
+                  <ul className="space-y-2 text-base font-body text-foreground">
+                    <li className="flex items-start gap-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                      Technical architecture and platform assessment (red/yellow/green)
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                      Team capability and leadership evaluation
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                      Scalability, security, and data maturity assessment
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                      Execution risk analysis and remediation recommendations
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                      Board-grade advisory memo with clear findings and operating recommendations
+                    </li>
+                  </ul>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Transition & Stabilization Engagement */}
+            <Card className="border-divider">
+              <CardHeader>
+                <CardTitle className="font-heading text-2xl font-semibold text-heading">
+                  Transition & Stabilization Engagement
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h3 className="text-sm font-body font-semibold text-heading mb-2">Monthly Pricing Range</h3>
+                    <p className="text-base font-body text-foreground">$40,000–$60,000/month</p>
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-body font-semibold text-heading mb-2">Duration</h3>
+                    <p className="text-base font-body text-foreground">1–3 months</p>
+                  </div>
+                </div>
+                <div className="pt-4 border-t border-divider">
+                  <h3 className="text-sm font-body font-semibold text-heading mb-3">Use Cases</h3>
+                  <ul className="space-y-2 text-base font-body text-foreground">
+                    <li className="flex items-start gap-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                      CTO exits requiring immediate leadership continuity
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                      Critical system outages or security events requiring executive leadership
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                      Board escalations where technical execution risk threatens business outcomes
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                      Rapid stabilization following vendor failure or architectural crisis
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                      Interim leadership during executive search or internal promotion preparation
+                    </li>
+                  </ul>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
