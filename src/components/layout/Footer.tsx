@@ -4,7 +4,7 @@ import logo from "@/assets/logo.svg";
 const navigation = {
   services: [
     { name: "Operator-in-Residence", href: "/services" },
-    { name: "CTO Mentor Circle", href: "/circle" },
+    { name: "TCM Mentors Circle", href: "/circle" },
     { name: "Technical Assessments", href: "/services" },
   ],
   company: [

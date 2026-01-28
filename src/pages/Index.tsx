@@ -27,7 +27,7 @@ const services = [
     href: "/services",
   },
   {
-    title: "CTO Mentor Circle",
+    title: "TCM Mentors Circle",
     description:
       "A peer-level operating group for CTOs ready to lead with authority and execution discipline.",
     href: "/circle",
@@ -200,8 +200,6 @@ export default function Index() {
                     <TableHead className="font-heading font-semibold text-heading min-w-[180px]">Dimension</TableHead>
                     <TableHead className="font-heading font-semibold text-heading min-w-[160px]">Full-Time CTO</TableHead>
                     <TableHead className="font-heading font-semibold text-heading min-w-[160px]">Fractional CTO</TableHead>
-                    <TableHead className="font-heading font-semibold text-heading min-w-[140px]">COO</TableHead>
-                    <TableHead className="font-heading font-semibold text-heading min-w-[200px]">Traditional Operator-in-Residence</TableHead>
                     <TableHead className="font-heading font-semibold text-heading min-w-[220px] bg-accent/10">The CTO Mentor</TableHead>
                   </TableRow>
                 </TableHeader>
@@ -210,80 +208,60 @@ export default function Index() {
                     <TableCell className="font-heading font-semibold text-heading">Primary Mandate</TableCell>
                     <TableCell className="font-body text-foreground text-sm">Own entire technology function permanently</TableCell>
                     <TableCell className="font-body text-foreground text-sm">Provide part-time technical leadership across multiple clients</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">Operational excellence across all functions</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">Embedded execution in one company, typically operations-focused</TableCell>
                     <TableCell className="font-body text-foreground text-sm font-medium bg-accent/5">Embedded execution leadership for technology function with full accountability</TableCell>
                   </TableRow>
                   <TableRow className="border-divider hover:bg-card/50">
                     <TableCell className="font-heading font-semibold text-heading">Execution Authority</TableCell>
                     <TableCell className="font-body text-foreground text-sm">Full authority within technology organization</TableCell>
                     <TableCell className="font-body text-foreground text-sm">Limited by time allocation and split focus across clients</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">Broad operational authority, but technical decisions are secondary</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">Significant authority in assigned domain</TableCell>
                     <TableCell className="font-body text-foreground text-sm font-medium bg-accent/5">Full authority for technology decisions, architecture, and execution</TableCell>
                   </TableRow>
                   <TableRow className="border-divider hover:bg-card/50">
                     <TableCell className="font-heading font-semibold text-heading">Accountability</TableCell>
                     <TableCell className="font-body text-foreground text-sm">High, but can become entrenched or misaligned over time</TableCell>
                     <TableCell className="font-body text-foreground text-sm">Low—can attribute failures to time constraints or other client priorities</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">High for operations, but technology accountability is indirect</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">High within assigned domain, but scope may be narrow</TableCell>
                     <TableCell className="font-body text-foreground text-sm font-medium bg-accent/5">Full accountability for technology outcomes—complete ownership, dedicated focus</TableCell>
                   </TableRow>
                   <TableRow className="border-divider hover:bg-card/50">
                     <TableCell className="font-heading font-semibold text-heading">Incentive Alignment</TableCell>
                     <TableCell className="font-body text-foreground text-sm">Salary + equity, but may prioritize job security over bold moves</TableCell>
                     <TableCell className="font-body text-foreground text-sm">Hourly/retainer fees, no equity—incentive to bill hours, not create value</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">Salary + equity, but technology is not primary focus</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">Equity participation, but may lack technical depth</TableCell>
                     <TableCell className="font-body text-foreground text-sm font-medium bg-accent/5">Cash + meaningful equity—aligned with long-term value creation and outcomes</TableCell>
                   </TableRow>
                   <TableRow className="border-divider hover:bg-card/50">
                     <TableCell className="font-heading font-semibold text-heading">Relationship to CEO</TableCell>
                     <TableCell className="font-body text-foreground text-sm">Direct report, permanent employee relationship</TableCell>
                     <TableCell className="font-body text-foreground text-sm">External consultant, part-time advisor relationship</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">Strategic partner, operations-focused</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">Embedded partner, typically operations or product-focused</TableCell>
                     <TableCell className="font-body text-foreground text-sm font-medium bg-accent/5">Operating executive—CEO-level partnership with execution authority</TableCell>
                   </TableRow>
                   <TableRow className="border-divider hover:bg-card/50">
                     <TableCell className="font-heading font-semibold text-heading">Technical Depth</TableCell>
                     <TableCell className="font-body text-foreground text-sm">Deep technical expertise, but may lack fresh perspective or breadth</TableCell>
                     <TableCell className="font-body text-foreground text-sm">Variable—often surface-level due to split attention across clients</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">Limited—operations-focused, not technical</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">Variable—may have technical background but not primary mandate</TableCell>
                     <TableCell className="font-body text-foreground text-sm font-medium bg-accent/5">Deep technical expertise with fresh perspective and cross-industry insight</TableCell>
                   </TableRow>
                   <TableRow className="border-divider hover:bg-card/50">
                     <TableCell className="font-heading font-semibold text-heading">Engagement Trigger</TableCell>
                     <TableCell className="font-body text-foreground text-sm">Long-term hiring need, permanent role</TableCell>
                     <TableCell className="font-body text-foreground text-sm">Need for senior technical input without full-time commitment</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">Need for operational discipline and scaling support</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">Need for embedded execution in specific domain (often operations/product)</TableCell>
                     <TableCell className="font-body text-foreground text-sm font-medium bg-accent/5">Technology execution is critical, stakes are high, and cost of failure is unacceptable</TableCell>
                   </TableRow>
                   <TableRow className="border-divider hover:bg-card/50">
                     <TableCell className="font-heading font-semibold text-heading">Risk Ownership</TableCell>
                     <TableCell className="font-body text-foreground text-sm">Shares risk with company as employee, but may avoid bold moves</TableCell>
                     <TableCell className="font-body text-foreground text-sm">Minimal risk—consultant relationship with limited liability</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">Operational risk ownership, but technical risk is secondary</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">Risk ownership within assigned domain</TableCell>
                     <TableCell className="font-body text-foreground text-sm font-medium bg-accent/5">Full risk ownership for technology outcomes—skin in the game through equity</TableCell>
                   </TableRow>
                   <TableRow className="border-divider hover:bg-card/50">
                     <TableCell className="font-heading font-semibold text-heading">Typical Failure Mode</TableCell>
                     <TableCell className="font-body text-foreground text-sm">Becomes bottleneck, loses technical edge, or misaligns with business priorities</TableCell>
                     <TableCell className="font-body text-foreground text-sm">Spread too thin, lacks deep context, no real ownership or accountability</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">Overlooks technical debt, doesn't understand technical tradeoffs, treats tech as cost center</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">May lack technical depth or authority, scope too narrow, or misaligned with technology needs</TableCell>
                     <TableCell className="font-body text-foreground text-sm font-medium bg-accent/5">N/A—engagement structure prevents common failure modes through accountability and equity alignment</TableCell>
                   </TableRow>
                   <TableRow className="border-divider hover:bg-card/50">
                     <TableCell className="font-heading font-semibold text-heading">Value Creation Profile</TableCell>
                     <TableCell className="font-body text-foreground text-sm">Long-term compounder if aligned, but can stagnate or become bottleneck</TableCell>
                     <TableCell className="font-body text-foreground text-sm">Incremental improvements, not transformational—limited by time and split focus</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">Operational efficiency gains, but may miss technical opportunities</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">Focused value creation in assigned domain, but may miss broader technical needs</TableCell>
                     <TableCell className="font-body text-foreground text-sm font-medium bg-accent/5">Transformational value creation through embedded execution, equity alignment, and full accountability</TableCell>
                   </TableRow>
                 </TableBody>
@@ -295,7 +273,7 @@ export default function Index() {
           <div className="mt-12 max-w-4xl">
             <div className="bg-card border border-divider rounded-lg p-8">
               <p className="text-base font-body text-foreground leading-relaxed mb-4">
-                The CTO Mentor's Operator-in-Residence / Equity CTO model sits in a unique category: it combines the execution authority and accountability of a full-time CTO with the fresh perspective and flexibility of an embedded partner, delivering the focus and equity alignment that fractional consulting lacks and the technical depth that traditional operators often miss.
+                The CTO Mentor's Operator-in-Residence / Equity CTO model sits in a unique category: it combines the execution authority and accountability of a full-time CTO with the fresh perspective and flexibility of an embedded partner, delivering the focus and equity alignment that fractional consulting lacks.
               </p>
               <p className="text-base font-body text-foreground leading-relaxed">
                 We own technology outcomes directly—with the embedded execution of an operating executive and the equity alignment that ensures long-term value creation. The result is an operating executive who takes full responsibility for technology execution when the stakes are high and the cost of getting it wrong is unacceptable.

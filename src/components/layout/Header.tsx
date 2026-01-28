@@ -17,7 +17,7 @@ const servicesMenu = {
   href: "/services",
   items: [
     { name: "Pricing", href: "/pricing" },
-    { name: "CTO Mentor Circle", href: "/circle" },
+    { name: "TCM Mentors Circle", href: "/circle" },
   ],
 };
 

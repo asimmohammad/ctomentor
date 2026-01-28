@@ -18,7 +18,7 @@ export default function Circle() {
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
           <div className="max-w-3xl">
             <span className="font-body text-xs font-semibold uppercase tracking-wider text-accent">
-              CTO Mentor Circle
+              TCM Mentors Circle
             </span>
             <h1 className="mt-4 font-heading text-4xl md:text-5xl font-semibold text-heading leading-tight">
               For CTOs who want to lead with authority and execution discipline.
@@ -64,7 +64,7 @@ export default function Circle() {
                   <span className="font-heading text-4xl font-semibold text-heading">
                     $2,500
                   </span>
-                  <span className="font-body text-subtle">/month</span>
+                  <span className="font-body text-subtle">/year</span>
                 </div>
                 <p className="mt-4 text-base font-body text-subtle">
                   Limited spots available. Application required.
@@ -97,7 +97,7 @@ export default function Circle() {
             <p className="mt-4 text-lg font-body text-subtle leading-relaxed">
               If you're a first-time CTO navigating a board, a technical founder
               stepping into leadership, or an experienced leader in a new
-              context — the Circle provides the structure and community to
+              context — TCM Mentors Circle provides the structure and community to
               accelerate your growth.
             </p>
           </div>
