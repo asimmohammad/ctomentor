@@ -168,7 +168,7 @@ export default function CaseStudies() {
       <section className="bg-primary text-primary-foreground">
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
           <div className="max-w-2xl">
-            <h2 className="font-heading text-3xl md:text-4xl font-semibold">
+            <h2 className="font-heading text-3xl md:text-4xl font-semibold text-white">
               Ready to achieve similar results?
             </h2>
             <p className="mt-4 text-lg font-body text-primary-foreground/80">
