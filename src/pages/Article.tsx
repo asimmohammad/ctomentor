@@ -2,14 +2,262 @@ import { Layout } from "@/components/layout/Layout";
 import { Link, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
+import ctoSkillNoImage from "@/assets/ChatGPT Image Feb 9, 2026, 06_27_50 AM.png";
 
 // Article content mapping
-const articles: Record<string, {
-  title: string;
-  date: string;
-  category: string;
-  content: React.ReactNode;
-}> = {
+const articles: Record<
+  string,
+  {
+    title: string;
+    date: string;
+    category: string;
+    content: React.ReactNode;
+  }
+> = {
+  "cto-skill-no": {
+    title: 'The CTO Skill Nobody Trains For: Saying "No"',
+    date: "February 9, 2026",
+    category: "Leadership",
+    content: (
+      <div className="prose prose-lg max-w-none">
+        <figure className="mb-8">
+          <img
+            src={ctoSkillNoImage}
+            alt="A CTO surrounded by competing requests and ideas, deciding what to prioritize."
+            className="w-full rounded-xl shadow-lg"
+          />
+        </figure>
+        <p className="text-sm font-body text-subtle mb-6">
+          By: <span className="font-medium text-foreground">Asim Mohammad</span>
+        </p>
+        <p className="text-lg font-body text-foreground leading-relaxed mb-6">
+          Every technical leader knows the feeling. Your inbox is full of
+          "quick questions." Your calendar bleeds red with back-to-back
+          meetings. Engineering wants to rebuild the entire stack. Product has
+          "just one more feature" for this sprint. Sales needs a custom
+          integration by Friday. And your CEO has forwarded another article
+          about how AI is going to revolutionize everything, with a subject
+          line that reads: "Thoughts?"
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-6">
+          You want to help. You want to say yes. After all, you became a CTO
+          because you love solving problems and building things. But here's the
+          uncomfortable truth that nobody mentions in leadership training:{" "}
+          <span className="font-medium">
+            your most important technical decision is often deciding what not
+            to build.
+          </span>
+        </p>
+
+        <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-4">
+          The "Yes" Trap
+        </h2>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Early in my career, I believed that being valuable meant being
+          available. The best CTOs, I thought, were the ones who could juggle
+          the most priorities, stay up the latest, and somehow deliver on every
+          promise. I was wrong.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          What I learned instead is that saying "yes" to everything is actually
+          saying "no" to the things that matter most. When you accept every
+          request, you're implicitly declining to:
+        </p>
+        <ul className="list-disc list-inside space-y-1 mb-4 text-base font-body text-foreground">
+          <li>Build a sustainable engineering culture</li>
+          <li>Invest in technical debt reduction</li>
+          <li>Develop your team's capabilities</li>
+          <li>Think strategically about architecture</li>
+          <li>Maintain your own mental health</li>
+        </ul>
+        <p className="text-base font-body text-foreground leading-relaxed mb-6">
+          The paradox of leadership is that the more senior you become, the
+          more your value comes from <span className="font-medium">editing</span> rather than{" "}
+          <span className="font-medium">adding</span>. Your job isn't to do
+          everything—it's to ensure the right things get done.
+        </p>
+
+        <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-4">
+          Why "No" Is So Hard
+        </h2>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          There are real reasons why saying "no" feels nearly impossible:
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-2">
+          <span className="font-semibold">Political capital.</span> Every "no"
+          feels like a withdrawal from your relationship bank account. You worry
+          about being seen as difficult, unhelpful, or out of touch with the
+          business.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-2">
+          <span className="font-semibold">FOMO.</span> What if this is the
+          feature that unlocks hockey-stick growth? What if you're the
+          bottleneck preventing the company from succeeding?
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-2">
+          <span className="font-semibold">Technical optimism.</span> As
+          engineers, we're wired to believe that with enough cleverness and
+          caffeine, we can solve anything. "It's only a week of work" becomes a
+          month. A month becomes a quarter.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-6">
+          <span className="font-semibold">Lack of alternatives.</span> Saying
+          "no" without offering a better path forward feels like obstruction
+          rather than leadership.
+        </p>
+
+        <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-4">
+          The Art of the Strategic "No"
+        </h2>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          The most effective CTOs I know don't just say "no"—they've developed
+          frameworks for making trade-offs transparent and ensuring "no" moves
+          the conversation forward rather than shutting it down.
+        </p>
+
+        <h3 className="font-heading text-xl font-semibold text-heading mt-8 mb-3">
+          1. Make the implicit cost explicit
+        </h3>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          When someone asks for a new feature or project, the real question
+          isn't "Can we build this?" It's "What do we stop doing to build
+          this?"
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          I started responding to requests with a simple framework: "Here's what
+          we'd need to deprioritize to make this happen. Are we comfortable with
+          that trade-off?"
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-6">
+          This shifts the conversation from whether the idea has merit (most
+          ideas do) to whether it's more important than the other work in
+          flight. It transforms "no" from a personal rejection into a
+          collaborative prioritization exercise.
+        </p>
+
+        <h3 className="font-heading text-xl font-semibold text-heading mt-8 mb-3">
+          2. Distinguish between "no" and "not now"
+        </h3>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Not every rejection is permanent. Building a backlog of "great ideas,
+          wrong time" accomplishes two things: it acknowledges the value of the
+          request, and it creates a forcing function for regular priority
+          reviews.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-6">
+          I maintain a "future considerations" list that we review quarterly.
+          Some items age off. Others become perfectly timed as circumstances
+          change. The key is that "not now" requires you to articulate{" "}
+          <span className="font-medium">
+            what conditions would need to change
+          </span>{" "}
+          for it to become "yes."
+        </p>
+
+        <h3 className="font-heading text-xl font-semibold text-heading mt-8 mb-3">
+          3. Offer the painful alternative
+        </h3>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Sometimes the most powerful response isn't "no," but "yes, and here's
+          what it really takes."
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-6">
+          When a stakeholder wants a feature in two weeks, I'll say: "We can do
+          this in two weeks if we pull three engineers off the platform
+          stability work, accept that we'll ship it without proper testing, and
+          acknowledge we'll likely spend the following month fixing bugs. Or we
+          can do it right in six weeks. Which path do you prefer?"
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-6">
+          Suddenly, the person asking is making the trade-off decision with you
+          rather than simply lobbying for their request.
+        </p>
+
+        <h3 className="font-heading text-xl font-semibold text-heading mt-8 mb-3">
+          4. Protect "no" time
+        </h3>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Here's the meta-level application: you need to say "no" to create
+          space for saying "no" effectively.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-6">
+          I block two hours every Monday morning as non-negotiable thinking
+          time. No meetings. No Slack. Just space to review priorities, read
+          through requests, and consider strategic trade-offs. That protected
+          time has been the single most valuable "no" I've institutionalized.
+        </p>
+
+        <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-4">
+          When You Should Say "Yes"
+        </h2>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Of course, the flip side of learning to say "no" is knowing when to
+          say "yes"—even when it's inconvenient.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-3">
+          Say "yes" to:
+        </p>
+        <ul className="list-disc list-inside space-y-1 mb-6 text-base font-body text-foreground">
+          <li>
+            <span className="font-semibold">
+              Experiments with capped investment.
+            </span>{" "}
+            "Let's spend two weeks exploring this and decide whether to
+            continue" is often better than a premature "no."
+          </li>
+          <li>
+            <span className="font-semibold">
+              Requests from your team for resources or support.
+            </span>{" "}
+            Your job is to clear obstacles, not create them.
+          </li>
+          <li>
+            <span className="font-semibold">Uncomfortable conversations.</span>{" "}
+            The discussion you're avoiding is often the one that needs to happen
+            most urgently.
+          </li>
+          <li>
+            <span className="font-semibold">Learning opportunities</span>, even
+            when they slow you down short-term.
+          </li>
+        </ul>
+
+        <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-4">
+          The Long Game
+        </h2>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          The hardest part about saying "no" is that the benefits are invisible.
+          Nobody celebrates the buggy feature you didn't ship, the technical
+          debt you didn't accumulate, or the death march you prevented. The
+          counterfactual doesn't show up on your performance review.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          But six months later, when your team ships a major initiative on time
+          because they weren't underwater with distractions, that's when "no"
+          pays dividends. When your engineers aren't burned out because you
+          protected their focus, that's when "no" compounds.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-6">
+          The CTOs who build enduring organizations aren't the ones who say "yes"
+          to everything. They're the ones who have the courage to say "no" to
+          almost everything—so they can say "hell yes" to the things that truly
+          matter.
+        </p>
+
+        <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-4">
+          Your Turn
+        </h2>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          What's the hardest "no" you've had to deliver as a technical leader?
+          What frameworks have you developed for managing stakeholder
+          expectations while protecting your team's bandwidth?
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed">
+          I'd love to hear your experiences in the comments.
+        </p>
+      </div>
+    ),
+  },
   "many-faces-cto": {
     title: "The Many Faces of the CTO — And Why Most Startups Hire the Wrong One",
     date: "January 25, 2026",

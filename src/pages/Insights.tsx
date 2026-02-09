@@ -3,6 +3,14 @@ import { Link } from "react-router-dom";
 
 const posts = [
   {
+    slug: "cto-skill-no",
+    title: 'The CTO Skill Nobody Trains For: Saying "No"',
+    excerpt:
+      "Every technical leader knows the feeling: constant requests, endless priorities, and the quiet pressure to say yes to everything. But the most important technical decision is often deciding what not to build.",
+    date: "February 2026",
+    category: "Leadership",
+  },
+  {
     slug: "fix-after-launch",
     title: "Why \"We'll Fix It After Launch\" Is How Startups Die",
     excerpt:
