@@ -4,10 +4,9 @@ import { NewsletterSignup } from "@/components/NewsletterSignup";
 
 const navigation = {
   services: [
-    { name: "Services", href: "/services" },
+    { name: "Engagement Models", href: "/services" },
     { name: "PE/VC Due Diligence", href: "/investors" },
     { name: "Government & Defense", href: "/government" },
-    { name: "Pricing", href: "/pricing" },
   ],
   company: [
     { name: "About", href: "/about" },

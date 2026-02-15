@@ -14,7 +14,7 @@ export default function Experience() {
               Our Experience
             </h1>
             <p className="mt-6 text-xl font-body text-subtle leading-relaxed">
-              TCM's credibility comes from repeated exposure to real operating complexity—not abstract theory. This is the experience behind Operator-in-Residence and Equity CTO engagements.
+              My credibility comes from repeated exposure to real operating complexity—not abstract theory. This is the experience behind my strategic and embedded leadership engagements.
             </p>
             <p className="mt-4 text-lg font-body text-foreground leading-relaxed">
               When you engage TCM, you're hiring a firm with battle-tested operators who have seen these patterns before.
@@ -31,7 +31,7 @@ export default function Experience() {
               Where We've Been Brought In
             </h2>
             <p className="text-lg font-body text-foreground leading-relaxed mb-8">
-              These are the scenarios where we've been engaged. Situations where technology execution was existential and an Operator-in-Residence model was required.
+              These are the scenarios where we've been engaged. Situations where technology execution was existential and embedded leadership was required.
             </p>
             <div className="space-y-8">
               <div>
@@ -46,7 +46,7 @@ export default function Experience() {
                     <strong>Why technology was existential:</strong> Product-market fit requires rapid iteration. Slow delivery velocity kills experiments before they can validate. Architecture that doesn't scale blocks growth when traction arrives.
                   </li>
                   <li className="text-base font-body text-foreground">
-                    <strong>Why Operator-in-Residence was required:</strong> Founders need execution authority and ownership. Full-time CTO hire is premature and expensive. Embedded operator owns delivery and makes decisions that hold.
+                    <strong>Why embedded leadership was required:</strong> Founders need execution authority and ownership. Full-time CTO hire is premature and expensive. Embedded operator owns delivery and makes decisions that hold.
                   </li>
                 </ul>
               </div>
@@ -63,7 +63,7 @@ export default function Experience() {
                     <strong>Why technology was existential:</strong> Scaling pain kills growth momentum. Customer experience degrades. Engineering team burns out. Investors lose confidence when execution stalls.
                   </li>
                   <li className="text-base font-body text-foreground">
-                    <strong>Why Operator-in-Residence was required:</strong> Scaling requires immediate decisions and execution authority. Full-time CTO search takes months. Embedded operator stabilizes, scales, and transitions to permanent leadership.
+                    <strong>Why embedded leadership was required:</strong> Scaling requires immediate decisions and execution authority. Full-time CTO search takes months. Embedded operator stabilizes, scales, and transitions to permanent leadership.
                   </li>
                 </ul>
               </div>
@@ -80,7 +80,7 @@ export default function Experience() {
                     <strong>Why technology was existential:</strong> Architecture that worked at 10 customers breaks at 100. Founder time is split between product and infrastructure. Team velocity slows as systems become harder to change.
                   </li>
                   <li className="text-base font-body text-foreground">
-                    <strong>Why Operator-in-Residence was required:</strong> Architecture decisions require immediate authority and execution. Founders need to focus on product and customers, not infrastructure. Embedded operator owns architecture while founder transitions to strategic leadership.
+                    <strong>Why embedded leadership was required:</strong> Architecture decisions require immediate authority and execution. Founders need to focus on product and customers, not infrastructure. Embedded operator owns architecture while founder transitions to strategic leadership.
                   </li>
                 </ul>
               </div>
@@ -97,7 +97,7 @@ export default function Experience() {
                     <strong>Why technology was existential:</strong> High burn with low velocity kills companies. Investors lose confidence. Runway compresses. Team morale collapses when effort doesn't translate to outcomes.
                   </li>
                   <li className="text-base font-body text-foreground">
-                    <strong>Why Operator-in-Residence was required:</strong> Velocity problems require immediate diagnosis and intervention. Full-time hire takes too long. Embedded operator owns delivery velocity and makes hard decisions about team and process.
+                    <strong>Why embedded leadership was required:</strong> Velocity problems require immediate diagnosis and intervention. Full-time hire takes too long. Embedded operator owns delivery velocity and makes hard decisions about team and process.
                   </li>
                 </ul>
               </div>
@@ -114,7 +114,7 @@ export default function Experience() {
                     <strong>Why technology was existential:</strong> Board confidence is required for fundraising and strategic decisions. Technical execution risk blocks growth. Investors need execution truth, not optimism.
                   </li>
                   <li className="text-base font-body text-foreground">
-                    <strong>Why Operator-in-Residence was required:</strong> Boards need technical leadership they can trust. Full-time hire is risky when execution is already in question. Embedded operator provides immediate credibility and execution truth.
+                    <strong>Why embedded leadership was required:</strong> Boards need technical leadership they can trust. Full-time hire is risky when execution is already in question. Embedded operator provides immediate credibility and execution truth.
                   </li>
                 </ul>
               </div>
@@ -131,7 +131,7 @@ export default function Experience() {
                     <strong>Why technology was existential:</strong> Technical leadership vacuum kills momentum. Engineering team loses direction. Product development stalls. Customers and investors notice when execution stops.
                   </li>
                   <li className="text-base font-body text-foreground">
-                    <strong>Why Operator-in-Residence was required:</strong> Transitions require immediate leadership and stabilization. Full-time CTO search takes months. Team needs direction now. Embedded operator provides immediate leadership, stabilizes execution, and transitions to permanent hire.
+                    <strong>Why embedded leadership was required:</strong> Transitions require immediate leadership and stabilization. Full-time CTO search takes months. Team needs direction now. Embedded operator provides immediate leadership, stabilizes execution, and transitions to permanent hire.
                   </li>
                 </ul>
               </div>
@@ -472,13 +472,13 @@ export default function Experience() {
               What This Means for Engagements
             </h2>
             <p className="text-lg font-body text-foreground leading-relaxed mb-6">
-              This experience translates directly into Operator-in-Residence and Equity CTO engagements. When we engage, we're applying patterns we've seen before, decisions we've made before, and outcomes we've delivered before.
+              This experience translates directly into my strategic and embedded leadership engagements. When I engage, I'm applying patterns I've seen before, decisions I've made before, and outcomes I've delivered before.
             </p>
             <p className="text-lg font-body text-foreground leading-relaxed mb-6">
               Pattern recognition accelerates execution. We know what questions to ask, what risks to assess, and what decisions need to happen first. We've seen similar situations before, so we can move faster and with more confidence.
             </p>
             <p className="text-lg font-body text-foreground leading-relaxed mb-8">
-              This is why Operator-in-Residence engagements work. We're operators who have operated in similar situations before, bringing that experience to bear immediately.
+              This is why embedded leadership works. I'm an operator who has operated in similar situations before, bringing that experience to bear immediately.
             </p>
             <div className="bg-card border border-divider rounded-lg p-8">
               <h3 className="font-heading text-xl font-semibold text-heading mb-4">
@@ -519,7 +519,7 @@ export default function Experience() {
               What This Experience Enables
             </h2>
             <p className="text-lg font-body text-foreground leading-relaxed mb-8">
-              This operating history directly enables Operator-in-Residence effectiveness. When we engage, we deliver immediate impact without the onboarding drag that slows typical CTO hires or the learning curve that constrains advisory relationships.
+              This operating history directly enables effective embedded leadership. When I engage, I deliver immediate impact without the onboarding drag that slows typical CTO hires or the learning curve that constrains advisory relationships.
             </p>
             <div className="space-y-6">
               <div>
@@ -568,7 +568,7 @@ export default function Experience() {
               </div>
             </div>
             <p className="text-lg font-body text-foreground leading-relaxed mt-10 pt-8 border-t border-divider">
-              This is why Operator-in-Residence engagements deliver immediate impact. We're operators who have operated in similar situations before, bringing that experience to bear from day one. We move faster because we've seen these patterns before.
+              This is why embedded leadership delivers immediate impact. I'm an operator who has operated in similar situations before, bringing that experience to bear from day one. I move faster because I've seen these patterns before.
             </p>
           </div>
         </div>
@@ -582,7 +582,7 @@ export default function Experience() {
               When technology execution is critical, experience matters.
             </h2>
             <p className="text-lg font-body text-primary-foreground/90 leading-relaxed mb-10">
-              This experience is what you're hiring when you engage TCM as Operator-in-Residence. Battle-tested operators who have seen these patterns before and deliver immediate impact.
+              This experience is what you're hiring when you engage me for embedded leadership. Battle-tested execution that has seen these patterns before and delivers immediate impact.
             </p>
             <Link to="/apply">
               <Button
@@ -590,7 +590,7 @@ export default function Experience() {
                 size="xl"
                 className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary"
               >
-                Apply for an Operator-in-Residence Engagement
+                Book a Discovery Call
               </Button>
             </Link>
           </div>

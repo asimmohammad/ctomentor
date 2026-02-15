@@ -339,16 +339,16 @@ const articles: Record<
         </p>
 
         <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-6">
-          7. The Operator-in-Residence (The Evolution)
+          7. The Embedded Technology Leader (The Evolution)
         </h2>
         <p className="text-base font-body text-foreground leading-relaxed mb-4">
-          The Operator-in-Residence is not just a CTO—it is an operating executive embedded directly into the business with ownership, accountability, and authority. This role blends the strategic depth of a senior CTO with the hands-on execution of an operator.
+          The embedded technology leader is not just a CTO—it is an operating executive embedded directly into the business with ownership, accountability, and authority. This role blends the strategic depth of a senior CTO with the hands-on execution of an operator.
         </p>
         <p className="text-base font-body text-foreground leading-relaxed mb-8">
-          Unlike a fractional advisor, an Operator-in-Residence drives outcomes: stabilizing teams, fixing delivery breakdowns, aligning engineering with revenue, and making hard trade-offs in real time. Unlike a traditional CTO hire, this role is often temporary, equity-aligned, and focused on transformation rather than permanence.
+          Unlike a fractional advisor, an embedded leader drives outcomes: stabilizing teams, fixing delivery breakdowns, aligning engineering with revenue, and making hard trade-offs in real time. Unlike a traditional CTO hire, this role is often temporary, equity-aligned, and focused on transformation rather than permanence.
         </p>
         <p className="text-base font-body text-foreground leading-relaxed mb-8">
-          For many startups, especially those navigating inflection points, the Operator-in-Residence is the fastest way to move from chaos to clarity without making a premature long-term hire.
+          For many startups, especially those navigating inflection points, embedded technology leadership is the fastest way to move from chaos to clarity without making a premature long-term hire.
         </p>
 
         <div className="mt-12 pt-8 border-t border-divider">
@@ -1324,7 +1324,7 @@ export default function Article() {
               Ready to find the right technology leadership for your company?
             </h2>
             <p className="text-lg font-body text-primary-foreground/90 leading-relaxed mb-10">
-              If technology execution is critical and the stakes are high, let's discuss whether an Operator-in-Residence engagement is the right model for your situation.
+              If technology execution is critical and the stakes are high, let's discuss whether an embedded leadership engagement is the right model for your situation.
             </p>
             <Link to="/apply">
               <Button
@@ -1332,7 +1332,7 @@ export default function Article() {
                 size="xl"
                 className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary"
               >
-                Apply for an Operator-in-Residence Engagement
+                Book a Discovery Call
               </Button>
             </Link>
           </div>

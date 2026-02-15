@@ -16,10 +16,9 @@ const servicesMenu = {
   name: "Services",
   href: "/services",
   items: [
-    { name: "Services Overview", href: "/services" },
+    { name: "Engagement Models", href: "/services" },
     { name: "PE/VC Due Diligence", href: "/investors" },
     { name: "Government & Defense", href: "/government" },
-    { name: "Pricing", href: "/pricing" },
   ],
 };
 
@@ -39,7 +38,7 @@ const aboutMenu = {
 };
 
 const isServicesActive = (path: string) =>
-  path === "/services" || path === "/investors" || path === "/government" || path === "/pricing";
+  path === "/services" || path === "/investors" || path === "/government";
 const isInsightsActive = (path: string) => path === "/case-studies" || path === "/insights";
 const isAboutActive = (path: string) => path === "/about" || path === "/experience";
 

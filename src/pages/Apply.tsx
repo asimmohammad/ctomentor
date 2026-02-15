@@ -63,7 +63,7 @@ const minimumReadiness = [
   "You have meaningful revenue or funding that supports premium engagement",
   "You're ready to give real decision-making authority and execution ownership",
   "The cost of getting technology wrong is high—this isn't a nice-to-have",
-  "You understand that Operator-in-Residence engagements require cash + equity alignment",
+  "You're open to discussing compensation structure (cash, and in some cases equity) that aligns with outcomes",
 ];
 
 const engagementStructure = [
@@ -81,7 +81,7 @@ const engagementStructure = [
   },
   {
     element: "Duration",
-    description: "Engagements typically range from 6–12 months for ongoing Operator-in-Residence roles, or 90 days for fixed-scope turnarounds. We design transitions from day one.",
+    description: "Engagements typically range from 6–12 months for ongoing embedded leadership, or 90 days for fixed-scope turnarounds. I design transitions from day one.",
   },
 ];
 
@@ -202,7 +202,7 @@ export default function Apply() {
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
           <div className="max-w-3xl">
             <h1 className="font-heading text-4xl md:text-5xl font-semibold text-heading leading-tight">
-              Apply for an Operator-in-Residence Engagement
+              Book a Discovery Call
             </h1>
             <p className="mt-6 text-xl font-body text-subtle leading-relaxed">
               This is a mutual selection process. We're selective about engagements, and you should be selective about partners. If technology execution is critical and the stakes are high, let's talk.
@@ -222,7 +222,7 @@ export default function Apply() {
               Who Should Apply
             </h2>
             <p className="text-lg font-body text-foreground leading-relaxed mb-8">
-              Operator-in-Residence engagements are for companies where technology execution is critical and the cost of getting it wrong is unacceptable. If you're looking for cheap help, part-time advisory, or fractional consulting, we're not the right partner.
+              My engagements are for companies where technology execution is critical and the cost of getting it wrong is unacceptable. If you're looking for cheap help, part-time advisory, or fractional consulting, we're not the right partner.
             </p>
             <ul className="space-y-4">
               {whoShouldApply.map((item, index) => (
@@ -271,7 +271,7 @@ export default function Apply() {
               How Engagements Are Structured
             </h2>
             <p className="text-lg font-body text-foreground leading-relaxed mb-8">
-              Every Operator-in-Residence engagement is structured around outcomes and alignment, not hours or time allocation. Here's what to expect:
+              Every engagement is structured around outcomes and alignment, not hours or time allocation. Here's what to expect:
             </p>
             <div className="space-y-6">
               {engagementStructure.map((item, index) => (
@@ -304,7 +304,7 @@ export default function Apply() {
                   Initial Review (2 Business Days)
                 </h3>
                 <p className="text-base font-body text-foreground leading-relaxed">
-                  We review every application personally. If there's a potential fit, we'll schedule a 30-minute discovery call to understand your situation, assess alignment, and determine if an Operator-in-Residence engagement makes sense.
+                  We review every application personally. If there's a potential fit, we'll schedule a 30-minute discovery call to understand your situation, assess alignment, and determine if an engagement makes sense.
                 </p>
               </div>
               <div>
@@ -691,7 +691,7 @@ export default function Apply() {
                               />
                             </FormControl>
                             <FormDescription className="text-xs text-muted-foreground">
-                              Optional - Equity participation is standard for Operator-in-Residence engagements
+                              Optional - Equity participation may be discussed for embedded leadership engagements
                             </FormDescription>
                             <FormMessage />
                           </FormItem>
@@ -737,7 +737,7 @@ export default function Apply() {
               We're selective. You should be too.
             </h2>
             <p className="text-lg font-body text-primary-foreground/90 leading-relaxed mb-6">
-              We take on a limited number of Operator-in-Residence engagements each year. We're selective because execution at this level requires full commitment—from both sides.
+              I take on a limited number of strategic engagements each year. We're selective because execution at this level requires full commitment—from both sides.
             </p>
             <p className="text-lg font-body text-primary-foreground/90 leading-relaxed mb-10">
               If technology execution is critical to your business and the stakes are high, apply. If you're looking for cheap help or part-time advisory, we're not the right partner.
