@@ -27,7 +27,7 @@ const caseStudiesMenu = {
   href: "/insights",
   items: [
     { name: "Case Studies", href: "/case-studies" },
-    { name: "Blog / Articles", href: "/insights" },
+    { name: "Articles", href: "/insights" },
   ],
 };
 
