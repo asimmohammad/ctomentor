@@ -4,9 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 
-// To use your LinkedIn headshot: download your profile photo from LinkedIn, save as src/assets/asim-headshot.jpg,
-// then uncomment the import below and replace the placeholder div with: <img src={asimHeadshot} alt="Asim Mohammad" className="w-48 h-48 rounded-xl object-cover border border-divider" />
-// import asimHeadshot from "@/assets/asim-headshot.jpg";
+import asimHeadshot from "@/assets/asim-headshot.png";
 
 const expertiseTags = [
   "Technology & Transformation",
@@ -25,7 +23,7 @@ export default function About() {
     <Layout>
       <PageMeta
         title="About | The CTO Mentor"
-        description="Asim Mohammad — Product & Technology Leader at LaaSy, 25+ years in technology and transformation. CTO Mentor, venture investor, board advisor."
+        description="Asim Mohammad — Product & Technology Leader, 25+ years in technology and transformation. CTO Mentor, venture investor, board advisor."
       />
 
       {/* Hero */}
@@ -33,9 +31,11 @@ export default function About() {
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
           <div className="max-w-4xl flex flex-col md:flex-row md:items-start gap-10">
             <div className="flex-shrink-0">
-              <div className="w-48 h-48 rounded-xl bg-card border border-divider flex items-center justify-center text-subtle font-body text-sm text-center p-4">
-                Your photo
-              </div>
+              <img
+                src={asimHeadshot}
+                alt="Asim Mohammad"
+                className="w-48 h-48 rounded-xl object-cover border border-divider"
+              />
             </div>
             <div className="flex-1">
               <h1 className="font-heading text-4xl md:text-5xl font-semibold text-heading leading-tight">
@@ -45,13 +45,13 @@ export default function About() {
                 Executive · Technology and Transformation · Innovation · Venture Investor · Board Advisor
               </p>
               <p className="mt-2 text-sm font-body text-subtle">
-                Product & Technology Leader at LaaSy · Chicago, IL
+                Product & Technology Leader · Chicago, IL
               </p>
               <p className="mt-6 text-base font-body text-foreground leading-relaxed">
-                I lead product and technology at <strong>LaaSy</strong>, a loyalty-as-a-service platform. We run a SOC 2 Type II certified SaaS product and are actively pursuing AWS GovCloud migration and FedRAMP readiness. I have hands-on experience with IL5 authorization and ICAM integration for DoD markets, and I support technology due diligence for M&A — so I understand what investors and acquirers need when they evaluate technology companies.
+                I lead product and technology for a loyalty-as-a-service platform — a SOC 2 Type II certified SaaS product, with active work on AWS GovCloud migration and FedRAMP readiness. I have hands-on experience with IL5 authorization and ICAM integration for DoD markets, and I support technology due diligence for M&A, so I understand what investors and acquirers need when they evaluate technology companies.
               </p>
               <p className="mt-4 text-base font-body text-foreground leading-relaxed">
-                I've spent <strong>25+ years</strong> in technology and transformation across banking, retail, data platforms, and SaaS — from Bank of America and Grant Thornton to StreamSets and LaaSy. I'm also an investor and advisor to startups, and a board member at <strong>Muslim Aid USA</strong>.
+                I've spent <strong>25+ years</strong> in technology and transformation across banking, retail, data platforms, and SaaS — from global financial institutions and major advisory firms to high-growth data and SaaS companies. I'm also an investor and advisor to startups, and a board member for nonprofit organizations.
               </p>
               <div className="mt-8 flex flex-wrap gap-2">
                 {expertiseTags.map((tag) => (
@@ -90,13 +90,13 @@ export default function About() {
               Background
             </h2>
             <p className="text-base font-body text-foreground leading-relaxed">
-              I've led data strategy, product, and technology at scale: Head of Data Strategy at Grant Thornton, VP of Customer Success at StreamSets, CIO at CommunityForce, and SVP of Data & Analytics and Information Architecture at Bank of America. I've built and run teams, filed patents in data lineage and analytics, and driven large-scale transformation in regulated and high-growth environments.
+              I've led data strategy, product, and technology at scale: Head of Data Strategy at a global advisory firm, VP of Customer Success at a data-integration SaaS company, CIO at a fintech, and SVP of Data & Analytics and Information Architecture at a major financial institution. I've built and run teams, filed patents in data lineage and analytics, and driven large-scale transformation in regulated and high-growth environments.
             </p>
             <p className="text-base font-body text-foreground leading-relaxed">
               I hold an <strong>MBA from Duke University (Fuqua)</strong> with dual concentrations in Finance and Health Sector Management. I've designed patented technology for data governance, lineage, and real-time analytics — and I care about technology as a competitive advantage, not a cost center.
             </p>
             <p className="text-base font-body text-foreground leading-relaxed">
-              As an investor and advisor to startups since 2017, and as a board member for Muslim Aid USA, I stay close to both the operator and the advisor side. The CTO Mentor is where I help founders and leadership teams get technology strategy, scaling, and compliance right — with practical, outcome-focused guidance.
+              As an investor and advisor to startups since 2017, and as a board member for nonprofit organizations, I stay close to both the operator and the advisor side. The CTO Mentor is where I help founders and leadership teams get technology strategy, scaling, and compliance right — with practical, outcome-focused guidance.
             </p>
           </div>
         </div>
