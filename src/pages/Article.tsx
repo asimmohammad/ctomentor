@@ -15,6 +15,162 @@ const articles: Record<
     content: React.ReactNode;
   }
 > = {
+  "soc-2-compliance": {
+    title: "SOC 2 Compliance: What Every Technology Leader Needs to Know (And How to Get There Without Losing Your Mind)",
+    date: "February 15, 2026",
+    category: "Security & Compliance",
+    content: (
+      <div className="prose prose-lg max-w-none">
+        <p className="text-sm font-body text-subtle mb-6">
+          By: <span className="font-medium text-foreground">Asim Mohammad</span>
+        </p>
+        <p className="text-lg font-body text-foreground leading-relaxed mb-6">
+          If you're a CTO, VP of Engineering, or technical founder selling to enterprise customers, you've heard the question: "Are you SOC 2 compliant?" If you haven't heard it yet, you will — and when that question comes from a prospect with a six- or seven-figure contract on the table, you want the answer to be yes.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-6">
+          I've been through the SOC 2 journey firsthand at Laasy, and I want to share what I've learned — what to look for, what to watch out for, and the tools that made it manageable.
+        </p>
+
+        <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-4">
+          What Is SOC 2, Really?
+        </h2>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          SOC 2 (System and Organization Controls 2) is a compliance framework developed by the American Institute of Certified Public Accountants (AICPA). It evaluates how a company manages customer data based on five Trust Services Criteria: Security, Availability, Processing Integrity, Confidentiality, and Privacy.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          There are two types of SOC 2 reports. Type I is essentially a snapshot — it assesses whether your controls are properly designed at a specific point in time. Type II is the one that carries real weight. It evaluates whether those controls actually operate effectively over a sustained period, typically between three and twelve months. When enterprise buyers and procurement teams ask if you're SOC 2 compliant, they almost always mean Type II.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-6">
+          Here's what's important to understand: SOC 2 is not a checklist you complete once and forget about. It's an ongoing commitment to operational discipline around how you handle data, manage access, respond to incidents, and govern your infrastructure.
+        </p>
+
+        <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-4">
+          Why It Matters More Than You Think
+        </h2>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          SOC 2 compliance isn't just a box to check for sales. It fundamentally strengthens your organization in several ways.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          First, it accelerates your sales cycle. Enterprise procurement teams have security questionnaires that can stall deals for weeks or months. A current SOC 2 Type II report answers most of those questions before they're even asked.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Second, it forces operational maturity. Going through the process makes you formalize things you've probably been doing informally — access reviews, change management, incident response, vendor management. These are practices that every scaling technology company needs regardless of compliance requirements.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Third, it builds a foundation for further compliance. If you're eyeing FedRAMP, HIPAA, ISO 27001, or government contracts (as we are at Laasy with our DoD market expansion), SOC 2 is often the natural starting point. Many of the controls and processes you put in place carry directly into those frameworks.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-6">
+          Finally, it's a trust signal. In a market where data breaches make headlines weekly, being able to demonstrate independently verified security practices is a genuine competitive advantage.
+        </p>
+
+        <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-4">
+          What to Look for in SOC 2 Compliance
+        </h2>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Whether you're starting your SOC 2 journey or evaluating your current posture, here's what you should be paying attention to.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-2">
+          <span className="font-semibold">Scope your Trust Services Criteria carefully.</span> Not every company needs all five criteria. Security is always required — it's the baseline. But think critically about whether Availability, Processing Integrity, Confidentiality, and Privacy apply to your product and your customers' expectations. Over-scoping creates unnecessary work. Under-scoping creates gaps that sophisticated buyers will notice.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-2">
+          <span className="font-semibold">Get your policies right before your technology.</span> SOC 2 is as much about documented policies and procedures as it is about technical controls. You need clear, living documentation covering information security, acceptable use, access control, incident response, change management, risk assessment, vendor management, and data retention. Don't copy-paste templates without understanding them — auditors will ask pointed questions, and your team needs to actually follow these policies.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-2">
+          <span className="font-semibold">Implement continuous monitoring, not point-in-time checks.</span> The shift from Type I to Type II is really a shift from "do you have this?" to "do you actually do this consistently?" Continuous monitoring of your cloud infrastructure, access controls, and security configurations is what separates companies that pass their audit smoothly from those that scramble at the last minute.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-2">
+          <span className="font-semibold">Automate evidence collection.</span> This is where companies either save hundreds of hours or waste them. SOC 2 audits require evidence — screenshots, logs, configuration exports, policy acknowledgments, access review records. Collecting all of this manually is painful and error-prone. The right platform automates this entirely.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-2">
+          <span className="font-semibold">Choose your auditor wisely.</span> Your auditor (a CPA firm) issues the actual SOC 2 report. Look for firms with experience in your industry and company size. A firm that primarily audits Fortune 500 companies might not be the best fit for a 30-person SaaS startup, and vice versa. Ask about their process, timeline, communication style, and how they handle findings.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-6">
+          <span className="font-semibold">Plan for the cultural shift.</span> SOC 2 compliance touches engineering, HR, IT, and executive leadership. It's not just a "security team" initiative. Everyone from the developer pushing code to the HR manager onboarding new employees has a role to play. Get buy-in early and make compliance part of your engineering culture, not something bolted on as an afterthought.
+        </p>
+
+        <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-4">
+          The Compliance Automation Landscape
+        </h2>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          The good news is that you don't have to manage SOC 2 compliance with spreadsheets and prayer. Several platforms have emerged to automate the heavy lifting — continuous monitoring, evidence collection, policy management, and auditor coordination. Here are the major players worth evaluating.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          <span className="font-semibold">Vanta</span> is the platform I chose for Laasy, and the one I recommend to the CTOs I mentor. I'll explain why in a moment.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          <span className="font-semibold">Drata</span> is another strong option in the space, known for its clean interface and broad integration library. It's a solid platform, particularly for companies that are compliance-first from the start.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          <span className="font-semibold">Secureframe</span> offers a good balance of automation and hands-on support, with a focus on getting companies through their first audit quickly.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          <span className="font-semibold">Sprinto</span> has gained traction particularly with companies outside the US and tends to be competitive on pricing for smaller teams.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          <span className="font-semibold">Tugboat Logic</span> (now part of OneTrust) is worth considering if you're already in the OneTrust ecosystem for privacy management.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-6">
+          <span className="font-semibold">Lacework</span> and <span className="font-semibold">JupiterOne</span> approach compliance from a cloud security posture management angle, which can be valuable if your primary concern is infrastructure monitoring. Each of these platforms has merit, and the right choice depends on your specific needs, budget, existing tool stack, and growth trajectory.
+        </p>
+
+        <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-4">
+          Why I Chose Vanta (And Would Again)
+        </h2>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          When we evaluated compliance platforms at Laasy, we looked at several options. We landed on Vanta, and having been through our SOC 2 Type II certification with them, I can speak to why it was the right call.
+        </p>
+        <ul className="list-disc list-inside space-y-2 mb-4 text-base font-body text-foreground">
+          <li><span className="font-semibold">Integration depth with AWS.</span> As a company built entirely on AWS, we needed a platform that could deeply integrate with our cloud infrastructure — not just check a few boxes, but continuously monitor our configurations, IAM policies, security groups, and service settings. Vanta's AWS integration is mature and comprehensive.</li>
+          <li><span className="font-semibold">Automation that actually works.</span> Vanta automates evidence collection across our infrastructure, identity provider, version control, HR systems, and more. What would have been hundreds of hours of manual screenshot gathering became a continuous, automated process. When audit time came, the evidence was already there.</li>
+          <li><span className="font-semibold">Policy templates that aren't garbage.</span> Every platform claims to have policy templates. Vanta's were genuinely useful as starting points — well-written, comprehensive, and aligned with what auditors actually look for. We customized them for our specific context, but having a strong foundation saved weeks of work.</li>
+          <li><span className="font-semibold">Clear audit readiness visibility.</span> Vanta gives you a real-time view of your compliance posture — what's passing, what's failing, and what needs attention. This dashboard-driven approach meant we could address gaps proactively rather than discovering them during the audit.</li>
+          <li><span className="font-semibold">Auditor network and coordination.</span> Vanta connects you with vetted auditor firms and manages much of the coordination between your team and the auditors. This streamlined what is traditionally one of the most time-consuming parts of the process.</li>
+          <li><span className="font-semibold">Scalability into additional frameworks.</span> As we've moved toward government and DoD market expansion, including our AWS GovCloud migration and FedRAMP readiness work, having a platform that can grow with us across multiple compliance frameworks has been invaluable. We didn't want to start over with a new tool for each new framework.</li>
+        </ul>
+
+        <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-4">
+          Practical Advice for Getting Started
+        </h2>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          If you're a CTO or technical leader staring down your first SOC 2 engagement, here's my straightforward advice.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          <span className="font-semibold">Start at least three to six months before you think you'll need the report.</span> SOC 2 Type II requires a monitoring period, and you need time before that to get your controls in place. If a prospect asks for your SOC 2 report today and you haven't started, you're looking at a minimum of six months before you can hand them a Type II report.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          <span className="font-semibold">Don't try to do it alone.</span> Whether you choose Vanta or another platform, use a compliance automation tool. The ROI is immediate and obvious. The manual alternative is a tax on your engineering team's time that you can't afford.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          <span className="font-semibold">Assign a clear internal owner.</span> SOC 2 compliance needs someone who is accountable — whether that's you, a security lead, or an operations person. Without clear ownership, things fall through the cracks.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          <span className="font-semibold">Use the process to get better, not just to get certified.</span> The real value of SOC 2 isn't the PDF report. It's the operational improvements you make along the way — better access controls, documented incident response, formalized change management, regular risk assessments. These practices make you a better-run technology organization.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-6">
+          And finally, remember that compliance is a journey, not a destination. Your SOC 2 report has an expiration date. The controls need to be maintained. The policies need to be followed. The monitoring needs to continue. Build it into your operating rhythm from day one.
+        </p>
+
+        <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-4">
+          The Bottom Line
+        </h2>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          SOC 2 compliance is no longer optional for any SaaS company selling to businesses. It's table stakes. The question isn't whether you need it — it's how efficiently and effectively you can achieve and maintain it.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Having been through this journey, my recommendation is clear: invest in a compliance automation platform early, choose an auditor who fits your stage and industry, and treat the process as an opportunity to build operational excellence, not just a certification to obtain.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-6">
+          If you're evaluating platforms, give Vanta a serious look. It's the tool that got us through our SOC 2 Type II at Laasy, and it continues to serve us well as we expand into more demanding compliance frameworks. It's earned my recommendation.
+        </p>
+
+        <div className="mt-12 pt-8 border-t border-divider">
+          <p className="text-base font-body text-subtle leading-relaxed">
+            Asim is the CTO of Laasy and founder of The CTO Mentor, where he provides guidance to technology leaders navigating the challenges of scaling organizations, building secure platforms, and making strategic technology decisions. Connect with him on <a href="https://www.linkedin.com/in/asimmohammad" target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent/80 font-medium">LinkedIn</a> for more insights on technology leadership.
+          </p>
+        </div>
+      </div>
+    ),
+  },
   "cto-skill-no": {
     title: 'The CTO Skill Nobody Trains For: Saying "No"',
     date: "February 9, 2026",

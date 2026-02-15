@@ -17,6 +17,16 @@ export const INSIGHTS_CATEGORIES = [
 
 const posts = [
   {
+    slug: "soc-2-compliance",
+    title: "SOC 2 Compliance: What Every Technology Leader Needs to Know (And How to Get There Without Losing Your Mind)",
+    excerpt:
+      "If you're selling to enterprise, you've heard the question: 'Are you SOC 2 compliant?' Here's what I learned from the SOC 2 journey at Laasy — and the tools that made it manageable.",
+    date: "February 2026",
+    category: "Security & Compliance",
+    readTime: 10,
+    featured: true,
+  },
+  {
     slug: "cto-skill-no",
     title: 'The CTO Skill Nobody Trains For: Saying "No"',
     excerpt:

@@ -58,9 +58,9 @@ const caseStudyCards = [
 
 // Latest 3 from Insights (keep in sync with Insights.tsx posts order)
 const latestPosts = [
+  { slug: "soc-2-compliance", title: "SOC 2 Compliance: What Every Technology Leader Needs to Know", date: "February 2026" },
   { slug: "cto-skill-no", title: 'The CTO Skill Nobody Trains For: Saying "No"', date: "February 2026" },
   { slug: "fix-after-launch", title: "Why \"We'll Fix It After Launch\" Is How Startups Die", date: "January 2026" },
-  { slug: "many-faces-cto", title: "The Many Faces of the CTO — And Why Most Startups Hire the Wrong One", date: "January 2026" },
 ];
 
 export default function Index() {
