@@ -93,7 +93,7 @@ export default function About() {
               Background
             </h2>
             <p className="text-base font-body text-foreground leading-relaxed">
-              I've led data strategy, product, and technology at scale: Head of Data Strategy at a global advisory firm, VP of Customer Success at a data-integration SaaS company, CIO at a fintech, and SVP of Data & Analytics and Information Architecture at a major financial institution. I've built and run teams, filed patents in data lineage and analytics, and driven large-scale transformation in regulated and high-growth environments.
+              I've led data strategy, product, and technology at scale: Head of Data Strategy at a global advisory firm, VP of Customer Success at a data-integration SaaS company, CIO at a fintech, and SVP of Data & Analytics and Information Architecture at a major financial institution. I've built and run teams and driven large-scale transformation in regulated and high-growth environments.
             </p>
             <p className="text-base font-body text-foreground leading-relaxed">
               I hold an <strong>MBA from Duke University (Fuqua)</strong> with dual concentrations in Finance and Health Sector Management. I've designed patented technology for data governance, lineage, and real-time analytics — and I care about technology as a competitive advantage, not a cost center.
