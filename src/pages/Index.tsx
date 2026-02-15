@@ -79,7 +79,7 @@ export default function Index() {
               Strategic Technology Leadership for Growth-Stage Companies, PE/VC Portfolios & Government Technology
             </p>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold text-heading leading-tight">
-              I help growth-stage companies, PE/VC firms, and GovTech organizations build technology that scales — without the cost of a full-time CTO.
+              I help growth-stage companies and PE/VC firms build technology that scales — without the cost of a full-time CTO.
             </h1>
             <p className="mt-6 text-lg md:text-xl font-body text-subtle leading-relaxed max-w-2xl">
               I bring hands-on CTO leadership: architecture, security, team scaling, and technical due diligence. For engagements that need more capacity, I bring in trusted senior technology leaders from my vetted network.
