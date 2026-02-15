@@ -4,13 +4,20 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 
+// To use your LinkedIn headshot: download your profile photo from LinkedIn, save as src/assets/asim-headshot.jpg,
+// then uncomment the import below and replace the placeholder div with: <img src={asimHeadshot} alt="Asim Mohammad" className="w-48 h-48 rounded-xl object-cover border border-divider" />
+// import asimHeadshot from "@/assets/asim-headshot.jpg";
+
 const expertiseTags = [
+  "Technology & Transformation",
   "AWS Architecture",
   "SOC 2 / FedRAMP",
   "GovCloud / IL5",
   "Technical Due Diligence",
-  "Engineering Team Scaling",
+  "Data Strategy & Engineering",
   "Security Architecture",
+  "Venture Investing",
+  "Board Advisory",
 ];
 
 export default function About() {
@@ -18,7 +25,7 @@ export default function About() {
     <Layout>
       <PageMeta
         title="About | The CTO Mentor"
-        description="Meet the CTO behind The CTO Mentor — currently leading technology for a SOC 2 certified SaaS platform with active FedRAMP and DoD market experience."
+        description="Asim Mohammad — Product & Technology Leader at LaaSy, 25+ years in technology and transformation. CTO Mentor, venture investor, board advisor."
       />
 
       {/* Hero */}
@@ -26,19 +33,25 @@ export default function About() {
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
           <div className="max-w-4xl flex flex-col md:flex-row md:items-start gap-10">
             <div className="flex-shrink-0">
-              <div className="w-48 h-48 rounded-xl bg-card border border-divider flex items-center justify-center text-subtle font-body text-sm">
-                Professional headshot placeholder
+              <div className="w-48 h-48 rounded-xl bg-card border border-divider flex items-center justify-center text-subtle font-body text-sm text-center p-4">
+                Your photo
               </div>
             </div>
-            <div>
+            <div className="flex-1">
               <h1 className="font-heading text-4xl md:text-5xl font-semibold text-heading leading-tight">
                 Asim Mohammad
               </h1>
               <p className="mt-2 text-lg font-body text-subtle">
-                CTO · The CTO Mentor
+                Executive · Technology and Transformation · Innovation · Venture Investor · Board Advisor
+              </p>
+              <p className="mt-2 text-sm font-body text-subtle">
+                Product & Technology Leader at LaaSy · Chicago, IL
               </p>
               <p className="mt-6 text-base font-body text-foreground leading-relaxed">
-                I'm currently CTO for a loyalty-as-a-service platform — a SOC 2 Type II certified SaaS product. I lead our AWS GovCloud migration and FedRAMP readiness initiatives, and I have hands-on experience with IL5 authorization and ICAM integration for DoD markets. I'm also involved in technology due diligence for M&A transactions, so I understand what investors and acquirers need when they evaluate technology companies.
+                I lead product and technology at <strong>LaaSy</strong>, a loyalty-as-a-service platform. We run a SOC 2 Type II certified SaaS product and are actively pursuing AWS GovCloud migration and FedRAMP readiness. I have hands-on experience with IL5 authorization and ICAM integration for DoD markets, and I support technology due diligence for M&A — so I understand what investors and acquirers need when they evaluate technology companies.
+              </p>
+              <p className="mt-4 text-base font-body text-foreground leading-relaxed">
+                I've spent <strong>25+ years</strong> in technology and transformation across banking, retail, data platforms, and SaaS — from Bank of America and Grant Thornton to StreamSets and LaaSy. I'm also an investor and advisor to startups, and a board member at <strong>Muslim Aid USA</strong>.
               </p>
               <div className="mt-8 flex flex-wrap gap-2">
                 {expertiseTags.map((tag) => (
@@ -54,7 +67,7 @@ export default function About() {
                   </Button>
                 </Link>
                 <a
-                  href="https://www.linkedin.com/in/asimmohammad"
+                  href="https://www.linkedin.com/in/asimmohammad1/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex"
@@ -69,35 +82,49 @@ export default function About() {
         </div>
       </section>
 
-      {/* Bio narrative */}
+      {/* Background */}
       <section className="bg-background">
+        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
+          <div className="max-w-3xl space-y-6">
+            <h2 className="font-heading text-2xl font-semibold text-heading">
+              Background
+            </h2>
+            <p className="text-base font-body text-foreground leading-relaxed">
+              I've led data strategy, product, and technology at scale: Head of Data Strategy at Grant Thornton, VP of Customer Success at StreamSets, CIO at CommunityForce, and SVP of Data & Analytics and Information Architecture at Bank of America. I've built and run teams, filed patents in data lineage and analytics, and driven large-scale transformation in regulated and high-growth environments.
+            </p>
+            <p className="text-base font-body text-foreground leading-relaxed">
+              I hold an <strong>MBA from Duke University (Fuqua)</strong> with dual concentrations in Finance and Health Sector Management. I've designed patented technology for data governance, lineage, and real-time analytics — and I care about technology as a competitive advantage, not a cost center.
+            </p>
+            <p className="text-base font-body text-foreground leading-relaxed">
+              As an investor and advisor to startups since 2017, and as a board member for Muslim Aid USA, I stay close to both the operator and the advisor side. The CTO Mentor is where I help founders and leadership teams get technology strategy, scaling, and compliance right — with practical, outcome-focused guidance.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* My view on technology leadership */}
+      <section className="bg-section-gradient border-y border-divider">
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
           <div className="max-w-3xl space-y-6">
             <h2 className="font-heading text-2xl font-semibold text-heading">
               My view on technology leadership
             </h2>
             <p className="text-base font-body text-foreground leading-relaxed">
-              Technology should be a competitive advantage, not a cost center. Too many companies treat it as the latter — and end up with brittle systems, unclear ownership, and boards that don't get straight answers. I believe in hands-on, outcome-focused leadership: clear architecture decisions, accountable teams, and technical strategy that ties directly to business results.
-            </p>
-            <p className="text-base font-body text-foreground leading-relaxed">
-              My advisory approach is practical, not theoretical. I've been in the seat during SOC 2 audits, GovCloud migrations, and M&A due diligence. I don't just advise — I've built and run the systems that pass these bar. That's why I can help founders, PE/VC firms, and GovTech companies make decisions that hold up under scrutiny.
-            </p>
-            <p className="text-base font-body text-foreground leading-relaxed">
-              I'm also involved in my community as a board member for nonprofit organizations. Giving back to the next generation of technical leaders matters to me.
+              Technology should be a competitive advantage, not a cost center. I believe in hands-on, outcome-focused leadership: clear architecture decisions, accountable teams, and technical strategy that ties directly to business results. My advisory approach is practical — I've been in the seat during SOC 2 audits, GovCloud migrations, and M&A due diligence, so I help founders, PE/VC firms, and GovTech companies make decisions that hold up under scrutiny.
             </p>
           </div>
         </div>
       </section>
 
       {/* The Bench */}
-      <section className="bg-section-gradient border-y border-divider">
+      <section className="bg-background">
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
           <div className="max-w-3xl">
             <h2 className="font-heading text-2xl font-semibold text-heading mb-6">
               The Bench
             </h2>
             <p className="text-base font-body text-foreground leading-relaxed">
-              For engagements that require additional expertise or capacity, I bring in trusted senior technology leaders from my vetted network. These are experienced CTOs and operators who share the same standards for execution and accountability. I don't list them by name here — when we scope an engagement that needs the bench, we'll discuss fit and introduce the right people. The model is simple: you get the right level of leadership without the overhead of a full-time hire, and I ensure quality and consistency.
+              For engagements that require additional expertise or capacity, I bring in trusted senior technology leaders from my vetted network. These are experienced CTOs and operators who share the same standards for execution and accountability. When we scope an engagement that needs the bench, we discuss fit and introduce the right people — so you get the right level of leadership without the overhead of a full-time hire.
             </p>
           </div>
         </div>
