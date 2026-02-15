@@ -48,7 +48,10 @@ export default function About() {
                 Product & Technology Leader · Chicago, IL
               </p>
               <p className="mt-6 text-base font-body text-foreground leading-relaxed">
-                I lead product and technology for a loyalty-as-a-service platform — a SOC 2 Type II certified SaaS product, with active work on AWS GovCloud migration and FedRAMP readiness. I have hands-on experience with IL5 authorization and ICAM integration for DoD markets, and I support technology due diligence for M&A, so I understand what investors and acquirers need when they evaluate technology companies.
+                I am a CTO with a track record of stepping into complex, technology-led organizations to strengthen execution, align leadership, and accelerate outcomes. I work at critical inflection points where companies need focused operational leadership to move from potential to performance.
+              </p>
+              <p className="mt-4 text-base font-body text-foreground leading-relaxed">
+                My experience spans global team leadership, multi-tenant SaaS platforms, and data- and AI-driven systems. I bridge strategy and execution, bringing clarity, structure, and momentum to organizations preparing for scale, investment, or long-term growth.
               </p>
               <p className="mt-4 text-base font-body text-foreground leading-relaxed">
                 I've spent <strong>25+ years</strong> in technology and transformation across banking, retail, data platforms, and SaaS — from global financial institutions and major advisory firms to high-growth data and SaaS companies. I'm also an investor and advisor to startups, and a board member for nonprofit organizations.
