@@ -1,5 +1,19 @@
+import { useState } from "react";
 import { Layout } from "@/components/layout/Layout";
+import { PageMeta } from "@/components/PageMeta";
+import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { Link } from "react-router-dom";
+
+export const INSIGHTS_CATEGORIES = [
+  "All",
+  "Technology Strategy",
+  "Engineering Leadership",
+  "Leadership",
+  "AI & Strategy",
+  "Security & Compliance",
+  "Due Diligence",
+  "Government Technology",
+] as const;
 
 const posts = [
   {
@@ -8,7 +22,9 @@ const posts = [
     excerpt:
       "Every technical leader knows the feeling: constant requests, endless priorities, and the quiet pressure to say yes to everything. But the most important technical decision is often deciding what not to build.",
     date: "February 2026",
-    category: "Leadership",
+    category: "Engineering Leadership",
+    readTime: 8,
+    featured: true,
   },
   {
     slug: "fix-after-launch",
@@ -17,14 +33,18 @@ const posts = [
       "Nearly every startup makes a quiet promise: 'We'll fix it after launch.' What makes this promise dangerous isn't that it's dishonest—it's that it's based on a future that almost never exists.",
     date: "January 2026",
     category: "Leadership",
+    readTime: 7,
+    featured: true,
   },
   {
     slug: "many-faces-cto",
     title: "The Many Faces of the CTO — And Why Most Startups Hire the Wrong One",
     excerpt:
-      "CTO is one of the most overloaded titles in modern companies. Two people can hold the same title and solve entirely different problems. When founders misunderstand this distinction, they don't just hire the wrong CTO—they design the wrong expectations, incentives, and operating model.",
+      "CTO is one of the most overloaded titles in modern companies. Two people can hold the same title and solve entirely different problems.",
     date: "January 2026",
-    category: "Leadership",
+    category: "Technology Strategy",
+    readTime: 9,
+    featured: true,
   },
   {
     slug: "decision-rights",
@@ -32,7 +52,9 @@ const posts = [
     excerpt:
       "The most common cause of engineering dysfunction isn't technical debt — it's unclear ownership. Here's how to diagnose and fix it.",
     date: "December 2024",
-    category: "Leadership",
+    category: "Engineering Leadership",
+    readTime: 8,
+    featured: false,
   },
   {
     slug: "ai-adoption",
@@ -41,6 +63,8 @@ const posts = [
       "Before choosing models or platforms, establish clear governance and success criteria. Most AI initiatives fail due to organizational readiness, not technical limitations.",
     date: "November 2024",
     category: "AI & Strategy",
+    readTime: 7,
+    featured: false,
   },
   {
     slug: "founder-cto-transition",
@@ -49,12 +73,30 @@ const posts = [
       "Technical founders often struggle to delegate effectively. The path forward requires deliberate role design, not just hiring.",
     date: "October 2024",
     category: "Leadership",
+    readTime: 6,
+    featured: false,
   },
 ];
 
 export default function Insights() {
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
+
+  const filteredPosts =
+    selectedCategory === "All"
+      ? posts
+      : posts.filter((p) => p.category === selectedCategory);
+
+  const featuredPosts = posts.filter((p) => p.featured);
+  const categoriesForFilter = INSIGHTS_CATEGORIES.filter((c) => c !== "All" && posts.some((p) => p.category === c));
+  const allCategories = ["All", ...categoriesForFilter];
+
   return (
     <Layout>
+      <PageMeta
+        title="Technology Leadership Insights | The CTO Mentor Blog"
+        description="Weekly insights on CTO strategy, engineering leadership, security compliance, and scaling technology teams."
+      />
+
       {/* Hero */}
       <section className="bg-warm-gradient">
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
@@ -63,49 +105,110 @@ export default function Insights() {
               CTO Insights
             </h1>
             <p className="mt-6 text-xl font-body text-subtle">
-              Writing on technology, leadership, and execution.
+              Writing on technology leadership, scaling engineering teams, and CTO strategy.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Posts */}
-      <section className="bg-background">
-        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <div className="max-w-3xl space-y-12">
-            {posts.map((post, index) => (
-              <article
+      {/* Featured */}
+      <section className="bg-background border-b border-divider">
+        <div className="container mx-auto px-6 lg:px-8 py-12 lg:py-16">
+          <h2 className="font-heading text-sm font-semibold text-accent uppercase tracking-wider mb-6">
+            Featured
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {featuredPosts.map((post) => (
+              <Link
                 key={post.slug}
-                className={`${
-                  index !== posts.length - 1
-                    ? "pb-12 border-b border-divider"
-                    : ""
+                to={`/insights/${post.slug}`}
+                className="group block p-6 rounded-lg border border-divider hover:border-accent/30 transition-colors"
+              >
+                <span className="text-xs font-body text-subtle">{post.date} · {post.readTime} min read</span>
+                <h3 className="mt-2 font-heading text-xl font-semibold text-heading group-hover:text-accent transition-colors leading-tight">
+                  {post.title}
+                </h3>
+                <p className="mt-2 text-sm font-body text-subtle line-clamp-2">
+                  {post.excerpt}
+                </p>
+                <span className="mt-3 inline-block text-sm font-medium text-accent">Read more →</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Category filters */}
+      <section className="bg-background">
+        <div className="container mx-auto px-6 lg:px-8 py-8">
+          <div className="flex flex-wrap gap-2">
+            {allCategories.map((cat) => (
+              <button
+                key={cat}
+                type="button"
+                onClick={() => setSelectedCategory(cat)}
+                className={`px-4 py-2 rounded-full text-sm font-body font-medium transition-colors ${
+                  selectedCategory === cat
+                    ? "bg-accent text-accent-foreground"
+                    : "bg-card border border-divider text-subtle hover:text-heading hover:border-accent/30"
                 }`}
               >
-                <div className="flex items-center gap-4 text-sm font-body text-subtle">
+                {cat}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* All posts */}
+      <section className="bg-background">
+        <div className="container mx-auto px-6 lg:px-8 py-12 lg:py-20">
+          <div className="max-w-3xl space-y-12">
+            {filteredPosts.map((post, index) => (
+              <article
+                key={post.slug}
+                className={index !== filteredPosts.length - 1 ? "pb-12 border-b border-divider" : ""}
+              >
+                <div className="flex flex-wrap items-center gap-3 text-sm font-body text-subtle">
                   <span>{post.date}</span>
                   <span className="w-1 h-1 rounded-full bg-divider" />
                   <span>{post.category}</span>
+                  <span className="w-1 h-1 rounded-full bg-divider" />
+                  <span>{post.readTime} min read</span>
                 </div>
                 <h2 className="mt-4 font-heading text-2xl md:text-3xl font-semibold text-heading leading-tight">
-                  <Link
-                    to={`/insights/${post.slug}`}
-                    className="hover:text-accent transition-colors"
-                  >
+                  <Link to={`/insights/${post.slug}`} className="hover:text-accent transition-colors">
                     {post.title}
                   </Link>
                 </h2>
                 <p className="mt-4 text-base font-body text-subtle leading-relaxed">
                   {post.excerpt}
                 </p>
-                <Link
-                  to={`/insights/${post.slug}`}
-                  className="mt-4 inline-block text-sm font-body font-medium text-heading hover:text-accent transition-colors"
-                >
-                  Read more →
-                </Link>
+                <div className="mt-4 flex flex-wrap items-center gap-4">
+                  <Link
+                    to={`/insights/${post.slug}`}
+                    className="text-sm font-body font-medium text-heading hover:text-accent transition-colors"
+                  >
+                    Read more →
+                  </Link>
+                  <Link to="/about" className="text-sm font-body text-subtle hover:text-heading transition-colors">
+                    By Asim Mohammad
+                  </Link>
+                </div>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter */}
+      <section className="bg-section-gradient border-y border-divider">
+        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
+          <div className="max-w-2xl">
+            <h2 className="font-heading text-2xl md:text-3xl font-semibold text-heading mb-4">
+              Get insights in your inbox
+            </h2>
+            <NewsletterSignup variant="inline" />
           </div>
         </div>
       </section>

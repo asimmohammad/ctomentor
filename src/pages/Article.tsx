@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
+import { PageMeta } from "@/components/PageMeta";
 import { Link, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
@@ -1279,6 +1280,10 @@ export default function Article() {
 
   return (
     <Layout>
+      <PageMeta
+        title={`${article.title} | The CTO Mentor`}
+        description={`${article.title}. ${article.date} · ${article.category}. Read on The CTO Mentor.`}
+      />
       {/* Hero */}
       <section className="bg-warm-gradient">
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">

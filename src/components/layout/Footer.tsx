@@ -1,22 +1,23 @@
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo.svg";
+import { NewsletterSignup } from "@/components/NewsletterSignup";
 
 const navigation = {
   services: [
-    { name: "Operator-in-Residence", href: "/services" },
-    { name: "TCM Mentors Circle", href: "/circle" },
-    { name: "Technical Assessments", href: "/services" },
+    { name: "Services", href: "/services" },
+    { name: "PE/VC Due Diligence", href: "/investors" },
+    { name: "Government & Defense", href: "/government" },
+    { name: "Pricing", href: "/pricing" },
   ],
   company: [
     { name: "About", href: "/about" },
     { name: "Our Experience", href: "/experience" },
-    { name: "Pricing", href: "/pricing" },
     { name: "Case Studies", href: "/case-studies" },
     { name: "Insights", href: "/insights" },
   ],
   connect: [
-    { name: "Apply for an Operator-in-Residence Engagement", href: "/apply" },
-    { name: "LinkedIn", href: "#" },
+    { name: "Book a Call", href: "/apply" },
+    { name: "LinkedIn", href: "https://www.linkedin.com/in/asimmohammad", target: "_blank" },
   ],
 };
 
@@ -24,6 +25,16 @@ export function Footer() {
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-6 lg:px-8 py-16 lg:py-20">
+        {/* Newsletter bar */}
+        <div className="mb-16 pb-12 border-b border-primary-foreground/10">
+          <div className="max-w-2xl">
+            <h3 className="text-lg font-heading font-semibold text-white mb-2">
+              Weekly insights on technology leadership
+            </h3>
+            <NewsletterSignup variant="footer" />
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Brand */}
           <div className="lg:col-span-1">
@@ -31,7 +42,7 @@ export function Footer() {
               <img src={logo} alt="The CTO Mentor" className="h-16 w-auto" />
             </Link>
             <p className="text-sm text-primary-foreground/70 font-body leading-relaxed max-w-xs">
-              Technology leadership that turns chaos into clarity.
+              Strategic Technology Leadership for Growth-Stage Companies, PE/VC Portfolios & Government Technology
             </p>
           </div>
 
@@ -81,12 +92,23 @@ export function Footer() {
             <ul className="space-y-3">
               {navigation.connect.map((item) => (
                 <li key={item.name}>
-                  <Link
-                    to={item.href}
-                    className="text-sm font-body text-primary-foreground/80 hover:text-primary-foreground transition-colors"
-                  >
-                    {item.name}
-                  </Link>
+                  {"target" in item && item.target ? (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-body text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                    >
+                      {item.name}
+                    </a>
+                  ) : (
+                    <Link
+                      to={item.href}
+                      className="text-sm font-body text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                    >
+                      {item.name}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

@@ -1,100 +1,98 @@
 import { Layout } from "@/components/layout/Layout";
+import { PageMeta } from "@/components/PageMeta";
+import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle } from "lucide-react";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
 
-const problems = [
-  "Decision bottlenecks",
-  "Architectural drift",
-  "Vendor sprawl",
-  "Teams shipping without accountability",
-  "Founders forced to referee instead of lead",
-];
-
-const services = [
+const servicePillars = [
   {
-    title: "Operator-in-Residence / Equity CTO",
-    description:
-      "Embedded execution leadership with full accountability — operating executive with equity alignment.",
-    href: "/services",
+    title: "CTO Advisory",
+    description: "Monthly strategic sessions and async access. Best for founders who need a senior technology sounding board.",
+    price: "From $5,000/mo",
+    href: "/services#advisory",
   },
   {
-    title: "TCM Mentors Circle",
-    description:
-      "A peer-level operating group for CTOs ready to lead with authority and execution discipline.",
-    href: "/circle",
+    title: "Embedded CTO Leadership",
+    description: "1–2 days per week embedded with your team. Board support, hiring, architecture, and execution.",
+    price: "From $12,000/mo",
+    href: "/services#embedded",
   },
   {
-    title: "Technical Assessments & Execution Plans",
-    description:
-      "Fixed-scope architecture, AI, and delivery assessments with clear execution roadmaps and ownership.",
-    href: "/services",
+    title: "Technical Due Diligence",
+    description: "Pre-acquisition assessments for PE/VC. Architecture, security, scalability, and team evaluation.",
+    price: "From $15,000 per engagement",
+    href: "/services#due-diligence",
   },
 ];
 
-const process = [
+const specializations = [
   {
-    step: "01",
-    title: "Diagnose",
-    description: "Identify what's broken — technically and organizationally.",
+    title: "PE/VC Technology Due Diligence",
+    description: "Independent technical assessments and portfolio company CTO support for private equity and venture capital firms.",
+    href: "/investors",
+    cta: "Technology Due Diligence for Investors",
   },
   {
-    step: "02",
-    title: "Align",
-    description: "Clarify ownership, priorities, and decision rights.",
-  },
-  {
-    step: "03",
-    title: "Execute",
-    description: "Fix architecture, delivery, and team structure.",
-  },
-  {
-    step: "04",
-    title: "Scale",
-    description: "Build systems that hold under growth.",
+    title: "Government & Defense Technology",
+    description: "FedRAMP readiness, AWS GovCloud, IL5, and DoD compliance. Fractional CTO for GovTech and defense contractors.",
+    href: "/government",
+    cta: "Government & Defense Technology Leadership",
   },
 ];
 
-const results = [
-  "Reduced cloud spend by 38% while increasing delivery velocity",
-  "Rebuilt fractured vendor ecosystems into single accountable platforms",
-  "Enabled AI-driven workflows in regulated environments",
-  "Helped founders reclaim focus from day-to-day tech firefighting",
+const caseStudyCards = [
+  {
+    title: "Series A SaaS Platform",
+    outcome: "Guided through SOC 2 Type II certification in 6 months; reduced cloud spend 38% while increasing delivery velocity.",
+  },
+  {
+    title: "Multi-Vendor Commerce Platform",
+    outcome: "Rebuilt fractured vendor ecosystem into a single accountable platform; improved margin control and operational ownership.",
+  },
+  {
+    title: "Technology Adoption & Scale",
+    outcome: "Led technology and adoption growth supporting a $600M acquisition; architecture and team readiness for due diligence.",
+  },
+];
+
+// Latest 3 from Insights (keep in sync with Insights.tsx posts order)
+const latestPosts = [
+  { slug: "cto-skill-no", title: 'The CTO Skill Nobody Trains For: Saying "No"', date: "February 2026" },
+  { slug: "fix-after-launch", title: "Why \"We'll Fix It After Launch\" Is How Startups Die", date: "January 2026" },
+  { slug: "many-faces-cto", title: "The Many Faces of the CTO — And Why Most Startups Hire the Wrong One", date: "January 2026" },
 ];
 
 export default function Index() {
   return (
     <Layout>
-      {/* Hero Section */}
+      <PageMeta
+        title="The CTO Mentor | Fractional CTO, Technical Due Diligence & GovTech Leadership"
+        description="Strategic technology leadership for growth-stage companies, PE/VC portfolios, and government technology. Fractional CTO services starting at $5K/month."
+      />
+
+      {/* Hero */}
       <section className="bg-warm-gradient">
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-32">
           <div className="max-w-4xl">
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold text-heading leading-tight animate-fade-in-up">
-              Operator-in-Residence: Own the CTO function. Execute with accountability.
+            <p className="text-sm font-body text-accent font-medium tracking-wider uppercase mb-4">
+              Strategic Technology Leadership for Growth-Stage Companies, PE/VC Portfolios & Government Technology
+            </p>
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold text-heading leading-tight">
+              I help growth-stage companies, PE/VC firms, and GovTech organizations build technology that scales — without the cost of a full-time CTO.
             </h1>
-            <p className="mt-6 text-lg md:text-xl font-body text-subtle leading-relaxed max-w-2xl animate-fade-in-up animation-delay-100">
-              We embed as your temporary co-founder—owning decisions, driving execution, and taking accountability for outcomes that matter.
+            <p className="mt-6 text-lg md:text-xl font-body text-subtle leading-relaxed max-w-2xl">
+              I bring hands-on CTO leadership: architecture, security, team scaling, and technical due diligence. For engagements that need more capacity, I bring in trusted senior technology leaders from my vetted network.
             </p>
-            <p className="mt-4 text-base font-body text-subtle leading-relaxed max-w-2xl animate-fade-in-up animation-delay-100">
-              For founder-led companies where technology execution is critical and the cost of getting it wrong is high.
-            </p>
-            <div className="mt-10 flex flex-col sm:flex-row gap-4 animate-fade-in-up animation-delay-200">
+            <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <Link to="/apply">
                 <Button variant="primary" size="xl">
-                  Apply for an Operator-in-Residence Engagement
+                  Book a Free 30-Minute Discovery Call
                 </Button>
               </Link>
               <Link to="/services">
                 <Button variant="outline" size="xl">
-                  See How This Is Different
+                  See Service Tiers
                 </Button>
               </Link>
             </div>
@@ -102,78 +100,88 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Credibility Strip */}
+      {/* Founder / Lead credibility */}
       <section className="border-b border-divider bg-background">
-        <div className="container mx-auto px-6 lg:px-8 py-8">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-sm font-body text-subtle">
-            <p>
-              <span className="text-heading font-medium">Operator-in-Residence</span> ·{" "}
-              <span className="text-heading font-medium">
-                Data & AI Specialist
-              </span>{" "}
-              · <span className="text-heading font-medium">Board-Level Operator</span>
+        <div className="container mx-auto px-6 lg:px-8 py-12 lg:py-16">
+          <div className="max-w-4xl">
+            <h2 className="font-heading text-xl font-semibold text-heading mb-4">Led by Asim Mohammad</h2>
+            <p className="text-base font-body text-subtle leading-relaxed mb-4">
+              CTO at a loyalty-as-a-service platform. Currently serving as CTO for a SOC 2 Type II certified SaaS platform; leading AWS GovCloud migration and FedRAMP readiness initiatives. Experience with IL5 authorization and ICAM integration for DoD markets. Hands-on with technology due diligence for M&A transactions. AWS architecture, security posture, and scalability expertise.
             </p>
-            <p className="text-xs md:text-sm">
-              Patents in data lineage & discovery · Global teams · Regulated
-              industries
-            </p>
+            <Link to="/about" className="text-sm font-body font-medium text-accent hover:text-accent/80 transition-colors">
+              Learn more about me →
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* The Problem Section */}
+      {/* Social proof bar */}
+      <section className="bg-section-gradient border-b border-divider">
+        <div className="container mx-auto px-6 lg:px-8 py-8">
+          <p className="text-center text-sm font-body text-subtle">
+            Advised 15+ companies across SaaS, fintech, and government technology · SOC 2 Type II · FedRAMP & GovCloud experience
+          </p>
+        </div>
+      </section>
+
+      {/* Three service pillars */}
       <section className="bg-background">
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <div className="max-w-3xl">
-            <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading">
-              Most technology problems aren't technical.
-            </h2>
-            <p className="mt-6 text-lg font-body text-subtle">
-              They're caused by:
-            </p>
-            <ul className="mt-6 space-y-3">
-              {problems.map((problem) => (
-                <li
-                  key={problem}
-                  className="flex items-start gap-3 text-base font-body text-foreground"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2.5 flex-shrink-0" />
-                  {problem}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-8 text-lg font-body text-heading font-medium">
-              The result: missed timelines, rising costs, and growing execution
-              risk.
-            </p>
+          <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading max-w-2xl mb-4">
+            Three ways to work with me
+          </h2>
+          <p className="text-lg font-body text-subtle mb-12 max-w-2xl">
+            Advisory, embedded leadership, or technical due diligence — depending on what your company needs.
+          </p>
+          <div className="grid md:grid-cols-3 gap-8">
+            {servicePillars.map((pillar) => (
+              <Link
+                key={pillar.title}
+                to={pillar.href}
+                className="group block bg-card p-8 border border-divider hover:border-accent/30 transition-colors h-full flex flex-col"
+              >
+                <span className="text-sm font-body font-semibold text-accent">{pillar.price}</span>
+                <h3 className="mt-4 font-heading text-xl font-semibold text-heading">{pillar.title}</h3>
+                <p className="mt-4 text-base font-body text-subtle leading-relaxed flex-1">
+                  {pillar.description}
+                </p>
+                <span className="mt-6 inline-flex items-center gap-2 text-sm font-body font-medium text-heading group-hover:text-accent transition-colors">
+                  Learn more
+                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                </span>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-12 text-center">
+            <Link to="/apply">
+              <Button variant="outline" size="lg">
+                Not sure which is right? Book a call
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* What I Do Section */}
+      {/* Specializations: PE/VC + GovTech */}
       <section className="bg-section-gradient border-y border-divider">
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading max-w-2xl">
-            We bring structure, ownership, and execution discipline.
+          <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-12">
+            Specializations
           </h2>
-          <div className="mt-12 grid md:grid-cols-3 gap-8">
-            {services.map((service) => (
+          <div className="grid md:grid-cols-2 gap-8">
+            {specializations.map((spec) => (
               <div
-                key={service.title}
-                className="group bg-card p-8 border border-divider hover:border-accent/30 transition-colors"
+                key={spec.title}
+                className="bg-card border border-divider p-8 flex flex-col"
               >
-                <h3 className="font-heading text-xl font-semibold text-heading">
-                  {service.title}
-                </h3>
-                <p className="mt-4 text-base font-body text-subtle leading-relaxed">
-                  {service.description}
+                <h3 className="font-heading text-xl font-semibold text-heading">{spec.title}</h3>
+                <p className="mt-4 text-base font-body text-subtle leading-relaxed flex-1">
+                  {spec.description}
                 </p>
-                <Link
-                  to={service.href}
-                  className="mt-6 inline-flex items-center gap-2 text-sm font-body font-medium text-heading group-hover:text-accent transition-colors"
-                >
-                  Learn more
-                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                <Link to={spec.href} className="mt-6">
+                  <Button variant="outline" size="lg">
+                    {spec.cta}
+                  </Button>
                 </Link>
               </div>
             ))}
@@ -181,152 +189,26 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Comparison Table Section */}
-      <section className="bg-section-gradient border-y border-divider">
+      {/* Case studies / results */}
+      <section className="bg-primary text-primary-foreground">
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-4">
-            Leadership Model Comparison
+          <h2 className="font-heading text-3xl md:text-4xl font-semibold text-white mb-4">
+            Results that compound
           </h2>
-          <p className="text-lg font-body text-subtle mb-12 max-w-3xl">
-            How The CTO Mentor's Operator-in-Residence / Equity CTO model differs from other leadership options.
+          <p className="text-lg font-body text-primary-foreground/90 mb-12 max-w-2xl">
+            Anonymized outcomes from real engagements.
           </p>
-
-          {/* Responsive table wrapper - horizontal scroll on mobile */}
-          <div className="overflow-x-auto -mx-6 lg:mx-0">
-            <div className="inline-block min-w-full align-middle px-6 lg:px-0">
-              <Table>
-                <TableHeader>
-                  <TableRow className="border-divider">
-                    <TableHead className="font-heading font-semibold text-heading min-w-[180px]">Dimension</TableHead>
-                    <TableHead className="font-heading font-semibold text-heading min-w-[160px]">Full-Time CTO</TableHead>
-                    <TableHead className="font-heading font-semibold text-heading min-w-[160px]">Fractional CTO</TableHead>
-                    <TableHead className="font-heading font-semibold text-heading min-w-[220px] bg-accent/10">The CTO Mentor</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  <TableRow className="border-divider hover:bg-card/50">
-                    <TableCell className="font-heading font-semibold text-heading">Primary Mandate</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">Own entire technology function permanently</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">Provide part-time technical leadership across multiple clients</TableCell>
-                    <TableCell className="font-body text-foreground text-sm font-medium bg-accent/5">Embedded execution leadership for technology function with full accountability</TableCell>
-                  </TableRow>
-                  <TableRow className="border-divider hover:bg-card/50">
-                    <TableCell className="font-heading font-semibold text-heading">Execution Authority</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">Full authority within technology organization</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">Limited by time allocation and split focus across clients</TableCell>
-                    <TableCell className="font-body text-foreground text-sm font-medium bg-accent/5">Full authority for technology decisions, architecture, and execution</TableCell>
-                  </TableRow>
-                  <TableRow className="border-divider hover:bg-card/50">
-                    <TableCell className="font-heading font-semibold text-heading">Accountability</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">High, but can become entrenched or misaligned over time</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">Low—can attribute failures to time constraints or other client priorities</TableCell>
-                    <TableCell className="font-body text-foreground text-sm font-medium bg-accent/5">Full accountability for technology outcomes—complete ownership, dedicated focus</TableCell>
-                  </TableRow>
-                  <TableRow className="border-divider hover:bg-card/50">
-                    <TableCell className="font-heading font-semibold text-heading">Incentive Alignment</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">Salary + equity, but may prioritize job security over bold moves</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">Hourly/retainer fees, no equity—incentive to bill hours, not create value</TableCell>
-                    <TableCell className="font-body text-foreground text-sm font-medium bg-accent/5">Cash + meaningful equity—aligned with long-term value creation and outcomes</TableCell>
-                  </TableRow>
-                  <TableRow className="border-divider hover:bg-card/50">
-                    <TableCell className="font-heading font-semibold text-heading">Relationship to CEO</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">Direct report, permanent employee relationship</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">External consultant, part-time advisor relationship</TableCell>
-                    <TableCell className="font-body text-foreground text-sm font-medium bg-accent/5">Operating executive—CEO-level partnership with execution authority</TableCell>
-                  </TableRow>
-                  <TableRow className="border-divider hover:bg-card/50">
-                    <TableCell className="font-heading font-semibold text-heading">Technical Depth</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">Deep technical expertise, but may lack fresh perspective or breadth</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">Variable—often surface-level due to split attention across clients</TableCell>
-                    <TableCell className="font-body text-foreground text-sm font-medium bg-accent/5">Deep technical expertise with fresh perspective and cross-industry insight</TableCell>
-                  </TableRow>
-                  <TableRow className="border-divider hover:bg-card/50">
-                    <TableCell className="font-heading font-semibold text-heading">Engagement Trigger</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">Long-term hiring need, permanent role</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">Need for senior technical input without full-time commitment</TableCell>
-                    <TableCell className="font-body text-foreground text-sm font-medium bg-accent/5">Technology execution is critical, stakes are high, and cost of failure is unacceptable</TableCell>
-                  </TableRow>
-                  <TableRow className="border-divider hover:bg-card/50">
-                    <TableCell className="font-heading font-semibold text-heading">Risk Ownership</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">Shares risk with company as employee, but may avoid bold moves</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">Minimal risk—consultant relationship with limited liability</TableCell>
-                    <TableCell className="font-body text-foreground text-sm font-medium bg-accent/5">Full risk ownership for technology outcomes—skin in the game through equity</TableCell>
-                  </TableRow>
-                  <TableRow className="border-divider hover:bg-card/50">
-                    <TableCell className="font-heading font-semibold text-heading">Typical Failure Mode</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">Becomes bottleneck, loses technical edge, or misaligns with business priorities</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">Spread too thin, lacks deep context, no real ownership or accountability</TableCell>
-                    <TableCell className="font-body text-foreground text-sm font-medium bg-accent/5">N/A—engagement structure prevents common failure modes through accountability and equity alignment</TableCell>
-                  </TableRow>
-                  <TableRow className="border-divider hover:bg-card/50">
-                    <TableCell className="font-heading font-semibold text-heading">Value Creation Profile</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">Long-term compounder if aligned, but can stagnate or become bottleneck</TableCell>
-                    <TableCell className="font-body text-foreground text-sm">Incremental improvements, not transformational—limited by time and split focus</TableCell>
-                    <TableCell className="font-body text-foreground text-sm font-medium bg-accent/5">Transformational value creation through embedded execution, equity alignment, and full accountability</TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
-            </div>
-          </div>
-
-          {/* Interpretation */}
-          <div className="mt-12 max-w-4xl">
-            <div className="bg-card border border-divider rounded-lg p-8">
-              <p className="text-base font-body text-foreground leading-relaxed mb-4">
-                The CTO Mentor's Operator-in-Residence / Equity CTO model sits in a unique category: it combines the execution authority and accountability of a full-time CTO with the fresh perspective and flexibility of an embedded partner, delivering the focus and equity alignment that fractional consulting lacks.
-              </p>
-              <p className="text-base font-body text-foreground leading-relaxed">
-                We own technology outcomes directly—with the embedded execution of an operating executive and the equity alignment that ensures long-term value creation. The result is an operating executive who takes full responsibility for technology execution when the stakes are high and the cost of getting it wrong is unacceptable.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works Section */}
-      <section className="bg-background">
-        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading">
-            A simple, disciplined approach.
-          </h2>
-          <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {process.map((item) => (
-              <div key={item.step} className="relative">
-                <span className="font-body text-xs font-semibold text-accent tracking-wider">
-                  {item.step}
-                </span>
-                <h3 className="mt-2 font-heading text-xl font-semibold text-heading">
-                  {item.title}
-                </h3>
-                <p className="mt-3 text-base font-body text-subtle leading-relaxed">
-                  {item.description}
+          <div className="grid md:grid-cols-3 gap-8">
+            {caseStudyCards.map((card) => (
+              <div key={card.title} className="border border-primary-foreground/20 rounded-lg p-6">
+                <h3 className="font-heading text-lg font-semibold text-white mb-3">{card.title}</h3>
+                <p className="text-sm font-body text-primary-foreground/90 leading-relaxed flex items-start gap-2">
+                  <CheckCircle size={18} className="text-accent flex-shrink-0 mt-0.5" />
+                  {card.outcome}
                 </p>
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Proof Section */}
-      <section className="bg-primary text-primary-foreground">
-        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <h2 className="font-heading text-3xl md:text-4xl font-semibold text-white">
-            Results that compound.
-          </h2>
-          <ul className="mt-10 space-y-4 max-w-2xl">
-            {results.map((result) => (
-              <li
-                key={result}
-                className="flex items-start gap-4 text-base font-body text-primary-foreground/90"
-              >
-                <CheckCircle
-                  size={20}
-                  className="text-accent flex-shrink-0 mt-0.5"
-                />
-                {result}
-              </li>
-            ))}
-          </ul>
           <div className="mt-10">
             <Link to="/case-studies">
               <Button
@@ -341,22 +223,73 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Final CTA Section */}
+      {/* Insights preview */}
+      <section className="bg-background">
+        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
+          <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-4">
+            Latest from the blog
+          </h2>
+          <p className="text-lg font-body text-subtle mb-12 max-w-2xl">
+            Technology leadership, engineering teams, and CTO strategy.
+          </p>
+          <div className="grid md:grid-cols-3 gap-8">
+            {latestPosts.map((post) => (
+              <Link
+                key={post.slug}
+                to={`/insights/${post.slug}`}
+                className="group block border border-divider rounded-lg p-6 hover:border-accent/30 transition-colors"
+              >
+                <span className="text-sm font-body text-subtle">{post.date}</span>
+                <h3 className="mt-2 font-heading text-lg font-semibold text-heading group-hover:text-accent transition-colors leading-tight">
+                  {post.title}
+                </h3>
+                <span className="mt-3 inline-block text-sm font-body font-medium text-heading group-hover:text-accent transition-colors">
+                  Read more →
+                </span>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-10">
+            <Link to="/insights">
+              <Button variant="outline" size="lg">
+                View all insights
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter CTA */}
+      <section className="bg-section-gradient border-y border-divider">
+        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
+          <div className="max-w-2xl">
+            <h2 className="font-heading text-2xl md:text-3xl font-semibold text-heading mb-4">
+              Weekly insights in your inbox
+            </h2>
+            <NewsletterSignup variant="inline" />
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
       <section className="bg-background">
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
           <div className="max-w-2xl">
             <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading">
-              If technology is becoming a liability, it's time to change that.
+              Ready to talk?
             </h2>
+            <p className="mt-4 text-lg font-body text-subtle leading-relaxed">
+              Book a free 30-minute discovery call. We'll assess fit and define the clearest path forward.
+            </p>
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <Link to="/apply">
                 <Button variant="primary" size="xl">
-                  Apply for an Operator-in-Residence Engagement
+                  Book a Free 30-Minute Discovery Call
                 </Button>
               </Link>
               <Link to="/services">
                 <Button variant="outline" size="xl">
-                  See How This Is Different
+                  See Service Tiers
                 </Button>
               </Link>
             </div>

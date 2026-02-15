@@ -16,40 +16,54 @@ const servicesMenu = {
   name: "Services",
   href: "/services",
   items: [
+    { name: "Services Overview", href: "/services" },
+    { name: "PE/VC Due Diligence", href: "/investors" },
+    { name: "Government & Defense", href: "/government" },
     { name: "Pricing", href: "/pricing" },
-    { name: "TCM Mentors Circle", href: "/circle" },
   ],
 };
 
 const caseStudiesMenu = {
-  name: "Case Studies and Articles",
-  href: "/case-studies",
+  name: "Insights",
+  href: "/insights",
   items: [
     { name: "Case Studies", href: "/case-studies" },
-    { name: "Articles", href: "/insights" },
+    { name: "Blog / Articles", href: "/insights" },
   ],
 };
 
 const aboutMenu = {
   name: "About",
   href: "/about",
-  items: [
-    { name: "Our Experience", href: "/experience" },
-  ],
+  items: [{ name: "Our Experience", href: "/experience" }],
 };
+
+const isServicesActive = (path: string) =>
+  path === "/services" || path === "/investors" || path === "/government" || path === "/pricing";
+const isInsightsActive = (path: string) => path === "/case-studies" || path === "/insights";
+const isAboutActive = (path: string) => path === "/about" || path === "/experience";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const path = location.pathname;
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-divider">
       <nav className="container mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo */}
+          {/* Logo + tagline on larger screens */}
           <Link to="/" className="flex items-center gap-3">
             <img src={logo} alt="The CTO Mentor" className="h-16 w-auto" />
-            <span className="font-heading text-xl lg:text-2xl font-semibold text-heading tracking-tight">
+            <div className="hidden sm:block">
+              <span className="font-heading text-xl lg:text-2xl font-semibold text-heading tracking-tight block">
+                The CTO Mentor
+              </span>
+              <span className="hidden lg:block text-xs font-body text-subtle">
+                Strategic Technology Leadership for Growth-Stage Companies, PE/VC & GovTech
+              </span>
+            </div>
+            <span className="font-heading text-xl lg:text-2xl font-semibold text-heading tracking-tight sm:hidden">
               The CTO Mentor
             </span>
           </Link>
@@ -57,86 +71,55 @@ export function Header() {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
             <DropdownMenu>
-              <DropdownMenuTrigger className={`text-sm font-body font-medium transition-colors flex items-center gap-1 outline-none ${
-                location.pathname === servicesMenu.href || location.pathname === "/pricing" || location.pathname === "/circle"
-                  ? "text-heading"
-                  : "text-subtle hover:text-heading"
-              }`}>
+              <DropdownMenuTrigger
+                className={`text-sm font-body font-medium transition-colors flex items-center gap-1 outline-none ${
+                  isServicesActive(path) ? "text-heading" : "text-subtle hover:text-heading"
+                }`}
+              >
                 {servicesMenu.name}
                 <ChevronDown className="h-4 w-4" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="start" className="min-w-[160px]">
-                <Link to={servicesMenu.href}>
-                  <DropdownMenuItem className="cursor-pointer">
-                    Services
-                  </DropdownMenuItem>
-                </Link>
+              <DropdownMenuContent align="start" className="min-w-[200px]">
                 {servicesMenu.items.map((item) => (
                   <Link key={item.name} to={item.href}>
-                    <DropdownMenuItem className="cursor-pointer">
-                      {item.name}
-                    </DropdownMenuItem>
+                    <DropdownMenuItem className="cursor-pointer">{item.name}</DropdownMenuItem>
                   </Link>
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                className={`text-sm font-body font-medium transition-colors link-underline ${
-                  location.pathname === item.href
-                    ? "text-heading"
-                    : "text-subtle hover:text-heading"
+            <DropdownMenu>
+              <DropdownMenuTrigger
+                className={`text-sm font-body font-medium transition-colors flex items-center gap-1 outline-none ${
+                  isInsightsActive(path) ? "text-heading" : "text-subtle hover:text-heading"
                 }`}
               >
-                {item.name}
-              </Link>
-            ))}
-            <DropdownMenu>
-              <DropdownMenuTrigger className={`text-sm font-body font-medium transition-colors flex items-center gap-1 outline-none ${
-                location.pathname === caseStudiesMenu.href || location.pathname === "/insights"
-                  ? "text-heading"
-                  : "text-subtle hover:text-heading"
-              }`}>
                 {caseStudiesMenu.name}
                 <ChevronDown className="h-4 w-4" />
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="min-w-[200px]">
-                <Link to={caseStudiesMenu.href}>
-                  <DropdownMenuItem className="cursor-pointer">
-                    Case Studies and Articles
-                  </DropdownMenuItem>
-                </Link>
                 {caseStudiesMenu.items.map((item) => (
                   <Link key={item.name} to={item.href}>
-                    <DropdownMenuItem className="cursor-pointer">
-                      {item.name}
-                    </DropdownMenuItem>
+                    <DropdownMenuItem className="cursor-pointer">{item.name}</DropdownMenuItem>
                   </Link>
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
             <DropdownMenu>
-              <DropdownMenuTrigger className={`text-sm font-body font-medium transition-colors flex items-center gap-1 outline-none ${
-                location.pathname === aboutMenu.href || location.pathname === "/experience"
-                  ? "text-heading"
-                  : "text-subtle hover:text-heading"
-              }`}>
+              <DropdownMenuTrigger
+                className={`text-sm font-body font-medium transition-colors flex items-center gap-1 outline-none ${
+                  isAboutActive(path) ? "text-heading" : "text-subtle hover:text-heading"
+                }`}
+              >
                 {aboutMenu.name}
                 <ChevronDown className="h-4 w-4" />
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="min-w-[160px]">
                 <Link to={aboutMenu.href}>
-                  <DropdownMenuItem className="cursor-pointer">
-                    About
-                  </DropdownMenuItem>
+                  <DropdownMenuItem className="cursor-pointer">About</DropdownMenuItem>
                 </Link>
                 {aboutMenu.items.map((item) => (
                   <Link key={item.name} to={item.href}>
-                    <DropdownMenuItem className="cursor-pointer">
-                      {item.name}
-                    </DropdownMenuItem>
+                    <DropdownMenuItem className="cursor-pointer">{item.name}</DropdownMenuItem>
                   </Link>
                 ))}
               </DropdownMenuContent>
@@ -147,7 +130,7 @@ export function Header() {
           <div className="hidden lg:flex items-center gap-4">
             <Link to="/apply">
               <Button variant="primary" size="default">
-                Apply for an Operator-in-Residence Engagement
+                Book a Call
               </Button>
             </Link>
           </div>
@@ -170,9 +153,7 @@ export function Header() {
                 <Link
                   to={servicesMenu.href}
                   className={`text-base font-body font-medium py-2 ${
-                    location.pathname === servicesMenu.href
-                      ? "text-heading"
-                      : "text-subtle"
+                    isServicesActive(path) ? "text-heading" : "text-subtle"
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -184,9 +165,7 @@ export function Header() {
                       key={item.name}
                       to={item.href}
                       className={`text-sm font-body font-medium py-1 ${
-                        location.pathname === item.href
-                          ? "text-heading"
-                          : "text-subtle"
+                        path === item.href ? "text-heading" : "text-subtle"
                       }`}
                       onClick={() => setMobileMenuOpen(false)}
                     >
@@ -195,27 +174,11 @@ export function Header() {
                   ))}
                 </div>
               </div>
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className={`text-base font-body font-medium py-2 ${
-                    location.pathname === item.href
-                      ? "text-heading"
-                      : "text-subtle"
-                  }`}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
               <div className="py-2">
                 <Link
                   to={caseStudiesMenu.href}
                   className={`text-base font-body font-medium py-2 ${
-                    location.pathname === caseStudiesMenu.href
-                      ? "text-heading"
-                      : "text-subtle"
+                    isInsightsActive(path) ? "text-heading" : "text-subtle"
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -227,9 +190,7 @@ export function Header() {
                       key={item.name}
                       to={item.href}
                       className={`text-sm font-body font-medium py-1 ${
-                        location.pathname === item.href
-                          ? "text-heading"
-                          : "text-subtle"
+                        path === item.href ? "text-heading" : "text-subtle"
                       }`}
                       onClick={() => setMobileMenuOpen(false)}
                     >
@@ -242,9 +203,7 @@ export function Header() {
                 <Link
                   to={aboutMenu.href}
                   className={`text-base font-body font-medium py-2 ${
-                    location.pathname === aboutMenu.href
-                      ? "text-heading"
-                      : "text-subtle"
+                    isAboutActive(path) ? "text-heading" : "text-subtle"
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -256,9 +215,7 @@ export function Header() {
                       key={item.name}
                       to={item.href}
                       className={`text-sm font-body font-medium py-1 ${
-                        location.pathname === item.href
-                          ? "text-heading"
-                          : "text-subtle"
+                        path === item.href ? "text-heading" : "text-subtle"
                       }`}
                       onClick={() => setMobileMenuOpen(false)}
                     >
@@ -270,7 +227,7 @@ export function Header() {
               <div className="pt-4 border-t border-divider">
                 <Link to="/apply" onClick={() => setMobileMenuOpen(false)}>
                   <Button variant="primary" size="lg" className="w-full">
-                    Apply for an Operator-in-Residence Engagement
+                    Book a Call
                   </Button>
                 </Link>
               </div>
