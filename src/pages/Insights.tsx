@@ -17,6 +17,16 @@ export const INSIGHTS_CATEGORIES = [
 
 const posts = [
   {
+    slug: "ai-coding-tools-lying",
+    title: "Your AI Coding Tools Are Lying to You (And Your Engineers Don't Know It Yet)",
+    excerpt:
+      "Pull request sizes are up 33%. Change failure rates are climbing nearly 30%. The culprit isn't laziness — it's confidence without context. Why context engineering is the CTO-level discipline that separates rigor from recklessness.",
+    date: "February 2026",
+    category: "Engineering Leadership",
+    readTime: 9,
+    featured: true,
+  },
+  {
     slug: "soc-2-compliance",
     title: "SOC 2 Compliance: What Every Technology Leader Needs to Know (And How to Get There Without Losing Your Mind)",
     excerpt:

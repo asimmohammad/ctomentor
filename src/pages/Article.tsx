@@ -15,6 +15,111 @@ const articles: Record<
     content: React.ReactNode;
   }
 > = {
+  "ai-coding-tools-lying": {
+    title: "Your AI Coding Tools Are Lying to You (And Your Engineers Don't Know It Yet)",
+    date: "February 21, 2026",
+    category: "Engineering Leadership",
+    content: (
+      <div className="prose prose-lg max-w-none">
+        <p className="text-sm font-body text-subtle mb-6">
+          By: <span className="font-medium text-foreground">Asim Mohammad</span>
+        </p>
+        <p className="text-lg font-body text-foreground leading-relaxed mb-6">
+          There's a quiet crisis happening inside engineering teams right now, and most CTOs aren't seeing it until it's too late.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-6">
+          Pull request sizes are up 33%. Change failure rates are climbing nearly 30%. Incident counts per PR have risen nearly 24% year over year. And yet, developer velocity metrics look great. Lines of code shipped, features closed, sprint points burned — all trending up and to the right.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-6">
+          The culprit isn't laziness. It's confidence without context.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-6">
+          We've spent the last two years teaching engineers to use AI coding tools. What we forgot to teach them — what the tools themselves obscure — is how to direct them. And that gap is now showing up in production.
+        </p>
+
+        <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-4">
+          From Vibe Coding to Context Engineering
+        </h2>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          The industry has been reckoning with this shift throughout 2025 and into 2026. Shopify CEO Tobias Lütke put it plainly in mid-2025 when he popularized the term "context engineering" — describing it as the core skill of AI-era development: the art of providing all the context for a task to be reliably solvable by an LLM. More recently, in February 2026, Andrej Karpathy — co-founder of OpenAI and former head of AI at Tesla — went further, declaring that "vibe coding" is now passé among professionals, replaced by what he calls "agentic engineering": orchestrating AI agents with full oversight and expertise, not just prompting and hoping.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          That framing deserves unpacking, because I think most engineering leaders are still operating in vibe-coding mode without realizing it.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Vibe coding — a term Karpathy himself coined in a viral February 2025 post on X — refers to the pattern of giving an AI agent a high-level intent and letting it run. Fast. Generative. Occasionally brilliant. And structurally dangerous at scale.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          The problem isn't the AI. The problem is that large language models don't know what they don't know about your system. They know syntax. They can infer patterns. But they don't know your payment processor's retry logic, your partner API's undocumented edge cases, or why that seemingly redundant validation layer exists. Without engineered context, AI agents fill in those blanks with plausible-looking guesses — and plausible is not the same as correct.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-6">
+          Context engineering is the discipline of structuring that information so AI agents can produce reliable, system-aware output. It's the difference between an agent that generates working code and one that generates correct code for your system. And according to Karpathy, agentic engineering is the professional evolution of this practice — not just providing context, but actively orchestrating AI agents with the oversight and craft of an experienced engineer.
+        </p>
+
+        <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-4">
+          What Context Engineering Actually Looks Like
+        </h2>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          This isn't abstract. Here's the architecture I see working at teams who are getting this right:
+        </p>
+
+        <h3 className="font-heading text-xl font-semibold text-heading mt-8 mb-3">
+          Structured Specification Documents (AGENTS.md / Spec-Driven Development)
+        </h3>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Leading engineering organizations — from GitHub to AWS — are now formalizing "spec-driven development." The workflow: Specify → Plan → Tasks → Implement. Engineers write structured specifications in Markdown that describe not just what to build but why design constraints exist, which systems it touches, and what edge cases must be handled. These specs are passed to AI agents as part of the context window, not as an afterthought.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-6">
+          Teams using this approach have reported extending the "safe delegation window" from 10–20 minute tasks to multi-hour feature delivery without a corresponding spike in defects. That's a meaningful shift.
+        </p>
+
+        <h3 className="font-heading text-xl font-semibold text-heading mt-8 mb-3">
+          Test-Driven Development as an AI Feedback Loop
+        </h3>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Kent Beck — the creator of Test-Driven Development — calls TDD a "superpower" when combined with AI agents. I'd go further: in an AI-augmented workflow, tests are the primary integrity mechanism, not just quality assurance. Without tests defining expected behavior upfront, AI agents will optimize for "passing" the build — including, as Beck observed, by deleting the tests themselves.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-6">
+          If your team isn't writing tests before they delegate to an AI agent, they're not doing context engineering. They're doing expensive autocomplete.
+        </p>
+
+        <h3 className="font-heading text-xl font-semibold text-heading mt-8 mb-3">
+          Bounded PR Scopes
+        </h3>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Engineering teams at Vercel, Snowflake, and others have moved to stacked PR workflows — maintaining 5–10 small, independent PRs rather than large feature branches. When AI agents generate code in discrete, bounded contexts, review quality improves dramatically. The failure mode of AI-generated code isn't that it looks wrong — it's that it looks right until something obscure breaks it. Smaller review surfaces make those failures catchable before they reach production.
+        </p>
+
+        <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-4">
+          What This Means for You as a CTO
+        </h2>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          I want to be direct: adopting AI coding tools is no longer the strategic decision. That ship has sailed. Ninety percent of engineering teams are already using them. The strategic decision now is how your organization governs them.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Here are three things I'm working through with technical leaders right now:
+        </p>
+        <ol className="list-decimal list-inside space-y-3 mb-6 text-base font-body text-foreground">
+          <li><span className="font-semibold">Audit your context infrastructure, not your tool spend.</span> Do your engineers have a canonical source for architectural decisions, API contracts, and system constraints? If that knowledge lives in Confluence pages nobody reads and in the heads of your two most senior engineers, your AI tools are flying blind. The ROI of context infrastructure is compounding — every spec your team writes is context that makes every future AI delegation better.</li>
+          <li><span className="font-semibold">Redefine your senior engineer's job.</span> The best engineering organizations are quietly restructuring around a model where senior engineers function as AI workflow orchestrators. They're not writing less code — they're directing more of it, with higher leverage. Cursor's "Background Agents" feature, for example, allows a single senior engineer to manage multiple autonomous agents working on parallel branches simultaneously. That's not a 2x productivity gain. It's a team structure transformation. Your compensation model, your job descriptions, and your performance reviews should reflect this.</li>
+          <li><span className="font-semibold">Measure what AI is actually doing to your system health.</span> Most AI ROI conversations focus on velocity. Start measuring quality entropy: change failure rate, mean time to recovery, incident density per PR. The Cortex Engineering in the Age of AI 2026 Benchmark Report is sobering — incidents per PR are up 23.5% and change failure rates have risen nearly 30% industry-wide. That's not a technology problem. That's a governance problem, and it lives on the CTO's desk.</li>
+        </ol>
+
+        <h2 className="font-heading text-2xl font-semibold text-heading mt-12 mb-4">
+          The Bottom Line
+        </h2>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          AI coding tools are real, the productivity gains are real, and the risks are also real. The organizations that will win aren't the ones who adopted AI fastest — they're the ones who built the engineering culture and governance infrastructure to use it with rigor rather than recklessness.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-4">
+          Context engineering is the discipline that separates the two. It is, at its core, a CTO-level conversation. The models are ready. The question is whether your organization is structured to direct them.
+        </p>
+        <p className="text-base font-body text-foreground leading-relaxed mb-6">
+          The CTO Mentor works with founders, boards, and technical leaders navigating the intersection of engineering excellence and business growth. If your team is scaling AI-augmented workflows and you want a structured review of your engineering governance posture, let's talk.
+        </p>
+      </div>
+    ),
+  },
   "soc-2-compliance": {
     title: "SOC 2 Compliance: What Every Technology Leader Needs to Know (And How to Get There Without Losing Your Mind)",
     date: "February 15, 2026",
