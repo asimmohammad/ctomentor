@@ -1,5 +1,8 @@
+"use client";
+
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import {
@@ -37,22 +40,21 @@ const aboutMenu = {
   items: [{ name: "Our Experience", href: "/experience" }],
 };
 
-const isServicesActive = (path: string) =>
+const isServicesActive = (path: string | null) =>
   path === "/services" || path === "/investors" || path === "/government";
-const isInsightsActive = (path: string) => path === "/case-studies" || path === "/insights";
-const isAboutActive = (path: string) => path === "/about" || path === "/experience";
+const isInsightsActive = (path: string | null) => path === "/case-studies" || path === "/insights";
+const isAboutActive = (path: string | null) => path === "/about" || path === "/experience";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const location = useLocation();
-  const path = location.pathname;
+  const path = usePathname();
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-divider">
       <nav className="container mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo + tagline on larger screens */}
-          <Link to="/" className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3">
             <img src={logo} alt="The CTO Mentor" className="h-16 w-auto" />
             <div className="hidden sm:block">
               <span className="font-heading text-xl lg:text-2xl font-semibold text-heading tracking-tight block">
@@ -80,7 +82,7 @@ export function Header() {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="min-w-[200px]">
                 {servicesMenu.items.map((item) => (
-                  <Link key={item.name} to={item.href}>
+                  <Link key={item.name} href={item.href}>
                     <DropdownMenuItem className="cursor-pointer">{item.name}</DropdownMenuItem>
                   </Link>
                 ))}
@@ -97,7 +99,7 @@ export function Header() {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="min-w-[200px]">
                 {caseStudiesMenu.items.map((item) => (
-                  <Link key={item.name} to={item.href}>
+                  <Link key={item.name} href={item.href}>
                     <DropdownMenuItem className="cursor-pointer">{item.name}</DropdownMenuItem>
                   </Link>
                 ))}
@@ -113,11 +115,11 @@ export function Header() {
                 <ChevronDown className="h-4 w-4" />
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="min-w-[160px]">
-                <Link to={aboutMenu.href}>
+                <Link href={aboutMenu.href}>
                   <DropdownMenuItem className="cursor-pointer">About</DropdownMenuItem>
                 </Link>
                 {aboutMenu.items.map((item) => (
-                  <Link key={item.name} to={item.href}>
+                  <Link key={item.name} href={item.href}>
                     <DropdownMenuItem className="cursor-pointer">{item.name}</DropdownMenuItem>
                   </Link>
                 ))}
@@ -127,7 +129,7 @@ export function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-4">
-            <Link to="/apply">
+            <Link href="/apply">
               <Button variant="primary" size="default">
                 Book a Call
               </Button>
@@ -150,7 +152,7 @@ export function Header() {
             <div className="flex flex-col gap-4">
               <div className="py-2">
                 <Link
-                  to={servicesMenu.href}
+                  href={servicesMenu.href}
                   className={`text-base font-body font-medium py-2 ${
                     isServicesActive(path) ? "text-heading" : "text-subtle"
                   }`}
@@ -162,7 +164,7 @@ export function Header() {
                   {servicesMenu.items.map((item) => (
                     <Link
                       key={item.name}
-                      to={item.href}
+                      href={item.href}
                       className={`text-sm font-body font-medium py-1 ${
                         path === item.href ? "text-heading" : "text-subtle"
                       }`}
@@ -175,7 +177,7 @@ export function Header() {
               </div>
               <div className="py-2">
                 <Link
-                  to={caseStudiesMenu.href}
+                  href={caseStudiesMenu.href}
                   className={`text-base font-body font-medium py-2 ${
                     isInsightsActive(path) ? "text-heading" : "text-subtle"
                   }`}
@@ -187,7 +189,7 @@ export function Header() {
                   {caseStudiesMenu.items.map((item) => (
                     <Link
                       key={item.name}
-                      to={item.href}
+                      href={item.href}
                       className={`text-sm font-body font-medium py-1 ${
                         path === item.href ? "text-heading" : "text-subtle"
                       }`}
@@ -200,7 +202,7 @@ export function Header() {
               </div>
               <div className="py-2">
                 <Link
-                  to={aboutMenu.href}
+                  href={aboutMenu.href}
                   className={`text-base font-body font-medium py-2 ${
                     isAboutActive(path) ? "text-heading" : "text-subtle"
                   }`}
@@ -212,7 +214,7 @@ export function Header() {
                   {aboutMenu.items.map((item) => (
                     <Link
                       key={item.name}
-                      to={item.href}
+                      href={item.href}
                       className={`text-sm font-body font-medium py-1 ${
                         path === item.href ? "text-heading" : "text-subtle"
                       }`}
@@ -224,7 +226,7 @@ export function Header() {
                 </div>
               </div>
               <div className="pt-4 border-t border-divider">
-                <Link to="/apply" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/apply" onClick={() => setMobileMenuOpen(false)}>
                   <Button variant="primary" size="lg" className="w-full">
                     Book a Call
                   </Button>

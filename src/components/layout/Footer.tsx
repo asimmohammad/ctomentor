@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
 import logo from "@/assets/logo.svg";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 
@@ -37,7 +39,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link to="/" className="inline-flex items-center gap-3 mb-4">
+            <Link href="/" className="inline-flex items-center gap-3 mb-4">
               <img src={logo} alt="The CTO Mentor" className="h-16 w-auto" />
             </Link>
             <p className="text-sm text-primary-foreground/70 font-body leading-relaxed max-w-xs">
@@ -54,7 +56,7 @@ export function Footer() {
               {navigation.services.map((item) => (
                 <li key={item.name}>
                   <Link
-                    to={item.href}
+                    href={item.href}
                     className="text-sm font-body text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                   >
                     {item.name}
@@ -73,7 +75,7 @@ export function Footer() {
               {navigation.company.map((item) => (
                 <li key={item.name}>
                   <Link
-                    to={item.href}
+                    href={item.href}
                     className="text-sm font-body text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                   >
                     {item.name}
@@ -102,7 +104,7 @@ export function Footer() {
                     </a>
                   ) : (
                     <Link
-                      to={item.href}
+                      href={item.href}
                       className="text-sm font-body text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                     >
                       {item.name}
