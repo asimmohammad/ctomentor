@@ -155,7 +155,7 @@ export default function HomePage() {
             <p className="text-sm font-body text-accent font-medium tracking-wider uppercase mb-4">
               Strategic Technology Leadership for Growth-Stage Companies, PE/VC Portfolios & Government Technology
             </p>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold text-heading leading-tight">
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold text-heading leading-tight" data-site="next-app">
               I help growth-stage companies and PE/VC firms build technology that scales — without the cost of a
               full-time CTO.
             </h1>
