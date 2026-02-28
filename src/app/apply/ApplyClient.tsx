@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -92,6 +93,7 @@ const engagementStructure = [
 ];
 
 export default function ApplyClient() {
+  const router = useRouter();
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -131,12 +133,7 @@ export default function ApplyClient() {
         throw new Error(body?.error ?? `Request failed (${res.status})`);
       }
 
-      toast({
-        title: "Application received",
-        description: "Thank you. We review every application and will respond within 2 business days.",
-      });
-
-      form.reset();
+      router.push("/apply/confirmation");
     } catch (error: unknown) {
       const message = error instanceof Error ? error.message : "Failed to submit application. Please try again.";
       toast({
@@ -413,7 +410,7 @@ export default function ApplyClient() {
                             <FormControl>
                               <Input
                                 type="url"
-                                placeholder="https://www.company.com"
+                                placeholder="https://www.thectomentor.com/"
                                 className="bg-card border-divider focus:border-accent"
                                 {...field}
                               />

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const RESEND_API_KEY = process.env.RESEND_API_KEY;
+const RESEND_API_KEY = process.env.RESEND_API_KEY?.trim();
 
 /** Application payload from the apply form (matches ApplyClient schema) */
 interface ApplicationData {
@@ -82,16 +82,25 @@ export async function POST(request: NextRequest) {
     const responseText = await emailResponse.text();
 
     if (!emailResponse.ok) {
+      let userMessage = `Failed to send email (${emailResponse.status}).`;
+      if (emailResponse.status === 401) {
+        userMessage =
+          "Email service configuration error: invalid API key. Please add a valid RESEND_API_KEY in Vercel (Settings → Environment Variables) and redeploy.";
+      } else {
+        try {
+          const err = JSON.parse(responseText) as { message?: string };
+          if (err.message) userMessage = err.message;
+        } catch {
+          userMessage = responseText || userMessage;
+        }
+      }
       console.error("[send-application] Resend API error:", {
         status: emailResponse.status,
         statusText: emailResponse.statusText,
         response: responseText,
       });
       return NextResponse.json(
-        {
-          error: `Failed to send email (${emailResponse.status}): ${responseText}`,
-          requestId,
-        },
+        { error: userMessage, requestId },
         { status: 500 }
       );
     }
