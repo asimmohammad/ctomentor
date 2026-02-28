@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import logo from "@/assets/logo.svg";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 
 const navigation = {
@@ -40,7 +39,7 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="inline-flex items-center gap-3 mb-4">
-              <img src={logo} alt="The CTO Mentor" className="h-16 w-auto" />
+              <img src="/logo.svg" alt="The CTO Mentor" className="h-16 w-auto" />
             </Link>
             <p className="text-sm text-primary-foreground/70 font-body leading-relaxed max-w-xs">
               Strategic Technology Leadership for Growth-Stage Companies, PE/VC Portfolios & Government Technology

@@ -11,8 +11,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import logo from "@/assets/logo.svg";
-
 const navigation = [];
 
 const servicesMenu = {
@@ -55,7 +53,7 @@ export function Header() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo + tagline on larger screens */}
           <Link href="/" className="flex items-center gap-3">
-            <img src={logo} alt="The CTO Mentor" className="h-16 w-auto" />
+            <img src="/logo.svg" alt="The CTO Mentor" className="h-16 w-auto" />
             <div className="hidden sm:block">
               <span className="font-heading text-xl lg:text-2xl font-semibold text-heading tracking-tight block">
                 The CTO Mentor
