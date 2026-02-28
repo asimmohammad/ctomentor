@@ -1,4 +1,5 @@
 {
-  "rewrites": [{"source": "/(.*)", "destination": "/index.html"}],
-  "redirects": [{"source": "/pricing", "destination": "/services", "permanent": true}]
+  "redirects": [
+    { "source": "/pricing", "destination": "/services", "permanent": true }
+  ]
 }
