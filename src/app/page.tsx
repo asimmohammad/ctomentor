@@ -152,9 +152,6 @@ export default function HomePage() {
       <section className="bg-warm-gradient">
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-32">
           <div className="max-w-4xl">
-            <p className="text-sm font-body text-accent font-medium tracking-wider uppercase mb-4">
-              Strategic Technology Leadership for Growth-Stage Companies, PE/VC Portfolios & Government Technology
-            </p>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold text-heading leading-tight" data-site="next-app">
               I help growth-stage companies and PE/VC firms build technology that scales — without the cost of a
               full-time CTO.
