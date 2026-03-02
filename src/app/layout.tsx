@@ -21,6 +21,18 @@ export const metadata: Metadata = {
     siteName: "The CTO Mentor",
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "The CTO Mentor — Asim Mohammad | Fractional CTO & Technology Leadership",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/opengraph-image.png"],
   },
   robots: {
     index: true,
