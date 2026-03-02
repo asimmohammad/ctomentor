@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { SubstackSubscribe } from "@/components/SubstackSubscribe";
 
 export const INSIGHTS_CATEGORIES = [
   "All",
@@ -218,14 +218,14 @@ export default function InsightsClient() {
         </div>
       </section>
 
-      {/* Newsletter */}
+      {/* Substack subscribe */}
       <section className="bg-section-gradient border-y border-divider">
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
           <div className="max-w-2xl">
             <h2 className="font-heading text-2xl md:text-3xl font-semibold text-heading mb-4">
-              Get insights in your inbox
+              Subscribe on Substack
             </h2>
-            <NewsletterSignup variant="inline" />
+            <SubstackSubscribe variant="inline" />
           </div>
         </div>
       </section>

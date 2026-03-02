@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { SubstackSubscribe } from "@/components/SubstackSubscribe";
 
 const navigation = {
   services: [
@@ -29,9 +29,9 @@ export function Footer() {
         <div className="mb-16 pb-12 border-b border-primary-foreground/10">
           <div className="max-w-2xl">
             <h3 className="text-lg font-heading font-semibold text-white mb-2">
-              Weekly insights on technology leadership
+              Subscribe on Substack
             </h3>
-            <NewsletterSignup variant="footer" />
+            <SubstackSubscribe variant="footer" />
           </div>
         </div>
 
