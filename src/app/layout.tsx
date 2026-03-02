@@ -7,6 +7,8 @@ import "@/app/globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://thectomentor.com"),
+  authors: [{ name: "Asim Mohammad", url: "https://thectomentor.com" }],
+  creator: "Asim Mohammad",
   title: {
     default: "The CTO Mentor | Asim Mohammad — Fractional CTO & Technology Leadership",
     template: "%s | The CTO Mentor",
