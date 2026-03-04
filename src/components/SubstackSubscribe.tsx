@@ -22,7 +22,9 @@ export function SubstackSubscribe({ variant = "inline", className = "" }: Substa
             : "text-base text-subtle font-body mb-4"
         }
       >
-        Private equity, portfolio company technology, and what actually drives exit value.
+        Technologist, entrepreneur, CTO advisor. Writing about technical leadership, strategic thinking, and the ideas I
+        can&apos;t let go — from enterprise architecture to faith, from venture building to the books that change how I
+        see the world.
       </p>
       <div className={isFooter ? "max-w-md space-y-4" : "space-y-4"}>
         <iframe
