@@ -38,6 +38,9 @@ export default function InvestorsPage() {
                 </Button>
               </Link>
             </div>
+            <p className="mt-4 text-sm font-body text-subtle">
+              Recent work: technology readiness for a $600M+ strategic exit.
+            </p>
           </div>
         </div>
       </section>
