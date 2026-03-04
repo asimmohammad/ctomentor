@@ -22,7 +22,7 @@ export function SubstackSubscribe({ variant = "inline", className = "" }: Substa
             : "text-base text-subtle font-body mb-4"
         }
       >
-        Weekly insights on technology leadership, scaling engineering teams, and CTO strategy. No fluff — just lessons from the trenches.
+        Private equity, portfolio company technology, and what actually drives exit value.
       </p>
       <div className={isFooter ? "max-w-md space-y-4" : "space-y-4"}>
         <iframe

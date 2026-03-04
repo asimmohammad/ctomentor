@@ -152,9 +152,12 @@ export default function HomePage() {
       <section className="bg-warm-gradient">
         <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-32">
           <div className="max-w-4xl">
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold text-heading leading-tight" data-site="next-app">
-              I help growth-stage companies and PE/VC firms build technology that scales — without the cost of a
-              full-time CTO.
+            <h1
+              className="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold text-heading leading-tight"
+              data-site="next-app"
+            >
+              I help PE/VC firms unlock technology-driven value creation across their portfolios — as a strategic
+              partner, not a consultant.
             </h1>
             <p className="mt-6 text-lg md:text-xl font-body text-subtle leading-relaxed max-w-2xl">
               I bring hands-on CTO leadership: architecture, security, team scaling, and technical due diligence. For

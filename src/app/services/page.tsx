@@ -77,7 +77,7 @@ const tiers = [
       "Optional: post-acquisition technology integration roadmap and interim CTO support",
     ],
     idealFor:
-      "Private equity firms, venture capital firms, and corporate acquirers evaluating technology companies for investment or acquisition. Also valuable for boards and CEOs who want an independent assessment of their own technology organization before a major strategic decision.",
+      "Private equity firms, venture capital firms, and corporate acquirers evaluating technology companies for investment or acquisition. Also valuable for boards and CEOs who want an independent assessment of their own technology organization before a major strategic decision. Engagements with PE/VC portfolio companies are structured to include equity or co-investment rights where appropriate.",
     cta: "Request a Due Diligence Proposal",
     ctaVariant: "outline" as const,
     recommended: false,
