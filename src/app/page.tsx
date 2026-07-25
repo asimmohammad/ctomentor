@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { SubstackSubscribe } from "@/components/SubstackSubscribe";
+import { Section } from "@/components/layout/Section";
+import { Grid, GridItem } from "@/components/layout/Grid";
+import { getPublishableArticles } from "@/lib/articles";
 
 export const metadata: Metadata = {
   title: "The CTO Mentor | Asim Mohammad — Fractional CTO & Technology Leadership",
@@ -100,23 +102,13 @@ const caseStudyCards = [
   },
 ];
 
-const latestPosts = [
-  {
-    slug: "ai-coding-tools-lying",
-    title: "Your AI Coding Tools Are Lying to You",
-    date: "February 2026",
-  },
-  {
-    slug: "soc-2-compliance",
-    title: "SOC 2 Compliance: What Every Technology Leader Needs to Know",
-    date: "February 2026",
-  },
-  {
-    slug: "cto-skill-no",
-    title: 'The CTO Skill Nobody Trains For: Saying "No"',
-    date: "February 2026",
-  },
-];
+const latestPosts = getPublishableArticles()
+  .slice(0, 3)
+  .map(([slug, article]) => ({
+    slug,
+    title: article.title,
+    date: article.date,
+  }));
 
 export default function HomePage() {
   return (
@@ -148,176 +140,149 @@ export default function HomePage() {
         }}
       />
 
-      {/* Hero */}
-      <section className="bg-warm-gradient">
-        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-32">
-          <div className="max-w-4xl">
-            <h1
-              className="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold text-heading leading-tight"
-              data-site="next-app"
-            >
-              I help PE/VC firms unlock technology-driven value creation across their portfolios — as a strategic
-              partner, not a consultant.
-            </h1>
-            <p className="mt-6 text-lg md:text-xl font-body text-subtle leading-relaxed max-w-2xl">
-              I bring hands-on CTO leadership: architecture, security, team scaling, and technical due diligence. For
-              engagements that need more capacity, I bring in trusted senior technology leaders from my vetted network.
-            </p>
-            <div className="mt-10 flex flex-col sm:flex-row gap-4">
-              <Link href="/apply">
-                <Button variant="primary" size="xl">
-                  Book a Free 30-Minute Discovery Call
-                </Button>
-              </Link>
-              <Link href="/services">
-                <Button variant="outline" size="xl">
-                  See Service Tiers
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Founder / Lead credibility */}
-      <section className="border-b border-divider bg-background">
-        <div className="container mx-auto px-6 lg:px-8 py-12 lg:py-16">
-          <div className="max-w-4xl">
-            <h2 className="font-heading text-xl font-semibold text-heading mb-4">Led by Asim Mohammad</h2>
-            <p className="text-base font-body text-subtle leading-relaxed mb-4">
-              CTO at a loyalty-as-a-service platform. Currently serving as CTO for a SOC 2 Type II certified SaaS
-              platform; leading AWS GovCloud migration and FedRAMP readiness initiatives. Experience with IL5
-              authorization and ICAM integration for DoD markets. Hands-on with technology due diligence for M&A
-              transactions. AWS architecture, security posture, and scalability expertise.
-            </p>
-            <Link
-              href="/about"
-              className="text-sm font-body font-medium text-accent hover:text-accent/80 transition-colors"
-            >
-              Learn more about me →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Social proof bar */}
-      <section className="bg-section-gradient border-b border-divider">
-        <div className="container mx-auto px-6 lg:px-8 py-8">
-          <p className="text-center text-sm font-body text-subtle">
-            Advised 15+ companies across SaaS, fintech, and government technology · SOC 2 Type II · FedRAMP & GovCloud
-            experience
+      <Section spacing="generous" tone="alt">
+        <div className="max-w-measure">
+          <h1 className="font-display text-hero text-ink" data-site="next-app">
+            I help PE/VC firms unlock technology-driven value creation across their portfolios — as a strategic partner,
+            not a consultant.
+          </h1>
+          <p className="mt-6 font-text text-lead text-ink-muted">
+            I bring hands-on CTO leadership: architecture, security, team scaling, and technical due diligence. For
+            engagements that need more capacity, I bring in trusted senior technology leaders from my vetted network.
           </p>
-        </div>
-      </section>
-
-      {/* Three service pillars */}
-      <section className="bg-background">
-        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading max-w-2xl mb-4">
-            Three ways to work with me
-          </h2>
-          <p className="text-lg font-body text-subtle mb-12 max-w-2xl">
-            Advisory, embedded leadership, or technical due diligence — depending on what your company needs.
-          </p>
-          <div className="grid md:grid-cols-3 gap-8">
-            {servicePillars.map((pillar) => (
-              <Link
-                key={pillar.title}
-                href={pillar.href}
-                className="group block bg-card p-8 border border-divider hover:border-accent/30 transition-colors h-full flex flex-col"
-              >
-                <span className="text-sm font-body font-semibold text-accent">{pillar.price}</span>
-                <h3 className="mt-4 font-heading text-xl font-semibold text-heading">{pillar.title}</h3>
-                <p className="mt-4 text-base font-body text-subtle leading-relaxed flex-1">{pillar.description}</p>
-                <span className="mt-6 inline-flex items-center gap-2 text-sm font-body font-medium text-heading group-hover:text-accent transition-colors">
-                  Learn more
-                </span>
-              </Link>
-            ))}
-          </div>
-          <div className="mt-12 text-center">
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <Link href="/apply">
-              <Button variant="outline" size="lg">
-                Not sure which is right? Book a call
+              <Button variant="primary" size="xl">
+                Book a Free 30-Minute Discovery Call
+              </Button>
+            </Link>
+            <Link href="/services">
+              <Button variant="outline" size="xl">
+                See Service Tiers
               </Button>
             </Link>
           </div>
         </div>
-      </section>
+      </Section>
 
-      {/* Specializations */}
-      <section className="bg-section-gradient border-y border-divider">
-        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-12">Specializations</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {specializations.map((spec) => (
-              <div key={spec.title} className="bg-card border border-divider p-8 flex flex-col">
-                <h3 className="font-heading text-xl font-semibold text-heading">{spec.title}</h3>
-                <p className="mt-4 text-base font-body text-subtle leading-relaxed flex-1">{spec.description}</p>
+      <Section spacing="compact" tone="paper">
+        <div className="max-w-measure">
+          <h2 className="font-text text-h4 text-ink">Led by Asim Mohammad</h2>
+          <p className="mt-4 font-text text-body text-ink-muted">
+            CTO at a loyalty-as-a-service platform. Currently serving as CTO for a SOC 2 Type II certified SaaS platform;
+            leading AWS GovCloud migration and FedRAMP readiness initiatives. Experience with IL5 authorization and ICAM
+            integration for DoD markets. Hands-on with technology due diligence for M&A transactions. AWS architecture,
+            security posture, and scalability expertise.
+          </p>
+          <Link href="/about" className="mt-4 inline-block font-text text-small font-medium text-accent hover:text-accent-hover">
+            Learn more about me →
+          </Link>
+        </div>
+      </Section>
+
+      <Section spacing="compact" tone="alt">
+        <p className="text-center font-text text-small text-ink-muted">
+          Advised 15+ companies across SaaS, fintech, and government technology · SOC 2 Type II · FedRAMP & GovCloud
+          experience
+        </p>
+      </Section>
+
+      <Section spacing="standard" tone="paper">
+        <h2 className="max-w-measure font-display text-h2 text-ink">Three ways to work with me</h2>
+        <p className="mt-4 max-w-measure font-text text-lead text-ink-muted">
+          Advisory, embedded leadership, or technical due diligence — depending on what your company needs.
+        </p>
+        <Grid className="mt-12">
+          {servicePillars.map((pillar) => (
+            <GridItem key={pillar.title} span={12} md={4}>
+              <Link
+                href={pillar.href}
+                className="group flex h-full flex-col border border-border bg-surface p-8 transition-colors duration-standard hover:border-ink"
+              >
+                <span className="font-text text-small font-semibold text-accent">{pillar.price}</span>
+                <h3 className="mt-4 font-text text-h3 text-ink">{pillar.title}</h3>
+                <p className="mt-4 flex-1 font-text text-body text-ink-muted">{pillar.description}</p>
+                <span className="mt-6 inline-flex items-center gap-2 font-text text-small font-medium text-ink group-hover:text-accent">
+                  Learn more
+                </span>
+              </Link>
+            </GridItem>
+          ))}
+        </Grid>
+        <div className="mt-12 text-center">
+          <Link href="/apply">
+            <Button variant="outline" size="lg">
+              Not sure which is right? Book a call
+            </Button>
+          </Link>
+        </div>
+      </Section>
+
+      <Section spacing="standard" tone="alt">
+        <h2 className="font-display text-h2 text-ink">Specializations</h2>
+        <Grid className="mt-12">
+          {specializations.map((spec) => (
+            <GridItem key={spec.title} span={12} md={6}>
+              <div className="flex h-full flex-col border border-border bg-surface p-8">
+                <h3 className="font-text text-h3 text-ink">{spec.title}</h3>
+                <p className="mt-4 flex-1 font-text text-body text-ink-muted">{spec.description}</p>
                 <Link href={spec.href} className="mt-6">
                   <Button variant="outline" size="lg">
                     {spec.cta}
                   </Button>
                 </Link>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            </GridItem>
+          ))}
+        </Grid>
+      </Section>
 
-      {/* Case studies / results */}
-      <section className="bg-primary text-primary-foreground">
-        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <h2 className="font-heading text-3xl md:text-4xl font-semibold text-white mb-4">Results that compound</h2>
-          <p className="text-lg font-body text-primary-foreground/90 mb-12 max-w-2xl">
-            Anonymized outcomes from real engagements.
-          </p>
-          <div className="grid md:grid-cols-3 gap-8">
-            {caseStudyCards.map((card) => (
-              <div key={card.title} className="border border-primary-foreground/20 rounded-lg p-6">
-                <h3 className="font-heading text-lg font-semibold text-white mb-3">{card.title}</h3>
-                <p className="text-sm font-body text-primary-foreground/90 leading-relaxed">{card.outcome}</p>
+      <Section spacing="standard" tone="dark">
+        <h2 className="font-display text-h2 text-ink-inverse">Results that compound</h2>
+        <p className="mt-4 max-w-measure font-text text-lead text-ink-inverse/90">
+          Anonymized outcomes from real engagements.
+        </p>
+        <Grid className="mt-12">
+          {caseStudyCards.map((card) => (
+            <GridItem key={card.title} span={12} md={4}>
+              <div className="border border-ink-inverse/20 p-6">
+                <h3 className="font-text text-h4 text-ink-inverse">{card.title}</h3>
+                <p className="mt-3 font-text text-small text-ink-inverse/90">{card.outcome}</p>
               </div>
-            ))}
-          </div>
-          <div className="mt-10">
-            <Link href="/case-studies">
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary"
-              >
-                View Case Studies
-              </Button>
-            </Link>
-          </div>
+            </GridItem>
+          ))}
+        </Grid>
+        <div className="mt-10">
+          <Link href="/case-studies">
+            <Button variant="outline" size="lg" className="border-ink-inverse/30 text-ink-inverse hover:bg-ink-inverse hover:text-dark-band">
+              View Case Studies
+            </Button>
+          </Link>
         </div>
-      </section>
+      </Section>
 
-      {/* Insights preview */}
-      <section className="bg-background">
-        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-4">Latest from the blog</h2>
-          <p className="text-lg font-body text-subtle mb-12 max-w-2xl">
+      {latestPosts.length > 0 && (
+        <Section spacing="standard" tone="paper">
+          <h2 className="font-display text-h2 text-ink">Latest from the blog</h2>
+          <p className="mt-4 max-w-measure font-text text-lead text-ink-muted">
             Technology leadership, engineering teams, and CTO strategy.
           </p>
-          <div className="grid md:grid-cols-3 gap-8">
+          <Grid className="mt-12">
             {latestPosts.map((post) => (
-              <Link
-                key={post.slug}
-                href={`/insights/${post.slug}`}
-                className="group block border border-divider rounded-lg p-6 hover:border-accent/30 transition-colors"
-              >
-                <span className="text-sm font-body text-subtle">{post.date}</span>
-                <h3 className="mt-2 font-heading text-lg font-semibold text-heading group-hover:text-accent transition-colors leading-tight">
-                  {post.title}
-                </h3>
-                <span className="mt-3 inline-block text-sm font-body font-medium text-heading group-hover:text-accent transition-colors">
-                  Read more →
-                </span>
-              </Link>
+              <GridItem key={post.slug} span={12} md={4}>
+                <Link
+                  href={`/insights/${post.slug}`}
+                  className="group block border border-border p-6 transition-colors duration-standard hover:border-ink"
+                >
+                  <span className="font-text text-small text-ink-muted">{post.date}</span>
+                  <h3 className="mt-2 font-text text-h4 text-ink group-hover:text-accent">{post.title}</h3>
+                  <span className="mt-3 inline-block font-text text-small font-medium text-ink group-hover:text-accent">
+                    Read more →
+                  </span>
+                </Link>
+              </GridItem>
             ))}
-          </div>
+          </Grid>
           <div className="mt-10">
             <Link href="/insights">
               <Button variant="outline" size="lg">
@@ -325,45 +290,29 @@ export default function HomePage() {
               </Button>
             </Link>
           </div>
-        </div>
-      </section>
+        </Section>
+      )}
 
-      {/* Substack subscribe */}
-      <section className="bg-section-gradient border-y border-divider">
-        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <div className="max-w-2xl">
-            <h2 className="font-heading text-2xl md:text-3xl font-semibold text-heading mb-4">
-              Subscribe on Substack
-            </h2>
-            <SubstackSubscribe variant="inline" />
+      <Section spacing="standard" tone="paper">
+        <div className="max-w-measure">
+          <h2 className="font-display text-h2 text-ink">Ready to talk?</h2>
+          <p className="mt-4 font-text text-lead text-ink-muted">
+            Book a free 30-minute discovery call. We'll assess fit and define the clearest path forward.
+          </p>
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+            <Link href="/apply">
+              <Button variant="primary" size="xl">
+                Book a Free 30-Minute Discovery Call
+              </Button>
+            </Link>
+            <Link href="/services">
+              <Button variant="outline" size="xl">
+                See Service Tiers
+              </Button>
+            </Link>
           </div>
         </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="bg-background">
-        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <div className="max-w-2xl">
-            <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading">Ready to talk?</h2>
-            <p className="mt-4 text-lg font-body text-subtle leading-relaxed">
-              Book a free 30-minute discovery call. We'll assess fit and define the clearest path forward.
-            </p>
-            <div className="mt-10 flex flex-col sm:flex-row gap-4">
-              <Link href="/apply">
-                <Button variant="primary" size="xl">
-                  Book a Free 30-Minute Discovery Call
-                </Button>
-              </Link>
-              <Link href="/services">
-                <Button variant="outline" size="xl">
-                  See Service Tiers
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      </Section>
     </>
   );
 }
-

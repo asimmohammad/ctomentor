@@ -18,19 +18,18 @@ export function SubstackSubscribe({ variant = "inline", className = "" }: Substa
       <div className={isFooter ? "max-w-md space-y-4" : "space-y-4"}>
         <iframe
           src={EMBED_SRC}
-          width="100%"
-          height={320}
-          style={{ border: "1px solid #eee", background: "white", borderRadius: "6px" }}
+          title="Subscribe to Asim Mohammad on Substack"
+          className="w-full max-w-measure"
+          style={{
+            border: "1px solid var(--border)",
+            background: "var(--surface)",
+            borderRadius: "var(--radius-none)",
+            height: "var(--substack-embed-height)",
+          }}
           frameBorder="0"
           scrolling="no"
-          title="Subscribe to Asim Mohammad on Substack"
-          className="max-w-[480px] w-full"
         />
-        <Button
-          variant={isFooter ? "secondary" : "primary"}
-          size={isFooter ? "default" : "lg"}
-          asChild
-        >
+        <Button variant={isFooter ? "secondary" : "primary"} size={isFooter ? "default" : "lg"} asChild>
           <a href={SUBSTACK_URL} target="_blank" rel="noopener noreferrer">
             Subscribe on Substack
           </a>

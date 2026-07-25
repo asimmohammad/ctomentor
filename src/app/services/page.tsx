@@ -8,6 +8,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Section } from "@/components/layout/Section";
+import { Grid, GridItem } from "@/components/layout/Grid";
 import { Check } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -164,51 +166,48 @@ export default function ServicesPage() {
       />
 
       {/* Hero */}
-      <section className="bg-warm-gradient">
-        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <div className="max-w-3xl">
-            <h1 className="font-heading text-4xl md:text-5xl font-semibold text-heading leading-tight">
-              Engagement Models
-            </h1>
-            <p className="mt-6 text-xl font-body text-subtle leading-relaxed">
-              Strategic technology leadership tailored to your stage, your challenge, and your timeline. Every engagement
-              starts with a conversation — not a contract.
-            </p>
-          </div>
+      <Section spacing="generous" tone="alt">
+        <div className="max-w-3xl">
+          <h1 className="font-display text-h1 text-ink">
+            Engagement Models
+          </h1>
+          <p className="mt-6 text-lead font-text text-ink-muted">
+            Strategic technology leadership tailored to your stage, your challenge, and your timeline. Every engagement
+            starts with a conversation — not a contract.
+          </p>
         </div>
-      </section>
+      </Section>
 
       {/* Three-tier cards */}
-      <section className="bg-background">
-        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <div className="grid md:grid-cols-3 gap-8">
-            {tiers.map((tier) => (
+      <Section spacing="standard" tone="paper">
+        <Grid>
+          {tiers.map((tier) => (
+            <GridItem key={tier.id} span={12} md={4}>
               <Card
-                key={tier.id}
                 id={tier.id}
-                className={`flex flex-col h-full transition-shadow hover:shadow-lg ${
-                  tier.recommended ? "border-accent shadow-md ring-1 ring-accent/20" : "border-divider"
+                className={`flex flex-col h-full transition-colors duration-standard hover:border-ink ${
+                  tier.recommended ? "border-accent ring-1 ring-accent/20" : "border-border"
                 }`}
               >
                 <CardContent className="p-8 flex flex-col h-full">
                   {tier.badge && (
-                    <span className="text-xs font-body font-semibold text-accent uppercase tracking-wider mb-4 inline-block">
+                    <span className="eyebrow text-accent mb-4 inline-block">
                       {tier.badge}
                     </span>
                   )}
-                  <h2 className="font-heading text-2xl font-semibold text-heading">{tier.name}</h2>
-                  <p className="mt-2 text-sm font-body text-subtle">{tier.price}</p>
-                  <p className="mt-4 text-base font-body text-foreground leading-relaxed">{tier.positioning}</p>
+                  <h2 className="font-text text-h3 text-ink">{tier.name}</h2>
+                  <p className="mt-2 text-small font-text text-ink-muted">{tier.price}</p>
+                  <p className="mt-4 text-body font-text text-ink">{tier.positioning}</p>
                   <ul className="mt-6 space-y-3 flex-1">
                     {tier.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-3 text-sm font-body text-foreground">
+                      <li key={feature} className="flex items-start gap-3 text-small font-text text-ink">
                         <Check size={18} className="text-accent flex-shrink-0 mt-0.5" />
                         {feature}
                       </li>
                     ))}
                   </ul>
-                  <p className="mt-6 text-sm font-body text-subtle leading-relaxed">
-                    <span className="font-semibold text-foreground">Ideal for:</span> {tier.idealFor}
+                  <p className="mt-6 text-small font-text text-ink-muted">
+                    <span className="font-semibold text-ink">Ideal for:</span> {tier.idealFor}
                   </p>
                   <Link href="/apply" className="mt-6">
                     <Button variant={tier.ctaVariant} size="lg" className="w-full">
@@ -217,94 +216,86 @@ export default function ServicesPage() {
                   </Link>
                 </CardContent>
               </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+            </GridItem>
+          ))}
+        </Grid>
+      </Section>
 
       {/* Not sure section */}
-      <section className="bg-section-gradient border-y border-divider">
-        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="font-heading text-2xl md:text-3xl font-semibold text-heading mb-6">
-              Not Sure Which Engagement Fits?
-            </h2>
-            <p className="text-lg font-body text-subtle leading-relaxed mb-10">
-              Most relationships start with a 30-minute discovery call. I'll ask about your technology challenges, your
-              team, and your goals — and I'll tell you honestly which engagement model makes sense. Sometimes the answer
-              is "you don't need me yet," and that's fine too.
-            </p>
-            <Link href="/apply">
-              <Button variant="outline" size="xl">
-                Book a Free Discovery Call
-              </Button>
-            </Link>
-          </div>
+      <Section spacing="standard" tone="alt" className="border-y border-border">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="font-display text-h2 text-ink mb-6">
+            Not Sure Which Engagement Fits?
+          </h2>
+          <p className="text-lead font-text text-ink-muted mb-10">
+            Most relationships start with a 30-minute discovery call. I'll ask about your technology challenges, your
+            team, and your goals — and I'll tell you honestly which engagement model makes sense. Sometimes the answer
+            is "you don't need me yet," and that's fine too.
+          </p>
+          <Link href="/apply">
+            <Button variant="outline" size="xl">
+              Book a Free Discovery Call
+            </Button>
+          </Link>
         </div>
-      </section>
+      </Section>
 
       {/* How engagements work */}
-      <section className="bg-background">
-        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-12">How Engagements Work</h2>
-          <div className="grid md:grid-cols-3 gap-12">
-            {howItWorks.map((item) => (
-              <div key={item.step}>
-                <span className="text-xs font-body font-semibold text-accent tracking-wider">Step {item.step}</span>
-                <h3 className="mt-2 font-heading text-xl font-semibold text-heading">{item.title}</h3>
-                <p className="mt-3 text-base font-body text-subtle leading-relaxed">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Section spacing="standard" tone="paper">
+        <h2 className="font-display text-h2 text-ink mb-12">How Engagements Work</h2>
+        <Grid>
+          {howItWorks.map((item) => (
+            <GridItem key={item.step} span={12} md={4}>
+              <span className="eyebrow text-accent">Step {item.step}</span>
+              <h3 className="mt-2 font-text text-h4 text-ink">{item.title}</h3>
+              <p className="mt-3 text-body font-text text-ink-muted">{item.description}</p>
+            </GridItem>
+          ))}
+        </Grid>
+      </Section>
 
       {/* FAQ */}
-      <section className="bg-section-gradient border-y border-divider">
-        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-12">
-            Frequently Asked Questions
-          </h2>
-          <div className="max-w-3xl">
-            <Accordion type="single" collapsible className="w-full">
-              {faqs.map((faq, i) => (
-                <AccordionItem key={i} value={`faq-${i}`}>
-                  <AccordionTrigger className="font-heading text-left font-semibold text-heading py-5">
-                    {faq.q}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-base font-body text-subtle leading-relaxed pb-5">
-                    {faq.a}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
+      <Section spacing="standard" tone="alt" className="border-y border-border">
+        <h2 className="font-display text-h2 text-ink mb-12">
+          Frequently Asked Questions
+        </h2>
+        <div className="max-w-3xl">
+          <Accordion type="single" collapsible className="w-full">
+            {faqs.map((faq, i) => (
+              <AccordionItem key={i} value={`faq-${i}`}>
+                <AccordionTrigger className="font-text text-left font-semibold text-ink py-5">
+                  {faq.q}
+                </AccordionTrigger>
+                <AccordionContent className="text-body font-text text-ink-muted pb-5">
+                  {faq.a}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
-      </section>
+      </Section>
 
       {/* Final CTA */}
-      <section className="bg-primary text-primary-foreground">
-        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <div className="max-w-2xl">
-            <h2 className="font-heading text-3xl md:text-4xl font-semibold text-white mb-6">
-              Let's Talk About Your Technology Challenges
-            </h2>
-            <p className="text-lg font-body text-primary-foreground/90 leading-relaxed mb-10">
-              Every engagement starts with a conversation. Book a free 30-minute discovery call and I'll give you an
-              honest assessment of how I can help — or whether you need something different entirely.
-            </p>
-            <Link href="/apply">
-              <Button
-                variant="outline"
-                size="xl"
-                className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary"
-              >
-                Book a Discovery Call
-              </Button>
-            </Link>
-          </div>
+      <Section spacing="standard" tone="dark">
+        <div className="max-w-2xl">
+          <h2 className="font-display text-h2 text-ink-inverse mb-6">
+            Let's Talk About Your Technology Challenges
+          </h2>
+          <p className="text-lead font-text text-ink-inverse/90 mb-10">
+            Every engagement starts with a conversation. Book a free 30-minute discovery call and I'll give you an
+            honest assessment of how I can help — or whether you need something different entirely.
+          </p>
+          <Link href="/apply">
+            <Button
+              variant="outline"
+              size="xl"
+              className="border-ink-inverse/30 text-ink-inverse hover:bg-ink-inverse hover:text-dark-band"
+            >
+              Book a Discovery Call
+            </Button>
+          </Link>
         </div>
-      </section>
+      </Section>
     </>
   );
 }

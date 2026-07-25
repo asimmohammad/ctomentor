@@ -47,18 +47,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        {/* Global fonts */}
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-        />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Open+Sans:wght@300;400;600;700&display=swap"
-        />
+        <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
       </head>
-      <body>
-        {/* Google Analytics */}
+      <body className="bg-paper text-ink font-text">
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-0QB3QYL0LZ"
           strategy="afterInteractive"
@@ -72,10 +65,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           `}
         </Script>
         <Header />
-        <main className="flex-1 pt-16 lg:pt-20 min-h-screen flex flex-col">{children}</main>
+        <main className="flex min-h-screen flex-1 flex-col pt-header-offset">{children}</main>
         <Footer />
       </body>
     </html>
   );
 }
-

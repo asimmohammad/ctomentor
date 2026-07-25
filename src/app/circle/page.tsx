@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Section } from "@/components/layout/Section";
 import { Check } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -21,80 +22,74 @@ export default function CirclePage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-warm-gradient">
-        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <div className="max-w-3xl">
-            <span className="font-body text-xs font-semibold uppercase tracking-wider text-accent">
-              TCM Mentors Circle
-            </span>
-            <h1 className="mt-4 font-heading text-4xl md:text-5xl font-semibold text-heading leading-tight">
-              For CTOs who want to lead with authority and execution discipline.
-            </h1>
-            <p className="mt-6 text-xl font-body text-subtle">
-              A peer-level operating group for CTOs ready to lead with authority, clarity, and execution discipline.
-            </p>
-          </div>
+      <Section spacing="generous" tone="alt">
+        <div className="max-w-3xl">
+          <span className="eyebrow text-accent">
+            TCM Mentors Circle
+          </span>
+          <h1 className="mt-4 font-display text-h1 text-ink">
+            For CTOs who want to lead with authority and execution discipline.
+          </h1>
+          <p className="mt-6 text-lead font-text text-ink-muted">
+            A peer-level operating group for CTOs ready to lead with authority, clarity, and execution discipline.
+          </p>
         </div>
-      </section>
+      </Section>
 
       {/* Details */}
-      <section className="bg-background">
-        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <div className="grid lg:grid-cols-2 gap-16">
-            <div>
-              <h2 className="font-heading text-2xl md:text-3xl font-semibold text-heading">What's Included</h2>
-              <ul className="mt-8 space-y-4">
-                {benefits.map((benefit) => (
-                  <li key={benefit} className="flex items-start gap-4 text-base font-body text-foreground">
-                    <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
-                    {benefit}
-                  </li>
-                ))}
-              </ul>
-            </div>
+      <Section spacing="standard" tone="paper">
+        <div className="grid lg:grid-cols-2 gap-16">
+          <div>
+            <h2 className="font-display text-h2 text-ink">What's Included</h2>
+            <ul className="mt-8 space-y-4">
+              {benefits.map((benefit) => (
+                <li key={benefit} className="flex items-start gap-4 text-body font-text text-ink">
+                  <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
+                  {benefit}
+                </li>
+              ))}
+            </ul>
+          </div>
 
-            <div>
-              <div className="bg-card border border-divider p-8 lg:p-10">
-                <span className="font-body text-xs font-semibold uppercase tracking-wider text-accent">
-                  Investment
-                </span>
-                <div className="mt-4 flex items-baseline gap-2">
-                  <span className="font-heading text-4xl font-semibold text-heading">$2,500</span>
-                  <span className="font-body text-subtle">/year</span>
-                </div>
-                <p className="mt-4 text-base font-body text-subtle">
-                  Limited spots available. Application required.
-                </p>
-                <div className="mt-8">
-                  <Link href="/apply">
-                    <Button variant="primary" size="xl" className="w-full">
-                      Apply to Join
-                    </Button>
-                  </Link>
-                </div>
+          <div>
+            <div className="bg-card border border-border p-8 lg:p-10">
+              <span className="eyebrow text-accent">
+                Investment
+              </span>
+              <div className="mt-4 flex items-baseline gap-2">
+                <span className="font-display text-h2 text-ink metric">$2,500</span>
+                <span className="font-text text-body text-ink-muted">/year</span>
+              </div>
+              <p className="mt-4 text-body font-text text-ink-muted">
+                Limited spots available. Application required.
+              </p>
+              <div className="mt-8">
+                <Link href="/apply">
+                  <Button variant="primary" size="xl" className="w-full">
+                    Apply to Join
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </Section>
 
       {/* Who It's For */}
-      <section className="bg-section-gradient border-t border-divider">
-        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <div className="max-w-3xl">
-            <h2 className="font-heading text-2xl md:text-3xl font-semibold text-heading">Who It's For</h2>
-            <p className="mt-6 text-lg font-body text-subtle leading-relaxed">
-              This is for technology leaders who are past the early chaos but want to operate at a higher altitude. You
-              want strategic clarity and the perspective of peers who understand the weight of the role.
-            </p>
-            <p className="mt-4 text-lg font-body text-subtle leading-relaxed">
-              If you're a first-time CTO navigating a board, a technical founder stepping into leadership, or an
-              experienced leader in a new context — TCM Mentors Circle provides the structure and community to accelerate
-              your growth.
-            </p>
-          </div>
+      <Section spacing="standard" tone="alt" className="border-t border-border">
+        <div className="max-w-3xl">
+          <h2 className="font-display text-h2 text-ink">Who It's For</h2>
+          <p className="mt-6 text-lead font-text text-ink-muted">
+            This is for technology leaders who are past the early chaos but want to operate at a higher altitude. You
+            want strategic clarity and the perspective of peers who understand the weight of the role.
+          </p>
+          <p className="mt-4 text-lead font-text text-ink-muted">
+            If you're a first-time CTO navigating a board, a technical founder stepping into leadership, or an
+            experienced leader in a new context — TCM Mentors Circle provides the structure and community to accelerate
+            your growth.
+          </p>
         </div>
-      </section>
+      </Section>
     </>
   );
 }

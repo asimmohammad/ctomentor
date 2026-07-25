@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/check-no-legacy-spa.mjs && next build",
     "start": "next start",
     "lint": "eslint ."
   },

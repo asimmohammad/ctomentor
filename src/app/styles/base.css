@@ -1,16 +1,13 @@
-@import "./fonts.css";
-@import "./tokens.css";
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Base layer — PROJECT_BRIEF.md §5 (after Tailwind so body/type defaults win) */
+/* Base layer — PROJECT_BRIEF.md §5 */
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+* {
+  margin: 0;
 }
 
 html {
@@ -138,6 +135,7 @@ a {
   text-transform: uppercase;
 }
 
+/* Reveal entrance — only animation permitted site-wide */
 .reveal {
   opacity: 0;
   transform: translateY(var(--reveal-distance));

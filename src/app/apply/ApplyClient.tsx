@@ -29,6 +29,7 @@ import * as z from "zod";
 import { useToast } from "@/hooks/use-toast";
 import { Check } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Section } from "@/components/layout/Section";
 
 const applicationSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters").max(100, "Name is too long"),
@@ -149,178 +150,167 @@ export default function ApplyClient() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-warm-gradient">
-        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <div className="max-w-3xl">
-            <h1 className="font-heading text-4xl md:text-5xl font-semibold text-heading leading-tight">
-              Book a Discovery Call
-            </h1>
-            <p className="mt-6 text-xl font-body text-subtle leading-relaxed">
-              This is a mutual selection process. We're selective about engagements, and you should be selective about
-              partners. If technology execution is critical and the stakes are high, let's talk.
-            </p>
-            <p className="mt-4 text-lg font-body text-foreground leading-relaxed font-medium">
-              We review every application personally and respond within 2 business days.
-            </p>
-          </div>
+      <Section spacing="generous" tone="alt">
+        <div className="max-w-3xl">
+          <h1 className="font-display text-h1 text-ink">
+            Book a Discovery Call
+          </h1>
+          <p className="mt-6 text-lead font-text text-ink-muted">
+            This is a mutual selection process. We're selective about engagements, and you should be selective about
+            partners. If technology execution is critical and the stakes are high, let's talk.
+          </p>
+          <p className="mt-4 text-lead font-text text-ink font-medium">
+            We review every application personally and respond within 2 business days.
+          </p>
         </div>
-      </section>
+      </Section>
 
       {/* Who Should Apply */}
-      <section className="bg-background">
-        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <div className="max-w-3xl">
-            <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-6">Who Should Apply</h2>
-            <p className="text-lg font-body text-foreground leading-relaxed mb-8">
-              My engagements are for companies where technology execution is critical and the cost of getting it wrong is
-              unacceptable. If you're looking for cheap help, part-time advisory, or fractional consulting, we're not the
-              right partner.
-            </p>
-            <ul className="space-y-4">
-              {whoShouldApply.map((item, index) => (
-                <li key={index} className="flex items-start gap-3 text-base font-body text-foreground">
-                  <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
+      <Section spacing="standard" tone="paper">
+        <div className="max-w-3xl">
+          <h2 className="font-display text-h2 font-semibold text-ink mb-6">Who Should Apply</h2>
+          <p className="text-lead font-text text-ink leading-relaxed mb-8">
+            My engagements are for companies where technology execution is critical and the cost of getting it wrong is
+            unacceptable. If you're looking for cheap help, part-time advisory, or fractional consulting, we're not the
+            right partner.
+          </p>
+          <ul className="space-y-4">
+            {whoShouldApply.map((item, index) => (
+              <li key={index} className="flex items-start gap-3 text-body font-text text-ink">
+                <Check size={20} className="text-accent flex-shrink-0 mt-0.5" />
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
-      </section>
+      </Section>
 
       {/* Minimum Readiness Criteria */}
-      <section className="bg-section-gradient border-y border-divider">
-        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <div className="max-w-3xl">
-            <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-6">
-              Minimum Readiness Criteria
-            </h2>
-            <p className="text-lg font-body text-foreground leading-relaxed mb-8">
-              Before applying, ensure you meet these criteria. We're direct about fit because misalignment wastes
-              everyone's time.
+      <Section spacing="standard" tone="alt" className="border-y border-border">
+        <div className="max-w-3xl">
+          <h2 className="font-display text-h2 font-semibold text-ink mb-6">
+            Minimum Readiness Criteria
+          </h2>
+          <p className="text-lead font-text text-ink leading-relaxed mb-8">
+            Before applying, ensure you meet these criteria. We're direct about fit because misalignment wastes
+            everyone's time.
+          </p>
+          <ul className="space-y-4">
+            {minimumReadiness.map((item, index) => (
+              <li key={index} className="flex items-start gap-3 text-body font-text text-ink">
+                <span className="w-1.5 h-1.5 bg-accent mt-2 flex-shrink-0" />
+                {item}
+              </li>
+            ))}
+          </ul>
+          <div className="mt-8 bg-card border border-border p-6">
+            <p className="text-body font-text text-ink leading-relaxed">
+              <strong className="font-semibold">We operate as:</strong> embedded leadership with full accountability
+              and equity alignment. We provide executive-level technology leadership, not hourly consulting, part-time
+              advisory, staff augmentation, or fractional CTO services.
             </p>
-            <ul className="space-y-4">
-              {minimumReadiness.map((item, index) => (
-                <li key={index} className="flex items-start gap-3 text-base font-body text-foreground">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <div className="mt-8 bg-card border border-divider rounded-lg p-6">
-              <p className="text-base font-body text-foreground leading-relaxed">
-                <strong className="font-semibold">We operate as:</strong> embedded leadership with full accountability
-                and equity alignment. We provide executive-level technology leadership, not hourly consulting, part-time
-                advisory, staff augmentation, or fractional CTO services.
-              </p>
-            </div>
           </div>
         </div>
-      </section>
+      </Section>
 
       {/* How Engagements Are Structured */}
-      <section className="bg-background">
-        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <div className="max-w-3xl">
-            <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-6">
-              How Engagements Are Structured
-            </h2>
-            <p className="text-lg font-body text-foreground leading-relaxed mb-8">
-              Every engagement is structured around outcomes and alignment, not hours or time allocation. Here's what to
-              expect:
-            </p>
-            <div className="space-y-6">
-              {engagementStructure.map((item, index) => (
-                <Card key={index} className="border-divider">
-                  <CardContent className="p-6">
-                    <h3 className="font-heading text-lg font-semibold text-heading mb-3">{item.element}</h3>
-                    <p className="text-base font-body text-foreground leading-relaxed">{item.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+      <Section spacing="standard" tone="paper">
+        <div className="max-w-3xl">
+          <h2 className="font-display text-h2 font-semibold text-ink mb-6">
+            How Engagements Are Structured
+          </h2>
+          <p className="text-lead font-text text-ink leading-relaxed mb-8">
+            Every engagement is structured around outcomes and alignment, not hours or time allocation. Here's what to
+            expect:
+          </p>
+          <div className="space-y-6">
+            {engagementStructure.map((item, index) => (
+              <Card key={index} className="border-border">
+                <CardContent className="p-6">
+                  <h3 className="font-text text-h4 font-semibold text-ink mb-3">{item.element}</h3>
+                  <p className="text-body font-text text-ink leading-relaxed">{item.description}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
-      </section>
+      </Section>
 
       {/* What Happens After You Apply */}
-      <section className="bg-section-gradient border-y border-divider">
-        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <div className="max-w-3xl">
-            <h2 className="font-heading text-3xl md:text-4xl font-semibold text-heading mb-6">
-              What Happens After You Apply
-            </h2>
-            <div className="space-y-6">
-              <div>
-                <h3 className="font-heading text-lg font-semibold text-heading mb-3">
-                  Initial Review (2 Business Days)
-                </h3>
-                <p className="text-base font-body text-foreground leading-relaxed">
-                  We review every application personally. If there's a potential fit, we'll schedule a 30-minute
-                  discovery call to understand your situation, assess alignment, and determine if an engagement makes
-                  sense.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-heading text-lg font-semibold text-heading mb-3">
-                  Discovery & Alignment (1–2 Weeks)
-                </h3>
-                <p className="text-base font-body text-foreground leading-relaxed">
-                  If we proceed, we'll conduct a deeper assessment: current-state analysis, stakeholder interviews,
-                  technical review. We'll define engagement scope, compensation structure (cash + equity), decision
-                  rights, and operating cadence. This is mutual selection—we're assessing fit on both sides.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-heading text-lg font-semibold text-heading mb-3">Engagement Start</h3>
-                <p className="text-base font-body text-foreground leading-relaxed">
-                  If we align, we'll execute a simple engagement agreement and begin immediately. We don't do long sales
-                  cycles or complex contracting. We focus on clarity, alignment, and execution.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-heading text-lg font-semibold text-heading mb-3">If We're Not a Fit</h3>
-                <p className="text-base font-body text-foreground leading-relaxed">
-                  We'll tell you directly. If we're not the right partner—whether due to stage, budget, scope, or
-                  misalignment—we'll recommend alternatives or suggest when to reconnect. Direct communication, clear
-                  timelines, honest assessment.
-                </p>
-              </div>
+      <Section spacing="standard" tone="alt" className="border-y border-border">
+        <div className="max-w-3xl">
+          <h2 className="font-display text-h2 font-semibold text-ink mb-6">
+            What Happens After You Apply
+          </h2>
+          <div className="space-y-6">
+            <div>
+              <h3 className="font-text text-h4 font-semibold text-ink mb-3">
+                Initial Review (2 Business Days)
+              </h3>
+              <p className="text-body font-text text-ink leading-relaxed">
+                We review every application personally. If there's a potential fit, we'll schedule a 30-minute
+                discovery call to understand your situation, assess alignment, and determine if an engagement makes
+                sense.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-text text-h4 font-semibold text-ink mb-3">
+                Discovery & Alignment (1–2 Weeks)
+              </h3>
+              <p className="text-body font-text text-ink leading-relaxed">
+                If we proceed, we'll conduct a deeper assessment: current-state analysis, stakeholder interviews,
+                technical review. We'll define engagement scope, compensation structure (cash + equity), decision
+                rights, and operating cadence. This is mutual selection—we're assessing fit on both sides.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-text text-h4 font-semibold text-ink mb-3">Engagement Start</h3>
+              <p className="text-body font-text text-ink leading-relaxed">
+                If we align, we'll execute a simple engagement agreement and begin immediately. We don't do long sales
+                cycles or complex contracting. We focus on clarity, alignment, and execution.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-text text-h4 font-semibold text-ink mb-3">If We're Not a Fit</h3>
+              <p className="text-body font-text text-ink leading-relaxed">
+                We'll tell you directly. If we're not the right partner—whether due to stage, budget, scope, or
+                misalignment—we'll recommend alternatives or suggest when to reconnect. Direct communication, clear
+                timelines, honest assessment.
+              </p>
             </div>
           </div>
         </div>
-      </section>
+      </Section>
 
       {/* Application Form */}
-      <section className="bg-background">
-        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <div className="max-w-2xl">
-            <div className="mb-8">
-              <h2 className="font-heading text-2xl md:text-3xl font-semibold text-heading mb-4">Application Form</h2>
-              <p className="text-base font-body text-subtle">
-                Be direct and specific. The more clarity you provide, the better we can assess fit.
-              </p>
-            </div>
+      <Section spacing="standard" tone="paper">
+        <div className="max-w-2xl">
+          <div className="mb-8">
+            <h2 className="font-display text-h2 font-semibold text-ink mb-4">Application Form</h2>
+            <p className="text-body font-text text-ink-muted">
+              Be direct and specific. The more clarity you provide, the better we can assess fit.
+            </p>
+          </div>
 
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                 {/* Contact Information */}
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-lg font-heading font-semibold text-heading mb-4">Contact Information</h3>
+                    <h3 className="text-h4 font-text font-semibold text-ink mb-4">Contact Information</h3>
                     <div className="grid sm:grid-cols-2 gap-6">
                       <FormField
                         control={form.control}
                         name="name"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-sm font-body font-medium text-heading">
-                              Name <span className="text-destructive">*</span>
+                            <FormLabel className="text-small font-text font-medium text-ink">
+                              Name <span className="text-error">*</span>
                             </FormLabel>
                             <FormControl>
                               <Input
                                 placeholder="John Doe"
-                                className="bg-card border-divider focus:border-accent"
+                                className="bg-card border-border focus:border-accent"
                                 {...field}
                               />
                             </FormControl>
@@ -333,14 +323,14 @@ export default function ApplyClient() {
                         name="email"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-sm font-body font-medium text-heading">
-                              Email <span className="text-destructive">*</span>
+                            <FormLabel className="text-small font-text font-medium text-ink">
+                              Email <span className="text-error">*</span>
                             </FormLabel>
                             <FormControl>
                               <Input
                                 type="email"
                                 placeholder="john@company.com"
-                                className="bg-card border-divider focus:border-accent"
+                                className="bg-card border-border focus:border-accent"
                                 {...field}
                               />
                             </FormControl>
@@ -353,18 +343,18 @@ export default function ApplyClient() {
                         name="phone"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-sm font-body font-medium text-heading">
+                            <FormLabel className="text-small font-text font-medium text-ink">
                               Contact Phone Number
                             </FormLabel>
                             <FormControl>
                               <Input
                                 type="tel"
                                 placeholder="+1 (555) 123-4567"
-                                className="bg-card border-divider focus:border-accent"
+                                className="bg-card border-border focus:border-accent"
                                 {...field}
                               />
                             </FormControl>
-                            <FormDescription className="text-xs text-muted-foreground">
+                            <FormDescription className="text-caption text-ink-muted">
                               Optional
                             </FormDescription>
                             <FormMessage />
@@ -378,20 +368,20 @@ export default function ApplyClient() {
                 {/* Company Information */}
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-lg font-heading font-semibold text-heading mb-4">Company Information</h3>
+                    <h3 className="text-h4 font-text font-semibold text-ink mb-4">Company Information</h3>
                     <div className="grid sm:grid-cols-2 gap-6">
                       <FormField
                         control={form.control}
                         name="company"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-sm font-body font-medium text-heading">
-                              Company <span className="text-destructive">*</span>
+                            <FormLabel className="text-small font-text font-medium text-ink">
+                              Company <span className="text-error">*</span>
                             </FormLabel>
                             <FormControl>
                               <Input
                                 placeholder="Acme Inc."
-                                className="bg-card border-divider focus:border-accent"
+                                className="bg-card border-border focus:border-accent"
                                 {...field}
                               />
                             </FormControl>
@@ -404,18 +394,18 @@ export default function ApplyClient() {
                         name="companyWebsite"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-sm font-body font-medium text-heading">
+                            <FormLabel className="text-small font-text font-medium text-ink">
                               Company Website
                             </FormLabel>
                             <FormControl>
                               <Input
                                 type="url"
                                 placeholder="https://www.thectomentor.com/"
-                                className="bg-card border-divider focus:border-accent"
+                                className="bg-card border-border focus:border-accent"
                                 {...field}
                               />
                             </FormControl>
-                            <FormDescription className="text-xs text-muted-foreground">
+                            <FormDescription className="text-caption text-ink-muted">
                               Optional
                             </FormDescription>
                             <FormMessage />
@@ -429,13 +419,13 @@ export default function ApplyClient() {
                         name="role"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-sm font-body font-medium text-heading">
-                              Your Role <span className="text-destructive">*</span>
+                            <FormLabel className="text-small font-text font-medium text-ink">
+                              Your Role <span className="text-error">*</span>
                             </FormLabel>
                             <FormControl>
                               <Input
                                 placeholder="CEO, Founder, CTO, etc."
-                                className="bg-card border-divider focus:border-accent"
+                                className="bg-card border-border focus:border-accent"
                                 {...field}
                               />
                             </FormControl>
@@ -448,12 +438,12 @@ export default function ApplyClient() {
                         name="stage"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-sm font-body font-medium text-heading">
-                              Company Stage <span className="text-destructive">*</span>
+                            <FormLabel className="text-small font-text font-medium text-ink">
+                              Company Stage <span className="text-error">*</span>
                             </FormLabel>
                             <Select onValueChange={field.onChange} value={field.value}>
                               <FormControl>
-                                <SelectTrigger className="bg-card border-divider">
+                                <SelectTrigger className="bg-card border-border">
                                   <SelectValue placeholder="Select stage" />
                                 </SelectTrigger>
                               </FormControl>
@@ -475,17 +465,17 @@ export default function ApplyClient() {
                         name="teamSize"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-sm font-body font-medium text-heading">
+                            <FormLabel className="text-small font-text font-medium text-ink">
                               Team Size
                             </FormLabel>
                             <FormControl>
                               <Input
                                 placeholder="e.g., 12 total, 5 engineers"
-                                className="bg-card border-divider focus:border-accent"
+                                className="bg-card border-border focus:border-accent"
                                 {...field}
                               />
                             </FormControl>
-                            <FormDescription className="text-xs text-muted-foreground">
+                            <FormDescription className="text-caption text-ink-muted">
                               Optional
                             </FormDescription>
                             <FormMessage />
@@ -499,7 +489,7 @@ export default function ApplyClient() {
                 {/* Technical Information */}
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-lg font-heading font-semibold text-heading mb-4">
+                    <h3 className="text-h4 font-text font-semibold text-ink mb-4">
                       Technical Information
                     </h3>
                     <FormField
@@ -507,17 +497,17 @@ export default function ApplyClient() {
                       name="stack"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-sm font-body font-medium text-heading">
+                          <FormLabel className="text-small font-text font-medium text-ink">
                             Current Tech Stack
                           </FormLabel>
                           <FormControl>
                             <Input
                               placeholder="e.g., React, Node.js, AWS, PostgreSQL"
-                              className="bg-card border-divider focus:border-accent"
+                              className="bg-card border-border focus:border-accent"
                               {...field}
                             />
                           </FormControl>
-                          <FormDescription className="text-xs text-muted-foreground">
+                          <FormDescription className="text-caption text-ink-muted">
                             Optional - Help us understand your current technology landscape
                           </FormDescription>
                           <FormMessage />
@@ -530,7 +520,7 @@ export default function ApplyClient() {
                 {/* Challenge */}
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-lg font-heading font-semibold text-heading mb-4">
+                    <h3 className="text-h4 font-text font-semibold text-ink mb-4">
                       Tell Us About Your Challenge(s)
                     </h3>
                     <FormField
@@ -538,18 +528,18 @@ export default function ApplyClient() {
                       name="challenge"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-sm font-body font-medium text-heading">
-                            Biggest Challenge <span className="text-destructive">*</span>
+                          <FormLabel className="text-small font-text font-medium text-ink">
+                            Biggest Challenge <span className="text-error">*</span>
                           </FormLabel>
                           <FormControl>
                             <Textarea
                               rows={6}
                               placeholder="What's the primary technology or organizational challenge you're facing? Be specific about the stakes and why this matters now."
-                              className="bg-card border-divider focus:border-accent resize-none"
+                              className="bg-card border-border focus:border-accent resize-none"
                               {...field}
                             />
                           </FormControl>
-                          <FormDescription className="text-xs text-muted-foreground">
+                          <FormDescription className="text-caption text-ink-muted">
                             Minimum 10 characters. The more detail, the better we can assess fit.
                           </FormDescription>
                           <FormMessage />
@@ -562,7 +552,7 @@ export default function ApplyClient() {
                 {/* Budget & Timeline */}
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-lg font-heading font-semibold text-heading mb-4">
+                    <h3 className="text-h4 font-text font-semibold text-ink mb-4">
                       Engagement Parameters
                     </h3>
                     <div className="grid sm:grid-cols-2 gap-6">
@@ -571,12 +561,12 @@ export default function ApplyClient() {
                         name="budget"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-sm font-body font-medium text-heading">
+                            <FormLabel className="text-small font-text font-medium text-ink">
                               Budget Range
                             </FormLabel>
                             <Select onValueChange={field.onChange} value={field.value}>
                               <FormControl>
-                                <SelectTrigger className="bg-card border-divider">
+                                <SelectTrigger className="bg-card border-border">
                                   <SelectValue placeholder="Select range" />
                                 </SelectTrigger>
                               </FormControl>
@@ -587,7 +577,7 @@ export default function ApplyClient() {
                                 <SelectItem value="exploring">Exploring options</SelectItem>
                               </SelectContent>
                             </Select>
-                            <FormDescription className="text-xs text-muted-foreground">
+                            <FormDescription className="text-caption text-ink-muted">
                               Optional - Engagements are structured as cash + equity
                             </FormDescription>
                             <FormMessage />
@@ -599,12 +589,12 @@ export default function ApplyClient() {
                         name="timeline"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-sm font-body font-medium text-heading">
+                            <FormLabel className="text-small font-text font-medium text-ink">
                               Timeline
                             </FormLabel>
                             <Select onValueChange={field.onChange} value={field.value}>
                               <FormControl>
-                                <SelectTrigger className="bg-card border-divider">
+                                <SelectTrigger className="bg-card border-border">
                                   <SelectValue placeholder="Select timeline" />
                                 </SelectTrigger>
                               </FormControl>
@@ -614,7 +604,7 @@ export default function ApplyClient() {
                                 <SelectItem value="exploring">Exploring</SelectItem>
                               </SelectContent>
                             </Select>
-                            <FormDescription className="text-xs text-muted-foreground">
+                            <FormDescription className="text-caption text-ink-muted">
                               Optional
                             </FormDescription>
                             <FormMessage />
@@ -628,18 +618,18 @@ export default function ApplyClient() {
                         name="equityAlignment"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-sm font-body font-medium text-heading">
+                            <FormLabel className="text-small font-text font-medium text-ink">
                               Equity Alignment
                             </FormLabel>
                             <FormControl>
                               <Textarea
                                 rows={3}
                                 placeholder="Are you open to equity participation as part of compensation? Any thoughts on structure or alignment? (Optional, but helpful for alignment discussions)"
-                                className="bg-card border-divider focus:border-accent resize-none"
+                                className="bg-card border-border focus:border-accent resize-none"
                                 {...field}
                               />
                             </FormControl>
-                            <FormDescription className="text-xs text-muted-foreground">
+                            <FormDescription className="text-caption text-ink-muted">
                               Optional - Equity participation may be discussed for embedded leadership engagements
                             </FormDescription>
                             <FormMessage />
@@ -651,7 +641,7 @@ export default function ApplyClient() {
                 </div>
 
                 {/* Submit */}
-                <div className="pt-6 border-t border-divider">
+                <div className="pt-6 border-t border-border">
                   <Button
                     type="submit"
                     variant="primary"
@@ -661,43 +651,40 @@ export default function ApplyClient() {
                   >
                     {isSubmitting ? "Submitting..." : "Submit Application"}
                   </Button>
-                  <p className="mt-4 text-sm text-muted-foreground">
-                    <span className="text-destructive">*</span> Required fields
+                  <p className="mt-4 text-small text-ink-muted">
+                    <span className="text-error">*</span> Required fields
                   </p>
                 </div>
               </form>
             </Form>
           </div>
-        </div>
-      </section>
+      </Section>
 
       {/* Final CTA */}
-      <section className="bg-primary text-primary-foreground">
-        <div className="container mx-auto px-6 lg:px-8 py-20 lg:py-28">
-          <div className="max-w-2xl">
-            <h2 className="font-heading text-3xl md:text-4xl font-semibold text-white mb-6">
-              We're selective. You should be too.
-            </h2>
-            <p className="text-lg font-body text-primary-foreground/90 leading-relaxed mb-6">
-              I take on a limited number of strategic engagements each year. We're selective because execution at this
-              level requires full commitment—from both sides.
-            </p>
-            <p className="text-lg font-body text-primary-foreground/90 leading-relaxed mb-10">
-              If technology execution is critical to your business and the stakes are high, apply. If you're looking for
-              cheap help or part-time advisory, we're not the right partner.
-            </p>
-            <Link href="/services">
-              <Button
-                variant="outline"
-                size="xl"
-                className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary"
-              >
-                Learn More About How We Operate
-              </Button>
-            </Link>
-          </div>
+      <Section spacing="standard" tone="dark">
+        <div className="max-w-2xl">
+          <h2 className="font-display text-h2 font-semibold text-ink-inverse mb-6">
+            We're selective. You should be too.
+          </h2>
+          <p className="text-lead font-text text-ink-inverse/90 leading-relaxed mb-6">
+            I take on a limited number of strategic engagements each year. We're selective because execution at this
+            level requires full commitment—from both sides.
+          </p>
+          <p className="text-lead font-text text-ink-inverse/90 leading-relaxed mb-10">
+            If technology execution is critical to your business and the stakes are high, apply. If you're looking for
+            cheap help or part-time advisory, we're not the right partner.
+          </p>
+          <Link href="/services">
+            <Button
+              variant="outline"
+              size="xl"
+              className="border-ink-inverse/30 text-ink-inverse hover:bg-ink-inverse hover:text-dark-band"
+            >
+              Learn More About How We Operate
+            </Button>
+          </Link>
         </div>
-      </section>
+      </Section>
     </>
   );
 }
