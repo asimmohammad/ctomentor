@@ -1,18 +1,1 @@
-{
-  "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
-  "/About": "pages/About.js",
-  "/CaseStudies": "pages/CaseStudies.js",
-  "/Article": "pages/Article.js",
-  "/Circle": "pages/Circle.js",
-  "/Experience": "pages/Experience.js",
-  "/Apply": "pages/Apply.js",
-  "/Government": "pages/Government.js",
-  "/Index": "pages/Index.js",
-  "/Investors": "pages/Investors.js",
-  "/Pricing": "pages/Pricing.js",
-  "/NotFound": "pages/NotFound.js",
-  "/Services": "pages/Services.js",
-  "/Insights": "pages/Insights.js",
-  "/_document": "pages/_document.js"
-}
+{"/_error":"pages/_error.js","/_app":"pages/_app.js","/_document":"pages/_document.js","/404":"pages/404.html"}
