@@ -24,5 +24,4 @@ export const PROOF_METRICS: ProofMetric[] = [
   { statement: "SOC 2 Type II in 6 months" },
   { statement: "38% cloud spend reduction" },
   { statement: "15+ portfolio companies advised" },
-  { statement: "FedRAMP & GovCloud delivery" },
 ];

@@ -29,7 +29,7 @@ const variantClass: Record<ButtonVariant, string> = {
 const sizeClass: Record<ButtonSize, string> = {
   sm: "h-9 px-4 text-caption",
   md: "h-11 px-6 text-small",
-  lg: "h-13 px-8 text-body min-h-12",
+  lg: "h-12 px-8 text-body",
 };
 
 function Spinner({ className }: { className?: string }) {

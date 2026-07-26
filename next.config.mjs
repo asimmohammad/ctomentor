@@ -2,6 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  serverExternalPackages: ["@react-pdf/renderer"],
   async headers() {
     return [
       {

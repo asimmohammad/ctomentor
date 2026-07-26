@@ -3,6 +3,8 @@ import Script from "next/script";
 import { ReactNode } from "react";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { UtmCapture } from "@/components/UtmCapture";
+import { AnalyticsPixels } from "@/components/AnalyticsPixels";
 import "@/app/globals.css";
 
 export const metadata: Metadata = {
@@ -55,6 +57,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             gtag('config', 'G-0QB3QYL0LZ');
           `}
         </Script>
+        <UtmCapture />
+        <AnalyticsPixels />
         <Nav />
         <main className="flex min-h-screen flex-1 flex-col pt-header-offset">{children}</main>
         <Footer />

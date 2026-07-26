@@ -129,6 +129,27 @@ a {
   font-variant-numeric: tabular-nums lining-nums;
 }
 
+/* Hero portrait — duotone to --ink / --paper; edge-to-edge, no radius */
+.hero-duotone {
+  background-color: var(--paper);
+}
+
+.hero-duotone img,
+.hero-duotone > span {
+  filter: grayscale(1) contrast(1.15) brightness(1.05);
+  mix-blend-mode: multiply;
+}
+
+.hero-duotone::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--ink);
+  mix-blend-mode: lighten;
+  opacity: 0.92;
+  pointer-events: none;
+}
+
 .eyebrow {
   font-family: var(--font-mono);
   font-size: var(--fs-eyebrow);

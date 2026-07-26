@@ -83,3 +83,29 @@ export const articles: Record<string, Article> = {
 export function getPublishableArticles(): [string, Article][] {
   return Object.entries(articles).filter(([, article]) => article.body.length > 0);
 }
+
+/** Approximate chronological order for homepage / index teasers (newest first). */
+const RECENCY_ORDER = [
+  "ai-coding-tools-lying",
+  "soc-2-compliance",
+  "cto-skill-no",
+  "many-faces-cto",
+  "fix-after-launch",
+  "decision-rights",
+  "ai-adoption",
+  "founder-cto-transition",
+] as const;
+
+export function getRecentArticles(limit = 3): [string, Article][] {
+  return RECENCY_ORDER.filter((slug) => slug in articles)
+    .slice(0, limit)
+    .map((slug) => [slug, articles[slug]] as [string, Article]);
+}
+
+export function estimateReadTimeMinutes(article: Article): number {
+  const words = [article.title, article.description, ...article.body]
+    .join(" ")
+    .split(/\s+/)
+    .filter(Boolean).length;
+  return Math.max(4, Math.round(words / 200));
+}

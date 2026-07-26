@@ -107,6 +107,10 @@
   --focus-ring-width: 0.125rem;
   --focus-ring-offset: 0.125rem;
 
+  /* Chrome */
+  --header-height: 4rem;
+  --header-height-lg: 4.5rem;
+
   /* shadcn bridge → brief tokens */
   --background: var(--paper);
   --foreground: var(--ink);
