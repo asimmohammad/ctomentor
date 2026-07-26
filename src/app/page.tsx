@@ -216,13 +216,11 @@ export default function HomePage() {
             <GridItem span={12} lg={5} className="relative min-h-[28rem] lg:min-h-0">
               <div className="absolute inset-0 overflow-hidden bg-paper lg:inset-y-0 lg:-mr-[calc((100vw-min(100vw,var(--content-max)))/2+var(--gutter))]">
                 <div className="hero-duotone relative h-full w-full">
-                  {/* Swap PORTRAIT_SRC in lib/media.ts when asim-final.jpg is committed. */}
                   <Image
                     src={PORTRAIT_SRC}
-                    alt={`${PORTRAIT_ALT} (editorial portrait pending final photograph)`}
+                    alt={PORTRAIT_ALT}
                     fill
                     priority
-                    unoptimized
                     className="object-cover object-center"
                     sizes="(min-width: 1024px) 42vw, 100vw"
                   />

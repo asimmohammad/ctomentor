@@ -10,8 +10,8 @@ export function AuthorCard() {
           src={PORTRAIT_SRC}
           alt={PORTRAIT_ALT}
           fill
-          className="object-cover"
-          unoptimized
+          className="object-cover object-top"
+          sizes="64px"
         />
       </div>
       <div>

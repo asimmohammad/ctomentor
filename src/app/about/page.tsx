@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -30,11 +31,13 @@ export default function AboutPage() {
       {/* Hero */}
       <Section spacing="generous" tone="alt">
         <div className="max-w-4xl flex flex-col md:flex-row md:items-start gap-10">
-          <div className="flex-shrink-0">
-            <img
+          <div className="relative h-48 w-48 flex-shrink-0 overflow-hidden border border-border">
+            <Image
               src={PORTRAIT_SRC}
               alt={PORTRAIT_ALT}
-              className="w-48 h-48 object-cover border border-border"
+              fill
+              className="object-cover object-top"
+              sizes="192px"
             />
           </div>
           <div className="flex-1">
