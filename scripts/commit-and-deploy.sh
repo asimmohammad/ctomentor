@@ -1,24 +1,30 @@
 #!/usr/bin/env bash
 # Commit outstanding work and push to GitHub (triggers the Vercel deploy).
+# Usage: ./scripts/commit-and-deploy.sh ["commit message"]
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
 REMOTE_URL="https://github.com/asimmohammad/ctomentor.git"
+MESSAGE="${1:-}"
 
 git add -A
 git reset -q HEAD -- .env .env.local .env.production.local 2>/dev/null || true
+git status --short
 
 if git diff --cached --quiet; then
   echo "Nothing to commit."
 else
-  git commit -m "$(cat <<'EOF'
-Fix next.config for the Next 14 build.
+  if [ -n "$MESSAGE" ]; then
+    git commit -m "$MESSAGE"
+  else
+    git commit -m "$(cat <<'EOF'
+Fix OG image runtime export for the engineering assessment.
 
-serverExternalPackages is Next 15+, so Vercel rejected the config. Move the
-@react-pdf/renderer exclusion to experimental.serverComponentsExternalPackages
-and drop swcMinify, which is already the default.
+Next.js requires `runtime` as a string literal in the route file, so
+re-exporting it from the assessment OG image failed the Vercel build.
 EOF
 )"
+  fi
 fi
 
 if git remote get-url origin >/dev/null 2>&1; then
