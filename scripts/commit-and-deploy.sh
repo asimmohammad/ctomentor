@@ -18,10 +18,10 @@ else
     git commit -m "$MESSAGE"
   else
     git commit -m "$(cat <<'EOF'
-Fix OG image runtime export for the engineering assessment.
+Fix about page build: missing headshot asset.
 
-Next.js requires `runtime` as a string literal in the route file, so
-re-exporting it from the assessment OG image failed the Vercel build.
+Replace the unresolved @/assets/AsimMohammad.jpg import with the shared
+public portrait placeholder so the production build can compile.
 EOF
 )"
   fi

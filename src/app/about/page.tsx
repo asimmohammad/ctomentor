@@ -3,7 +3,6 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Section } from "@/components/layout/Section";
-import asimHeadshot from "@/assets/AsimMohammad.jpg";
 
 export const metadata: Metadata = {
   title: "About Asim Mohammad | The CTO Mentor",
@@ -32,7 +31,7 @@ export default function AboutPage() {
         <div className="max-w-4xl flex flex-col md:flex-row md:items-start gap-10">
           <div className="flex-shrink-0">
             <img
-              src={asimHeadshot.src}
+              src="/portraits/hero-placeholder.svg"
               alt="Asim Mohammad"
               className="w-48 h-48 object-cover border border-border"
             />
