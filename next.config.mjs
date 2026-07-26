@@ -1,8 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
-  serverExternalPackages: ["@react-pdf/renderer"],
+  // Next 14: use experimental.serverComponentsExternalPackages
+  // (serverExternalPackages is Next 15+ and triggers Invalid next.config)
+  experimental: {
+    serverComponentsExternalPackages: ["@react-pdf/renderer"],
+  },
   async redirects() {
     return [
       { source: "/services", destination: "/engagements", permanent: true },
@@ -28,4 +31,3 @@ const nextConfig = {
 };
 
 export default nextConfig;
-
