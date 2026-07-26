@@ -1,69 +1,152 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { AuthorCard } from "@/components/insights/AuthorCard";
+import { BriefingGate } from "@/components/insights/BriefingGate";
+import { ContextualArticleCta } from "@/components/insights/ContextualArticleCta";
+import { ReadingProgress } from "@/components/insights/ReadingProgress";
+import { RelatedArticles } from "@/components/insights/RelatedArticles";
+import { Eyebrow } from "@/components/Eyebrow";
 import { Section } from "@/components/layout/Section";
-import { articles, getPublishableArticles } from "@/lib/articles";
+import {
+  contextualCtaForCategory,
+  estimateReadTimeMinutes,
+  getInsight,
+  getPublishableInsights,
+  relatedInsights,
+} from "@/lib/insights";
+
+type PageProps = { params: { slug: string } };
 
 export async function generateStaticParams() {
-  return getPublishableArticles().map(([slug]) => ({ slug }));
+  return getPublishableInsights().map(([slug]) => ({ slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}): Promise<Metadata> {
-  const article = articles[params.slug];
-  if (!article || article.body.length === 0) {
-    return {
-      title: "Article Not Found | The CTO Mentor",
-    };
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const piece = getInsight(params.slug);
+  if (!piece) {
+    return { title: "Not found" };
   }
 
+  const path = `https://thectomentor.com/insights/${params.slug}`;
+  const canonical = piece.substackUrl ?? path;
+
   return {
-    title: `${article.title} | The CTO Mentor`,
-    description: article.description,
-    alternates: {
-      canonical: `https://thectomentor.com/insights/${params.slug}`,
+    title: piece.title,
+    description: piece.description,
+    alternates: { canonical },
+    openGraph: {
+      title: piece.title,
+      description: piece.description,
+      type: "article",
+      url: path,
+      publishedTime: piece.dateIso,
     },
   };
 }
 
-export default function InsightArticlePage({ params }: { params: { slug: string } }) {
-  const article = articles[params.slug];
+export default function InsightArticlePage({ params }: PageProps) {
+  const piece = getInsight(params.slug);
+  if (!piece) notFound();
 
-  if (!article || article.body.length === 0) {
-    notFound();
-  }
+  const readTime = estimateReadTimeMinutes(piece);
+  const related = relatedInsights(params.slug);
+  const cta = contextualCtaForCategory(piece.category);
+  const path = `https://thectomentor.com/insights/${params.slug}`;
+  const insertAt = Math.max(1, Math.floor(piece.body.length * 0.6));
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": piece.kind === "briefing" ? "TechArticle" : "Article",
+    headline: piece.title,
+    description: piece.description,
+    datePublished: piece.dateIso,
+    dateModified: piece.dateIso,
+    author: {
+      "@type": "Person",
+      name: "Asim Mohammad",
+      url: "https://thectomentor.com/about",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "thectomentor.com",
+      url: "https://thectomentor.com",
+    },
+    mainEntityOfPage: path,
+    articleSection: piece.category,
+    ...(piece.substackUrl ? { isBasedOn: piece.substackUrl } : {}),
+  };
 
   return (
     <>
-      <Section spacing="standard" tone="alt">
-        <div className="max-w-3xl">
-          <p className="text-small font-text text-ink-muted mb-3">
-            {article.date} · {article.category}
-          </p>
-          <h1 className="font-display text-h1 text-ink">
-            {article.title}
-          </h1>
-          <p className="mt-6 text-lead font-text text-ink-muted">{article.description}</p>
-          <div className="mt-6">
-            <Link href="/insights" className="text-small font-text text-accent hover:text-accent-hover">
-              ← Back to all insights
-            </Link>
-          </div>
-        </div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <ReadingProgress />
+
+      <Section spacing="compact" tone="paper">
+        <p className="font-text text-small text-ink-muted">
+          <Link href="/insights" className="text-accent underline-offset-4 hover:underline">
+            Insights
+          </Link>
+          {piece.kind === "briefing" ? " / Briefing" : ""}
+        </p>
+        <Eyebrow className="mt-4">{piece.category}</Eyebrow>
+        <h1 className="mt-3 max-w-[68ch] font-display text-h1 text-ink">{piece.title}</h1>
+        <p className="mt-4 max-w-[68ch] font-text text-lead text-ink-muted">{piece.description}</p>
+        <p className="mt-6 font-text text-caption text-ink-faint">
+          {piece.date} · {readTime} min read · Asim Mohammad
+          {piece.substackUrl ? (
+            <>
+              {" · "}
+              <a
+                href={piece.substackUrl}
+                className="text-accent underline-offset-4 hover:underline"
+                rel="noopener noreferrer"
+              >
+                Originally on Substack
+              </a>
+            </>
+          ) : null}
+        </p>
       </Section>
 
-      <Section spacing="standard" tone="paper">
-        <div className="max-w-3xl space-y-6">
-          {article.body.map((paragraph, index) => (
-            <p key={index} className="text-body font-text text-ink">
-              {paragraph}
-            </p>
-          ))}
-        </div>
+      <Section spacing="standard" tone="alt">
+        <article className="mx-auto max-w-[68ch]">
+          {piece.kind === "briefing" ? (
+            <BriefingGate slug={params.slug} title={piece.title} teaser={piece.teaser ?? []}>
+              <ArticleBody paragraphs={piece.body} cta={cta} insertAt={insertAt} />
+            </BriefingGate>
+          ) : (
+            <ArticleBody paragraphs={piece.body} cta={cta} insertAt={insertAt} />
+          )}
+
+          <AuthorCard />
+          <RelatedArticles items={related} />
+        </article>
       </Section>
     </>
+  );
+}
+
+function ArticleBody({
+  paragraphs,
+  cta,
+  insertAt,
+}: {
+  paragraphs: string[];
+  cta: ReturnType<typeof contextualCtaForCategory>;
+  insertAt: number;
+}) {
+  return (
+    <div className="space-y-6">
+      {paragraphs.map((paragraph, index) => (
+        <div key={`${index}-${paragraph.slice(0, 20)}`}>
+          <p className="font-text text-lead text-ink">{paragraph}</p>
+          {index + 1 === insertAt ? <ContextualArticleCta cta={cta} /> : null}
+        </div>
+      ))}
+    </div>
   );
 }

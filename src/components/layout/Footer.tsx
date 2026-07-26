@@ -6,7 +6,7 @@ import { SubstackSubscribe } from "@/components/SubstackSubscribe";
 
 const navigation = {
   services: [
-    { name: "Engagement Models", href: "/services" },
+    { name: "Engagement Models", href: "/engagements" },
     { name: "PE/VC Due Diligence", href: "/investors" },
     { name: "Government & Defense", href: "/government" },
   ],
@@ -17,7 +17,8 @@ const navigation = {
     { name: "Insights", href: "/insights" },
   ],
   connect: [
-    { name: "Book a Call", href: "/apply" },
+    { name: "Take the Technical Risk Assessment", href: "/assessment" },
+    { name: "Request a confidential conversation", href: "/book" },
     { name: "LinkedIn", href: "https://www.linkedin.com/in/asimmohammad", target: "_blank" },
   ],
 };

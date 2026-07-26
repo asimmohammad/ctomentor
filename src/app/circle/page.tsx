@@ -64,9 +64,9 @@ export default function CirclePage() {
                 Limited spots available. Application required.
               </p>
               <div className="mt-8">
-                <Link href="/apply">
+                <Link href="/book">
                   <Button variant="primary" size="xl" className="w-full">
-                    Apply to Join
+                    Request a confidential conversation
                   </Button>
                 </Link>
               </div>

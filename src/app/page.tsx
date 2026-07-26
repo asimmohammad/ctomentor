@@ -13,6 +13,7 @@ import { Grid, GridItem } from "@/components/layout/Grid";
 import { Section } from "@/components/layout/Section";
 import { PROOF_METRICS } from "@/config/proof-bar";
 import { estimateReadTimeMinutes, getRecentArticles } from "@/lib/articles";
+import { PRIMARY_CTA, SECONDARY_CTA } from "@/lib/cta";
 
 const SITE_URL = "https://thectomentor.com";
 
@@ -172,13 +173,13 @@ export default function HomePage() {
               </p>
               <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
                 <Button asChild variant="primary" size="lg">
-                  <Link href="/assessment" className="inline-flex items-center gap-2">
-                    Take the Technical Risk Assessment
+                  <Link href={PRIMARY_CTA.href} className="inline-flex items-center gap-2">
+                    {PRIMARY_CTA.label}
                     <span aria-hidden="true">→</span>
                   </Link>
                 </Button>
                 <Button asChild variant="secondary" size="lg">
-                  <Link href="/book">Request a confidential conversation</Link>
+                  <Link href={SECONDARY_CTA.href}>{SECONDARY_CTA.label}</Link>
                 </Button>
               </div>
               <p className="mt-8 border-t border-border pt-4 font-text text-caption text-ink-faint">
@@ -333,8 +334,8 @@ export default function HomePage() {
           </ul>
           <div className="mt-10">
             <Button asChild variant="primary" size="lg">
-              <Link href="/assessment" className="inline-flex items-center gap-2">
-                Take the Technical Risk Assessment
+              <Link href={PRIMARY_CTA.href} className="inline-flex items-center gap-2">
+                {PRIMARY_CTA.label}
                 <span aria-hidden="true">→</span>
               </Link>
             </Button>

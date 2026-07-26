@@ -11,6 +11,7 @@ import { CopyLinkButton } from "@/components/assessment/CopyLinkButton";
 import { DownloadPdfButton } from "@/components/assessment/DownloadPdfButton";
 import type { PublicAssessmentResult } from "@/lib/assessment/store";
 import { analytics } from "@/lib/analytics";
+import { SECONDARY_CTA } from "@/lib/cta";
 
 const SHORT_LABELS: Record<string, string> = {
   velocity: "Velocity & delivery",
@@ -124,7 +125,7 @@ export function ResultsView({
               href={`/book?assessment=${result.id}`}
               onClick={() => analytics.ctaClicked(result.variant, result.id, "book")}
             >
-              Request a confidential conversation
+              {SECONDARY_CTA.label}
             </Link>
           </Button>
           <DownloadPdfButton

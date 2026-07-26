@@ -3,6 +3,15 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   serverExternalPackages: ["@react-pdf/renderer"],
+  async redirects() {
+    return [
+      { source: "/services", destination: "/engagements", permanent: true },
+      { source: "/services/:path*", destination: "/engagements", permanent: true },
+      { source: "/pricing", destination: "/engagements", permanent: true },
+      { source: "/apply", destination: "/engage", permanent: true },
+      { source: "/apply/:path*", destination: "/engage", permanent: true },
+    ];
+  },
   async headers() {
     return [
       {

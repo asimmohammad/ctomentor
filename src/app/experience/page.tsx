@@ -39,13 +39,13 @@ export default function ExperiencePage() {
             This experience is what you're hiring when you engage me for embedded leadership. Battle-tested execution
             that has seen these patterns before and delivers immediate impact.
           </p>
-          <Link href="/apply">
+          <Link href="/assessment">
             <Button
               variant="outline"
               size="xl"
               className="border-ink-inverse/30 text-ink-inverse hover:bg-ink-inverse hover:text-dark-band"
             >
-              Book a Discovery Call
+              Take the Technical Risk Assessment
             </Button>
           </Link>
         </div>

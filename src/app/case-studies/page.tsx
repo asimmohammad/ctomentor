@@ -149,13 +149,13 @@ export default function CaseStudiesPage() {
             Let's discuss your specific challenges and how I can help.
           </p>
           <div className="mt-8">
-            <Link href="/apply">
+            <Link href="/assessment">
               <Button
                 variant="outline"
                 size="xl"
                 className="border-ink-inverse/30 text-ink-inverse hover:bg-ink-inverse hover:text-dark-band"
               >
-                Apply to Work Together
+                Take the Technical Risk Assessment
               </Button>
             </Link>
           </div>

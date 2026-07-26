@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { getPublishableInsights } from "@/lib/insights";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://thectomentor.com";
@@ -8,8 +9,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/assessment", priority: 0.95, changeFrequency: "monthly" },
     { path: "/engineering-assessment", priority: 0.9, changeFrequency: "monthly" },
     { path: "/book", priority: 0.9, changeFrequency: "monthly" },
+    { path: "/engage", priority: 0.4, changeFrequency: "monthly" },
     { path: "/engagements", priority: 0.9, changeFrequency: "monthly" },
-    { path: "/services", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/vigil", priority: 0.75, changeFrequency: "monthly" },
     { path: "/investors", priority: 0.8, changeFrequency: "monthly" },
     { path: "/government", priority: 0.7, changeFrequency: "monthly" },
     { path: "/about", priority: 0.7, changeFrequency: "monthly" },
@@ -20,10 +22,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/terms", priority: 0.3, changeFrequency: "monthly" },
   ];
 
-  return routes.map(({ path, priority, changeFrequency }) => ({
-    url: `${baseUrl}${path}`,
+  const insightRoutes = getPublishableInsights().map(([slug]) => ({
+    url: `${baseUrl}/insights/${slug}`,
     lastModified: new Date(),
-    changeFrequency,
-    priority,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
   }));
+
+  return [
+    ...routes.map(({ path, priority, changeFrequency }) => ({
+      url: `${baseUrl}${path}`,
+      lastModified: new Date(),
+      changeFrequency,
+      priority,
+    })),
+    ...insightRoutes,
+  ];
 }

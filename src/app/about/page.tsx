@@ -69,9 +69,9 @@ export default function AboutPage() {
               ))}
             </div>
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <Link href="/apply">
+              <Link href="/assessment">
                 <Button variant="primary" size="lg">
-                  Book a Call
+                  Take the Technical Risk Assessment
                 </Button>
               </Link>
               <a
@@ -147,13 +147,13 @@ export default function AboutPage() {
             Whether you need advisory, embedded leadership, or technical due diligence — the first step is a
             conversation.
           </p>
-          <Link href="/apply">
+          <Link href="/assessment">
             <Button
               variant="outline"
               size="xl"
               className="border-ink-inverse/30 text-ink-inverse hover:bg-ink-inverse hover:text-dark-band"
             >
-              Book a Call
+              Take the Technical Risk Assessment
             </Button>
           </Link>
         </div>

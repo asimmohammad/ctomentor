@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/Button";
 import { Section } from "@/components/layout/Section";
+import { PRIMARY_CTA, SECONDARY_CTA } from "@/lib/cta";
 import { cn } from "@/lib/utils";
 
 export interface CTABandProps {
@@ -24,8 +25,8 @@ export function CTABand({ heading, body, scarcity, className }: CTABandProps) {
         {body ? <p className="mt-4 font-text text-lead text-ink-inverse/85">{body}</p> : null}
         <div className="mt-8 flex flex-col gap-4 sm:flex-row">
           <Button asChild variant="primary" size="lg">
-            <Link href="/assessment" className="inline-flex items-center gap-2">
-              Take the Technical Risk Assessment
+            <Link href={PRIMARY_CTA.href} className="inline-flex items-center gap-2">
+              {PRIMARY_CTA.label}
               <span aria-hidden="true">→</span>
             </Link>
           </Button>
@@ -35,7 +36,7 @@ export function CTABand({ heading, body, scarcity, className }: CTABandProps) {
             size="lg"
             className="border-ink-inverse text-ink-inverse hover:bg-ink-inverse hover:text-dark-band"
           >
-            <Link href="/book">Request a confidential conversation</Link>
+            <Link href={SECONDARY_CTA.href}>{SECONDARY_CTA.label}</Link>
           </Button>
         </div>
         {scarcity ? (

@@ -131,8 +131,9 @@ supabase secrets set RESEND_API_KEY=your_resend_api_key_here --project-ref mzndf
 ### Testing
 
 After configuration, test the form submission:
-1. Fill out the application form on `/apply`
-2. Submit the form
-3. Check your email at `asim@thectomentor.com` for the notification
+1. Take the Technical Risk Assessment on `/assessment`, or request a conversation on `/book`
+2. High-intent applications land on `/engage` (legacy `/apply` redirects here)
+3. Submit the form
+4. Check your email at `asim@thectomentor.com` for the notification
 
 The function will validate that `RESEND_API_KEY` is configured and provide helpful error messages if it's missing.

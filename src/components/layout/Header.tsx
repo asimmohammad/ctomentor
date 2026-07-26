@@ -14,9 +14,9 @@ import {
 
 const servicesMenu = {
   name: "Services",
-  href: "/services",
+  href: "/engagements",
   items: [
-    { name: "Engagement Models", href: "/services" },
+    { name: "Engagement Models", href: "/engagements" },
     { name: "PE/VC Due Diligence", href: "/investors" },
     { name: "Government & Defense", href: "/government" },
   ],
@@ -29,7 +29,7 @@ const aboutMenu = {
 };
 
 const isServicesActive = (path: string | null) =>
-  path === "/services" || path === "/investors" || path === "/government";
+  path === "/engagements" || path === "/investors" || path === "/government";
 const isInsightsActive = (path: string | null) => path === "/case-studies" || path === "/insights";
 const isAboutActive = (path: string | null) => path === "/about" || path === "/experience";
 
@@ -183,9 +183,9 @@ export function Header() {
           </div>
 
           <div className="hidden lg:flex items-center gap-4">
-            <Link href="/apply">
+            <Link href="/assessment">
               <Button variant="primary" size="default">
-                Book a Call
+                Take the Technical Risk Assessment
               </Button>
             </Link>
           </div>
@@ -299,9 +299,9 @@ export function Header() {
                 </div>
               </div>
               <div className="pt-4 border-t border-border">
-                <Link href="/apply" onClick={closeMenu}>
+                <Link href="/assessment" onClick={closeMenu}>
                   <Button variant="primary" size="lg" className="w-full">
-                    Book a Call
+                    Take the Technical Risk Assessment
                   </Button>
                 </Link>
               </div>

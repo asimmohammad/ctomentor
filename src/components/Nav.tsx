@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/Button";
+import { PRIMARY_CTA } from "@/lib/cta";
 import { cn } from "@/lib/utils";
 
 export type NavLinkItem = {
@@ -19,7 +20,7 @@ export interface NavProps {
 }
 
 const DEFAULT_LINKS: NavLinkItem[] = [
-  { label: "Advisory", href: "/services" },
+  { label: "Advisory", href: "/engagements" },
   { label: "Investors", href: "/investors" },
   { label: "Insights", href: "/insights" },
   { label: "About", href: "/about" },
@@ -142,8 +143,8 @@ export function Nav({ links = DEFAULT_LINKS, wordmark = "The CTO Mentor" }: NavP
 
         <div className="hidden lg:block">
           <Button asChild size="md" variant="primary">
-            <Link href="/assessment" className="inline-flex items-center gap-2">
-              Take the Technical Risk Assessment
+            <Link href={PRIMARY_CTA.href} className="inline-flex items-center gap-2">
+              {PRIMARY_CTA.label}
               <span aria-hidden="true">→</span>
             </Link>
           </Button>
@@ -191,8 +192,8 @@ export function Nav({ links = DEFAULT_LINKS, wordmark = "The CTO Mentor" }: NavP
             </ul>
             <div className="mt-8 border-t border-border pt-6">
               <Button asChild size="lg" variant="primary" className="w-full">
-                <Link href="/assessment" onClick={closeMenu} className="inline-flex w-full items-center justify-center gap-2">
-                  Take the Technical Risk Assessment
+                <Link href={PRIMARY_CTA.href} onClick={closeMenu} className="inline-flex w-full items-center justify-center gap-2">
+                  {PRIMARY_CTA.label}
                   <span aria-hidden="true">→</span>
                 </Link>
               </Button>

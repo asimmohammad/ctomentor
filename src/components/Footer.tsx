@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
+import { PRIMARY_CTA, SECONDARY_CTA } from "@/lib/cta";
 
 export type FooterColumn = {
   title: string;
@@ -16,9 +17,10 @@ const DEFAULT_COLUMNS: FooterColumn[] = [
   {
     title: "Advisory",
     links: [
-      { label: "Engagement models", href: "/services" },
+      { label: "Engagement models", href: "/engagements" },
       { label: "Technical due diligence", href: "/investors" },
       { label: "Government & defense", href: "/government" },
+      { label: "Vigil (Helix)", href: "/vigil" },
     ],
   },
   {
@@ -39,8 +41,8 @@ const DEFAULT_COLUMNS: FooterColumn[] = [
   {
     title: "Connect",
     links: [
-      { label: "Request a confidential conversation", href: "/book" },
-      { label: "Take the Technical Risk Assessment", href: "/assessment" },
+      { label: SECONDARY_CTA.label, href: SECONDARY_CTA.href },
+      { label: PRIMARY_CTA.label, href: PRIMARY_CTA.href },
     ],
   },
 ];

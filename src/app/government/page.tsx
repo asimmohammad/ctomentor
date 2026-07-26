@@ -33,9 +33,9 @@ export default function GovernmentPage() {
             compliance.
           </p>
           <div className="mt-10">
-            <Link href="/apply">
+            <Link href="/assessment">
               <Button variant="primary" size="xl">
-                Discuss Your Government Technology Needs
+                Take the Technical Risk Assessment
               </Button>
             </Link>
           </div>
@@ -73,12 +73,12 @@ export default function GovernmentPage() {
         <div className="max-w-3xl">
           <h2 className="font-display text-h2 text-ink mb-6">Engagement Model</h2>
           <p className="text-lead font-text text-ink mb-10">
-            Advisory ($5,000/month) or Embedded Leadership ($12,000–$15,000/month) depending on scope and timeline.
-            We'll define the right model in a discovery call based on your authorization path and internal capacity.
+            Diagnostic Sprint ($25,000 fixed) or Embedded Technology Leadership ($25,000/mo) depending on scope and
+            timeline. We define the right model after the Technical Risk Assessment or a confidential conversation.
           </p>
-          <Link href="/apply">
+          <Link href="/book">
             <Button variant="primary" size="xl">
-              Discuss Your Government Technology Needs
+              Request a confidential conversation
             </Button>
           </Link>
         </div>
