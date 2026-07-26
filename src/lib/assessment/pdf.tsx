@@ -8,7 +8,7 @@ const colors = {
   muted: "#6B655C",
   faint: "#A39C90",
   border: "#DDD8CE",
-  accent: "#8A2B22",
+  accent: "#2A2825",
   surfaceAlt: "#F2EFE9",
 };
 

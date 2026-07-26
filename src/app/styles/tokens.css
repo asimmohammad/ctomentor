@@ -12,13 +12,13 @@
   --ink-muted: #6b655c;
   --ink-faint: #a39c90;
   --border: #ddd8ce;
-  --accent: #8a2b22;
-  --accent-hover: #6e211a;
+  --accent: #2a2825;
+  --accent-hover: #16130f;
   --ink-inverse: #faf8f4;
   --dark-band: #16130f;
   --success: #3f6b32;
   --warning: #8a5a17;
-  --error: #a12c2c;
+  --error: #3f3c38;
 
   /* Typography — families */
   --font-display: "Zodiak", "Iowan Old Style", Georgia, serif;
@@ -86,7 +86,7 @@
   --section-standard: 4rem;
   --section-generous: 5rem;
   --section-compact-lg: 4rem;
-  --section-standard-lg: 6rem;
+  --section-standard-lg: 7rem; /* ~112px — consulting-grade section air */
   --section-generous-lg: 9rem;
 
   /* Radius */
@@ -151,13 +151,13 @@
   --ink-muted: #9a9388;
   --ink-faint: #6b655c;
   --border: #33302b;
-  --accent: #c9564a;
-  --accent-hover: #de6b5e;
+  --accent: #c4bfb5;
+  --accent-hover: #e8e4dc;
   --ink-inverse: #faf8f4;
   --dark-band: #16130f;
   --success: #3f6b32;
   --warning: #8a5a17;
-  --error: #a12c2c;
+  --error: #c4bfb5;
 
   --background: var(--paper);
   --foreground: var(--ink);

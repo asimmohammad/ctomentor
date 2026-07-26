@@ -17,10 +17,9 @@ const DEFAULT_COLUMNS: FooterColumn[] = [
   {
     title: "Advisory",
     links: [
-      { label: "Engagement models", href: "/engagements" },
-      { label: "Technical due diligence", href: "/investors" },
+      { label: "Advisory", href: "/engagements" },
+      { label: "Investors", href: "/investors" },
       { label: "Government & defense", href: "/government" },
-      { label: "Vigil (Helix)", href: "/vigil" },
     ],
   },
   {
@@ -34,7 +33,7 @@ const DEFAULT_COLUMNS: FooterColumn[] = [
   {
     title: "Insights",
     links: [
-      { label: "Articles", href: "/insights" },
+      { label: "Insights", href: "/insights" },
       { label: "Substack", href: "https://asimmohammad.substack.com", external: true },
     ],
   },

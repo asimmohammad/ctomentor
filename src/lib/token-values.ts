@@ -10,13 +10,13 @@ export const light = {
   inkMuted: "#6B655C",
   inkFaint: "#A39C90",
   border: "#DDD8CE",
-  accent: "#8A2B22",
-  accentHover: "#6E211A",
+  accent: "#2A2825",
+  accentHover: "#16130F",
   inkInverse: "#FAF8F4",
   darkBand: "#16130F",
   success: "#3F6B32",
   warning: "#8A5A17",
-  error: "#A12C2C",
+  error: "#3F3C38",
 } as const;
 
 export const dark = {
@@ -27,11 +27,11 @@ export const dark = {
   inkMuted: "#9A9388",
   inkFaint: "#6B655C",
   border: "#33302B",
-  accent: "#C9564A",
-  accentHover: "#DE6B5E",
+  accent: "#C4BFB5",
+  accentHover: "#E8E4DC",
   inkInverse: "#FAF8F4",
   darkBand: "#16130F",
   success: "#3F6B32",
   warning: "#8A5A17",
-  error: "#A12C2C",
+  error: "#C4BFB5",
 } as const;

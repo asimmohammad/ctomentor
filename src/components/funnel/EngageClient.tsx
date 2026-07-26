@@ -316,10 +316,10 @@ export function EngageClient() {
                   error={errors.challenge}
                 />
                 <Select
-                  label="Budget range"
+                  label="Engagement model"
                   name="budget"
                   required
-                  placeholder="Select range"
+                  placeholder="Select engagement"
                   value={values.budget ?? ""}
                   onChange={(e) =>
                     update("budget", e.target.value as EngageDraft["budget"])

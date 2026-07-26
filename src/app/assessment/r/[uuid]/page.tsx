@@ -15,7 +15,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const title = `Score ${result.score.overall} · Level ${result.score.tier.level} ${result.score.tier.name}`;
   const description = `${result.firstName} at ${result.company} — ${result.framingName} results.`;
-  const ogImage = `${result.resultsPathPrefix}/${result.id}/opengraph-image`;
+  const pagePath = `${result.resultsPathPrefix}/${result.id}`;
+  const ogImage = `${pagePath}/opengraph-image`;
 
   return {
     title,
@@ -24,8 +25,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title,
       description,
-      url: `https://thectomentor.com${result.resultsPathPrefix}/${result.id}`,
-      images: [{ url: ogImage, width: 1200, height: 630 }],
+      url: `https://thectomentor.com${pagePath}`,
+      images: [{ url: ogImage, width: 1200, height: 630, alt: title }],
     },
     twitter: {
       card: "summary_large_image",

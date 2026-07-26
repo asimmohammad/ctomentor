@@ -212,9 +212,8 @@ export default function InvestorsPage() {
         <div className="max-w-3xl">
           <h2 className="font-display text-h2 text-ink mb-6">Engagement Model</h2>
           <p className="text-lead font-text text-ink">
-            Fixed-fee technical due diligence ($35,000–$50,000 per transaction) with optional Portfolio Technology
-            Partner retainers ($50,000/mo) for ongoing fund coverage. Scope and artifacts are defined upfront. No hourly
-            surprises.
+            Technical Due Diligence per transaction with optional Portfolio Technology Partner retainers for ongoing
+            fund coverage. Scope and artifacts are defined upfront. No hourly surprises.
           </p>
           <div className="mt-10">
             <Link href="/book">

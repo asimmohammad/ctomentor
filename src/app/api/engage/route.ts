@@ -38,7 +38,7 @@ async function notifyInternal(payload: {
           subject: `[Engage] ${payload.company} — ${payload.name}`,
           html: `<p><strong>New /engage application</strong></p>
 <p>${payload.name} · ${payload.email}<br/>${payload.company} · ${payload.role}</p>
-<p>Budget: ${payload.budget}<br/>Timeline: ${payload.timeline}<br/>Heard via: ${payload.attribution}</p>
+<p>Engagement: ${payload.budget}<br/>Timeline: ${payload.timeline}<br/>Heard via: ${payload.attribution}</p>
 <p>${payload.challenge}</p>`,
         }),
       });

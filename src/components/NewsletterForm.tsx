@@ -60,7 +60,7 @@ export function NewsletterForm() {
         required
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        helperText="Used only for this list. No product spam."
+        helperText="Used only for this list."
       />
       <Select
         label="Role"

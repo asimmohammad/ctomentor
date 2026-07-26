@@ -120,7 +120,7 @@ export function ResultsView({
           A confidential conversation is how most Diagnostic Sprints start after this assessment.
         </p>
         <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-          <Button asChild variant="primary" size="lg">
+          <Button asChild variant="onDark" size="lg">
             <Link
               href={`/book?assessment=${result.id}`}
               onClick={() => analytics.ctaClicked(result.variant, result.id, "book")}

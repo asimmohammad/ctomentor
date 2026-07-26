@@ -54,11 +54,10 @@ export default function CirclePage() {
           <div>
             <div className="bg-card border border-border p-8 lg:p-10">
               <span className="eyebrow text-accent">
-                Investment
+                Membership
               </span>
-              <div className="mt-4 flex items-baseline gap-2">
-                <span className="font-display text-h2 text-ink metric">$2,500</span>
-                <span className="font-text text-body text-ink-muted">/year</span>
+              <div className="mt-4">
+                <span className="font-display text-h2 text-ink metric">By application</span>
               </div>
               <p className="mt-4 text-body font-text text-ink-muted">
                 Limited spots available. Application required.

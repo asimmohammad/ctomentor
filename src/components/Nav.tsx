@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import { Button } from "@/components/Button";
 import { PRIMARY_CTA } from "@/lib/cta";
 import { cn } from "@/lib/utils";
@@ -143,9 +143,9 @@ export function Nav({ links = DEFAULT_LINKS, wordmark = "The CTO Mentor" }: NavP
 
         <div className="hidden lg:block">
           <Button asChild size="md" variant="primary">
-            <Link href={PRIMARY_CTA.href} className="inline-flex items-center gap-2">
-              {PRIMARY_CTA.label}
-              <span aria-hidden="true">→</span>
+            <Link href={PRIMARY_CTA.href} className="inline-flex items-center gap-2.5">
+              <span>{PRIMARY_CTA.label}</span>
+              <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
             </Link>
           </Button>
         </div>
@@ -192,9 +192,9 @@ export function Nav({ links = DEFAULT_LINKS, wordmark = "The CTO Mentor" }: NavP
             </ul>
             <div className="mt-8 border-t border-border pt-6">
               <Button asChild size="lg" variant="primary" className="w-full">
-                <Link href={PRIMARY_CTA.href} onClick={closeMenu} className="inline-flex w-full items-center justify-center gap-2">
-                  {PRIMARY_CTA.label}
-                  <span aria-hidden="true">→</span>
+                <Link href={PRIMARY_CTA.href} onClick={closeMenu} className="inline-flex w-full items-center justify-center gap-2.5">
+                  <span>{PRIMARY_CTA.label}</span>
+                  <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
                 </Link>
               </Button>
             </div>

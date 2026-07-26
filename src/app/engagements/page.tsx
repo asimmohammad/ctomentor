@@ -12,14 +12,14 @@ import { PRIMARY_CTA, SECONDARY_CTA } from "@/lib/cta";
 const SITE = "https://thectomentor.com";
 
 export const metadata: Metadata = {
-  title: "Engagements — Diagnostic Sprint from $25,000",
+  title: "Engagements — Diagnostic Sprint, Diligence & Embedded Leadership",
   description:
-    "Four engagement models: Diagnostic Sprint ($25,000), Embedded Technology Leadership ($25,000/mo), Technical Due Diligence ($35,000–$50,000), and Portfolio Technology Partner ($50,000/mo).",
+    "Four engagement models: Diagnostic Sprint, Embedded Technology Leadership, Technical Due Diligence, and Portfolio Technology Partner.",
   alternates: { canonical: `${SITE}/engagements` },
   openGraph: {
-    title: "Engagements — from $25,000",
+    title: "Engagements — Diagnostic Sprint, Diligence & Embedded Leadership",
     description:
-      "Diagnostic Sprint, embedded technology leadership, technical due diligence, and portfolio partner retainers. Lowest published price: $25,000.",
+      "Diagnostic Sprint, embedded technology leadership, technical due diligence, and portfolio partner retainers.",
     url: `${SITE}/engagements`,
     type: "website",
   },
@@ -28,8 +28,7 @@ export const metadata: Metadata = {
 type Tier = {
   id: string;
   name: string;
-  price: string;
-  priceNote: string;
+  structure: string;
   badge?: string;
   emphasized?: boolean;
   description: string;
@@ -44,8 +43,7 @@ const tiers: Tier[] = [
   {
     id: "diagnostic-sprint",
     name: "Diagnostic Sprint",
-    price: "$25,000",
-    priceNote: "Fixed · 3 weeks",
+    structure: "Fixed · 3 weeks",
     description:
       "A time-boxed read on technology risk before you commit more capital or change the operating plan.",
     artifacts: [
@@ -65,8 +63,7 @@ const tiers: Tier[] = [
   {
     id: "embedded",
     name: "Embedded Technology Leadership",
-    price: "$25,000/mo",
-    priceNote: "3-month minimum · 1–2 days/week",
+    structure: "Monthly retainer · 3-month minimum · 1–2 days/week",
     badge: "Most common engagement",
     emphasized: true,
     description:
@@ -88,8 +85,7 @@ const tiers: Tier[] = [
   {
     id: "due-diligence",
     name: "Technical Due Diligence",
-    price: "$35,000–$50,000",
-    priceNote: "Per transaction",
+    structure: "Per transaction",
     description:
       "Pre-acquisition assessment of architecture, security, scalability, and the team — written for the IC, not for theater.",
     artifacts: [
@@ -109,8 +105,7 @@ const tiers: Tier[] = [
   {
     id: "portfolio-partner",
     name: "Portfolio Technology Partner",
-    price: "$50,000/mo",
-    priceNote: "Multi-company fund retainer",
+    structure: "Fund retainer",
     description:
       "Standing diligence capacity plus portfolio support through the bench — for funds that underwrite technology risk repeatedly.",
     artifacts: [
@@ -131,8 +126,8 @@ const tiers: Tier[] = [
 
 const comparisonRows: { label: string; values: string[] }[] = [
   {
-    label: "Price",
-    values: ["$25,000 fixed", "$25,000/mo", "$35,000–$50,000", "$50,000/mo"],
+    label: "Structure",
+    values: ["Fixed · 3 weeks", "Monthly retainer", "Per transaction", "Fund retainer"],
   },
   {
     label: "Shape",
@@ -205,7 +200,7 @@ const faqs = [
     id: "faq-equity-old",
     title: "Do you take equity as compensation?",
     content:
-      "Cash is the default. For a small set of companies, a portion of compensation can include equity alongside a cash retainer. That is negotiated in the proposal — it is not a substitute for the $25,000 floor, and it is never the only path in.",
+      "Cash is the default. For a small set of companies, a portion of compensation can include equity alongside a cash retainer. That is negotiated in the proposal — it is never a substitute for the cash engagement, and it is never the only path in.",
   },
   {
     id: "faq-industries",
@@ -226,16 +221,16 @@ const faqs = [
       "That is a successful exit from an embed. I can help write the role, interview candidates, and hand off cleanly. Several engagements have ended that way.",
   },
   {
-    id: "faq-5k",
-    title: "Why is there no $5k option?",
+    id: "faq-light-touch",
+    title: "Do you offer light-touch monthly advisory?",
     content:
-      "A $5,000 monthly advisory seat prices the work like coaching. The work that moves a deal or a portfolio company — diligence-grade findings, remediation plans, embedded ownership — starts at $25,000. If your need is lighter than that, you do not need me.",
+      "No. A light advisory seat prices the work like coaching. The work that moves a deal or a portfolio company — diligence-grade findings, remediation plans, embedded ownership — starts with a Diagnostic Sprint or an embedded seat. If your need is lighter than that, you do not need me.",
   },
   {
     id: "faq-equity-new",
     title: "Do you take equity instead of cash?",
     content:
-      "No. Equity can sit beside cash in rare cases. It does not replace the cash engagement. Diligence for PE/VC is cash-priced per transaction.",
+      "No. Equity can sit beside cash in rare cases. It does not replace the cash engagement. Diligence for PE/VC is cash-scoped per transaction.",
   },
   {
     id: "faq-marketplace",
@@ -271,12 +266,6 @@ const jsonLd = {
         "Three-week fixed-scope technology diagnostic: findings report, scored risk register, 90-day remediation plan, board readout.",
       provider: { "@type": "Person", name: "Asim Mohammad", url: SITE },
       url: `${SITE}/engagements#diagnostic-sprint`,
-      offers: {
-        "@type": "Offer",
-        price: "25000",
-        priceCurrency: "USD",
-        unitText: "FIXED_PRICE",
-      },
     },
     {
       "@type": "Service",
@@ -286,12 +275,6 @@ const jsonLd = {
         "1–2 days per week embedded technology leadership. Three-month minimum.",
       provider: { "@type": "Person", name: "Asim Mohammad", url: SITE },
       url: `${SITE}/engagements#embedded`,
-      offers: {
-        "@type": "Offer",
-        price: "25000",
-        priceCurrency: "USD",
-        unitText: "MONTH",
-      },
     },
     {
       "@type": "Service",
@@ -301,13 +284,6 @@ const jsonLd = {
         "Pre-acquisition technical due diligence with IC-ready written report.",
       provider: { "@type": "Person", name: "Asim Mohammad", url: SITE },
       url: `${SITE}/engagements#due-diligence`,
-      offers: {
-        "@type": "AggregateOffer",
-        lowPrice: "35000",
-        highPrice: "50000",
-        priceCurrency: "USD",
-        offerCount: "1",
-      },
     },
     {
       "@type": "Service",
@@ -317,12 +293,6 @@ const jsonLd = {
         "Multi-company fund retainer with standing diligence capacity and portfolio support via the bench.",
       provider: { "@type": "Person", name: "Asim Mohammad", url: SITE },
       url: `${SITE}/engagements#portfolio-partner`,
-      offers: {
-        "@type": "Offer",
-        price: "50000",
-        priceCurrency: "USD",
-        unitText: "MONTH",
-      },
     },
   ],
 };
@@ -338,7 +308,7 @@ export default function EngagementsPage() {
       <Section spacing="compact" tone="paper">
         <Eyebrow>Engagements</Eyebrow>
         <h1 className="mt-3 max-w-measure font-display text-h1 text-ink">
-          Four ways the work is scoped. Lowest published price: $25,000.
+          Four ways the work is scoped.
         </h1>
         <p className="mt-6 max-w-measure font-text text-lead text-ink-muted">
           Artifacts, not activities. Qualification is mutual — each tier says who it is for and who it is not.
@@ -370,10 +340,9 @@ export default function EngagementsPage() {
                 ) : (
                   <span className="mb-3 block h-[1.125rem]" aria-hidden="true" />
                 )}
-                <p className="metric font-display text-h2 text-ink">{tier.price}</p>
-                <p className="mt-1 font-text text-caption text-ink-faint">{tier.priceNote}</p>
-                <h2 className="mt-4 font-text text-h4 text-ink">{tier.name}</h2>
-                <p className="mt-2 font-text text-body text-ink-muted">{tier.description}</p>
+                <h2 className="metric font-display text-h2 text-ink">{tier.name}</h2>
+                <p className="mt-1 font-text text-caption text-ink-faint">{tier.structure}</p>
+                <p className="mt-4 font-text text-body text-ink-muted">{tier.description}</p>
 
                 <p className="mt-6 font-mono text-eyebrow uppercase tracking-[0.12em] text-ink-faint">
                   What you get

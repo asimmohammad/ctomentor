@@ -55,7 +55,7 @@ export default function OpenGraphImage() {
                 width: "100%",
                 height: "3px",
                 marginTop: "40px",
-                background: "#8A2B22",
+                background: "#2A2825",
               }}
             />
             <div
@@ -83,7 +83,7 @@ export default function OpenGraphImage() {
               fontWeight: 600,
               letterSpacing: "0.16em",
               textTransform: "uppercase",
-              color: "#8A2B22",
+              color: "#2A2825",
             }}
           >
             Asim Mohammad

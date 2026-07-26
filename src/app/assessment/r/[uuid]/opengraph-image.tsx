@@ -41,7 +41,7 @@ export default async function AssessmentOgImage({ params }: Props) {
           <div style={{ marginTop: 16, fontSize: 42 }}>{tier}</div>
           <div style={{ marginTop: 24, fontSize: 28, color: "#6B655C" }}>{subtitle}</div>
         </div>
-        <div style={{ display: "flex", fontSize: 22, color: "#8A2B22" }}>thectomentor.com</div>
+        <div style={{ display: "flex", fontSize: 22, color: "#2A2825" }}>thectomentor.com</div>
       </div>
     ),
     { ...size },

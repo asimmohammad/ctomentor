@@ -18,10 +18,10 @@ else
     git commit -m "$MESSAGE"
   else
     git commit -m "$(cat <<'EOF'
-Fix about page build: missing headshot asset.
+Remove published service pricing from the site.
 
-Replace the unresolved @/assets/AsimMohammad.jpg import with the shared
-public portrait placeholder so the production build can compile.
+Keep engagement names and structure/cadence only; strip dollar fees from
+homepage, engagements, funnel, investors, government, Circle, and schema.
 EOF
 )"
   fi

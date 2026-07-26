@@ -53,8 +53,8 @@ export async function POST(request: NextRequest) {
       <p><strong>Biggest Challenge:</strong></p>
       <p>${data.challenge}</p>
       
-      <h2>Budget & Timeline</h2>
-      <p><strong>Budget Range:</strong> ${data.budget || "Not specified"}</p>
+      <h2>Engagement & Timeline</h2>
+      <p><strong>Engagement:</strong> ${data.budget || "Not specified"}</p>
       <p><strong>Timeline:</strong> ${data.timeline || "Not specified"}</p>
       ${data.equityAlignment ? `<p><strong>Equity alignment:</strong> ${data.equityAlignment}</p>` : ""}
       

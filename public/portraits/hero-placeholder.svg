@@ -1,5 +1,5 @@
 /**
- * Editorial portrait placeholder  4:5 aspect for hero column.
+ * Editorial portrait placeholder — 4:5 aspect for the hero column.
  * Replace with a real environmental portrait; keep aspect and edge-to-edge crop.
  */
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000" role="img" aria-label="Portrait placeholder">

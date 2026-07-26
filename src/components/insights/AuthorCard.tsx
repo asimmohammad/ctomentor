@@ -1,13 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
+import { PORTRAIT_ALT, PORTRAIT_SRC } from "@/lib/media";
 
 export function AuthorCard() {
   return (
     <aside className="mt-14 flex gap-4 border-t border-border pt-8">
       <div className="relative h-16 w-16 shrink-0 overflow-hidden border border-border bg-surface-alt">
         <Image
-          src="/portraits/hero-placeholder.svg"
-          alt="Asim Mohammad"
+          src={PORTRAIT_SRC}
+          alt={PORTRAIT_ALT}
           fill
           className="object-cover"
           unoptimized

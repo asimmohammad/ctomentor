@@ -40,7 +40,7 @@ export function buildResultsEmailHtml(input: {
   ${pdfLine}
   <p>If you want to walk through the findings, reply to this email or request a confidential conversation from the results page.</p>
   <p style="margin-top:32px;">Asim<br/>
-  <a href="mailto:asim@thectomentor.com" style="color:#8A2B22;">asim@thectomentor.com</a></p>
+  <a href="mailto:asim@thectomentor.com" style="color:#2A2825;">asim@thectomentor.com</a></p>
 </body>
 </html>
 `.trim();

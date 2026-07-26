@@ -27,7 +27,7 @@ export const engageSchema = z.object({
     .min(20, "Give enough detail to assess fit (20+ characters).")
     .max(2000),
   budget: z.enum(["sprint-25k", "monthly-25-50k", "monthly-50k-plus", "diligence"], {
-    required_error: "Select a budget range.",
+    required_error: "Select an engagement model.",
   }),
   timeline: z.enum(["immediate", "1-3-months", "exploring"], {
     required_error: "Select a timeline.",
@@ -41,10 +41,10 @@ export const engageSchema = z.object({
 export type EngageFormValues = z.infer<typeof engageSchema>;
 
 export const BUDGET_OPTIONS = [
-  { value: "sprint-25k", label: "$25,000 fixed-scope sprint" },
-  { value: "monthly-25-50k", label: "$25,000–$50,000 per month" },
-  { value: "monthly-50k-plus", label: "$50,000+ per month" },
-  { value: "diligence", label: "Per-transaction diligence" },
+  { value: "sprint-25k", label: "Diagnostic Sprint" },
+  { value: "monthly-25-50k", label: "Embedded Technology Leadership" },
+  { value: "monthly-50k-plus", label: "Portfolio Technology Partner" },
+  { value: "diligence", label: "Technical Due Diligence" },
 ] as const;
 
 export const TIMELINE_OPTIONS = [

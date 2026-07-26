@@ -20,7 +20,7 @@ export const PROOF_LOGOS: ProofLogo[] = [
 ];
 
 export const PROOF_METRICS: ProofMetric[] = [
-  { statement: "$600M exit — technical readiness" },
+  { statement: "$600M exit: technical readiness" },
   { statement: "SOC 2 Type II in 6 months" },
   { statement: "38% cloud spend reduction" },
   { statement: "15+ portfolio companies advised" },

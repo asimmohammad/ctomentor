@@ -62,13 +62,13 @@ These override any default marketing-site pattern an AI would otherwise reach fo
 | `--ink-muted` | `#6B655C` | Secondary text |
 | `--ink-faint` | `#A39C90` | Captions, placeholders |
 | `--border` | `#DDD8CE` | Dividers, card borders |
-| `--accent` | `#8A2B22` | Links, primary buttons, single points of emphasis |
-| `--accent-hover` | `#6E211A` | Hover |
+| `--accent` | `#2A2825` | Links, primary buttons, single points of emphasis |
+| `--accent-hover` | `#16130F` | Hover |
 | `--ink-inverse` | `#FAF8F4` | Text on dark bands |
 | `--dark-band` | `#16130F` | Full-bleed dark sections |
 | `--success` | `#3F6B32` | |
 | `--warning` | `#8A5A17` | |
-| `--error` | `#A12C2C` | |
+| `--error` | `#3F3C38` | |
 
 ### Dark mode
 
@@ -81,8 +81,8 @@ These override any default marketing-site pattern an AI would otherwise reach fo
 | `--ink-muted` | `#9A9388` |
 | `--ink-faint` | `#6B655C` |
 | `--border` | `#33302B` |
-| `--accent` | `#C9564A` |
-| `--accent-hover` | `#DE6B5E` |
+| `--accent` | `#C4BFB5` |
+| `--accent-hover` | `#E8E4DC` |
 
 **Rule:** one accent plus neutrals. If more than ~5% of a viewport is accent-colored, it is wrong. Semantic colors appear only in the assessment results UI.
 

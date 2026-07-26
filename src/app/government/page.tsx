@@ -73,8 +73,8 @@ export default function GovernmentPage() {
         <div className="max-w-3xl">
           <h2 className="font-display text-h2 text-ink mb-6">Engagement Model</h2>
           <p className="text-lead font-text text-ink mb-10">
-            Diagnostic Sprint ($25,000 fixed) or Embedded Technology Leadership ($25,000/mo) depending on scope and
-            timeline. We define the right model after the Technical Risk Assessment or a confidential conversation.
+            Diagnostic Sprint or Embedded Technology Leadership depending on scope and timeline. We define the right
+            model after the Technical Risk Assessment or a confidential conversation.
           </p>
           <Link href="/book">
             <Button variant="primary" size="xl">

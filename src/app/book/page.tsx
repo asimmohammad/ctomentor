@@ -7,6 +7,7 @@ import { Grid, GridItem } from "@/components/layout/Grid";
 import { Section } from "@/components/layout/Section";
 import { PRIMARY_CTA, SECONDARY_CTA } from "@/lib/cta";
 import { getAssessment } from "@/lib/assessment/store";
+import { PORTRAIT_ALT, PORTRAIT_SRC } from "@/lib/media";
 
 export const metadata: Metadata = {
   title: SECONDARY_CTA.label,
@@ -89,8 +90,8 @@ export default async function BookPage({ searchParams }: PageProps) {
           <div className="flex gap-4 border-t border-border pt-6">
             <div className="relative h-20 w-20 shrink-0 overflow-hidden border border-border bg-surface-alt">
               <Image
-                src="/portraits/hero-placeholder.svg"
-                alt="Asim Mohammad"
+                src={PORTRAIT_SRC}
+                alt={PORTRAIT_ALT}
                 fill
                 className="object-cover"
                 unoptimized

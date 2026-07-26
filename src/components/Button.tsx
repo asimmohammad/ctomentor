@@ -3,7 +3,7 @@ import { Slot } from "@radix-ui/react-slot";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-export type ButtonVariant = "primary" | "secondary" | "ghost";
+export type ButtonVariant = "primary" | "secondary" | "ghost" | "onDark";
 export type ButtonSize = "sm" | "md" | "lg";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -20,6 +20,9 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 const variantClass: Record<ButtonVariant, string> = {
   primary:
     "bg-accent text-ink-inverse hover:bg-accent-hover active:bg-accent-hover disabled:bg-accent/40",
+  /** Solid light fill for use on dark-band sections (charcoal accent would disappear). */
+  onDark:
+    "bg-ink-inverse text-ink hover:bg-paper active:bg-paper disabled:bg-ink-inverse/40",
   secondary:
     "border border-ink bg-transparent text-ink hover:bg-ink hover:text-ink-inverse active:bg-ink disabled:border-ink-faint disabled:text-ink-faint",
   ghost:

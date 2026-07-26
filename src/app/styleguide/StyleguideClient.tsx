@@ -106,7 +106,7 @@ const FAQ_ITEMS = [
     id: "faq-1",
     title: "What is the Diagnostic Sprint?",
     content:
-      "A fixed $25,000 engagement over three weeks: findings report, scored risk register, 90-day remediation plan, and a board or deal-team readout.",
+      "A fixed-scope Diagnostic Sprint over three weeks: findings report, scored risk register, 90-day remediation plan, and a board or deal-team readout.",
   },
   {
     id: "faq-2",
@@ -316,14 +316,14 @@ export default function StyleguideClient() {
             ]}
           />
           <Select
-            label="Budget range"
-            error="Select a budget range to continue."
+            label="Engagement model"
+            error="Select an engagement model."
             defaultValue=""
-            placeholder="Select range"
+            placeholder="Select engagement"
             options={[
-              { value: "25k", label: "$25,000 Diagnostic Sprint" },
-              { value: "25k-mo", label: "$25,000/mo embedded" },
-              { value: "dd", label: "$35,000–$50,000 diligence" },
+              { value: "sprint", label: "Diagnostic Sprint" },
+              { value: "embedded", label: "Embedded Technology Leadership" },
+              { value: "dd", label: "Technical Due Diligence" },
             ]}
           />
         </div>
