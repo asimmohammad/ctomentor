@@ -18,10 +18,11 @@ else
     git commit -m "$MESSAGE"
   else
     git commit -m "$(cat <<'EOF'
-Remove published service pricing from the site.
+Fix black-on-black text on dark sections.
 
-Keep engagement names and structure/cadence only; strip dollar fees from
-homepage, engagements, funnel, investors, government, Circle, and schema.
+After the charcoal accent change, headings and CTAs on dark bands were
+unreadable. Inherit inverse text on dark surfaces and add on-dark button
+variants so primary and secondary actions stay visible.
 EOF
 )"
   fi

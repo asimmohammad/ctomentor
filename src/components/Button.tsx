@@ -3,7 +3,13 @@ import { Slot } from "@radix-ui/react-slot";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-export type ButtonVariant = "primary" | "secondary" | "ghost" | "onDark";
+export type ButtonVariant =
+  | "primary"
+  | "secondary"
+  | "ghost"
+  | "onDark"
+  | "ghostOnDark"
+  | "secondaryOnDark";
 export type ButtonSize = "sm" | "md" | "lg";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -27,6 +33,12 @@ const variantClass: Record<ButtonVariant, string> = {
     "border border-ink bg-transparent text-ink hover:bg-ink hover:text-ink-inverse active:bg-ink disabled:border-ink-faint disabled:text-ink-faint",
   ghost:
     "bg-transparent text-ink underline-offset-4 hover:underline active:underline disabled:text-ink-faint disabled:no-underline",
+  /** Ghost/link weight for dark-band — charcoal text-ink would disappear. */
+  ghostOnDark:
+    "bg-transparent text-ink-inverse underline-offset-4 hover:underline hover:text-ink-inverse active:underline disabled:text-ink-inverse/50 disabled:no-underline",
+  /** Outlined control for dark-band (Download PDF, secondary CTAs). */
+  secondaryOnDark:
+    "border border-ink-inverse bg-transparent text-ink-inverse hover:bg-ink-inverse hover:text-dark-band active:bg-ink-inverse disabled:border-ink-inverse/40 disabled:text-ink-inverse/50",
 };
 
 const sizeClass: Record<ButtonSize, string> = {

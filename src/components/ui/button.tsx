@@ -13,6 +13,9 @@ const buttonVariants = cva(
         destructive: "bg-error text-ink-inverse hover:opacity-90",
         outline:
           "border border-ink bg-transparent text-ink hover:bg-ink hover:text-ink-inverse",
+        /** Light border/text for tone="dark" / bg-dark-band (charcoal accent is invisible there). */
+        outlineOnDark:
+          "border border-ink-inverse/30 bg-transparent text-ink-inverse hover:bg-ink-inverse hover:text-dark-band",
         secondary: "bg-surface-alt text-ink hover:bg-border",
         ghost: "bg-transparent text-ink underline-offset-4 hover:underline",
         link: "bg-transparent text-accent underline-offset-4 hover:underline hover:text-accent-hover",
@@ -44,7 +47,7 @@ export interface ButtonProps
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
-    return <Comp className={cn(buttonVariants({ variant, size, className }))} ref={ref} {...props} />;
+    return <Comp className={cn(buttonVariants({ variant, size }), className)} ref={ref} {...props} />;
   },
 );
 Button.displayName = "Button";

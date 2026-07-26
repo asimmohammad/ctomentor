@@ -26,7 +26,7 @@ export function MetricCard({
 }: MetricCardProps) {
   return (
     <Card variant={variant} className={cn("flex flex-col gap-4", className)} {...props}>
-      <Eyebrow>{label}</Eyebrow>
+      <Eyebrow className={variant === "dark" ? "text-ink-inverse/60" : undefined}>{label}</Eyebrow>
       <p
         className={cn(
           "metric font-display text-h1",

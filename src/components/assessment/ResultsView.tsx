@@ -129,7 +129,7 @@ export function ResultsView({
             </Link>
           </Button>
           <DownloadPdfButton
-            className="border-ink-inverse text-ink-inverse hover:bg-ink-inverse hover:text-dark-band"
+            onDark
             onClick={() => analytics.ctaClicked(result.variant, result.id, "pdf")}
           />
         </div>

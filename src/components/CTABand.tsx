@@ -13,7 +13,7 @@ export interface CTABandProps {
 }
 
 /**
- * Full-bleed dark band. Primary CTA gets the accent fill; secondary stays ghost-weight.
+ * Full-bleed dark band. Primary CTA uses onDark (light fill); secondary is ghostOnDark.
  */
 export function CTABand({ heading, body, scarcity, className }: CTABandProps) {
   return (
@@ -28,12 +28,7 @@ export function CTABand({ heading, body, scarcity, className }: CTABandProps) {
               <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
             </Link>
           </Button>
-          <Button
-            asChild
-            variant="ghost"
-            size="lg"
-            className="text-ink-inverse hover:text-ink-inverse"
-          >
+          <Button asChild variant="ghostOnDark" size="lg">
             <Link href={SECONDARY_CTA.href}>{SECONDARY_CTA.label}</Link>
           </Button>
         </div>

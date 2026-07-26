@@ -6,14 +6,17 @@ import { Button } from "@/components/Button";
 export function DownloadPdfButton({
   className,
   onClick,
+  /** Use on dark-band sections so border/text stay light. */
+  onDark = false,
 }: {
   className?: string;
   onClick?: () => void;
+  onDark?: boolean;
 }) {
   return (
     <Button
       type="button"
-      variant="secondary"
+      variant={onDark ? "secondaryOnDark" : "secondary"}
       size="lg"
       className={className}
       onClick={() => {

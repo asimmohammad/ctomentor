@@ -40,11 +40,7 @@ export default function ExperiencePage() {
             that has seen these patterns before and delivers immediate impact.
           </p>
           <Link href="/assessment">
-            <Button
-              variant="outline"
-              size="xl"
-              className="border-ink-inverse/30 text-ink-inverse hover:bg-ink-inverse hover:text-dark-band"
-            >
+            <Button variant="outlineOnDark" size="xl">
               Take the Technical Risk Assessment
             </Button>
           </Link>
