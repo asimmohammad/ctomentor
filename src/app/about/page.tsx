@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Section } from "@/components/layout/Section";
-import asimHeadshot from "@/assets/asim-headshot.png";
+import asimHeadshot from "@/assets/AsimMohammad.jpg";
 
 export const metadata: Metadata = {
   title: "About Asim Mohammad | The CTO Mentor",
