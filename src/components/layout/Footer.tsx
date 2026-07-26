@@ -19,7 +19,7 @@ const navigation = {
   connect: [
     { name: "Take the Technical Risk Assessment", href: "/assessment" },
     { name: "Request a confidential conversation", href: "/book" },
-    { name: "LinkedIn", href: "https://www.linkedin.com/in/asimmohammad", target: "_blank" },
+    { name: "LinkedIn", href: "https://www.linkedin.com/in/asimmohammad1", target: "_blank" },
   ],
 };
 

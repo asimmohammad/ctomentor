@@ -36,6 +36,20 @@ const LIGHT_SWATCHES: Swatch[] = [
   { name: "Ink on surface", token: "--ink / --surface", hex: light.ink, on: "--surface", onHex: light.surface },
   { name: "Ink on surface-alt", token: "--ink / --surface-alt", hex: light.ink, on: "--surface-alt", onHex: light.surfaceAlt },
   { name: "Inverse on dark-band", token: "--ink-inverse / --dark-band", hex: light.inkInverse, on: "--dark-band", onHex: light.darkBand },
+  {
+    name: "Inverse muted on dark-band",
+    token: "--ink-muted-inverse / --dark-band",
+    hex: light.inkMutedInverse,
+    on: "--dark-band",
+    onHex: light.darkBand,
+  },
+  {
+    name: "Inverse faint on dark-band",
+    token: "--ink-faint-inverse / --dark-band",
+    hex: light.inkFaintInverse,
+    on: "--dark-band",
+    onHex: light.darkBand,
+  },
   { name: "Accent on dark-band", token: "--accent / --dark-band", hex: light.accent, on: "--dark-band", onHex: light.darkBand },
   { name: "Success on paper", token: "--success / --paper", hex: light.success, on: "--paper", onHex: light.paper },
   { name: "Warning on paper", token: "--warning / --paper", hex: light.warning, on: "--paper", onHex: light.paper },
@@ -225,6 +239,37 @@ export default function StyleguideClient() {
               </Button>
             </div>
           </div>
+        </div>
+      </Section>
+
+      {/* On-dark variants live on a dark band — a light-page sample cannot catch a
+          cream-fill-plus-cream-label regression. */}
+      <Section spacing="standard" tone="dark" id="button-on-dark">
+        <Eyebrow className="text-ink-inverse/70">Components</Eyebrow>
+        <h2 className="mt-3 font-display text-h2">Button — on dark</h2>
+        <p className="mt-3 max-w-measure font-text text-body text-ink-muted">
+          Every label below must be readable. Charcoal accent disappears here, so primary CTAs
+          switch to the light-filled onDark variant.
+        </p>
+        <div className="mt-8 flex flex-wrap items-center gap-4">
+          <Button variant="onDark">onDark</Button>
+          <Button variant="secondaryOnDark">secondaryOnDark</Button>
+          <Button variant="outlineOnDark">outlineOnDark</Button>
+          <Button variant="ghostOnDark">ghostOnDark</Button>
+        </div>
+        <div className="mt-4 flex flex-wrap items-center gap-4">
+          <Button variant="onDark" size="sm">
+            Small
+          </Button>
+          <Button variant="onDark" size="md">
+            Medium
+          </Button>
+          <Button variant="onDark" size="lg" arrow>
+            Large
+          </Button>
+          <Button variant="onDark" disabled>
+            Disabled
+          </Button>
         </div>
       </Section>
 

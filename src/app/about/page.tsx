@@ -106,8 +106,8 @@ export default function AboutPage() {
           </p>
           <p className="text-body font-text text-ink">
             As an investor and advisor to startups since 2017, and as a board member for nonprofit organizations, I stay
-            close to both the operator and the advisor side. The CTO Mentor is where I help founders and leadership
-            teams get technology strategy, scaling, and compliance right — with practical, outcome-focused guidance.
+            close to both the operator and the advisor side. This practice is where I help founders and leadership
+            teams get technology strategy, scaling, and compliance right: practical, outcome-focused guidance.
           </p>
         </div>
       </Section>

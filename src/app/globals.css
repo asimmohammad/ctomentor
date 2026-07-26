@@ -67,6 +67,7 @@ h1,
 h2 {
   font-family: var(--font-display);
   /* Inherit color so tone="dark" / text-ink-inverse sections stay readable */
+  color: inherit;
   font-weight: 700;
 }
 
@@ -86,6 +87,7 @@ h3,
 h4 {
   font-family: var(--font-text);
   /* Inherit color so tone="dark" / text-ink-inverse sections stay readable */
+  color: inherit;
   font-weight: 600;
 }
 
@@ -127,6 +129,23 @@ a {
 
 .metric {
   font-variant-numeric: tabular-nums lining-nums;
+}
+
+/*
+ * Safety net for dark surfaces — Section tone="dark", Card variant="dark", Footer.
+ * Text defaults to inverse ink and the muted/faint ramp flips, so an unstyled child
+ * or a stray text-ink-muted cannot render near-black on near-black.
+ *
+ * --ink is deliberately NOT remapped: Button variant="onDark" paints a cream fill
+ * inside these bands and relies on text-ink staying dark.
+ *
+ * The muted/faint remap inherits, so a light-filled panel (bg-surface, bg-paper)
+ * nested inside a dark band must set its own muted text colors.
+ */
+.bg-dark-band {
+  color: var(--ink-inverse);
+  --ink-muted: var(--ink-muted-inverse);
+  --ink-faint: var(--ink-faint-inverse);
 }
 
 /* Hero portrait — duotone to --ink / --paper; edge-to-edge, no radius */

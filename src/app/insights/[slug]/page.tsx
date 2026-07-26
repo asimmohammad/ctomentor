@@ -103,6 +103,7 @@ export default function InsightArticlePage({ params }: PageProps) {
               <a
                 href={piece.substackUrl}
                 className="text-accent underline-offset-4 hover:underline"
+                target="_blank"
                 rel="noopener noreferrer"
               >
                 Originally on Substack

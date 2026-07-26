@@ -69,12 +69,12 @@ const ENGAGEMENTS = [
       "90-day remediation plan with sequencing",
       "Live readout with Q&A",
     ],
-    tag: "For deal teams needing a fast read",
+    tag: "Deal teams · fast read",
     emphasized: false,
   },
   {
     name: "Embedded Technology Leadership",
-    cadence: "per month · 3-month minimum",
+    cadence: "Monthly · 3-month minimum",
     description: "Operating seat alongside management while the engineering plan is rebuilt and executed.",
     deliverables: [
       "Weekly operating cadence with the leadership team",
@@ -82,12 +82,12 @@ const ENGAGEMENTS = [
       "Architecture and delivery roadmap owned end-to-end",
       "Board-ready technology updates each cycle",
     ],
-    tag: "For portfolio companies on the critical path",
+    tag: "Portfolio · critical path",
     emphasized: true,
   },
   {
     name: "Technical Due Diligence",
-    cadence: "per transaction",
+    cadence: "Per transaction",
     description: "Pre-acquisition assessment of architecture, security, scalability, and the team.",
     deliverables: [
       "IC-ready written diligence report",
@@ -95,29 +95,30 @@ const ENGAGEMENTS = [
       "Security and compliance posture review",
       "Team and delivery-capacity evaluation",
     ],
-    tag: "For deal partners before price is locked",
+    tag: "Pre-price diligence",
     emphasized: false,
   },
 ] as const;
 
+/** Homepage tiles expand situation/context; ProofBar keeps the short metric strip once. */
 const CASE_STUDIES = [
   {
     label: "Cloud economics",
     metric: "38%",
     narrative:
-      "Series A SaaS: cut cloud spend while increasing delivery velocity. The binding constraint was architecture cost drivers, not headcount.",
+      "Series A SaaS with runaway AWS spend and slowing releases. The binding constraint was architecture cost drivers, not headcount. Spend dropped while delivery velocity rose.",
   },
   {
     label: "Transaction",
     metric: "$600M",
     narrative:
-      "Technical readiness for a strategic exit: diligence pack, architecture narrative, and team story that survived buyer review.",
+      "Strategic exit where technology diligence would move the multiple. Diligence pack, architecture narrative, and team story held through buyer technical review.",
   },
   {
     label: "Compliance",
     metric: "6 mo",
     narrative:
-      "SOC 2 Type II without freezing the roadmap. Controls and evidence landed while product still shipped.",
+      "Growth company that needed SOC 2 Type II without pausing the roadmap. Controls and evidence landed while product continued to ship on schedule.",
   },
 ] as const;
 
@@ -142,7 +143,7 @@ const jsonLd = {
         "AWS GovCloud",
         "Private equity technology",
       ],
-      sameAs: ["https://www.linkedin.com/in/asimmohammad"],
+      sameAs: ["https://www.linkedin.com/in/asimmohammad1"],
       email: "mailto:asim@thectomentor.com",
     },
     {
@@ -218,7 +219,7 @@ export default function HomePage() {
                   {/* Swap PORTRAIT_SRC in lib/media.ts when asim-final.jpg is committed. */}
                   <Image
                     src={PORTRAIT_SRC}
-                    alt={`${PORTRAIT_ALT} — editorial portrait pending final photograph`}
+                    alt={`${PORTRAIT_ALT} (editorial portrait pending final photograph)`}
                     fill
                     priority
                     unoptimized
@@ -270,13 +271,13 @@ export default function HomePage() {
                 )}
                 <h3 className="metric font-display text-h2 font-semibold text-ink">{item.name}</h3>
                 <p className="mt-2 font-text text-caption text-ink-muted">{item.cadence}</p>
-                <p className="mt-6 font-text text-body text-ink-muted">{item.description}</p>
+                <p className="mt-6 max-w-measure font-text text-body text-ink-muted">{item.description}</p>
                 <ul className="mt-6 flex-1 list-none space-y-3 border-t border-border pt-6">
                   {item.deliverables.map((d) => (
-                    <li
-                      key={d}
-                      className="border-l border-accent/40 pl-3 font-text text-small text-ink"
-                    >
+                    <li key={d} className="font-text text-small text-ink">
+                      <span className="mr-2 text-ink-faint" aria-hidden="true">
+                        –
+                      </span>
                       {d}
                     </li>
                   ))}
@@ -337,8 +338,8 @@ export default function HomePage() {
             Twelve questions. Four minutes. A scored view of your technology risk.
           </h2>
           <p className="mt-6 font-text text-lead text-ink-inverse/85">
-            The score gives you a shared artifact for partners: where architecture, delivery, security, and team stand
-            relative to peers at your stage, before any conversation is booked.
+            Partners get a shared artifact: where architecture, delivery, security, and team stand relative to peers at
+            your stage, before any conversation is booked.
           </p>
           <div className="mt-10">
             <Button asChild variant="onDark" size="lg">

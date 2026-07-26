@@ -83,6 +83,7 @@ export default function VigilPage() {
           <a
             href="https://helixbots.ai"
             className="text-accent underline-offset-4 hover:underline"
+            target="_blank"
             rel="noopener noreferrer"
           >
             helixbots.ai

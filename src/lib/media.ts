@@ -1,14 +1,20 @@
 /**
  * Canonical public media paths. Swap PORTRAIT_SRC when the editorial shoot lands —
  * every consumer imports from here so paths cannot drift.
+ *
+ * public/ inventory (as of last audit):
+ * - /portraits/hero-placeholder.svg (current portrait stand-in)
+ * - /logo.svg, /favicon.svg, /placeholder.svg
+ * Missing (user must add): /portraits/asim-final.jpg
  */
 export const SITE_ORIGIN = "https://thectomentor.com" as const;
 
-/** Temporary stand-in. Replace with `/portraits/asim-final.jpg` when committed to /public. */
+/** Stand-in until `/public/portraits/asim-final.jpg` is committed. */
 export const PORTRAIT_SRC = "/portraits/hero-placeholder.svg" as const;
 
 export const PORTRAIT_ALT = "Asim Mohammad" as const;
 
+/** Asset exists, but the live Nav/Footer render a text wordmark — nothing renders this yet. */
 export const LOGO_SRC = "/logo.svg" as const;
 
 export const FAVICON_SRC = "/favicon.svg" as const;

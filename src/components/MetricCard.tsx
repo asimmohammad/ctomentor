@@ -37,7 +37,7 @@ export function MetricCard({
       </p>
       <p
         className={cn(
-          "font-text text-body",
+          "max-w-measure font-text text-body",
           variant === "dark" ? "text-ink-inverse/80" : "text-ink-muted",
         )}
       >

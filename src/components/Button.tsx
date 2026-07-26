@@ -9,7 +9,8 @@ export type ButtonVariant =
   | "ghost"
   | "onDark"
   | "ghostOnDark"
-  | "secondaryOnDark";
+  | "secondaryOnDark"
+  | "outlineOnDark";
 export type ButtonSize = "sm" | "md" | "lg";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -39,6 +40,9 @@ const variantClass: Record<ButtonVariant, string> = {
   /** Outlined control for dark-band (Download PDF, secondary CTAs). */
   secondaryOnDark:
     "border border-ink-inverse bg-transparent text-ink-inverse hover:bg-ink-inverse hover:text-dark-band active:bg-ink-inverse disabled:border-ink-inverse/40 disabled:text-ink-inverse/50",
+  /** Alias of secondaryOnDark for pages still using the outlineOnDark name. */
+  outlineOnDark:
+    "border border-ink-inverse/30 bg-transparent text-ink-inverse hover:bg-ink-inverse hover:text-dark-band active:bg-ink-inverse disabled:border-ink-inverse/40 disabled:text-ink-inverse/50",
 };
 
 const sizeClass: Record<ButtonSize, string> = {
@@ -84,8 +88,9 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       "inline-flex items-center justify-center gap-2 rounded-none font-text font-medium transition-colors duration-standard ease-standard",
       "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",
       "disabled:pointer-events-none disabled:opacity-50",
-      variantClass[variant],
+      // Size first so the variant's text color is never the loser of a merge conflict.
       sizeClass[size],
+      variantClass[variant],
       className,
     );
 

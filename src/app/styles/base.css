@@ -64,6 +64,7 @@ h1,
 h2 {
   font-family: var(--font-display);
   /* Inherit color so tone="dark" / text-ink-inverse sections stay readable */
+  color: inherit;
   font-weight: 700;
 }
 
@@ -83,6 +84,7 @@ h3,
 h4 {
   font-family: var(--font-text);
   /* Inherit color so tone="dark" / text-ink-inverse sections stay readable */
+  color: inherit;
   font-weight: 600;
 }
 

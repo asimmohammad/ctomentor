@@ -40,7 +40,7 @@ export function NewsletterForm() {
       }
 
       setStatus("success");
-      setMessage("You are on the list. I write infrequently and only when there is something to say.");
+      setMessage("You are on the list.");
       setEmail("");
       setRole("");
       setCompany("");

@@ -49,7 +49,7 @@ const DEFAULT_COLUMNS: FooterColumn[] = [
 export function Footer({
   columns = DEFAULT_COLUMNS,
   email = "asim@thectomentor.com",
-  linkedInUrl = "https://www.linkedin.com/in/asimmohammad",
+  linkedInUrl = "https://www.linkedin.com/in/asimmohammad1",
 }: FooterProps) {
   return (
     <footer className="bg-dark-band text-ink-inverse">

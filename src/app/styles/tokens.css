@@ -15,6 +15,9 @@
   --accent: #2a2825;
   --accent-hover: #16130f;
   --ink-inverse: #faf8f4;
+  /* Muted/faint text for dark bands — AA on --dark-band (8.2:1 and 4.9:1). */
+  --ink-muted-inverse: #b3ada2;
+  --ink-faint-inverse: #8a847a;
   --dark-band: #16130f;
   --success: #3f6b32;
   --warning: #8a5a17;
@@ -154,6 +157,8 @@
   --accent: #c4bfb5;
   --accent-hover: #e8e4dc;
   --ink-inverse: #faf8f4;
+  --ink-muted-inverse: #b3ada2;
+  --ink-faint-inverse: #8a847a;
   --dark-band: #16130f;
   --success: #3f6b32;
   --warning: #8a5a17;

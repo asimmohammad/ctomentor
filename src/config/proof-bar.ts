@@ -19,6 +19,7 @@ export const PROOF_LOGOS: ProofLogo[] = [
   // { name: "Acme Capital", src: "/logos/acme.svg" },
 ];
 
+/** Shown once site-wide via ProofBar — case-study tiles expand context, not these one-liners. */
 export const PROOF_METRICS: ProofMetric[] = [
   { statement: "$600M exit: technical readiness" },
   { statement: "SOC 2 Type II in 6 months" },
