@@ -63,5 +63,36 @@ if [[ "$FAIL" -ne 0 ]]; then
   exit 1
 fi
 
+# 6. Testimonials must include permissionOn
+if [[ -f src/lib/proof.ts ]]; then
+  if node -e "
+    const fs = require('fs');
+    const src = fs.readFileSync('src/lib/proof.ts', 'utf8');
+    const m = src.match(/export const TESTIMONIALS[^=]*=\\s*(\\[[\\s\\S]*?\\]);/);
+    if (!m) process.exit(0);
+    const arr = m[1].replace(/\\/\\*[\\s\\S]*?\\*\\//g, '').replace(/\\/\\/.*\$/gm, '');
+    const objects = arr.match(/\\{[\\s\\S]*?\\}/g) || [];
+    const bad = objects.filter(o => /quote\\s*:/.test(o) && !/permissionOn\\s*:/.test(o));
+    if (bad.length) {
+      console.error('FAIL: testimonial(s) missing permissionOn');
+      bad.forEach(o => console.error(o.trim().slice(0, 120)));
+      process.exit(1);
+    }
+  "; then
+    echo "OK: testimonials include permissionOn when present"
+  else
+    FAIL=1
+  fi
+else
+  echo "FAIL: src/lib/proof.ts missing (required for proof system)"
+  FAIL=1
+fi
+
+if [[ "$FAIL" -ne 0 ]]; then
+  echo
+  echo "brief-check FAILED"
+  exit 1
+fi
+
 echo
 echo "brief-check PASSED"

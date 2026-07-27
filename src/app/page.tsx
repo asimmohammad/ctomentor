@@ -8,13 +8,14 @@ import { CTABand } from "@/components/CTABand";
 import { Eyebrow } from "@/components/Eyebrow";
 import { MetricCard } from "@/components/MetricCard";
 import { NewsletterForm } from "@/components/NewsletterForm";
-import { ProofBar } from "@/components/ProofBar";
+import { ProofBand } from "@/components/proof/ProofBand";
+import { ProofResults } from "@/components/proof/ProofResults";
+import { ProofTestimonials } from "@/components/proof/ProofTestimonials";
 import { Container } from "@/components/layout/Container";
 import { Grid, GridItem } from "@/components/layout/Grid";
 import { Section } from "@/components/layout/Section";
-import { PROOF_METRICS } from "@/config/proof-bar";
-import { estimateReadTimeMinutes, getRecentArticles } from "@/lib/articles";
 import { PRIMARY_CTA, SECONDARY_CTA } from "@/lib/cta";
+import { estimateReadTimeMinutes, getRecentArticles } from "@/lib/articles";
 import { PORTRAIT_ALT, PORTRAIT_SRC } from "@/lib/media";
 import { PRICING_BY_ID } from "@/lib/pricing";
 
@@ -98,7 +99,7 @@ const ENGAGEMENTS = [
   },
 ] as const;
 
-/** Homepage tiles expand situation/context; ProofBar keeps the short metric strip once. */
+/** Homepage tiles expand situation/context; ProofBand shows client logos when configured. */
 const CASE_STUDIES = [
   {
     label: "Cloud economics",
@@ -229,8 +230,8 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* Proof once — four metrics, not a prose trust line */}
-      <ProofBar logos={[]} metrics={PROOF_METRICS} />
+      {/* Client proof — logos auto-discovered from src/assets/logo/ */}
+      <ProofBand priority />
 
       <Section spacing="standard" tone="paper" id="problem">
         <Eyebrow>The problem</Eyebrow>
@@ -296,6 +297,10 @@ export default function HomePage() {
           })}
         </Grid>
       </Section>
+
+      <ProofResults />
+
+      <ProofTestimonials />
 
       <Section spacing="standard" tone="paper" id="case-studies">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">

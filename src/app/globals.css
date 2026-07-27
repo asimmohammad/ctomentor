@@ -213,3 +213,30 @@ a {
   font-family: var(--font-text), "Switzer", -apple-system, "Segoe UI", sans-serif;
 }
 
+/* Proof band marquee — active only above 8 logos; paused on hover/focus */
+@media (prefers-reduced-motion: no-preference) {
+  .proof-marquee-track {
+    animation: proof-marquee 48s linear infinite;
+  }
+
+  .proof-marquee:hover .proof-marquee-track,
+  .proof-marquee:focus-within .proof-marquee-track {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes proof-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .proof-marquee-track {
+    animation: none;
+  }
+}
+

@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { Eyebrow } from "@/components/Eyebrow";
+import { ProofBand } from "@/components/proof/ProofBand";
 import { Grid, GridItem } from "@/components/layout/Grid";
 import { Section } from "@/components/layout/Section";
 import { PRIMARY_CTA, SECONDARY_CTA } from "@/lib/cta";
@@ -97,6 +98,8 @@ export default async function BookPage({ searchParams }: PageProps) {
               risk is material. Not for shopping hourly rates or marketplace fractional fills.
             </p>
           </div>
+
+          <ProofBand embedded />
 
           <div className="flex gap-4 border-t border-border pt-6">
             <div className="relative h-20 w-20 shrink-0 overflow-hidden border border-border bg-surface-alt">

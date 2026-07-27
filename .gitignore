@@ -29,3 +29,6 @@ supabase/.temp/
 .next
 data/assessments/*
 !data/assessments/.gitkeep
+
+# Auto-generated logo manifest (emit via scripts/generate-logo-manifest.mjs)
+src/lib/proof-logos.generated.ts

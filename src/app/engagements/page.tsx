@@ -5,6 +5,7 @@ import { Button } from "@/components/Button";
 import { Card } from "@/components/Card";
 import { CTABand } from "@/components/CTABand";
 import { Eyebrow } from "@/components/Eyebrow";
+import { ProofBand } from "@/components/proof/ProofBand";
 import { Grid, GridItem } from "@/components/layout/Grid";
 import { Section } from "@/components/layout/Section";
 import { PRIMARY_CTA, SECONDARY_CTA } from "@/lib/cta";
@@ -387,6 +388,8 @@ export default function EngagementsPage() {
           </p>
         </div>
       </Section>
+
+      <ProofBand />
 
       <Section spacing="standard" tone="paper" id="compare">
         <Eyebrow>Compare</Eyebrow>

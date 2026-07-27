@@ -13,3 +13,6 @@ export { Nav, type NavProps, type NavLinkItem } from "./Nav";
 export { Footer, type FooterProps, type FooterColumn } from "./Footer";
 export { CTABand, type CTABandProps } from "./CTABand";
 export { ProofBar, type ProofBarProps } from "./ProofBar";
+export { ProofBand } from "./proof/ProofBand";
+export { ProofResults } from "./proof/ProofResults";
+export { ProofTestimonials } from "./proof/ProofTestimonials";

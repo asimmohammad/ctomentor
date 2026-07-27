@@ -28,7 +28,14 @@ export type BookingAnalyticsEvent =
     }
   | { name: "booking_cancelled"; assessment_linked?: boolean };
 
-export type AnalyticsEvent = AssessmentAnalyticsEvent | BookingAnalyticsEvent;
+export type ProofAnalyticsEvent =
+  | { name: "proof_band_viewed"; logo_count: number }
+  | { name: "proof_logo_clicked"; slug: string };
+
+export type AnalyticsEvent =
+  | AssessmentAnalyticsEvent
+  | BookingAnalyticsEvent
+  | ProofAnalyticsEvent;
 
 type GtagFn = (...args: unknown[]) => void;
 
@@ -146,4 +153,8 @@ export const analytics = {
     }),
   bookingCancelled: (assessmentLinked?: boolean) =>
     track({ name: "booking_cancelled", assessment_linked: assessmentLinked }),
+
+  proofBandViewed: (logoCount: number) =>
+    track({ name: "proof_band_viewed", logo_count: logoCount }),
+  proofLogoClicked: (slug: string) => track({ name: "proof_logo_clicked", slug }),
 };
