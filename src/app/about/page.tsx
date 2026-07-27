@@ -30,17 +30,19 @@ export default function AboutPage() {
     <>
       {/* Hero */}
       <Section spacing="generous" tone="alt">
-        <div className="max-w-4xl flex flex-col md:flex-row md:items-start gap-10">
-          <div className="relative h-48 w-48 flex-shrink-0 overflow-hidden border border-border">
+        <div className="mx-auto flex max-w-5xl flex-col items-start gap-10 md:flex-row md:gap-12">
+          <div className="w-full max-w-md flex-shrink-0 overflow-hidden border border-border md:w-[min(42%,24rem)] md:max-w-none">
             <Image
               src={ABOUT_PORTRAIT_SRC}
               alt={PORTRAIT_ALT}
-              fill
-              className="object-cover object-top"
-              sizes="192px"
+              width={ABOUT_PORTRAIT_SRC.width}
+              height={ABOUT_PORTRAIT_SRC.height}
+              className="h-auto w-full object-contain"
+              sizes="(min-width: 768px) 24rem, 100vw"
+              priority
             />
           </div>
-          <div className="flex-1">
+          <div className="min-w-0 flex-1">
             <h1 className="font-display text-h1 text-ink">
               Asim Mohammad
             </h1>
