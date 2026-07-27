@@ -1,6 +1,6 @@
 import type { StaticImageData } from "next/image";
 import portrait from "@/assets/asim-headshot2.png";
-import homeHero from "@/assets/home.png";
+import surfaceHero from "@/assets/Surface.svg";
 
 /**
  * Canonical media. Portrait is imported from src/assets so Next can optimize it.
@@ -13,8 +13,12 @@ export const PORTRAIT_SRC: StaticImageData = portrait;
 
 export const PORTRAIT_ALT = "Asim Mohammad" as const;
 
-/** Homepage hero visual — risk diagram (homepage only). */
-export const HOME_HERO_SRC: StaticImageData = homeHero;
+/**
+ * Homepage hero visual — Surface diagram (homepage only).
+ * SVG import resolves to a URL string under Next’s webpack asset pipeline.
+ */
+export const HOME_HERO_SRC: string =
+  typeof surfaceHero === "string" ? surfaceHero : (surfaceHero as StaticImageData).src;
 
 export const HOME_HERO_ALT =
   "Four technology risks: incomplete due diligence, unforeseen technical debt, integration challenges, and scalability concerns" as const;

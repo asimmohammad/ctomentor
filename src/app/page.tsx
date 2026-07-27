@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/Button";
@@ -183,26 +182,26 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* HERO — one composition: brand signal via portrait plane + H1 + dual CTA */}
+      {/* HERO — copy left, Surface diagram dominant right */}
       <section
         aria-label="Introduction"
-        className="relative flex min-h-[calc(100svh-var(--header-height))] flex-col justify-center bg-paper"
+        className="relative bg-paper"
       >
-        <Container className="flex flex-1 flex-col py-[var(--space-7)] lg:py-0">
-          <Grid className="flex-1 items-stretch lg:min-h-[calc(100svh-var(--header-height))]">
+        <Container className="py-[var(--space-7)] lg:py-[var(--space-8)]">
+          <Grid className="items-center gap-y-10 lg:gap-y-0">
             <GridItem
               span={12}
-              lg={7}
-              className="flex flex-col justify-center py-[var(--space-7)] lg:pr-[var(--space-6)]"
+              lg={5}
+              className="flex flex-col justify-center lg:pr-[var(--space-5)]"
             >
-              <h1 className="max-w-[18ch] font-display text-hero font-semibold text-ink">
+              <h1 className="max-w-[20ch] font-display text-h1 font-semibold text-ink">
                 Surface technical risk before the deal is priced.
               </h1>
-              <p className="mt-8 max-w-measure font-text text-lead text-ink-muted">
+              <p className="mt-6 max-w-measure font-text text-lead text-ink-muted">
                 I score the technology risk in your deal before price is locked, then stay on when engineering has to
                 deliver the thesis.
               </p>
-              <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
                 <Button asChild variant="primary" size="lg">
                   <PrimaryCtaLink href={PRIMARY_CTA.href} label={PRIMARY_CTA.label} />
                 </Button>
@@ -212,18 +211,19 @@ export default function HomePage() {
               </div>
             </GridItem>
 
-            <GridItem span={12} lg={5} className="relative min-h-[28rem] lg:min-h-0">
-              <div className="absolute inset-0 overflow-hidden bg-[#0a0a0a] lg:inset-y-0 lg:-mr-[calc((100vw-min(100vw,var(--content-max)))/2+var(--gutter))]">
-                <div className="relative h-full w-full">
-                  <Image
-                    src={HOME_HERO_SRC}
-                    alt={HOME_HERO_ALT}
-                    fill
-                    priority
-                    className="object-contain object-center p-6 lg:p-10"
-                    sizes="(min-width: 1024px) 42vw, 100vw"
-                  />
-                </div>
+            <GridItem span={12} lg={7} className="relative">
+              <div className="overflow-hidden bg-[#272727] lg:-mr-[calc((100vw-min(100vw,var(--content-max)))/2+var(--gutter))]">
+                {/* Native img: SVG asset URL; natural dimensions, no fixed aspect box */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={HOME_HERO_SRC}
+                  alt={HOME_HERO_ALT}
+                  width={936}
+                  height={613}
+                  className="block h-auto w-full max-w-none"
+                  decoding="async"
+                  fetchPriority="high"
+                />
               </div>
             </GridItem>
           </Grid>
