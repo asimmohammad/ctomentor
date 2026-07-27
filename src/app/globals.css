@@ -199,3 +199,17 @@ a {
     transition: none;
   }
 }
+
+/*
+ * Cal.com embed overrides — audit when upgrading @calcom/embed-react.
+ * Prefer cssVarsPerTheme in CalBooker; these catch radius/font leaks.
+ */
+.cal-embed-shell iframe {
+  border: 0 !important;
+  border-radius: 0 !important;
+}
+
+.cal-embed-shell {
+  font-family: var(--font-text), "Switzer", -apple-system, "Segoe UI", sans-serif;
+}
+

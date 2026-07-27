@@ -1,44 +1,53 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { Eyebrow } from "@/components/Eyebrow";
-import { BookScheduler, type AssessmentWarmStart } from "@/components/funnel/BookScheduler";
 import { Grid, GridItem } from "@/components/layout/Grid";
 import { Section } from "@/components/layout/Section";
 import { PRIMARY_CTA, SECONDARY_CTA } from "@/lib/cta";
 import { getAssessment } from "@/lib/assessment/store";
+import { toBookAssessmentContext } from "@/lib/cal/assessment-context";
+import type { BookAssessmentContext } from "@/lib/cal/config";
 import { PORTRAIT_ALT, PORTRAIT_SRC } from "@/lib/media";
 import { ENTRY_ENGAGEMENT_LINE } from "@/lib/pricing";
 
 export const metadata: Metadata = {
   title: SECONDARY_CTA.label,
   description:
-    "Book a 30-minute Technical Risk Conversation. Four pre-booking fields, then choose a time on the calendar.",
+    "Book a 30-minute Technical Risk Conversation. Pick a time on the calendar — confidential, no pitch deck.",
   alternates: { canonical: "https://thectomentor.com/book" },
 };
+
+/** Client-only Cal embed — must not block first paint. */
+const CalBooker = dynamic(
+  () => import("@/components/funnel/CalBooker").then((m) => m.CalBooker),
+  {
+    ssr: false,
+    loading: () => (
+      <div
+        className="min-h-[40rem] w-full animate-pulse border border-border bg-paper"
+        aria-label="Loading calendar"
+      />
+    ),
+  },
+);
 
 type PageProps = {
   searchParams?: { assessment?: string };
 };
 
-async function loadWarmStart(id: string | undefined): Promise<AssessmentWarmStart | null> {
+async function loadAssessmentContext(
+  id: string | undefined,
+): Promise<BookAssessmentContext | null> {
   if (!id) return null;
   const record = await getAssessment(id);
   if (!record) return null;
-  return {
-    id: record.id,
-    name: record.lead.name,
-    email: record.lead.email,
-    company: record.lead.company,
-    overall: record.score.overall,
-    tierLabel: `Level ${record.score.tier.level} ${record.score.tier.name}`,
-  };
+  return toBookAssessmentContext(record);
 }
 
 export default async function BookPage({ searchParams }: PageProps) {
-  const warmStart = await loadWarmStart(searchParams?.assessment);
-  const calLink =
-    process.env.NEXT_PUBLIC_CAL_LINK?.trim() || "asim/technical-risk-conversation";
+  const assessment = await loadAssessmentContext(searchParams?.assessment);
 
   return (
     <Section spacing="standard" tone="paper">
@@ -82,7 +91,7 @@ export default async function BookPage({ searchParams }: PageProps) {
           </div>
 
           <div>
-            <h2 className="font-text text-h4 text-ink">Who it is for</h2>
+            <h2 className="font-text text-h4 text-ink">Who this is for</h2>
             <p className="mt-3 font-text text-body text-ink-muted">
               PE/VC deal and operating partners, and CEOs or boards at Series A–C software companies where technology
               risk is material. Not for shopping hourly rates or marketplace fractional fills.
@@ -108,7 +117,7 @@ export default async function BookPage({ searchParams }: PageProps) {
             </div>
           </div>
 
-          {!warmStart ? (
+          {!assessment ? (
             <p className="font-text text-small text-ink-muted">
               Have not taken the assessment yet?{" "}
               <Link href={PRIMARY_CTA.href} className="text-accent underline-offset-4 hover:underline">
@@ -120,9 +129,7 @@ export default async function BookPage({ searchParams }: PageProps) {
         </GridItem>
 
         <GridItem span={12} lg={7}>
-          <div className="border border-border bg-surface p-5 sm:p-6">
-            <BookScheduler calLink={calLink} warmStart={warmStart} />
-          </div>
+          <CalBooker assessment={assessment} />
         </GridItem>
       </Grid>
     </Section>

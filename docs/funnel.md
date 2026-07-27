@@ -1,29 +1,23 @@
 # Funnel: /book and /engage
 
-Two-tier conversion funnel. Cold traffic never lands on `/engage`.
-
 ## Canonical CTAs (`src/lib/cta.ts`)
 
-| Key | Label | Href |
-|-----|-------|------|
+| Constant | Label | Href |
+|---|---|---|
 | `PRIMARY_CTA` | Take the Technical Risk Assessment | `/assessment` |
 | `SECONDARY_CTA` | Request a confidential conversation | `/book` |
 
-`ENGAGE_PATH` (`/engage`) is bottom-of-funnel only. `/apply` permanently redirects to `/engage`.
-
 ## `/book` — Technical Risk Conversation
 
-1. Four pre-booking fields (name, work email, company, what's driving this).
-2. Inline Cal.com embed (`NEXT_PUBLIC_CAL_LINK`, default `asim/technical-risk-conversation`).
-3. Optional `?assessment=<uuid>` warm-starts copy and prefills from the submission.
-4. Confirmation lists three prep items and prompts the assessment if missing.
+1. Two-column layout: left copy + pricing line + bio; right Cal.com **inline** embed (`@calcom/embed-react`).
+2. Env: `NEXT_PUBLIC_CAL_USERNAME`, `NEXT_PUBLIC_CAL_EVENT_SLUG`, `CAL_WEBHOOK_SECRET`, `CAL_API_KEY`.
+3. Live event: `https://cal.com/asim-mohammad-0ydj0s/technical-risk-conversation`.
+4. Assessment handoff: `?assessment=` loads context card + prefill (name, email, company, driver suggestion, assessmentId).
+5. Webhook: `POST /api/cal/webhook` → `bookings` table + Resend notify + optional CAPI.
+6. Success: `/book/confirmed` (legacy `/book/confirmation` redirects).
 
-**Cal.com:** configure email reminders at **24 hours** and **1 hour** on the event type (show rates 70–80% with reminders).
+Configure in Cal.com: 24h/1h reminders, custom fields (`company`, `driving`/`notes`, hidden `assessmentId`), webhook signature secret, success redirect to `/book/confirmed`.
 
-## `/engage` — Engagement application
+## `/engage`
 
-Eight fields across three steps with progress, inline validation, and `localStorage` save/resume.
-
-Budget options match the offer ladder ($25k sprint / $25–50k mo / $50k+ mo / diligence). Attribution is required.
-
-Submissions → `engage_submissions` (migration `20260726010000_engage_submissions.sql`) + Resend internal alert.
+Bottom-of-funnel application only. Cold traffic → assessment.

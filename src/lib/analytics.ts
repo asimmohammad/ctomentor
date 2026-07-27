@@ -17,6 +17,19 @@ export type AssessmentAnalyticsEvent =
     }
   | { name: "assessment_shared"; variant: string; id: string };
 
+export type BookingAnalyticsEvent =
+  | { name: "book_page_viewed"; assessment_linked: boolean }
+  | { name: "cal_embed_loaded" }
+  | { name: "cal_slot_selected" }
+  | {
+      name: "call_booked";
+      assessment_linked: boolean;
+      scheduled_at: string | null;
+    }
+  | { name: "booking_cancelled"; assessment_linked?: boolean };
+
+export type AnalyticsEvent = AssessmentAnalyticsEvent | BookingAnalyticsEvent;
+
 type GtagFn = (...args: unknown[]) => void;
 
 function gtag(): GtagFn | null {
@@ -32,33 +45,33 @@ function pushDataLayer(payload: Record<string, unknown>) {
   w.dataLayer.push(payload);
 }
 
-function fireGa4(event: AssessmentAnalyticsEvent) {
+function fireGa4(event: AnalyticsEvent) {
   const fn = gtag();
   if (!fn) return;
   const { name, ...params } = event;
   fn("event", name, params);
 }
 
-function fireLinkedIn(event: AssessmentAnalyticsEvent) {
+function fireLinkedIn(event: AnalyticsEvent) {
   if (typeof window === "undefined") return;
   const partnerId = process.env.NEXT_PUBLIC_LINKEDIN_PARTNER_ID;
   if (!partnerId) return;
   const w = window as Window & { lintrk?: (a: string, b: Record<string, unknown>) => void };
   if (typeof w.lintrk !== "function") return;
 
-  // Conversion IDs are optional env maps; fire a generic track when present.
   const conversionId = process.env.NEXT_PUBLIC_LINKEDIN_CONVERSION_ID;
   if (!conversionId) return;
   if (
     event.name === "assessment_gate_submitted" ||
     event.name === "assessment_results_viewed" ||
-    event.name === "assessment_cta_clicked"
+    event.name === "assessment_cta_clicked" ||
+    event.name === "call_booked"
   ) {
     w.lintrk("track", { conversion_id: conversionId });
   }
 }
 
-function fireMeta(event: AssessmentAnalyticsEvent) {
+function fireMeta(event: AnalyticsEvent) {
   if (typeof window === "undefined") return;
   const w = window as Window & { fbq?: (...args: unknown[]) => void };
   if (typeof w.fbq !== "function") return;
@@ -69,12 +82,17 @@ function fireMeta(event: AssessmentAnalyticsEvent) {
     w.fbq("track", "Lead", { content_name: "assessment", variant: event.variant });
   } else if (event.name === "assessment_cta_clicked" && event.which === "book") {
     w.fbq("track", "Schedule", { content_name: "assessment_book" });
+  } else if (event.name === "call_booked") {
+    w.fbq("track", "Schedule", {
+      content_name: "technical_risk_conversation",
+      assessment_linked: event.assessment_linked,
+    });
   } else {
     w.fbq("trackCustom", event.name, { ...event });
   }
 }
 
-function fireReddit(event: AssessmentAnalyticsEvent) {
+function fireReddit(event: AnalyticsEvent) {
   if (typeof window === "undefined") return;
   const w = window as Window & { rdt?: (...args: unknown[]) => void };
   if (typeof w.rdt !== "function") return;
@@ -83,10 +101,12 @@ function fireReddit(event: AssessmentAnalyticsEvent) {
     w.rdt("track", "Lead");
   } else if (event.name === "assessment_started") {
     w.rdt("track", "Custom", { customEventName: "assessment_started" });
+  } else if (event.name === "call_booked") {
+    w.rdt("track", "Custom", { customEventName: "call_booked" });
   }
 }
 
-export function track(event: AssessmentAnalyticsEvent): void {
+export function track(event: AnalyticsEvent): void {
   try {
     pushDataLayer({ event: event.name, ...event });
     fireGa4(event);
@@ -113,4 +133,17 @@ export const analytics = {
     which: "book" | "pdf" | "newsletter" | "copy_link",
   ) => track({ name: "assessment_cta_clicked", variant, id, which }),
   shared: (variant: string, id: string) => track({ name: "assessment_shared", variant, id }),
+
+  bookPageViewed: (assessmentLinked: boolean) =>
+    track({ name: "book_page_viewed", assessment_linked: assessmentLinked }),
+  calEmbedLoaded: () => track({ name: "cal_embed_loaded" }),
+  calSlotSelected: () => track({ name: "cal_slot_selected" }),
+  callBooked: (input: { assessmentLinked: boolean; scheduledAt: string | null }) =>
+    track({
+      name: "call_booked",
+      assessment_linked: input.assessmentLinked,
+      scheduled_at: input.scheduledAt,
+    }),
+  bookingCancelled: (assessmentLinked?: boolean) =>
+    track({ name: "booking_cancelled", assessment_linked: assessmentLinked }),
 };

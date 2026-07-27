@@ -116,7 +116,7 @@ export type BudgetSelectValue = (typeof BUDGET_SELECT_OPTIONS)[number]["value"];
 /** Aggregate priceRange for Service / ItemList schema. */
 export const SITE_PRICE_RANGE = `${PRICE_FLOOR_DISPLAY}–$${PRICING_BY_ID["portfolio-partner"].priceFrom.toLocaleString("en-US")}+` as const;
 
-export function offerForTier(tier: PricingTierEntry) {
+export function offerForTier(tier: PricingTier) {
   const offer: {
     "@type": "Offer";
     priceCurrency: "USD";
@@ -145,14 +145,14 @@ export function offerForTier(tier: PricingTierEntry) {
   return offer;
 }
 
-export function serviceSchemaForTier(tier: PricingTierEntry, site: string, description: string) {
+export function serviceSchemaForTier(tier: PricingTier, site: string, description: string) {
   return {
     "@type": "Service" as const,
     name: tier.name,
     description,
     provider: { "@type": "Person" as const, name: "Asim Mohammad", url: site },
     url: `${site}/engagements#${tier.id}`,
-    priceRange: tier.priceTo != null ? `${tier.priceDisplay}` : tier.priceDisplay,
+    priceRange: tier.priceDisplay,
     offers: offerForTier(tier),
   };
 }

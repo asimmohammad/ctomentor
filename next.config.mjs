@@ -6,6 +6,7 @@ const nextConfig = {
   experimental: {
     serverComponentsExternalPackages: ["@react-pdf/renderer"],
   },
+  transpilePackages: ["@calcom/embed-react"],
   async redirects() {
     return [
       { source: "/services", destination: "/engagements", permanent: true },
