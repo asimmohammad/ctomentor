@@ -42,7 +42,7 @@ export default function InsightsPage({ searchParams }: PageProps) {
     <>
       <Section spacing="compact" tone="paper">
         <Eyebrow>Insights</Eyebrow>
-        <h1 className="mt-3 max-w-measure font-display text-h1 text-ink">
+        <h1 className="mt-3 max-w-measure font-display text-[clamp(1.875rem,3.25vw,2.875rem)] font-semibold leading-[1.1] tracking-[-0.025em] text-ink">
           Technology risk, written for people who price it.
         </h1>
         <p className="mt-4 max-w-measure font-text text-lead text-ink-muted">
