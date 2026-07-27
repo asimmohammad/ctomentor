@@ -94,10 +94,6 @@ export function CalBooker({ assessment }: CalBookerProps) {
             action: "eventTypeSelected",
             callback: () => analytics.calSlotSelected(),
           });
-          cal("on", {
-            action: "bookedSlotSelected",
-            callback: () => analytics.calSlotSelected(),
-          });
         }
 
         setApiReady(true);
