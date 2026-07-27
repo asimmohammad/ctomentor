@@ -16,7 +16,7 @@ import { Grid, GridItem } from "@/components/layout/Grid";
 import { Section } from "@/components/layout/Section";
 import { PRIMARY_CTA, SECONDARY_CTA } from "@/lib/cta";
 import { estimateReadTimeMinutes, getRecentArticles } from "@/lib/articles";
-import { PORTRAIT_ALT, PORTRAIT_SRC } from "@/lib/media";
+import { HOME_HERO_ALT, HOME_HERO_SRC } from "@/lib/media";
 import { PRICING_BY_ID } from "@/lib/pricing";
 
 const SITE_URL = "https://thectomentor.com";
@@ -213,14 +213,14 @@ export default function HomePage() {
             </GridItem>
 
             <GridItem span={12} lg={5} className="relative min-h-[28rem] lg:min-h-0">
-              <div className="absolute inset-0 overflow-hidden bg-paper lg:inset-y-0 lg:-mr-[calc((100vw-min(100vw,var(--content-max)))/2+var(--gutter))]">
-                <div className="hero-duotone relative h-full w-full">
+              <div className="absolute inset-0 overflow-hidden bg-[#0a0a0a] lg:inset-y-0 lg:-mr-[calc((100vw-min(100vw,var(--content-max)))/2+var(--gutter))]">
+                <div className="relative h-full w-full">
                   <Image
-                    src={PORTRAIT_SRC}
-                    alt={PORTRAIT_ALT}
+                    src={HOME_HERO_SRC}
+                    alt={HOME_HERO_ALT}
                     fill
                     priority
-                    className="object-cover object-center"
+                    className="object-contain object-center p-6 lg:p-10"
                     sizes="(min-width: 1024px) 42vw, 100vw"
                   />
                 </div>
