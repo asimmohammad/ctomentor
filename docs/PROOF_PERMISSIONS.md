@@ -6,7 +6,7 @@ Track written permission for every logo in `src/assets/logo/`. Update this table
 
 | Slug | Contact | Date granted | Scope | Restrictions |
 |------|---------|--------------|-------|--------------|
-| *(empty — add rows when logos are added)* | | | | |
+| Logo_Black | | | | |
 
 ## Scope values
 
