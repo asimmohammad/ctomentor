@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/layout/Section";
 import { Check } from "lucide-react";
+import { DILIGENCE_PRICE_LINE } from "@/lib/pricing";
 
 export const metadata: Metadata = {
   title: "Technology Due Diligence for PE & VC Firms | The CTO Mentor",
@@ -212,8 +213,8 @@ export default function InvestorsPage() {
         <div className="max-w-3xl">
           <h2 className="font-display text-h2 text-ink mb-6">Engagement Model</h2>
           <p className="text-lead font-text text-ink">
-            Technical Due Diligence per transaction with optional Portfolio Technology Partner retainers for ongoing
-            fund coverage. Scope and artifacts are defined upfront. No hourly surprises.
+            Technical Due Diligence at {DILIGENCE_PRICE_LINE}, with optional Portfolio Technology Partner retainers for
+            ongoing fund coverage. Scope and artifacts are defined upfront. No hourly surprises.
           </p>
           <div className="mt-10">
             <Link href="/book">

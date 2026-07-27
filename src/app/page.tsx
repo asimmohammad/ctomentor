@@ -16,6 +16,7 @@ import { PROOF_METRICS } from "@/config/proof-bar";
 import { estimateReadTimeMinutes, getRecentArticles } from "@/lib/articles";
 import { PRIMARY_CTA, SECONDARY_CTA } from "@/lib/cta";
 import { PORTRAIT_ALT, PORTRAIT_SRC } from "@/lib/media";
+import { PRICING_BY_ID } from "@/lib/pricing";
 
 const SITE_URL = "https://thectomentor.com";
 
@@ -60,8 +61,7 @@ const PROBLEMS = [
 
 const ENGAGEMENTS = [
   {
-    name: "Diagnostic Sprint",
-    cadence: "3 weeks · fixed scope",
+    id: "diagnostic-sprint" as const,
     description: "A time-boxed read on technology risk before you commit more capital or change the plan.",
     deliverables: [
       "Findings report for the deal team or board",
@@ -73,8 +73,7 @@ const ENGAGEMENTS = [
     emphasized: false,
   },
   {
-    name: "Embedded Technology Leadership",
-    cadence: "Monthly · 3-month minimum",
+    id: "embedded" as const,
     description: "Operating seat alongside management while the engineering plan is rebuilt and executed.",
     deliverables: [
       "Weekly operating cadence with the leadership team",
@@ -86,8 +85,7 @@ const ENGAGEMENTS = [
     emphasized: true,
   },
   {
-    name: "Technical Due Diligence",
-    cadence: "Per transaction",
+    id: "due-diligence" as const,
     description: "Pre-acquisition assessment of architecture, security, scalability, and the team.",
     deliverables: [
       "IC-ready written diligence report",
@@ -255,43 +253,47 @@ export default function HomePage() {
           How the work is scoped.
         </h2>
         <Grid className="mt-12">
-          {ENGAGEMENTS.map((item) => (
-            <GridItem key={item.name} span={12} lg={4}>
-              <Card
-                variant={item.emphasized ? "emphasized" : "default"}
-                static
-                className="flex h-full flex-col p-8"
-              >
-                {item.emphasized ? (
-                  <Eyebrow className="mb-4 text-accent">Most common engagement</Eyebrow>
-                ) : (
-                  <span className="mb-4 block h-[1.125rem]" aria-hidden="true" />
-                )}
-                <h3 className="metric font-display text-h2 font-semibold text-ink">{item.name}</h3>
-                <p className="mt-2 font-text text-caption text-ink-muted">{item.cadence}</p>
-                <p className="mt-6 max-w-measure font-text text-body text-ink-muted">{item.description}</p>
-                <ul className="mt-6 flex-1 list-none space-y-3 border-t border-border pt-6">
-                  {item.deliverables.map((d) => (
-                    <li key={d} className="font-text text-small text-ink">
-                      <span className="mr-2 text-ink-faint" aria-hidden="true">
-                        –
-                      </span>
-                      {d}
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-6 font-mono text-eyebrow uppercase tracking-[0.12em] text-ink-muted">
-                  {item.tag}
-                </p>
-                <Link
-                  href="/engagements"
-                  className="mt-6 inline-block font-text text-small font-medium text-accent underline-offset-4 hover:underline"
+          {ENGAGEMENTS.map((item) => {
+            const pricing = PRICING_BY_ID[item.id];
+            return (
+              <GridItem key={item.id} span={12} lg={4}>
+                <Card
+                  variant={item.emphasized ? "emphasized" : "default"}
+                  static
+                  className="flex h-full flex-col p-8"
                 >
-                  Full engagement details
-                </Link>
-              </Card>
-            </GridItem>
-          ))}
+                  {item.emphasized ? (
+                    <Eyebrow className="mb-4 text-accent">Most common engagement</Eyebrow>
+                  ) : (
+                    <span className="mb-4 block h-[1.125rem]" aria-hidden="true" />
+                  )}
+                  <h3 className="metric font-display text-h2 font-semibold text-ink">{pricing.name}</h3>
+                  <p className="metric mt-3 font-display text-h3 text-ink">{pricing.priceDisplay}</p>
+                  <p className="mt-1 font-text text-caption text-ink-muted">{pricing.meta}</p>
+                  <p className="mt-6 max-w-measure font-text text-body text-ink-muted">{item.description}</p>
+                  <ul className="mt-6 flex-1 list-none space-y-3 border-t border-border pt-6">
+                    {item.deliverables.map((d) => (
+                      <li key={d} className="font-text text-small text-ink">
+                        <span className="mr-2 text-ink-faint" aria-hidden="true">
+                          –
+                        </span>
+                        {d}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-6 font-mono text-eyebrow uppercase tracking-[0.12em] text-ink-muted">
+                    {item.tag}
+                  </p>
+                  <Link
+                    href="/engagements"
+                    className="mt-6 inline-block font-text text-small font-medium text-accent underline-offset-4 hover:underline"
+                  >
+                    Full engagement details
+                  </Link>
+                </Card>
+              </GridItem>
+            );
+          })}
         </Grid>
       </Section>
 

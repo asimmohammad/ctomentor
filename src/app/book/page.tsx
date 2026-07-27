@@ -8,6 +8,7 @@ import { Section } from "@/components/layout/Section";
 import { PRIMARY_CTA, SECONDARY_CTA } from "@/lib/cta";
 import { getAssessment } from "@/lib/assessment/store";
 import { PORTRAIT_ALT, PORTRAIT_SRC } from "@/lib/media";
+import { ENTRY_ENGAGEMENT_LINE } from "@/lib/pricing";
 
 export const metadata: Metadata = {
   title: SECONDARY_CTA.label,
@@ -69,6 +70,7 @@ export default async function BookPage({ searchParams }: PageProps) {
                 </li>
               ))}
             </ul>
+            <p className="mt-5 font-text text-body text-ink">{ENTRY_ENGAGEMENT_LINE}</p>
           </div>
 
           <div>

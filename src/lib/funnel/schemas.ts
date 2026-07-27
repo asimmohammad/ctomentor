@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { BUDGET_SELECT_OPTIONS } from "@/lib/pricing";
 
 export const bookPrefillSchema = z.object({
   name: z.string().trim().min(1, "Enter your name.").max(120),
@@ -13,6 +14,11 @@ export const bookPrefillSchema = z.object({
 
 export type BookPrefill = z.infer<typeof bookPrefillSchema>;
 
+const budgetValues = BUDGET_SELECT_OPTIONS.map((o) => o.value) as [
+  (typeof BUDGET_SELECT_OPTIONS)[number]["value"],
+  ...(typeof BUDGET_SELECT_OPTIONS)[number]["value"][],
+];
+
 export const engageSchema = z.object({
   name: z.string().trim().min(2, "Enter your name.").max(100),
   email: z.string().trim().email("Enter a valid work email."),
@@ -26,8 +32,8 @@ export const engageSchema = z.object({
     .trim()
     .min(20, "Give enough detail to assess fit (20+ characters).")
     .max(2000),
-  budget: z.enum(["sprint-25k", "monthly-25-50k", "monthly-50k-plus", "diligence"], {
-    required_error: "Select an engagement model.",
+  budget: z.enum(budgetValues, {
+    required_error: "Select a budget.",
   }),
   timeline: z.enum(["immediate", "1-3-months", "exploring"], {
     required_error: "Select a timeline.",
@@ -40,12 +46,8 @@ export const engageSchema = z.object({
 
 export type EngageFormValues = z.infer<typeof engageSchema>;
 
-export const BUDGET_OPTIONS = [
-  { value: "sprint-25k", label: "Diagnostic Sprint" },
-  { value: "monthly-25-50k", label: "Embedded Technology Leadership" },
-  { value: "monthly-50k-plus", label: "Portfolio Technology Partner" },
-  { value: "diligence", label: "Technical Due Diligence" },
-] as const;
+/** Re-export ladder budget options — single source in lib/pricing.ts. */
+export const BUDGET_OPTIONS = BUDGET_SELECT_OPTIONS;
 
 export const TIMELINE_OPTIONS = [
   { value: "immediate", label: "Immediate" },

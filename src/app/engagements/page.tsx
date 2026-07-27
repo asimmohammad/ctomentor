@@ -8,6 +8,14 @@ import { Eyebrow } from "@/components/Eyebrow";
 import { Grid, GridItem } from "@/components/layout/Grid";
 import { Section } from "@/components/layout/Section";
 import { PRIMARY_CTA, SECONDARY_CTA } from "@/lib/cta";
+import {
+  PRICING_BY_ID,
+  PRICING_TIERS,
+  PRICE_FLOOR_DISPLAY,
+  SITE_PRICE_RANGE,
+  serviceSchemaForTier,
+  type PricingTierId,
+} from "@/lib/pricing";
 
 const SITE = "https://thectomentor.com";
 
@@ -26,9 +34,7 @@ export const metadata: Metadata = {
 };
 
 type Tier = {
-  id: string;
-  name: string;
-  structure: string;
+  id: PricingTierId;
   badge?: string;
   emphasized?: boolean;
   description: string;
@@ -42,8 +48,6 @@ type Tier = {
 const tiers: Tier[] = [
   {
     id: "diagnostic-sprint",
-    name: "Diagnostic Sprint",
-    structure: "Fixed · 3 weeks",
     description:
       "A time-boxed read on technology risk before you commit more capital or change the operating plan.",
     artifacts: [
@@ -62,8 +66,6 @@ const tiers: Tier[] = [
   },
   {
     id: "embedded",
-    name: "Embedded Technology Leadership",
-    structure: "Monthly retainer · 3-month minimum · 1–2 days/week",
     badge: "Most common engagement",
     emphasized: true,
     description:
@@ -84,8 +86,6 @@ const tiers: Tier[] = [
   },
   {
     id: "due-diligence",
-    name: "Technical Due Diligence",
-    structure: "Per transaction",
     description:
       "Pre-acquisition assessment of architecture, security, scalability, and the team — written for the IC, not for theater.",
     artifacts: [
@@ -104,8 +104,6 @@ const tiers: Tier[] = [
   },
   {
     id: "portfolio-partner",
-    name: "Portfolio Technology Partner",
-    structure: "Fund retainer",
     description:
       "Standing diligence capacity plus portfolio support through the bench — for funds that underwrite technology risk repeatedly.",
     artifacts: [
@@ -126,8 +124,12 @@ const tiers: Tier[] = [
 
 const comparisonRows: { label: string; values: string[] }[] = [
   {
+    label: "Price",
+    values: PRICING_TIERS.map((tier) => tier.priceDisplay),
+  },
+  {
     label: "Structure",
-    values: ["Fixed · 3 weeks", "Monthly retainer", "Per transaction", "Fund retainer"],
+    values: PRICING_TIERS.map((tier) => tier.meta),
   },
   {
     label: "Shape",
@@ -178,6 +180,18 @@ const howItWorks = [
 ];
 
 const faqs = [
+  {
+    id: "faq-publish-prices",
+    title: "Why do you publish prices?",
+    content:
+      "I publish prices to skip calls that will not close. Firms that negotiate the entry price are not ones I can help.",
+  },
+  {
+    id: "faq-below-floor",
+    title: `Is there anything below ${PRICE_FLOOR_DISPLAY}?`,
+    content:
+      "No. Diligence-grade findings and remediation plans need that depth. Anything lighter does not need me.",
+  },
   {
     id: "faq-consulting",
     title: "How is this different from hiring a consulting firm?",
@@ -252,49 +266,25 @@ const faqs = [
   },
 ];
 
+const tierDescriptions: Record<PricingTierId, string> = {
+  "diagnostic-sprint":
+    "Three-week fixed-scope technology diagnostic: findings report, scored risk register, 90-day remediation plan, board readout.",
+  embedded: "1–2 days per week embedded technology leadership. Three-month minimum.",
+  "due-diligence": "Pre-acquisition technical due diligence with IC-ready written report.",
+  "portfolio-partner":
+    "Multi-company fund retainer with standing diligence capacity and portfolio support via the bench.",
+};
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   name: "Technology advisory engagements",
   url: `${SITE}/engagements`,
-  itemListElement: [
-    {
-      "@type": "Service",
-      position: 1,
-      name: "Diagnostic Sprint",
-      description:
-        "Three-week fixed-scope technology diagnostic: findings report, scored risk register, 90-day remediation plan, board readout.",
-      provider: { "@type": "Person", name: "Asim Mohammad", url: SITE },
-      url: `${SITE}/engagements#diagnostic-sprint`,
-    },
-    {
-      "@type": "Service",
-      position: 2,
-      name: "Embedded Technology Leadership",
-      description:
-        "1–2 days per week embedded technology leadership. Three-month minimum.",
-      provider: { "@type": "Person", name: "Asim Mohammad", url: SITE },
-      url: `${SITE}/engagements#embedded`,
-    },
-    {
-      "@type": "Service",
-      position: 3,
-      name: "Technical Due Diligence",
-      description:
-        "Pre-acquisition technical due diligence with IC-ready written report.",
-      provider: { "@type": "Person", name: "Asim Mohammad", url: SITE },
-      url: `${SITE}/engagements#due-diligence`,
-    },
-    {
-      "@type": "Service",
-      position: 4,
-      name: "Portfolio Technology Partner",
-      description:
-        "Multi-company fund retainer with standing diligence capacity and portfolio support via the bench.",
-      provider: { "@type": "Person", name: "Asim Mohammad", url: SITE },
-      url: `${SITE}/engagements#portfolio-partner`,
-    },
-  ],
+  priceRange: SITE_PRICE_RANGE,
+  itemListElement: PRICING_TIERS.map((tier, index) => ({
+    ...serviceSchemaForTier(tier, SITE, tierDescriptions[tier.id]),
+    position: index + 1,
+  })),
 };
 
 export default function EngagementsPage() {
@@ -328,58 +318,74 @@ export default function EngagementsPage() {
 
       <Section spacing="standard" tone="alt" id="tiers">
         <Grid>
-          {tiers.map((tier) => (
-            <GridItem key={tier.id} span={12} lg={6}>
-              <Card
-                id={tier.id}
-                variant={tier.emphasized ? "emphasized" : "default"}
-                className="flex h-full flex-col scroll-mt-28"
-              >
-                {tier.badge ? (
-                  <Eyebrow className="mb-3 text-accent">{tier.badge}</Eyebrow>
-                ) : (
-                  <span className="mb-3 block h-[1.125rem]" aria-hidden="true" />
-                )}
-                <h2 className="metric font-display text-h2 text-ink">{tier.name}</h2>
-                <p className="mt-1 font-text text-caption text-ink-faint">{tier.structure}</p>
-                <p className="mt-4 font-text text-body text-ink-muted">{tier.description}</p>
+          {tiers.map((tier) => {
+            const pricing = PRICING_BY_ID[tier.id];
+            return (
+              <GridItem key={tier.id} span={12} lg={6}>
+                <Card
+                  id={tier.id}
+                  variant={tier.emphasized ? "emphasized" : "default"}
+                  className="flex h-full flex-col scroll-mt-28"
+                >
+                  {tier.badge ? (
+                    <Eyebrow className="mb-3 text-accent">{tier.badge}</Eyebrow>
+                  ) : (
+                    <span className="mb-3 block h-[1.125rem]" aria-hidden="true" />
+                  )}
+                  <h2 className="metric font-display text-h2 text-ink">{pricing.name}</h2>
+                  <p className="metric mt-3 font-display text-h3 text-ink">{pricing.priceDisplay}</p>
+                  <p className="mt-1 font-text text-caption text-ink-muted">{pricing.meta}</p>
+                  <p className="mt-4 font-text text-body text-ink-muted">{tier.description}</p>
 
-                <p className="mt-6 font-mono text-eyebrow uppercase tracking-[0.12em] text-ink-faint">
-                  What you get
-                </p>
-                <ul className="mt-3 list-none space-y-2">
-                  {tier.artifacts.map((item) => (
-                    <li key={item} className="font-text text-small text-ink">
-                      <span className="text-accent" aria-hidden="true">
-                        —{" "}
-                      </span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                  <p className="mt-6 font-mono text-eyebrow uppercase tracking-[0.12em] text-ink-faint">
+                    What you get
+                  </p>
+                  <ul className="mt-3 list-none space-y-2">
+                    {tier.artifacts.map((item) => (
+                      <li key={item} className="font-text text-small text-ink">
+                        <span className="text-accent" aria-hidden="true">
+                          —{" "}
+                        </span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
 
-                <div className="mt-6 space-y-4 border-t border-border pt-5">
-                  <p className="font-text text-small text-ink">
-                    <span className="font-semibold">Who this is for. </span>
-                    <span className="text-ink-muted">{tier.forWhom}</span>
-                  </p>
-                  <p className="font-text text-small text-ink">
-                    <span className="font-semibold">Who this is not for. </span>
-                    <span className="text-ink-muted">{tier.notFor}</span>
-                  </p>
-                  <p className="font-text text-small text-ink">
-                    <span className="font-semibold">Timeline. </span>
-                    <span className="text-ink-muted">{tier.timeline}</span>
-                  </p>
-                  <p className="font-text text-small text-ink">
-                    <span className="font-semibold">Week one. </span>
-                    <span className="text-ink-muted">{tier.weekOne}</span>
-                  </p>
-                </div>
-              </Card>
-            </GridItem>
-          ))}
+                  <div className="mt-6 space-y-4 border-t border-border pt-5">
+                    <p className="font-text text-small text-ink">
+                      <span className="font-semibold">Who this is for. </span>
+                      <span className="text-ink-muted">{tier.forWhom}</span>
+                    </p>
+                    <p className="font-text text-small text-ink">
+                      <span className="font-semibold">Who this is not for. </span>
+                      <span className="text-ink-muted">{tier.notFor}</span>
+                    </p>
+                    <p className="font-text text-small text-ink">
+                      <span className="font-semibold">Timeline. </span>
+                      <span className="text-ink-muted">{tier.timeline}</span>
+                    </p>
+                    <p className="font-text text-small text-ink">
+                      <span className="font-semibold">Week one. </span>
+                      <span className="text-ink-muted">{tier.weekOne}</span>
+                    </p>
+                  </div>
+                </Card>
+              </GridItem>
+            );
+          })}
         </Grid>
+
+        <div className="mt-12 max-w-measure border-t border-border pt-10">
+          <h2 className="font-display text-h3 text-ink">What moves the price</h2>
+          <p className="mt-4 font-text text-body text-ink-muted">
+            Diligence sits in a published range because scope is not fixed until the data room opens. A larger
+            portfolio, regulated buyers, or compressed close timelines push toward the top of the range.
+          </p>
+          <p className="mt-3 font-text text-body text-ink-muted">
+            More systems in scope — multiple products, legacy cores, or vendor sprawl — do the same. Narrower
+            questions and clean access keep the work at the floor of the band.
+          </p>
+        </div>
       </Section>
 
       <Section spacing="standard" tone="paper" id="compare">
@@ -412,7 +418,7 @@ export default function EngagementsPage() {
                       scope="col"
                       className="border-b border-l border-border px-4 py-3 font-text text-small font-semibold text-ink"
                     >
-                      {tier.name}
+                      {PRICING_BY_ID[tier.id].name}
                     </th>
                   ))}
                 </tr>
@@ -477,20 +483,19 @@ export default function EngagementsPage() {
           mention Vigil are disclosed as such. You can decline the referral and still get the full advisory work
           product. The assessment and the sprint do not require Vigil.
         </p>
-        <p className="mt-6">
+        <p className="mt-8">
           <Link
             href="/vigil"
             className="font-text text-small font-medium text-accent underline-offset-4 hover:underline"
           >
-            Read how Vigil relates to the practice
+            Read the Vigil disclosure →
           </Link>
         </p>
       </Section>
 
       <CTABand
-        heading="Pick the risk first. The tier follows."
-        body="Take the Technical Risk Assessment, or request a confidential conversation if you already know the shape of the work."
-        scarcity="Two engagement slots for Q4 2026."
+        heading="Start with the risk, not the retainer."
+        body="Complete the Technical Risk Assessment, or request a confidential conversation if you already know the shape of the work."
       />
     </>
   );

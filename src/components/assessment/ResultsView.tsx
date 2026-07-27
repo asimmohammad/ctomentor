@@ -12,6 +12,7 @@ import { DownloadPdfButton } from "@/components/assessment/DownloadPdfButton";
 import type { PublicAssessmentResult } from "@/lib/assessment/store";
 import { analytics } from "@/lib/analytics";
 import { SECONDARY_CTA } from "@/lib/cta";
+import { ENTRY_ENGAGEMENT_LINE } from "@/lib/pricing";
 
 const SHORT_LABELS: Record<string, string> = {
   velocity: "Velocity & delivery",
@@ -119,6 +120,7 @@ export function ResultsView({
         <p className="mt-4 max-w-measure font-text text-lead text-ink-inverse/85">
           A confidential conversation is how most Diagnostic Sprints start after this assessment.
         </p>
+        <p className="mt-4 max-w-measure font-text text-body text-ink-inverse/85">{ENTRY_ENGAGEMENT_LINE}</p>
         <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
           <Button asChild variant="onDark" size="lg">
             <Link
