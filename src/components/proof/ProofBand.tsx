@@ -23,15 +23,6 @@ function resolveAssetSrc(asset: ProofLogoAsset): string {
   return typeof asset === "string" ? asset : asset.src;
 }
 
-function logoMarkClass(hasDarkVariant: boolean) {
-  return cn(
-    "object-contain opacity-70 grayscale transition-[opacity,filter] duration-[var(--duration-standard)] ease-[var(--ease-standard)]",
-    "group-hover:opacity-100 group-hover:grayscale-0 group-focus-visible:opacity-100 group-focus-visible:grayscale-0",
-    !hasDarkVariant &&
-      "dark:brightness-0 dark:invert dark:group-hover:brightness-100 dark:group-hover:invert-0",
-  );
-}
-
 function ProofLogoMark({
   logo,
   lazy,
@@ -42,9 +33,9 @@ function ProofLogoMark({
   onLinkClick?: () => void;
 }) {
   const scale = logo.opticalScale ?? 1;
-  const maxBoxWidth = 140 * scale;
+  const maxBoxWidth = 220 * scale;
   const hasDark = Boolean(logo.darkSrc);
-  const markClass = cn(logoMarkClass(hasDark), "h-[22px] w-auto max-h-[22px] lg:h-[28px] lg:max-h-[28px]");
+  const markClass = "object-contain opacity-100 h-[36px] w-auto max-h-[36px] lg:h-[48px] lg:max-h-[48px]";
   const markStyle = { maxWidth: maxBoxWidth };
 
   const lightMark =
@@ -67,7 +58,7 @@ function ProofLogoMark({
         height={logo.height ?? 40}
         loading={lazy ? "lazy" : "eager"}
         className={cn(markClass, hasDark && "dark:hidden")}
-        style={{ ...markStyle, height: "auto", width: "auto", maxHeight: "28px" }}
+        style={{ ...markStyle, height: "auto", width: "auto", maxHeight: "48px" }}
       />
     );
 
@@ -90,7 +81,7 @@ function ProofLogoMark({
         height={logo.height ?? 40}
         loading={lazy ? "lazy" : "eager"}
         className={cn(markClass, "hidden dark:block")}
-        style={{ ...markStyle, height: "auto", width: "auto", maxHeight: "28px" }}
+        style={{ ...markStyle, height: "auto", width: "auto", maxHeight: "48px" }}
       />
     )
   ) : null;
@@ -158,8 +149,8 @@ function LogoRow({
   const count = logos.length;
   const layoutClass =
     count <= 6
-      ? "flex flex-wrap items-center justify-center gap-x-10 gap-y-6"
-      : "grid grid-cols-2 place-items-center gap-x-10 gap-y-6 sm:grid-cols-3 lg:grid-cols-4";
+      ? "flex flex-wrap items-center justify-center gap-x-12 gap-y-8"
+      : "grid grid-cols-2 place-items-center gap-x-12 gap-y-8 sm:grid-cols-3 lg:grid-cols-4";
 
   return (
     <ul className={layoutClass}>
