@@ -211,7 +211,6 @@ export function ProofBand({ className, embedded = false, priority = false }: Pro
 
   const count = logos.length;
   const useMarquee = count > 8 && !reduceMotion;
-  const orgLabel = count === 1 ? "1 organization" : `${count} organizations`;
 
   const inner = (
     <div ref={observeRef}>
@@ -222,7 +221,7 @@ export function ProofBand({ className, embedded = false, priority = false }: Pro
           embedded ? "mb-5 text-left" : "mb-8 text-center",
         )}
       >
-        {orgLabel}
+        Customers
       </h2>
       <LogoRow logos={logos} marquee={useMarquee} lazy={!priority} />
     </div>
