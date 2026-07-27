@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Section } from "@/components/layout/Section";
-import { PORTRAIT_ALT, PORTRAIT_SRC } from "@/lib/media";
+import { ABOUT_PORTRAIT_SRC, PORTRAIT_ALT } from "@/lib/media";
 
 export const metadata: Metadata = {
   title: "About Asim Mohammad | The CTO Mentor",
@@ -33,7 +33,7 @@ export default function AboutPage() {
         <div className="max-w-4xl flex flex-col md:flex-row md:items-start gap-10">
           <div className="relative h-48 w-48 flex-shrink-0 overflow-hidden border border-border">
             <Image
-              src={PORTRAIT_SRC}
+              src={ABOUT_PORTRAIT_SRC}
               alt={PORTRAIT_ALT}
               fill
               className="object-cover object-top"
@@ -45,7 +45,7 @@ export default function AboutPage() {
               Asim Mohammad
             </h1>
             <p className="mt-2 text-lead font-text text-ink-muted">
-              Executive · Technology and Transformation · Innovation · Venture Investor · Board Advisor
+              Executive · Technology and Transformation · Innovator · Venture Investor · Board Advisor
             </p>
             <p className="mt-2 text-small font-text text-ink-muted">Product & Technology Leader · Chicago, IL</p>
             <p className="mt-6 text-body font-text text-ink">

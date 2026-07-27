@@ -13,7 +13,7 @@ export type ProofLogoMetadata = {
 
 /** Exact company capitalization overrides keyed by slug. */
 export const DISPLAY_NAME_OVERRIDES: Record<string, string> = {
-  // Example: "acme-corp": "ACME Corp",
+  laasy: "LaaSy",
 };
 
 /** Optional enrichment keyed by slug. Logos without metadata still render. */

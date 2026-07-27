@@ -1,5 +1,6 @@
 import type { StaticImageData } from "next/image";
 import portrait from "@/assets/asim-headshot2.png";
+import aboutPortrait from "@/assets/cigar.png";
 import surfaceHero from "@/assets/Surface.svg";
 
 /**
@@ -8,10 +9,13 @@ import surfaceHero from "@/assets/Surface.svg";
  */
 export const SITE_ORIGIN = "https://thectomentor.com" as const;
 
-/** Editorial headshot — used by about, book, and author card. */
+/** Editorial headshot — used by book and author card. */
 export const PORTRAIT_SRC: StaticImageData = portrait;
 
 export const PORTRAIT_ALT = "Asim Mohammad" as const;
+
+/** About-page portrait only. */
+export const ABOUT_PORTRAIT_SRC: StaticImageData = aboutPortrait;
 
 /**
  * Homepage hero visual — Surface diagram (homepage only).

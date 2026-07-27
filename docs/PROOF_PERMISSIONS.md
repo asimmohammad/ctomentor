@@ -6,7 +6,8 @@ Track written permission for every logo in `src/assets/logo/`. Update this table
 
 | Slug | Contact | Date granted | Scope | Restrictions |
 |------|---------|--------------|-------|--------------|
-| Logo_Black | | | | |
+| laasy | | | | |
+| patron-health | | | | |
 
 ## Scope values
 
