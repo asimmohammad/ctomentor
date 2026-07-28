@@ -4,6 +4,9 @@ set -euo pipefail
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin
 cd "$(dirname "$0")/.."
 
+# Self-heal logo filenames before staging
+node scripts/generate-logo-manifest.mjs || true
+
 git status
 git log -5 --oneline
 
@@ -21,9 +24,9 @@ if git diff --cached --quiet; then
 fi
 
 git commit -m "$(cat <<'EOF'
-Update site media, about portrait, and client logo alt names.
+Fix client logo slugs, alt text, and Vercel prebuild.
 
-Ship Surface hero and cigar about photo, fix logo display names for MeetAva, GBND, Zappd, LaaSy, and Patron Health, and keep proof-band assets in sync.
+Rename dump filenames to company slugs during manifest generation, wire display-name overrides, and harden brief-check for CI without ripgrep.
 EOF
 )"
 

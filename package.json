@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/generate-logo-manifest.mjs && ./scripts/brief-check.sh",
+    "prebuild": "node scripts/generate-logo-manifest.mjs && bash scripts/brief-check.sh",
     "generate:logos": "node scripts/generate-logo-manifest.mjs",
     "build": "node scripts/check-no-legacy-spa.mjs && next build",
     "start": "next start",

@@ -17,6 +17,35 @@ const ALLOWED_EXT = new Set([".svg", ".png", ".webp"]);
 /** Camera-roll / dump names must never ship in production. */
 const FORBIDDEN_BASENAME = /^(img|image|screenshot|photo)[-_]?\d+/i;
 
+/**
+ * Legacy dump names → company slugs. Applied before scan so a broken checkout
+ * (or Vercel build) self-heals, and webpack emits the correct asset basename.
+ */
+const LEGACY_RENAMES = {
+  "Ava.png": "meetava.png",
+  "ava.png": "meetava.png",
+  "GBND.png": "global-neurodiagnostics.png",
+  "gbnd.png": "global-neurodiagnostics.png",
+  "Img_3083.png": "zappd.png",
+  "IMG_3083.png": "zappd.png",
+  "img_3083.png": "zappd.png",
+};
+
+function applyLegacyRenames() {
+  for (const [from, to] of Object.entries(LEGACY_RENAMES)) {
+    const src = path.join(LOGO_DIR, from);
+    const dest = path.join(LOGO_DIR, to);
+    if (!fs.existsSync(src)) continue;
+    if (fs.existsSync(dest)) {
+      fs.unlinkSync(src);
+      console.log(`Removed duplicate legacy logo "${from}" (kept "${to}")`);
+      continue;
+    }
+    fs.renameSync(src, dest);
+    console.log(`Renamed logo "${from}" → "${to}"`);
+  }
+}
+
 /** @param {string} slug */
 function slugToDisplayName(slug) {
   return slug
@@ -86,6 +115,8 @@ function main() {
   if (!fs.existsSync(LOGO_DIR)) {
     fs.mkdirSync(LOGO_DIR, { recursive: true });
   }
+
+  applyLegacyRenames();
 
   const files = fs
     .readdirSync(LOGO_DIR)
