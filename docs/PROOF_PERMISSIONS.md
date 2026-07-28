@@ -6,6 +6,9 @@ Track written permission for every logo in `src/assets/logo/`. Update this table
 
 | Slug | Contact | Date granted | Scope | Restrictions |
 |------|---------|--------------|-------|--------------|
+| Ava | | | | |
+| GBND | | | | |
+| Img_3083 | | | | |
 | laasy | | | | |
 | patron-health | | | | |
 
