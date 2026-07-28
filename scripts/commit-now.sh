@@ -21,9 +21,9 @@ if git diff --cached --quiet; then
 fi
 
 git commit -m "$(cat <<'EOF'
-Polish homepage hero, insights headline, and customer proof band.
+Update site media, about portrait, and client logo alt names.
 
-Use Surface.svg at natural size on the home hero, tighten the insights title so it stays on one line, and keep logo/brief-check changes deployable.
+Ship Surface hero and cigar about photo, fix logo display names for MeetAva, GBND, Zappd, LaaSy, and Patron Health, and keep proof-band assets in sync.
 EOF
 )"
 

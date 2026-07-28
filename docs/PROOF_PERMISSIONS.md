@@ -6,9 +6,9 @@ Track written permission for every logo in `src/assets/logo/`. Update this table
 
 | Slug | Contact | Date granted | Scope | Restrictions |
 |------|---------|--------------|-------|--------------|
-| Ava | | | | |
-| GBND | | | | |
-| Img_3083 | | | | |
+| meetava | | | | |
+| global-neurodiagnostics | | | | |
+| zappd | | | | |
 | laasy | | | | |
 | patron-health | | | | |
 

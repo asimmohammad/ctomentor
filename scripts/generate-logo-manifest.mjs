@@ -14,6 +14,9 @@ const OUTPUT = path.join(ROOT, "src/lib/proof-logos.generated.ts");
 
 const ALLOWED_EXT = new Set([".svg", ".png", ".webp"]);
 
+/** Camera-roll / dump names must never ship in production. */
+const FORBIDDEN_BASENAME = /^(img|image|screenshot|photo)[-_]?\d+/i;
+
 /** @param {string} slug */
 function slugToDisplayName(slug) {
   return slug
@@ -41,7 +44,10 @@ function parseLogoFilename(filename) {
     base = prefixMatch[2];
   }
 
-  return { slug: base, isDark, ext, sortOrder, filename };
+  // Normalize slug case so Ava.png and ava.png share one override key.
+  const slug = base.toLowerCase();
+
+  return { slug, isDark, ext, sortOrder, filename, base };
 }
 
 /** @param {string} filePath @param {string} ext */
@@ -93,6 +99,13 @@ function main() {
 
     if (!ALLOWED_EXT.has(parsed.ext)) {
       console.error(`FAIL: invalid logo filename "${filename}" — only .svg, .png, .webp are allowed`);
+      process.exit(1);
+    }
+
+    if (FORBIDDEN_BASENAME.test(parsed.base)) {
+      console.error(
+        `FAIL: logo filename "${filename}" looks like a camera-roll dump (matches /^(img|image|screenshot|photo)[-_]?\\d+/i). Rename to a company slug (e.g. zappd.png) before shipping.`,
+      );
       process.exit(1);
     }
 

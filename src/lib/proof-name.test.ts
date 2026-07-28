@@ -47,4 +47,13 @@ describe("parseLogoFilename", () => {
       sortOrder: 20,
     });
   });
+
+  it("lowercases slug so Ava.png and ava.png share one key", () => {
+    expect(parseLogoFilename("Ava.png")).toEqual({
+      slug: "ava",
+      isDark: false,
+      ext: ".png",
+      sortOrder: 0,
+    });
+  });
 });

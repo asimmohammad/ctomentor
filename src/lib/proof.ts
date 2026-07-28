@@ -13,9 +13,9 @@ export type ProofLogoMetadata = {
 
 /** Exact company capitalization overrides keyed by slug. */
 export const DISPLAY_NAME_OVERRIDES: Record<string, string> = {
-  Ava: "MeetAva",
-  GBND: "Global Neurodiagnostics",
-  Img_3083: "Zappd",
+  meetava: "MeetAva",
+  "global-neurodiagnostics": "Global Neurodiagnostics",
+  zappd: "Zappd",
   laasy: "LaaSy Inc.",
   "patron-health": "Patron Health",
 };

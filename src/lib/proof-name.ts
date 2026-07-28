@@ -33,5 +33,5 @@ export function parseLogoFilename(filename: string): {
     base = prefixMatch[2];
   }
 
-  return { slug: base, isDark, ext, sortOrder };
+  return { slug: base.toLowerCase(), isDark, ext, sortOrder };
 }
