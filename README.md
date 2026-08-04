@@ -1,139 +1,94 @@
-# Welcome to your Lovable project
+# thectomentor.com
 
-## Project info
+Marketing and lead-generation site for an independent technology-advisory practice. The site converts a visitor into a completed Technical Risk Assessment, then into a booked conversation, then into a paid diagnostic engagement.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+`PROJECT_BRIEF.md` is the source of truth for positioning, voice, and design tokens. Read it before changing copy or layout.
 
-## How can I edit this code?
+## Stack
 
-There are several ways of editing your application.
+| Layer | Technology |
+| --- | --- |
+| Framework | Next.js 14 (App Router) |
+| Language | TypeScript |
+| UI | React 18, shadcn/ui, Radix primitives |
+| Styling | Tailwind CSS |
+| Data | Supabase (Postgres, RLS, Edge Functions) |
+| Email | Resend |
+| Scheduling | Cal.com embed plus webhook |
+| PDF | `@react-pdf/renderer` |
+| Tests | Vitest |
+| Hosting | Vercel |
 
-**Use Lovable**
+## Local development
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+Requires Node.js 20 or later. The lockfile is Bun (`bun.lockb`); `package-lock.json` is also committed, so npm works.
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+git clone https://github.com/asimmohammad/ctomentor.git
+cd ctomentor
+npm install
+cp .env.example .env.local   # fill in the values described below
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The dev server runs on `http://localhost:3000`.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Scripts
 
-**Use GitHub Codespaces**
+| Command | What it does |
+| --- | --- |
+| `npm run dev` | Next dev server |
+| `npm run build` | Guards against legacy SPA files, then builds. `prebuild` regenerates the logo manifest and runs the brief check |
+| `npm start` | Serves the production build |
+| `npm run lint` | ESLint across the repo |
+| `npm test` | Vitest suite (scoring, proof-name, utils) |
+| `npm run generate:logos` | Regenerates `src/lib/proof-logos.generated.ts` (gitignored) |
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Environment variables
 
-## What technologies are used for this project?
+Copy `.env.example` to `.env.local` and fill it in. Never commit a populated env file — `.env` and `.env*.local` are gitignored.
 
-This project is built with:
+Required:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_KEY` — client-safe Supabase project URL and anon key
+- `SUPABASE_SERVICE_ROLE_KEY` — server only, never expose to the client
+- `RESEND_API_KEY` — transactional email
+- `ASSESSMENT_FROM_EMAIL`, `ASSESSMENT_ALERT_EMAIL` — sender and internal alert recipient
+- `NEXT_PUBLIC_CAL_USERNAME`, `NEXT_PUBLIC_CAL_EVENT_SLUG` — Cal.com embed target
+- `CAL_WEBHOOK_SECRET`, `CAL_API_KEY` — booking webhook verification
 
-## How can I deploy this project?
+Optional: ad pixels (`NEXT_PUBLIC_*_PIXEL_ID`), server-side Conversions API tokens, ESP contact sync, and `VIGIL_ALERT_EMAIL` for the separate Vigil lead stream. See `.env.example` for the full annotated list.
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+## Architecture
 
-## Can I connect a custom domain to my Lovable project?
+### Routes
 
-Yes, you can!
+Marketing pages live in `src/app`: `/`, `/about`, `/experience`, `/engagements`, `/case-studies`, `/insights`, `/investors`, `/government`, `/circle`, `/vigil`, `/styleguide`, plus `/privacy` and `/terms`.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Funnel pages: `/assessment` and `/engineering-assessment` (with shareable results at `/{...}/r/[uuid]`), `/book` and `/book/confirmed`, `/engage` and `/engage/confirmation`.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+API routes under `src/app/api`: `assessment`, `assessment/submit`, `briefing/unlock`, `cal/webhook`, `engage`, `newsletter`, `send-application`, `vigil`. RSS is served from `src/app/feed.xml/route.ts`.
 
-## Setting up Email Notifications (RESEND_API_KEY)
+Legacy paths (`/services`, `/pricing`, `/apply`) redirect permanently — declared in both `next.config.mjs` and `vercel.json`.
 
-The Submit Application form sends emails via Resend. To enable this functionality, you need to configure the `RESEND_API_KEY` environment variable in your Supabase project.
+### Assessment engine
 
-### Step 1: Get your Resend API Key
+`src/lib/assessment` holds the whole flow: question configs and interpretation copy for the investor and engineering variants, a step machine, Zod validation, scoring with unit tests, PDF rendering, and delivery. Submissions persist through `repository.ts` to Supabase.
 
-1. Sign up or log in to [Resend](https://resend.com)
-2. Navigate to **API Keys** in your dashboard
-3. Create a new API key or copy an existing one
+### Supabase
 
-### Step 2: Configure in Supabase Dashboard
+Migrations in `supabase/migrations` cover assessment submissions, engage submissions, briefing unlocks, vigil leads, and bookings. The `send-application` Edge Function lives in `supabase/functions`.
 
-1. Go to your [Supabase Dashboard](https://supabase.com/dashboard)
-2. Select your project (Project ID: `mzndfyiejmyeuyshjtfe`)
-3. Navigate to **Project Settings** → **Edge Functions** → **Secrets**
-4. Click **Add Secret**
-5. Set the name to: `RESEND_API_KEY`
-6. Paste your Resend API key as the value
-7. Click **Save**
+Deploy the function and set its secret:
 
-### Step 3: Deploy the Edge Function
-
-**IMPORTANT:** The edge function MUST be deployed for emails to work. If emails aren't sending, the function likely isn't deployed.
-
-To deploy the `send-application` function:
-
-```bash
-# Install Supabase CLI (if not already installed)
-brew install supabase/tap/supabase
-# OR
-npm install -g supabase
-
-# Login to Supabase (will open browser)
-supabase login
-
-# Link to your project
-supabase link --project-ref mzndfyiejmyeuyshjtfe
-
-# Deploy the function
-supabase functions deploy send-application --project-ref mzndfyiejmyeuyshjtfe
+```sh
+supabase link --project-ref <project-ref>
+supabase secrets set RESEND_API_KEY=<key> --project-ref <project-ref>
+supabase functions deploy send-application --project-ref <project-ref>
 ```
 
-**Verify deployment:**
-- Go to Supabase Dashboard → Edge Functions
-- You should see `send-application` listed
-- Check the function logs if emails aren't working
+If email is not arriving, confirm the function is listed under Edge Functions in the Supabase dashboard and check its logs.
 
-### Alternative: Using Supabase CLI
+## Deployment
 
-If you have Supabase CLI installed:
-
-```bash
-# Set the secret
-supabase secrets set RESEND_API_KEY=your_resend_api_key_here --project-ref mzndfyiejmyeuyshjtfe
-```
-
-### Testing
-
-After configuration, test the form submission:
-1. Take the Technical Risk Assessment on `/assessment`, or request a conversation on `/book`
-2. High-intent applications land on `/engage` (legacy `/apply` redirects here)
-3. Submit the form
-4. Check your email at `asim@thectomentor.com` for the notification
-
-The function will validate that `RESEND_API_KEY` is configured and provide helpful error messages if it's missing.
+Pushing to `main` deploys through Vercel. `npm run build` must pass locally first — the `prebuild` brief check and the legacy-SPA guard both fail the build on violations.
