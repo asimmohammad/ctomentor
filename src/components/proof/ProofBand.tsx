@@ -147,10 +147,14 @@ function LogoRow({
   }
 
   const count = logos.length;
+  // <=6 fits one centered row. 7-8 wrap into balanced centered rows via a
+  // narrower track (a 4-col grid would leave the final row left-heavy).
   const layoutClass =
     count <= 6
       ? "flex flex-wrap items-center justify-center gap-x-12 gap-y-8"
-      : "grid grid-cols-2 place-items-center gap-x-12 gap-y-8 sm:grid-cols-3 lg:grid-cols-4";
+      : count <= 8
+        ? "mx-auto flex max-w-[620px] flex-wrap items-center justify-center gap-x-10 gap-y-10"
+        : "grid grid-cols-2 place-items-center gap-x-12 gap-y-8 sm:grid-cols-3 lg:grid-cols-4";
 
   return (
     <ul className={layoutClass}>
