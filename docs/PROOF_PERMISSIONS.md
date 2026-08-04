@@ -11,6 +11,7 @@ Track written permission for every logo in `src/assets/logo/`. Update this table
 | zappd | | | | |
 | laasy | | | | |
 | patron-health | | | | |
+| legalguard | Syed Karamatullah, CEO | 2026-08-04 | Full | Logo supplied as JPEG; vector master requested |
 
 ## Scope values
 
