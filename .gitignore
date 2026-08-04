@@ -27,6 +27,9 @@ supabase/.temp/
 .env
 .env*.local
 .next
+
+# TypeScript incremental build cache (tsconfig.json sets "incremental": true)
+*.tsbuildinfo
 data/assessments/*
 !data/assessments/.gitkeep
 
