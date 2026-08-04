@@ -50,12 +50,15 @@ Copy `.env.example` to `.env.local` and fill it in. Never commit a populated env
 
 Required:
 
-- `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_KEY` — client-safe Supabase project URL and anon key
-- `SUPABASE_SERVICE_ROLE_KEY` — server only, never expose to the client
+- `NEXT_PUBLIC_SUPABASE_URL` — Supabase project URL
+- `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` — `sb_publishable_...`, client-safe
+- `SUPABASE_SECRET_KEY` — `sb_secret_...`, server only. Bypasses RLS. Never prefix with `NEXT_PUBLIC_`
 - `RESEND_API_KEY` — transactional email
 - `ASSESSMENT_FROM_EMAIL`, `ASSESSMENT_ALERT_EMAIL` — sender and internal alert recipient
 - `NEXT_PUBLIC_CAL_USERNAME`, `NEXT_PUBLIC_CAL_EVENT_SLUG` — Cal.com embed target
 - `CAL_WEBHOOK_SECRET`, `CAL_API_KEY` — booking webhook verification
+
+The legacy `NEXT_PUBLIC_SUPABASE_KEY` and `SUPABASE_SERVICE_ROLE_KEY` JWTs are still read as fallbacks during the key migration. See `docs/SUPABASE_KEY_MIGRATION.md`.
 
 Optional: ad pixels (`NEXT_PUBLIC_*_PIXEL_ID`), server-side Conversions API tokens, ESP contact sync, and `VIGIL_ALERT_EMAIL` for the separate Vigil lead stream. See `.env.example` for the full annotated list.
 
@@ -77,7 +80,9 @@ Legacy paths (`/services`, `/pricing`, `/apply`) redirect permanently — declar
 
 ### Supabase
 
-Migrations in `supabase/migrations` cover assessment submissions, engage submissions, briefing unlocks, vigil leads, and bookings. The `send-application` Edge Function lives in `supabase/functions`.
+Migrations in `supabase/migrations` cover assessment submissions, engage submissions, briefing unlocks, vigil leads, and bookings. Every table has RLS enabled with no `anon` or `authenticated` policies and an explicit `revoke all`, so all access is server-side through `createServiceClient()`. The `send-application` Edge Function lives in `supabase/functions`.
+
+Key management is documented in `docs/SUPABASE_KEY_MIGRATION.md`.
 
 Deploy the function and set its secret:
 
