@@ -7,29 +7,31 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies
 node_modules
-dist
-dist-ssr
-*.local
+
+# Build output
+.next
+
+# TypeScript incremental build cache (tsconfig.json sets "incremental": true)
+*.tsbuildinfo
+
+# Environment
+.env
+.env*.local
+
+# Local tooling state
+.vercel
+supabase/.temp/
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
 *.sw?
-supabase/.temp/
-.vercel
-.env
-.env*.local
-.next
 
-# TypeScript incremental build cache (tsconfig.json sets "incremental": true)
-*.tsbuildinfo
+# Runtime-written assessment data
 data/assessments/*
 !data/assessments/.gitkeep
 
