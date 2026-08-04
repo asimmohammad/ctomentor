@@ -11,6 +11,7 @@ Track written permission for every logo in `src/assets/logo/`. Update this table
 | zappd | | | | |
 | laasy | | | | |
 | patron-health | | | | |
+| legalguard | _TODO: contact name_ | 2026-08-04 | Full | Logo supplied as JPEG; vector master requested |
 
 ## Scope values
 

@@ -15,6 +15,7 @@ export type ProofLogoMetadata = {
 export const DISPLAY_NAME_OVERRIDES: Record<string, string> = {
   meetava: "MeetAva",
   "global-neurodiagnostics": "Global Neurodiagnostics",
+  legalguard: "LegalGuard",
   zappd: "Zappd",
   laasy: "LaaSy Inc.",
   "patron-health": "Patron Health",
