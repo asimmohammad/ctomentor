@@ -1,6 +1,6 @@
 import type { StaticImageData } from "next/image";
 import portrait from "@/assets/asim-headshot2.png";
-import aboutPortrait from "@/assets/cigar.png";
+import aboutPortrait from "@/assets/about-portrait.jpg";
 import surfaceHero from "@/assets/Surface.svg";
 
 /**
