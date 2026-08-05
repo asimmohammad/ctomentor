@@ -19,10 +19,18 @@ export const DISPLAY_NAME_OVERRIDES: Record<string, string> = {
   zappd: "Zappd",
   laasy: "LaaSy Inc.",
   "patron-health": "Patron Health",
+  "wow-health": "WoW Health",
 };
 
 /** Optional enrichment keyed by slug. Logos without metadata still render. */
 export const PROOF_LOGO_METADATA: Record<string, ProofLogoMetadata> = {
+  "wow-health": {
+    href: "https://www.mywowhealth.com/",
+    sector: "Healthcare",
+    // Wide horizontal lockup — trimmed so it reads at the same optical weight
+    // as LegalGuard / LaaSy rather than dominating the row.
+    opticalScale: 0.85,
+  },
   // Example:
   // "acme-corp": {
   //   href: "https://example.com",
