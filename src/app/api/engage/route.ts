@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { waitUntil } from "@vercel/functions";
 import { engageSchema } from "@/lib/funnel/schemas";
 import { createServiceClient } from "@/lib/supabase/admin";
 import { clientIp, rateLimit } from "@/lib/rate-limit";
@@ -135,16 +136,18 @@ export async function POST(request: NextRequest) {
   } else {
     console.warn("[engage] supabase unavailable — accepting submission without persistence");
     id = crypto.randomUUID();
-    void notifyInternal({
-      name: data.name,
-      email: data.email,
-      company: data.company,
-      role: data.role,
-      budget: data.budget,
-      timeline: data.timeline,
-      attribution: data.attribution,
-      challenge: data.challenge,
-    }).catch((error) => console.error("[engage] notify failed", error));
+    waitUntil(
+      notifyInternal({
+        name: data.name,
+        email: data.email,
+        company: data.company,
+        role: data.role,
+        budget: data.budget,
+        timeline: data.timeline,
+        attribution: data.attribution,
+        challenge: data.challenge,
+      }).catch((error) => console.error("[engage] notify failed", error)),
+    );
   }
 
   return NextResponse.json({ ok: true, id });

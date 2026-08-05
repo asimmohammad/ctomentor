@@ -156,7 +156,10 @@ export async function sendInternalAlert(input: {
   resultsUrl: string;
 }): Promise<boolean> {
   const apiKey = process.env.RESEND_API_KEY?.trim();
-  if (!apiKey) return false;
+  if (!apiKey) {
+    console.warn("[email] RESEND_API_KEY missing — skipping internal alert");
+    return false;
+  }
 
   const to =
     process.env.ASSESSMENT_ALERT_EMAIL?.trim() || "asim@thectomentor.com";
@@ -190,6 +193,9 @@ ${record.lead.email} · ${roleLabel(record.lead.role)}</p>
     return true;
   });
 
+  if (!result.ok) {
+    console.error("[email] internal alert failed", result.error);
+  }
   return result.ok;
 }
 

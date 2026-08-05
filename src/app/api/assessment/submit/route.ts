@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { waitUntil } from "@vercel/functions";
 import { assessmentSubmitSchema } from "@/lib/assessment/schema";
 import { getAssessmentConfig } from "@/lib/assessment/questions";
 import { isComplete, scoreAssessment } from "@/lib/assessment/scoring";
@@ -99,11 +100,17 @@ export async function POST(request: NextRequest) {
       storedRecord = fallback;
     }
 
-    // Fire-and-forget downstream work so the user reaches results immediately.
+    // Downstream work (PDF, results email, internal alert) runs after the
+    // response so the user reaches results immediately. waitUntil keeps the
+    // serverless function alive until it settles — a bare `void` promise is
+    // killed the moment the response is returned, which silently dropped
+    // emails and PDFs in production.
     if (storedRecord) {
-      void runAssessmentDownstreamJobs(storedRecord).catch((error) => {
-        console.error("[submit] downstream jobs failed", error);
-      });
+      waitUntil(
+        runAssessmentDownstreamJobs(storedRecord).catch((error) => {
+          console.error("[submit] downstream jobs failed", error);
+        }),
+      );
     }
 
     return NextResponse.json({
