@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/styleguide"],
+      disallow: ["/styleguide", "/unsubscribe"],
     },
     sitemap: "https://thectomentor.com/sitemap.xml",
   };
