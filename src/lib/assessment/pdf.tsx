@@ -34,10 +34,15 @@ const styles = StyleSheet.create({
     fontSize: 64,
     fontFamily: "Times-Bold",
     marginTop: 12,
+    // Explicit line height: the inherited page value produces a line box
+    // shorter than a 64pt glyph, so the tier line rendered on top of the score.
+    lineHeight: 1.15,
+    marginBottom: 4,
   },
   tier: {
     fontSize: 22,
     fontFamily: "Times-Bold",
+    lineHeight: 1.3,
     marginTop: 6,
   },
   muted: {
