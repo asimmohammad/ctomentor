@@ -23,6 +23,47 @@ const styles = StyleSheet.create({
     fontSize: 11,
     lineHeight: 1.5,
   },
+  brandRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    marginBottom: 26,
+  },
+  brandLockup: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  // The site mark is a solid black tile reading "#TCM". Drawn with primitives
+  // rather than an embedded asset so the PDF has no runtime file dependency.
+  brandMark: {
+    backgroundColor: colors.ink,
+    paddingVertical: 6,
+    paddingHorizontal: 8,
+    marginRight: 9,
+  },
+  brandMarkText: {
+    color: colors.paper,
+    fontFamily: "Helvetica-Bold",
+    fontSize: 13,
+    letterSpacing: 1.2,
+    lineHeight: 1,
+  },
+  brandWordmark: {
+    fontFamily: "Times-Bold",
+    fontSize: 13,
+    letterSpacing: 0.3,
+  },
+  brandContact: {
+    textAlign: "right",
+    fontSize: 8.5,
+    color: colors.muted,
+    lineHeight: 1.45,
+  },
+  brandContactName: {
+    fontFamily: "Times-Bold",
+    fontSize: 9.5,
+    color: colors.ink,
+  },
   eyebrow: {
     fontSize: 9,
     letterSpacing: 1.5,
@@ -101,14 +142,18 @@ const styles = StyleSheet.create({
   },
   footer: {
     position: "absolute",
-    bottom: 32,
+    bottom: 28,
     left: 48,
     right: 48,
-    fontSize: 9,
-    color: colors.faint,
+    flexDirection: "row",
+    justifyContent: "space-between",
     borderTopWidth: 1,
     borderTopColor: colors.border,
     paddingTop: 8,
+  },
+  footerText: {
+    fontSize: 8.5,
+    color: colors.faint,
   },
 });
 
@@ -143,6 +188,20 @@ export function AssessmentPdfDocument({ result }: { result: PublicAssessmentResu
       subject="Technical risk assessment results"
     >
       <Page size="A4" style={styles.page}>
+        <View style={styles.brandRow}>
+          <View style={styles.brandLockup}>
+            <View style={styles.brandMark}>
+              <Text style={styles.brandMarkText}>#TCM</Text>
+            </View>
+            <Text style={styles.brandWordmark}>The CTO Mentor</Text>
+          </View>
+          <View style={styles.brandContact}>
+            <Text style={styles.brandContactName}>Asim Mohammad</Text>
+            <Text>asim@thectomentor.com</Text>
+            <Text>thectomentor.com</Text>
+          </View>
+        </View>
+
         <Text style={styles.eyebrow}>{result.framingName}</Text>
         <Text>
           {result.firstName} · {result.company}
@@ -187,9 +246,15 @@ export function AssessmentPdfDocument({ result }: { result: PublicAssessmentResu
           </View>
         ))}
 
-        <Text style={styles.footer}>
-          Confidential · Generated for {result.firstName} at {result.company} · thectomentor.com
-        </Text>
+        {/* `fixed` so the attribution repeats on every page, not just page one. */}
+        <View style={styles.footer} fixed>
+          <Text style={styles.footerText}>
+            Confidential · Prepared for {result.firstName} at {result.company}
+          </Text>
+          <Text style={styles.footerText}>
+            Asim Mohammad · asim@thectomentor.com · thectomentor.com
+          </Text>
+        </View>
       </Page>
     </Document>
   );
