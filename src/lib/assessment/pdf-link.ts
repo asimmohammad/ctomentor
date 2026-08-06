@@ -1,106 +1,108 @@
 import { NextResponse } from "next/server";
 import { createServiceClient } from "@/lib/supabase/admin";
-import { withRetry } from "@/lib/retry";
 import { getAssessment } from "./store";
 import { generateAndStorePdf } from "./pdf-delivery";
 import { updateSubmissionPdf } from "./repository";
 
 const BUCKET = "assessment-pdfs";
-/** Short life: the URL is minted per request and consumed by an immediate redirect. */
-const SIGNED_URL_TTL_SECONDS = 300;
-
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
-function notFound(message: string) {
+function textResponse(message: string, status: number) {
   return new NextResponse(message, {
-    status: 404,
+    status,
     headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store" },
   });
 }
 
+function storageConfig(): { url: string; key: string } | null {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim() || process.env.SUPABASE_URL?.trim();
+  const key =
+    process.env.SUPABASE_SECRET_KEY?.trim() || process.env.SUPABASE_SERVICE_ROLE_KEY?.trim();
+  if (!url || !key) return null;
+  return { url: url.replace(/\/$/, ""), key };
+}
+
 /**
- * Resolves a permanent results-PDF path to a freshly signed Storage URL.
+ * Fetches the stored object. Uses a raw fetch with `cache: "no-store"` rather
+ * than the Supabase client: inside a route handler the client's requests were
+ * being served from Next's fetch cache, which previously returned signed URLs
+ * minted minutes earlier and therefore already expired.
+ */
+async function fetchObject(path: string): Promise<Response | null> {
+  const config = storageConfig();
+  if (!config) return null;
+
+  return fetch(`${config.url}/storage/v1/object/${BUCKET}/${path}`, {
+    headers: { Authorization: `Bearer ${config.key}`, apikey: config.key },
+    cache: "no-store",
+  });
+}
+
+/**
+ * Serves a submission's PDF report from a permanent, never-expiring path.
  *
- * The stored `pdf_url` is a signed URL that expires, so any link mailed to a
- * recipient dies once the signature lapses — and forwarded reports outlive that
- * window routinely. This mints a new signature per request instead, and
- * regenerates the file if the object is missing, so the public path never rots.
+ * The bytes are streamed through this route instead of redirecting to a signed
+ * Storage URL. Signed URLs expire — and these reports get forwarded long after
+ * any signature window — so a mailed link would eventually rot. If the stored
+ * object is missing, it is rebuilt on demand before serving.
  */
 export async function servePdfForSubmission(id: string): Promise<Response> {
-  if (!UUID_RE.test(id)) {
-    return notFound("Report not found.");
-  }
+  if (!UUID_RE.test(id)) return textResponse("Report not found.", 404);
 
   const record = await getAssessment(id);
   if (!record) {
-    return notFound("Report not found. If you believe this is an error, email asim@thectomentor.com.");
+    return textResponse(
+      "Report not found. If you believe this is an error, email asim@thectomentor.com.",
+      404,
+    );
   }
 
-  const supabase = createServiceClient();
-  if (!supabase) {
+  if (!createServiceClient() || !storageConfig()) {
     console.error("[pdf-link] supabase not configured");
-    return new NextResponse("Report storage is temporarily unavailable. Try again shortly.", {
-      status: 503,
-      headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store" },
-    });
+    return textResponse("Report storage is temporarily unavailable. Try again shortly.", 503);
   }
 
   const path = `${record.variant}/${id}.pdf`;
-
-  // `exists()` issues a HEAD against the object and is authoritative. A
-  // list({search}) check was unreliable here: it reported the object present
-  // after it had been deleted, so the regeneration branch never ran.
-  const existing = await withRetry("pdf-link-exists", async () => {
-    const { data, error } = await supabase.storage.from(BUCKET).exists(path);
-    if (error) throw error;
-    return Boolean(data);
-  });
-
   let source = "stored";
 
-  // Missing object (cleanup, failed upload, or a submission that predates the
-  // PDF pipeline) — rebuild it on demand rather than serving a broken link.
-  if (!existing.ok || !existing.value) {
+  let upstream = await fetchObject(path);
+
+  // Missing object (cleanup, failed upload, or a submission predating the PDF
+  // pipeline) — rebuild it rather than serving a broken link.
+  if (!upstream || !upstream.ok) {
     source = "regenerated";
     const regenerated = await generateAndStorePdf(record);
     if (!regenerated) {
       console.error("[pdf-link] regeneration failed", { id });
-      return new NextResponse(
+      return textResponse(
         "The report could not be generated. Email asim@thectomentor.com and it will be sent manually.",
-        {
-          status: 502,
-          headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store" },
-        },
+        502,
       );
     }
     await updateSubmissionPdf(id, regenerated).catch((error) =>
       console.error("[pdf-link] pdf_url update failed", error),
     );
+    upstream = await fetchObject(path);
   }
 
-  const signed = await withRetry("pdf-link-sign", async () => {
-    const { data, error } = await supabase.storage
-      .from(BUCKET)
-      .createSignedUrl(path, SIGNED_URL_TTL_SECONDS, {
-        download: `technical-risk-assessment-${id.slice(0, 8)}.pdf`,
-      });
-    if (error) throw error;
-    return data.signedUrl;
-  });
-
-  if (!signed.ok) {
-    console.error("[pdf-link] signing failed", signed.error);
-    return new NextResponse("Unable to open the report right now. Try again shortly.", {
-      status: 502,
-      headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store" },
-    });
+  if (!upstream || !upstream.ok || !upstream.body) {
+    console.error("[pdf-link] object fetch failed", { id, status: upstream?.status });
+    return textResponse("Unable to open the report right now. Try again shortly.", 502);
   }
 
-  return NextResponse.redirect(signed.value, {
-    status: 302,
+  const company = record.lead.company
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "")
+    .slice(0, 40);
+  const filename = `technical-risk-assessment${company ? `-${company}` : ""}.pdf`;
+
+  return new NextResponse(upstream.body, {
+    status: 200,
     headers: {
-      "Cache-Control": "no-store, max-age=0",
-      // Observability: distinguishes a served file from an on-demand rebuild.
+      "Content-Type": "application/pdf",
+      "Content-Disposition": `inline; filename="${filename}"`,
+      "Cache-Control": "private, no-store",
       "X-Pdf-Source": source,
     },
   });
