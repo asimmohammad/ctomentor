@@ -47,17 +47,21 @@ export async function servePdfForSubmission(id: string): Promise<Response> {
 
   const path = `${record.variant}/${id}.pdf`;
 
+  // `exists()` issues a HEAD against the object and is authoritative. A
+  // list({search}) check was unreliable here: it reported the object present
+  // after it had been deleted, so the regeneration branch never ran.
   const existing = await withRetry("pdf-link-exists", async () => {
-    const { data, error } = await supabase.storage
-      .from(BUCKET)
-      .list(record.variant, { search: `${id}.pdf`, limit: 1 });
+    const { data, error } = await supabase.storage.from(BUCKET).exists(path);
     if (error) throw error;
-    return (data ?? []).length > 0;
+    return Boolean(data);
   });
+
+  let source = "stored";
 
   // Missing object (cleanup, failed upload, or a submission that predates the
   // PDF pipeline) — rebuild it on demand rather than serving a broken link.
   if (!existing.ok || !existing.value) {
+    source = "regenerated";
     const regenerated = await generateAndStorePdf(record);
     if (!regenerated) {
       console.error("[pdf-link] regeneration failed", { id });
@@ -94,6 +98,10 @@ export async function servePdfForSubmission(id: string): Promise<Response> {
 
   return NextResponse.redirect(signed.value, {
     status: 302,
-    headers: { "Cache-Control": "no-store, max-age=0" },
+    headers: {
+      "Cache-Control": "no-store, max-age=0",
+      // Observability: distinguishes a served file from an on-demand rebuild.
+      "X-Pdf-Source": source,
+    },
   });
 }

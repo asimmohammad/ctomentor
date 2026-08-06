@@ -4,6 +4,8 @@ import { clientIp, rateLimit } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
+// Headroom for an on-demand PDF rebuild when the stored object is missing.
+export const maxDuration = 30;
 
 /**
  * Permanent, never-expiring link to a submission's PDF report. Redirects to a
