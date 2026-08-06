@@ -165,14 +165,16 @@ export async function sendInternalAlert(input: {
     process.env.ASSESSMENT_ALERT_EMAIL?.trim() || "asim@thectomentor.com";
   const { record, resultsUrl } = input;
 
+  const priority = isHighPriorityLead(record);
+
   const html = `
-<p><strong>Hand-raiser assessment</strong></p>
+<p><strong>${priority ? "Priority lead" : "New assessment"}</strong></p>
 <p>${record.lead.name} · ${record.lead.company}<br/>
 ${record.lead.email} · ${roleLabel(record.lead.role)}</p>
 <p>Score: <strong>${record.score.overall}</strong> — Level ${record.score.tier.level} ${record.score.tier.name}</p>
 <p>Lowest dimension: ${lowestDimension(record)}</p>
 <p><a href="${resultsUrl}">${resultsUrl}</a></p>
-<p>Contact same day.</p>
+<p>${priority ? "Contact same day." : "Review and decide whether to reach out."}</p>
 `.trim();
 
   const result = await withRetry("internal-alert", async () => {
@@ -185,7 +187,7 @@ ${record.lead.email} · ${roleLabel(record.lead.role)}</p>
       body: JSON.stringify({
         from: process.env.ASSESSMENT_FROM_EMAIL?.trim() || "Asim Mohammad <asim@thectomentor.com>",
         to: [to],
-        subject: `[Assessment] ${record.lead.company} — ${record.score.overall} (${roleLabel(record.lead.role)})`,
+        subject: `${priority ? "[Assessment][Priority]" : "[Assessment]"} ${record.lead.company} — ${record.score.overall} (${roleLabel(record.lead.role)})`,
         html,
       }),
     });
@@ -199,7 +201,20 @@ ${record.lead.email} · ${roleLabel(record.lead.role)}</p>
   return result.ok;
 }
 
-export function shouldAlertInternally(record: StoredAssessment): boolean {
+/**
+ * Every completed assessment is a lead worth seeing, so alert on all of them.
+ * Triage happens in the subject line via {@link isHighPriorityLead}, not by
+ * suppressing the notification — a CEO scoring 65 used to file silently.
+ */
+export function shouldAlertInternally(_record: StoredAssessment): boolean {
+  return true;
+}
+
+/**
+ * Same-day-contact signals: an investor/operating partner (buying for a
+ * portfolio company) or a score low enough to imply urgent remediation.
+ */
+export function isHighPriorityLead(record: StoredAssessment): boolean {
   return (
     record.lead.role === "investor-operating-partner" || record.score.overall < 40
   );
