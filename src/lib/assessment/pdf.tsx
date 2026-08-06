@@ -214,9 +214,7 @@ export function AssessmentPdfDocument({ result }: { result: PublicAssessmentResu
           Overall score is the mean of four dimension scores, each normalized to 0–100.
         </Text>
 
-        <Text style={styles.sectionTitle} minPresenceAhead={120}>
-          Dimensions vs stage median
-        </Text>
+        <Text style={styles.sectionTitle}>Dimensions vs stage median</Text>
         {result.score.dimensions.map((dimension) => (
           <Bar
             key={dimension.id}
@@ -226,33 +224,46 @@ export function AssessmentPdfDocument({ result }: { result: PublicAssessmentResu
           />
         ))}
 
-        {/* minPresenceAhead: break before the heading rather than leaving it
-            stranded at the foot of a page without its first card. */}
-        <Text style={styles.sectionTitle} minPresenceAhead={120}>
-          Interpretation
-        </Text>
-        {result.narratives.map((narrative) => (
-          <View key={narrative.id} style={styles.card} wrap={false}>
-            <Text style={styles.h4}>
-              {narrative.name} — {narrative.percentage}
-            </Text>
-            <Text style={styles.body}>{narrative.interpretation}</Text>
-            <Text>Recommended action. {narrative.action}</Text>
-          </View>
-        ))}
+        {/* Heading grouped with its first card in a non-wrapping View: a bare
+            heading was being stranded at the foot of a page with its content
+            overleaf. `minPresenceAhead` on the Text did not prevent it. */}
+        {result.narratives.map((narrative, index) => {
+          const card = (
+            <View key={narrative.id} style={styles.card} wrap={false}>
+              <Text style={styles.h4}>
+                {narrative.name} — {narrative.percentage}
+              </Text>
+              <Text style={styles.body}>{narrative.interpretation}</Text>
+              <Text>Recommended action. {narrative.action}</Text>
+            </View>
+          );
+          if (index > 0) return card;
+          return (
+            <View key={`interpretation-${narrative.id}`} wrap={false}>
+              <Text style={styles.sectionTitle}>Interpretation</Text>
+              {card}
+            </View>
+          );
+        })}
 
-        <Text style={styles.sectionTitle} minPresenceAhead={120}>
-          Highest-risk areas
-        </Text>
-        {result.risks.map((risk, index) => (
-          <View key={risk.questionId} style={styles.card} wrap={false}>
-            <Text style={styles.eyebrow}>
-              {index + 1} · {risk.dimensionName} · {risk.score}/3
-            </Text>
-            <Text style={styles.h4}>{risk.prompt}</Text>
-            <Text style={styles.body}>{risk.action}</Text>
-          </View>
-        ))}
+        {result.risks.map((risk, index) => {
+          const card = (
+            <View key={risk.questionId} style={styles.card} wrap={false}>
+              <Text style={styles.eyebrow}>
+                {index + 1} · {risk.dimensionName} · {risk.score}/3
+              </Text>
+              <Text style={styles.h4}>{risk.prompt}</Text>
+              <Text style={styles.body}>{risk.action}</Text>
+            </View>
+          );
+          if (index > 0) return card;
+          return (
+            <View key={`risks-${risk.questionId}`} wrap={false}>
+              <Text style={styles.sectionTitle}>Highest-risk areas</Text>
+              {card}
+            </View>
+          );
+        })}
 
         {/* `fixed` so the attribution repeats on every page, not just page one. */}
         <View style={styles.footer} fixed>
