@@ -16,8 +16,8 @@ const styles = StyleSheet.create({
   page: {
     backgroundColor: colors.paper,
     color: colors.ink,
-    paddingTop: 48,
-    paddingBottom: 48,
+    paddingTop: 40,
+    paddingBottom: 44,
     paddingHorizontal: 48,
     fontFamily: "Times-Roman",
     fontSize: 11,
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "flex-start",
-    marginBottom: 26,
+    marginBottom: 18,
   },
   brandLockup: {
     flexDirection: "row",
@@ -72,33 +72,33 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   heroScore: {
-    fontSize: 64,
+    fontSize: 56,
     fontFamily: "Times-Bold",
-    marginTop: 12,
+    marginTop: 4,
     // Explicit line height: the inherited page value produces a line box
     // shorter than a 64pt glyph, so the tier line rendered on top of the score.
     lineHeight: 1.15,
     marginBottom: 4,
   },
   tier: {
-    fontSize: 22,
+    fontSize: 21,
     fontFamily: "Times-Bold",
     lineHeight: 1.3,
-    marginTop: 6,
+    marginTop: 2,
   },
   muted: {
     color: colors.muted,
-    marginTop: 8,
+    marginTop: 6,
     maxWidth: 420,
   },
   sectionTitle: {
     fontSize: 18,
     fontFamily: "Times-Bold",
-    marginTop: 28,
-    marginBottom: 12,
+    marginTop: 20,
+    marginBottom: 10,
   },
   barRow: {
-    marginBottom: 14,
+    marginBottom: 10,
   },
   barLabel: {
     fontSize: 10,
@@ -128,8 +128,8 @@ const styles = StyleSheet.create({
   card: {
     borderWidth: 1,
     borderColor: colors.border,
-    padding: 12,
-    marginBottom: 10,
+    padding: 11,
+    marginBottom: 9,
   },
   h4: {
     fontSize: 13,
