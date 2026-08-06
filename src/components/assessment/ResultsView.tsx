@@ -132,6 +132,7 @@ export function ResultsView({
           </Button>
           <DownloadPdfButton
             onDark
+            href={`${result.resultsPathPrefix}/${result.id}/pdf`}
             onClick={() => analytics.ctaClicked(result.variant, result.id, "pdf")}
           />
         </div>

@@ -18,16 +18,18 @@ function lowestDimension(record: StoredAssessment): string {
 export function buildResultsEmailHtml(input: {
   record: StoredAssessment;
   resultsUrl: string;
-  pdfUrl: string | null;
+  /** Retained for callers; the email links the permanent /pdf path instead. */
+  pdfUrl?: string | null;
 }): string {
-  const { record, resultsUrl, pdfUrl } = input;
+  const { record, resultsUrl } = input;
   const config = getAssessmentConfig(record.variant);
   const firstName = record.lead.name.trim().split(/\s+/)[0] || "there";
   const tier = `Level ${record.score.tier.level} ${record.score.tier.name}`;
 
-  const pdfLine = pdfUrl
-    ? `<p>Your PDF report: <a href="${pdfUrl}">Download the report</a></p>`
-    : `<p>Your PDF is still generating — the online results link below has the full detail.</p>`;
+  // Always the permanent path, never the stored signed URL: signatures expire in
+  // 30 days and these reports get forwarded. The route re-signs per request and
+  // regenerates the file if it is missing, so this link cannot rot.
+  const pdfLine = `<p>Your PDF report: <a href="${resultsUrl}/pdf">Download the report</a></p>`;
 
   return `
 <!DOCTYPE html>
@@ -77,7 +79,7 @@ export async function sendResultsEmail(input: {
         reply_to: "asim@thectomentor.com",
         subject,
         html,
-        text: `Hi,\n\nYour score is ${input.record.score.overall} (Level ${input.record.score.tier.level} ${input.record.score.tier.name}).\n\nResults: ${input.resultsUrl}\n\nAsim`,
+        text: `Hi,\n\nYour score is ${input.record.score.overall} (Level ${input.record.score.tier.level} ${input.record.score.tier.name}).\n\nResults: ${input.resultsUrl}\nPDF report: ${input.resultsUrl}/pdf\n\nAsim`,
       }),
     });
 
