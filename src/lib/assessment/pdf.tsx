@@ -214,7 +214,9 @@ export function AssessmentPdfDocument({ result }: { result: PublicAssessmentResu
           Overall score is the mean of four dimension scores, each normalized to 0–100.
         </Text>
 
-        <Text style={styles.sectionTitle}>Dimensions vs stage median</Text>
+        <Text style={styles.sectionTitle} minPresenceAhead={120}>
+          Dimensions vs stage median
+        </Text>
         {result.score.dimensions.map((dimension) => (
           <Bar
             key={dimension.id}
@@ -224,7 +226,11 @@ export function AssessmentPdfDocument({ result }: { result: PublicAssessmentResu
           />
         ))}
 
-        <Text style={styles.sectionTitle}>Interpretation</Text>
+        {/* minPresenceAhead: break before the heading rather than leaving it
+            stranded at the foot of a page without its first card. */}
+        <Text style={styles.sectionTitle} minPresenceAhead={120}>
+          Interpretation
+        </Text>
         {result.narratives.map((narrative) => (
           <View key={narrative.id} style={styles.card} wrap={false}>
             <Text style={styles.h4}>
@@ -235,7 +241,9 @@ export function AssessmentPdfDocument({ result }: { result: PublicAssessmentResu
           </View>
         ))}
 
-        <Text style={styles.sectionTitle}>Highest-risk areas</Text>
+        <Text style={styles.sectionTitle} minPresenceAhead={120}>
+          Highest-risk areas
+        </Text>
         {result.risks.map((risk, index) => (
           <View key={risk.questionId} style={styles.card} wrap={false}>
             <Text style={styles.eyebrow}>
