@@ -347,7 +347,13 @@ export default function HomePage() {
                   ) : (
                     <span className="mb-4 block h-[1.125rem]" aria-hidden="true" />
                   )}
-                  <h3 className="metric font-display text-h2 font-semibold text-ink">{pricing.name}</h3>
+                  {/* text-h4, not text-h2: these cards are a quarter of the grid at lg,
+                      leaving ~212px of text width. At h2 (≈40px) a single long word like
+                      "Technology" overruns that, and the global overflow-wrap on headings
+                      then breaks it mid-word. text-balance evens the remaining line breaks. */}
+                  <h3 className="text-balance font-display text-h4 font-semibold text-ink">
+                    {pricing.name}
+                  </h3>
                   <p className="metric mt-3 font-display text-h3 text-ink">{pricing.priceDisplay}</p>
                   <p className="mt-1 font-text text-caption text-ink-muted">{pricing.meta}</p>
                   {pricing.secondary ? (
