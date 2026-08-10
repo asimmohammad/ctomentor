@@ -32,33 +32,36 @@ else
   echo "OK: src/lib/pricing.ts present"
 fi
 
-# 2. No legacy sub-$25k engagement figures in source (exclude pricing.ts itself for floor constant)
+# 2. No sub-floor engagement figures in source (exclude pricing.ts itself for floor constant).
+# Floor is $15,000 as of 10 Aug 2026 (brief §2), so $15,000 is permitted and anything
+# below it is not. The monthly-equivalent figures ($5,000 / $8,333 / $10,000 per month)
+# stay blocked regardless: brief §2 publishes fixed totals only, never monthly rates.
 SUBPRICE_HITS=""
 if has_rg; then
-  SUBPRICE_HITS=$(rg -n --glob '!src/lib/pricing.ts' -e '\$5,?000|From \$5|\$8,?000|\$10,?000|\$12,?000|\$15,?000' "$ROOT" 2>/dev/null || true)
+  SUBPRICE_HITS=$(rg -n --glob '!src/lib/pricing.ts' -e '\$5,?000|From \$5|\$8,?000|\$8,?333|\$10,?000|\$12,?000' "$ROOT" 2>/dev/null || true)
 else
   SUBPRICE_HITS=$(
     grep -RInE --include='*.ts' --include='*.tsx' --include='*.js' --include='*.jsx' --include='*.mdx' \
-      -e '\$5,?000|From \$5|\$8,?000|\$10,?000|\$12,?000|\$15,?000' "$ROOT" 2>/dev/null \
+      -e '\$5,?000|From \$5|\$8,?000|\$8,?333|\$10,?000|\$12,?000' "$ROOT" 2>/dev/null \
       | grep -v 'src/lib/pricing.ts' || true
   )
 fi
 if [[ -n "$SUBPRICE_HITS" ]]; then
-  echo "FAIL: found engagement price figure below \$25,000 outside the floor constant path"
+  echo "FAIL: found engagement price figure below the \$15,000 floor, or a monthly equivalent"
   echo "$SUBPRICE_HITS"
   FAIL=1
 else
-  echo "OK: no sub-\$25k engagement price strings outside allowed patterns"
+  echo "OK: no sub-floor engagement price strings or monthly equivalents"
 fi
 
 # 3. Display ladder strings must not be hardcoded in JSX/TSX (only via pricing imports / pricing.ts)
 HARDCODED=""
 if has_rg; then
-  HARDCODED=$(rg -n --glob '*.tsx' -e '\$25,000 fixed|From \$25,000/month|\$35,000–\$50,000|From \$50,000/month' "$ROOT" || true)
+  HARDCODED=$(rg -n --glob '*.tsx' -e '\$25,000 fixed|From \$25,000/month|\$35,000–\$50,000|From \$50,000/month|\$15,000 · three months|\$30,000 · three-month|\$50,000 · six months|From \$50,000 · six months' "$ROOT" || true)
 else
   HARDCODED=$(
     grep -RInE --include='*.tsx' \
-      -e '\$25,000 fixed|From \$25,000/month|\$35,000–\$50,000|From \$50,000/month' "$ROOT" 2>/dev/null || true
+      -e '\$25,000 fixed|From \$25,000/month|\$35,000–\$50,000|From \$50,000/month|\$15,000 · three months|\$30,000 · three-month|\$50,000 · six months|From \$50,000 · six months' "$ROOT" 2>/dev/null || true
   )
 fi
 if [[ -n "$HARDCODED" ]]; then

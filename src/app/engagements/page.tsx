@@ -10,6 +10,7 @@ import { Grid, GridItem } from "@/components/layout/Grid";
 import { Section } from "@/components/layout/Section";
 import { PRIMARY_CTA, SECONDARY_CTA } from "@/lib/cta";
 import {
+  FRACTIONAL_MINIMUM_RATIONALE,
   PRICING_BY_ID,
   PRICING_TIERS,
   PRICE_FLOOR_DISPLAY,
@@ -21,14 +22,14 @@ import {
 const SITE = "https://thectomentor.com";
 
 export const metadata: Metadata = {
-  title: "Engagements — Diagnostic Sprint, Diligence & Embedded Leadership",
+  title: "Engagements — Fractional CTO, Advisory & Technical Diligence",
   description:
-    "Four engagement models: Diagnostic Sprint, Embedded Technology Leadership, Technical Due Diligence, and Portfolio Technology Partner.",
+    "Published pricing: Fractional CTO from $30,000, Advisory from $15,000, Diagnostic Sprint, Technical Due Diligence, and embedded technology leadership.",
   alternates: { canonical: `${SITE}/engagements` },
   openGraph: {
-    title: "Engagements — Diagnostic Sprint, Diligence & Embedded Leadership",
+    title: "Engagements — Fractional CTO, Advisory & Technical Diligence",
     description:
-      "Diagnostic Sprint, embedded technology leadership, technical due diligence, and portfolio partner retainers.",
+      "Fractional technology leadership, advisory access, diagnostic sprints, and technical due diligence — with prices published.",
     url: `${SITE}/engagements`,
     type: "website",
   },
@@ -47,6 +48,45 @@ type Tier = {
 };
 
 const tiers: Tier[] = [
+  {
+    id: "fractional-cto",
+    badge: "Most common engagement",
+    emphasized: true,
+    description:
+      "The seat, part-time. Senior technical judgment in the room at the moment the consequential decision gets made.",
+    artifacts: [
+      "Strategy and architecture owned end-to-end",
+      "Team structure, hiring decisions, and org design",
+      "Roadmap ownership with dates your team can execute",
+      "Board representation on technology",
+    ],
+    forWhom:
+      "Companies with real revenue and a full roadmap where every architecture, vendor, and hiring decision is landing on someone who was never hired to make it.",
+    notFor:
+      "Teams that already have a strong CTO who needs occasional advice, or anyone who needs a read in under three weeks — that is the Diagnostic Sprint.",
+    timeline:
+      "Three-month minimum, or six months at a 17% lower rate. Six months is the engagement that compounds.",
+    weekOne:
+      "Every engineer, the codebase, and the incident history. Listening first — the plan lands at day 30, and your team starts executing it in month two.",
+  },
+  {
+    id: "advisory",
+    description:
+      "Standing access to senior technical judgment for a team that has capable leadership and needs a sounding board.",
+    artifacts: [
+      "Architecture reviews on request",
+      "Vendor and build-versus-buy decisions",
+      "Hiring calibration and interview design",
+      "Board and investor prep on technology",
+    ],
+    forWhom:
+      "CEOs who have engineers and possibly a technical lead, and want an outside read on whether the architecture and the org are actually right.",
+    notFor:
+      "Companies that need someone to own the roadmap. That is the fractional seat, and at these hours this tier cannot do it.",
+    timeline: "Three months. Renewable, and often a step toward the fractional seat.",
+    weekOne:
+      "A current-state read on architecture and team, then a standing cadence you control.",
+  },
   {
     id: "diagnostic-sprint",
     description:
@@ -67,10 +107,8 @@ const tiers: Tier[] = [
   },
   {
     id: "embedded",
-    badge: "Most common engagement",
-    emphasized: true,
     description:
-      "An operating seat alongside management while the engineering plan is rebuilt and executed.",
+      "The heavier version of the seat, for companies where technology is on the critical path and the cadence has to be weekly.",
     artifacts: [
       "Weekly operating cadence with the leadership team",
       "Hiring and org-design decisions documented",
@@ -79,11 +117,27 @@ const tiers: Tier[] = [
     ],
     forWhom:
       "Portfolio companies and growth-stage SaaS where technology is on the critical path to the thesis — and someone has to own the outcomes.",
-    notFor:
-      "Founders looking for a sounding board two hours a month, or teams that already have a strong CTO who only needs occasional advice.",
-    timeline: "Three-month minimum. Continues month-to-month after that with 30 days' notice.",
+    notFor: "Teams that need direction more than they need capacity.",
+    timeline: "Six months. Priced as a fixed total, not a monthly rate.",
     weekOne:
       "Calendar embed, access, current-state map of delivery and team, and a written 30-day priority list agreed with the CEO.",
+  },
+  {
+    id: "interim",
+    description:
+      "You lost a technical leader, or you are preparing to hire one. I hold the function while the role gets defined and filled.",
+    artifacts: [
+      "The function held — decisions keep getting made",
+      "The role defined and scoped honestly",
+      "Recruiting and technical interviewing for the hire",
+      "A clean written handoff to your new leader",
+    ],
+    forWhom:
+      "Companies between technical leaders that cannot afford a decision vacuum while the search runs.",
+    notFor: "Indefinite coverage. This tier is designed to end.",
+    timeline: "Six months, which is what a real search plus a real handoff takes.",
+    weekOne:
+      "Triage what is in flight, stabilize the decisions that cannot wait, and draft the role you are actually hiring for.",
   },
   {
     id: "due-diligence",
@@ -123,48 +177,116 @@ const tiers: Tier[] = [
   },
 ];
 
+/**
+ * Keyed by tier id rather than positional arrays: the table columns follow
+ * PRICING_TIERS order, and a reordered or added tier must not silently shift
+ * every value one column to the left.
+ */
+const comparisonByTier: Record<
+  PricingTierId,
+  { minimum: string; artifact: string; buyer: string; firstStep: string }
+> = {
+  "fractional-cto": {
+    minimum: "3 months",
+    artifact: "Roadmap ownership + board reporting",
+    buyer: "CEO / founder",
+    firstStep: "Assessment → conversation",
+  },
+  advisory: {
+    minimum: "3 months",
+    artifact: "Standing access + decision reviews",
+    buyer: "CEO / founder",
+    firstStep: "Assessment → conversation",
+  },
+  "diagnostic-sprint": {
+    minimum: "One sprint",
+    artifact: "Findings + risk register",
+    buyer: "Deal team / CEO",
+    firstStep: "Assessment → sprint",
+  },
+  "due-diligence": {
+    minimum: "One deal",
+    artifact: "IC-ready report",
+    buyer: "Deal partner",
+    firstStep: "Conversation",
+  },
+  embedded: {
+    minimum: "6 months",
+    artifact: "Operating cadence + roadmap",
+    buyer: "CEO / founder",
+    firstStep: "Assessment → embed",
+  },
+  interim: {
+    minimum: "6 months",
+    artifact: "Function held + clean handoff",
+    buyer: "CEO / board",
+    firstStep: "Conversation",
+  },
+  "portfolio-partner": {
+    minimum: "Quarterly review",
+    artifact: "Diligence capacity + portfolio triage",
+    buyer: "Fund / operating partner",
+    firstStep: "Conversation",
+  },
+};
+
 const comparisonRows: { label: string; values: string[] }[] = [
   {
     label: "Price",
-    values: PRICING_TIERS.map((tier) => tier.priceDisplay),
+    values: PRICING_TIERS.map((tier) =>
+      tier.secondary ? `${tier.priceDisplay} / ${tier.secondary.priceDisplay}` : tier.priceDisplay,
+    ),
   },
   {
     label: "Structure",
-    values: PRICING_TIERS.map((tier) => tier.meta),
+    values: PRICING_TIERS.map((tier) =>
+      tier.secondary ? `${tier.meta} · ${tier.secondary.meta}` : tier.meta,
+    ),
   },
   {
-    label: "Shape",
-    values: ["3-week sprint", "1–2 days/week", "Per transaction", "Fund retainer"],
+    label: "Effort",
+    values: PRICING_TIERS.map((tier) => tier.effort),
   },
   {
     label: "Minimum",
-    values: ["One sprint", "3 months", "One deal", "Quarterly review"],
+    values: PRICING_TIERS.map((tier) => comparisonByTier[tier.id].minimum),
   },
   {
     label: "Primary artifact",
-    values: [
-      "Findings + risk register",
-      "Operating cadence + roadmap",
-      "IC-ready report",
-      "Diligence capacity + portfolio triage",
-    ],
+    values: PRICING_TIERS.map((tier) => comparisonByTier[tier.id].artifact),
   },
   {
     label: "Buyer",
-    values: ["Deal team / CEO", "CEO / board", "Deal partner", "Fund / operating partner"],
+    values: PRICING_TIERS.map((tier) => comparisonByTier[tier.id].buyer),
   },
   {
     label: "Best first step",
-    values: ["Assessment → sprint", "Assessment → embed", "Conversation", "Conversation"],
+    values: PRICING_TIERS.map((tier) => comparisonByTier[tier.id].firstStep),
   },
 ];
+
+/** Brief §4: the three-month floor is published, not defended in the call. */
+const FIRST_THIRTY_DAYS = [
+  {
+    days: "Days 1–10",
+    body: "Listen. Every engineer one-on-one, the codebase, the incident history, the last four sprints. No recommendations yet.",
+  },
+  {
+    days: "Days 11–20",
+    body: "Diagnose. Where delivery actually stalls, which risks are real, and which of them can wait a quarter.",
+  },
+  {
+    days: "Days 21–30",
+    body: "Decide. A written plan with sequencing, owners, and dates — reviewed with you and then with the team that has to run it.",
+  },
+] as const;
 
 const howItWorks = [
   {
     step: "01",
     title: "Start with the risk",
     description:
-      "Cold traffic takes the Technical Risk Assessment. Qualified conversations book a confidential call. Application forms stay bottom-of-funnel.",
+      "You start with the Technical Risk Assessment — twelve questions, four minutes, no email until the last one. If you already know the shape of the work, request a conversation instead.",
   },
   {
     step: "02",
@@ -190,8 +312,24 @@ const faqs = [
   {
     id: "faq-below-floor",
     title: `Is there anything below ${PRICE_FLOOR_DISPLAY}?`,
+    content: `No. ${PRICE_FLOOR_DISPLAY} for three months is the Advisory tier, and it is already the lightest useful commitment. Anything below that is a conversation, not an engagement — and I would rather have the conversation for free than invoice you for it.`,
+  },
+  {
+    id: "faq-fractional-minimum",
+    title: "Why is three months the minimum on the fractional seat?",
+    content: FRACTIONAL_MINIMUM_RATIONALE,
+  },
+  {
+    id: "faq-part-time-worse",
+    title: "Isn't part-time leadership worse than none?",
     content:
-      "No. Diligence-grade findings and remediation plans need that depth. Anything lighter does not need me.",
+      "Part-time leadership is worse than excellent full-time leadership. It is enormously better than the actual alternative — decisions distributed across people who do not have the context to make them. Right now, architecture is being decided by whoever is closest to the deadline, and vendors by whoever attended the demo. That is not zero leadership. It is leadership by accident, at full price.",
+  },
+  {
+    id: "faq-vote-of-no-confidence",
+    title: "Will my engineers see this as a vote of no confidence?",
+    content:
+      "Handled badly, yes — and the good ones leave. Handled well, it is the opposite. Most engineering teams I meet are not underperforming. They are under-directed. I do not replace your engineers. I make their work count.",
   },
   {
     id: "faq-consulting",
@@ -268,9 +406,15 @@ const faqs = [
 ];
 
 const tierDescriptions: Record<PricingTierId, string> = {
+  "fractional-cto":
+    "Part-time senior technical leadership: strategy, team structure, roadmap ownership, and board representation. Three-month minimum or six months.",
+  advisory:
+    "Standing access to senior technical judgment at 4–8 hours per month: architecture reviews, vendor and hiring decisions, board prep. Three months.",
+  interim:
+    "Interim technology leadership across a transition: hold the function, define the role, recruit for it, hand off cleanly. Six months.",
   "diagnostic-sprint":
     "Three-week fixed-scope technology diagnostic: findings report, scored risk register, 90-day remediation plan, board readout.",
-  embedded: "1–2 days per week embedded technology leadership. Three-month minimum.",
+  embedded: "1–2 days per week embedded technology leadership. Six months.",
   "due-diligence": "Pre-acquisition technical due diligence with IC-ready written report.",
   "portfolio-partner":
     "Multi-company fund retainer with standing diligence capacity and portfolio support via the bench.",
@@ -299,7 +443,7 @@ export default function EngagementsPage() {
       <Section spacing="compact" tone="paper">
         <Eyebrow>Engagements</Eyebrow>
         <h1 className="mt-3 max-w-measure font-display text-h1 text-ink">
-          Four ways the work is scoped.
+          How the work is scoped.
         </h1>
         <p className="mt-6 max-w-measure font-text text-lead text-ink-muted">
           Artifacts, not activities. Qualification is mutual — each tier says who it is for and who it is not.
@@ -336,6 +480,18 @@ export default function EngagementsPage() {
                   <h2 className="metric font-display text-h2 text-ink">{pricing.name}</h2>
                   <p className="metric mt-3 font-display text-h3 text-ink">{pricing.priceDisplay}</p>
                   <p className="mt-1 font-text text-caption text-ink-muted">{pricing.meta}</p>
+                  {pricing.secondary ? (
+                    <>
+                      <p className="metric mt-3 font-display text-h3 text-ink">
+                        {pricing.secondary.priceDisplay}
+                      </p>
+                      <p className="mt-1 font-text text-caption text-ink-muted">
+                        {pricing.secondary.meta}
+                        {pricing.secondary.note ? ` — ${pricing.secondary.note}` : ""}
+                      </p>
+                    </>
+                  ) : null}
+                  <p className="mt-3 font-text text-caption text-ink-faint">{pricing.effort}</p>
                   <p className="mt-4 font-text text-body text-ink-muted">{tier.description}</p>
 
                   <p className="mt-6 font-mono text-eyebrow uppercase tracking-[0.12em] text-ink-faint">
@@ -375,6 +531,27 @@ export default function EngagementsPage() {
             );
           })}
         </Grid>
+
+        <div className="mt-12 max-w-measure border-t border-border pt-10">
+          <h2 className="font-display text-h3 text-ink">What the first 30 days look like</h2>
+          <p className="mt-4 font-text text-body text-ink-muted">
+            The objection that actually blocks this decision is not price. It is what part-time
+            leadership looks like day to day.
+          </p>
+          <dl className="mt-6 space-y-4">
+            {FIRST_THIRTY_DAYS.map((phase) => (
+              <div key={phase.days} className="flex flex-col gap-1 sm:flex-row sm:gap-6">
+                <dt className="metric font-mono text-eyebrow uppercase tracking-[0.12em] text-ink-faint sm:w-28 sm:shrink-0 sm:pt-1">
+                  {phase.days}
+                </dt>
+                <dd className="font-text text-body text-ink-muted">{phase.body}</dd>
+              </div>
+            ))}
+          </dl>
+          <p className="mt-6 font-text text-body text-ink">
+            No 60-slide assessment. A plan your team starts executing in month two.
+          </p>
+        </div>
 
         <div className="mt-12 max-w-measure border-t border-border pt-10">
           <h2 className="font-display text-h3 text-ink">What moves the price</h2>

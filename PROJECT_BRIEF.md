@@ -22,7 +22,8 @@ The marketing site for an independent technology-advisory practice run by **Asim
 These override any default marketing-site pattern an AI would otherwise reach for.
 
 1. **The word "mentor" never appears in page copy.** It prices the practice at $500/hour. It may remain in the domain name and the newsletter brand only.
-2. **The lowest price shown anywhere on the site is $25,000.** The old "From $5,000/mo" tier is deleted, permanently. Do not reintroduce it in any comparison table, FAQ, or schema markup.
+2. **The lowest price shown anywhere on the site is $15,000** — the Advisory tier, three-month total. Revised 10 Aug 2026 from a $25,000 floor to give the ladder a bottom rung for the founder-side buyer; the campaign's affordability argument was contradicted by an entry price equal to a full-time CTO's compensation. The old "From $5,000/mo" tier stays deleted, permanently, and nothing below $15,000 may be reintroduced in any comparison table, FAQ, or schema markup.
+   - **Publish fixed totals, never monthly equivalents.** "$30,000 for three months" is a decision made once; "$10,000/month" is re-made every month and invites a question about when it ends. Derived monthly figures ($10,000/mo, $8,333/mo, $5,000/mo) must not appear on the site.
 3. **Exactly two CTAs exist site-wide.**
    - Primary: **"Take the Technical Risk Assessment"** → `/assessment`
    - Secondary: **"Request a confidential conversation"** → `/book`
@@ -42,12 +43,22 @@ These override any default marketing-site pattern an AI would otherwise reach fo
 
 ## 4. The offer ladder
 
-| Tier | Price | Shape |
-|---|---|---|
-| Diagnostic Sprint | **$25,000** fixed | 3 weeks. Findings report, scored risk register, 90-day remediation plan, board/deal-team readout. The standard first engagement. |
-| Embedded Technology Leadership | **$25,000/mo** | 3-month minimum. 1–2 days/week embedded. Flag as "most common engagement." |
-| Technical Due Diligence | **$35,000–$50,000** per transaction | Pre-acquisition. Architecture, security, scalability, team. IC-ready written report. |
-| Portfolio Technology Partner | **$50,000/mo** | Multi-company fund retainer. Standing diligence capacity plus portfolio support via the bench. |
+Revised 10 Aug 2026. The ladder now reads from lightest to heaviest commitment and quotes fixed totals throughout — no tier is priced on a bare monthly rate.
+
+| Tier | Price | Shape | Buyer |
+|---|---|---|---|
+| Technical Risk Assessment | Free | 12 questions, 4 minutes. | All |
+| Advisory | **$15,000** / 3 months | 4–8 hrs per month. Standing access, architecture reviews, vendor and hiring decisions, board prep. | CEO wanting an outside read |
+| Diagnostic Sprint | **$25,000** fixed | 3 weeks. Findings report, scored risk register, 90-day remediation plan, board/deal-team readout. | Company facing scrutiny |
+| Fractional CTO | **$30,000** / 3 mo · **$50,000** / 6 mo | 20–40 hrs per month. The seat, part-time: strategy, team structure, roadmap ownership, board representation. Flag as "most common engagement." | Company that cannot justify a CTO |
+| Technical Due Diligence | **$35,000–$50,000** per transaction | Pre-acquisition. Architecture, security, scalability, team. IC-ready written report. | Company facing scrutiny |
+| Embedded Technology Leadership | **From $50,000** / 6 months | 1–2 days per week. The heavier seat, for companies where technology is on the critical path. | Company at scale |
+| Interim / Transition | **$50,000** / 6 months | Hold the function, define the role, recruit for it, hand off cleanly. Designed to end. | Company between leaders |
+| Portfolio Technology Partner | **$50,000/mo** | Multi-company fund retainer. Standing diligence capacity plus portfolio support via the bench. Fund product — list last, keep off the homepage. | PE/VC fund |
+
+**Three months is the floor on the fractional seat, and the reasoning is published**, not defended in the call: the first 30 days are listening, the plan lands at day 30, month two is execution. Anything shorter sells a diagnosis the buyer has no time to act on — that is what the Diagnostic Sprint is for.
+
+**The six-month fractional tier carries a 17% discount** against the three-month rate. Say so. Longer engagements are better for both sides, and the discount is an honest reason to steer there.
 
 ## 5. Design tokens — use these exact values
 

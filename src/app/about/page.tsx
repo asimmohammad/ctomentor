@@ -51,9 +51,10 @@ export default function AboutPage() {
             </p>
             <p className="mt-2 text-small font-text text-ink-muted">Product & Technology Leader · Chicago, IL</p>
             <p className="mt-6 text-body font-text text-ink">
-              I am a CTO with a track record of stepping into complex, technology-led organizations to strengthen
-              execution, align leadership, and accelerate outcomes. I work at critical inflection points where
-              companies need focused operational leadership to move from potential to performance.
+              The companies that got into serious technical trouble almost never lacked talent. They
+              lacked someone senior in the room at the moment the consequential decision was made.
+              And that person is rarely needed forty hours a week. They are needed at the right
+              twenty hours. That is the entire thesis of this practice.
             </p>
             <p className="mt-4 text-body font-text text-ink">
               My experience spans global team leadership, multi-tenant SaaS platforms, and data- and AI-driven systems.
