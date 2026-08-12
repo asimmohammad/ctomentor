@@ -24,7 +24,7 @@ Deploy is `git push` to `origin` (`github.com/asimmohammad/ctomentor`); Vercel b
 
 `PROJECT_BRIEF.md` defines positioning, copy rules, and design tokens, and it overrides default marketing-site instincts. Read it before writing page copy or styles. The rules that are mechanically enforced by `scripts/brief-check.sh` at build time:
 
-- **No engagement price below $25,000** anywhere in `src/` (`$5,000`, `$10,000`, `$15,000`, etc. fail the build).
+- **The published price floor is $15,000** (Advisory, three-month total — revised down from $25,000 on 10 Aug 2026; brief §2). `brief-check.sh` fails the build on `$5,000`, `$8,000`, `$8,333`, `$10,000`, `$12,000`, or `From $5` anywhere in `src/` except `pricing.ts`. Monthly-equivalent framing is blocked regardless of size — the brief publishes fixed totals only, never monthly rates.
 - **Ladder display strings must not be hardcoded in TSX** — they come from `src/lib/pricing.ts`, which is the single source for `priceDisplay`, `meta`, `priceFrom`, budget select options, and schema.org `Offer` markup.
 - **Exactly two CTAs site-wide**, defined in `src/lib/cta.ts`: `PRIMARY_CTA` → `/assessment`, `SECONDARY_CTA` → `/book`. Do not introduce a third label. `/engage` is bottom-of-funnel only — never link cold traffic to it.
 - **Testimonials in `src/lib/proof.ts` require a `permissionOn` ISO date** or the build fails. See `docs/PROOF_PERMISSIONS.md` before adding a client logo or quote.
@@ -40,6 +40,8 @@ Also from the brief, not machine-checked: no stock photography, no emoji or excl
 Leftover `tsconfig.app.json`, `tsconfig.node.json`, and the `react-refresh` ESLint plugin are Vite-era residue; the real config is `tsconfig.json`, which excludes the now-deleted `src/main.tsx`, `src/App.tsx`, and `src/pages`.
 
 Server components by default; `"use client"` only where interactivity requires it. Import via the `@/*` → `src/*` alias. Local env goes in `.env.local` — `.env` and `.env*.local` are gitignored.
+
+Two component layers coexist. `src/components/*.tsx` re-exported from the `@/components` barrel (`Button`, `Card`, `MetricCard`, `Input`, `Select`, `Accordion`, `Nav`, `Footer`, `CTABand`, `ProofBar`, …) is the brief's design system and the default for new work. `src/components/ui/*` is the untrimmed shadcn/ui set from the Lovable-era scaffold — most of it is unused, but roughly nine files still import from it. Don't add new pages against `ui/`; don't bulk-delete it either without checking those importers.
 
 ## Design token system
 
@@ -64,7 +66,7 @@ An `AssessmentConfig` (`src/lib/assessment/types.ts`) bundles framing copy, dime
 
 - **Scoring** (`scoring.ts`) is pure and config-driven: sum 0–3 option scores per dimension, normalize to 0–100, overall is the mean of the four dimension percentages, then map to a 5-level maturity tier. Covered by `scoring.test.ts`.
 - **UI state** (`machine.ts`) is a reducer factory, `createAssessmentReducer(totalQuestions)`, plus localStorage persistence for resume. Phases: `intro` → `question` → `gate`. The exported `assessmentReducer` const is deprecated.
-- **Submit** (`src/app/api/assessment/submit/route.ts`) is the pattern to follow for the other API routes: Zod validate → IP rate limit (`src/lib/rate-limit.ts`) → SHA-256 payload-hash idempotency check → upsert → schedule downstream jobs → return the permalink uuid. PDF and email failures must never fail the response.
+- **Submit** (`src/app/api/assessment/submit/route.ts`, also re-exported as `POST` from `src/app/api/assessment/route.ts` so both paths accept a submission) is the pattern to follow for the other API routes: Zod validate → IP rate limit (`src/lib/rate-limit.ts`) → SHA-256 payload-hash idempotency check → upsert → schedule downstream jobs → return the permalink uuid. PDF and email failures must never fail the response.
   - Post-response work **must** be wrapped in `waitUntil()` from `@vercel/functions`, not a bare `void promise`. A bare floating promise is killed the instant the response returns, which silently dropped emails and PDFs in production. Same applies in `src/app/api/engage/route.ts`.
 - **Persistence** has a deliberate two-tier fallback: `repository.ts` writes to Supabase via the service role; if that throws, `store.ts` writes to `data/assessments/` plus an in-memory map so results still render locally. `getAssessment` reads DB → memory → disk.
 - **Public results** never expose email or role — `toPublicResult()` in `store.ts` defines the shared payload shape.
@@ -81,6 +83,16 @@ Migrations in `supabase/migrations/` create one table per funnel surface (`asses
 Keys are mid-migration from JWT to the new Supabase format. `admin.ts` prefers `SUPABASE_SECRET_KEY` (`sb_secret_...`) and falls back to the legacy `SUPABASE_SERVICE_ROLE_KEY` so the two can be swapped without coordinated deploys; the client side likewise prefers `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` over `NEXT_PUBLIC_SUPABASE_KEY`. Never prefix a secret key with `NEXT_PUBLIC_`. See `docs/SUPABASE_KEY_MIGRATION.md`; remove the fallbacks once the legacy keys are disabled.
 
 `supabase/functions/send-application/` is a Deno edge function deployed separately from the Next.js app; the App Router route `src/app/api/send-application/route.ts` is the in-app path.
+
+## Outbound email and external calls
+
+There is no Resend SDK dependency. Every send is a raw `fetch("https://api.resend.com/emails", …)` with `Authorization: Bearer ${RESEND_API_KEY}` — six call sites across `src/lib/assessment/delivery.ts`, `/api/engage`, `/api/vigil`, `/api/cal/webhook`, and `/api/send-application`. Match that shape rather than adding a client library.
+
+Wrap external calls in `withRetry(label, fn)` from `src/lib/retry.ts`. It retries three times with linear backoff and **returns** `{ ok: false, error }` instead of throwing unless `throwOnExhausted` is set, so callers degrade explicitly. `runAssessmentDownstreamJobs` (`jobs.ts`) is the reference: PDF, results email, contact-tag sync, and internal alert each fail independently and only log.
+
+`src/lib/rate-limit.ts` is an in-memory `Map` on `globalThis`, so limits are per serverless instance and reset on cold start. Adequate today; it needs Redis before it can be treated as a real control.
+
+Assessment result emails are personal plain-styled HTML with inline hex — deliberately not tokenized, because email clients have no CSS variables. That's the one sanctioned exception to the two-files-only hex rule.
 
 ## Other conventions
 
