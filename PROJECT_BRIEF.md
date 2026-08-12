@@ -21,7 +21,17 @@ The marketing site for an independent technology-advisory practice run by **Asim
 
 These override any default marketing-site pattern an AI would otherwise reach for.
 
+**What is sold here is judgment on a decision, not a seat.** Revised 12 Aug 2026. The practice was previously positioned as capacity — a fractional CTO, priced in hours and months, sold to a company that could not justify a full-time hire. It is now positioned as an objective input to a decision the buyer already owns and is already accountable for.
+
+**The buyer is accountable for a decision whose technical basis they cannot independently verify.** A CEO signing off on an AI budget she cannot size. A non-technical executive approving a platform rebuild on the strength of a deck. A PE deal partner underwriting a thesis resting on a technical claim nobody in the room can check. A board member asked to trust a number he has no way to test. The shared condition is exposure without verification — not a missing engineer.
+
+Two consequences bind every page:
+
+- **Copy that reads as an engineering services pitch is wrong here**, however well written. Architecture, security, velocity, and cloud spend are inputs to the work, never the subject of it.
+- **The seat is still sold — it is one shape on the ladder, not the proposition.** "Fractional CTO" survives as an engagement name and a search term, contained to the Engagements section and `/engagements`. It does not lead, and it never sets the framing of a page.
+
 1. **The word "mentor" never appears in page copy.** It prices the practice at $500/hour. It may remain in the domain name and the newsletter brand only.
+   - **The exemption is a decision, not an oversight.** Renaming the practice was evaluated on 12 Aug 2026 and rejected: the domain and the newsletter brand carry accumulated equity that a rename would forfeit, and the exemption costs less than the rename. Do not reopen this. Strip "mentor" from *positioning* copy — page copy, meta and OG descriptions, schema `jobTitle`, ad copy, LinkedIn headline, email signature. Leave the site name, wordmark, and domain alone; the brand appearing as the brand is consistent, not a leak.
 2. **The lowest price shown anywhere on the site is $15,000** — the Advisory tier, three-month total. Revised 10 Aug 2026 from a $25,000 floor to give the ladder a bottom rung for the founder-side buyer; the campaign's affordability argument was contradicted by an entry price equal to a full-time CTO's compensation. The old "From $5,000/mo" tier stays deleted, permanently, and nothing below $15,000 may be reintroduced in any comparison table, FAQ, or schema markup.
    - **Publish fixed totals, never monthly equivalents.** "$30,000 for three months" is a decision made once; "$10,000/month" is re-made every month and invites a question about when it ends. Derived monthly figures ($10,000/mo, $8,333/mo, $5,000/mo) must not appear on the site.
 3. **Exactly two CTAs exist site-wide.**
@@ -31,7 +41,7 @@ These override any default marketing-site pattern an AI would otherwise reach fo
 4. **Never send cold traffic to the application form.** `/engage` is bottom-of-funnel only.
 5. **No stock photography, ever.** No handshakes, no laptops, no diverse-people-in-a-meeting. Where imagery is unavailable, use typography and whitespace.
 6. **No emoji, no exclamation points, no "In today's fast-paced world."** The voice is a senior operator writing to a peer.
-7. **Every claim carries a number or it gets cut.**
+7. **Every claim carries a number or it gets cut.** This rule binds harder under the decision-advisory positioning, not softer. "Objective inputs," "judgment," and "senior perspective" are precisely the words an empty advisory site uses; the number is the only thing separating this practice from that one. If a sentence asserts value and carries no figure, either find the figure or cut the sentence. Where a real number does not yet exist, ship fewer items rather than a placeholder — three proof points with real figures beat four where one is hollow.
 
 ## 3. Voice and copy rules
 
