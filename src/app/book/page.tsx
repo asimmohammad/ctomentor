@@ -10,7 +10,10 @@ import { PRIMARY_CTA } from "@/lib/cta";
 import { getAssessment } from "@/lib/assessment/store";
 import { toBookAssessmentContext } from "@/lib/cal/assessment-context";
 import type { BookAssessmentContext } from "@/lib/cal/config";
-import { PORTRAIT_ALT, PORTRAIT_SRC } from "@/lib/media";
+import { PORTRAIT_ALT } from "@/lib/media";
+// Book page uses the original headshot; the shared PORTRAIT_SRC (headshot2)
+// stays in use by the insights AuthorCard.
+import bookPortrait from "@/assets/asim-headshot.png";
 import { ENTRY_ENGAGEMENT_LINE } from "@/lib/pricing";
 
 export const metadata: Metadata = {
@@ -106,7 +109,7 @@ export default async function BookPage({ searchParams }: PageProps) {
           <div className="flex gap-4 border-t border-border pt-6">
             <div className="relative h-20 w-20 shrink-0 overflow-hidden border border-border bg-surface-alt">
               <Image
-                src={PORTRAIT_SRC}
+                src={bookPortrait}
                 alt={PORTRAIT_ALT}
                 fill
                 className="object-cover object-top"
