@@ -54,7 +54,7 @@ export default async function BookPage({ searchParams }: PageProps) {
     <Section spacing="standard" tone="paper">
       <Eyebrow>Conversation</Eyebrow>
       <h1 className="mt-3 max-w-measure font-display text-h1 text-ink">
-        Technical Risk Conversation
+        Book a Conversation
       </h1>
       <p className="mt-4 max-w-measure font-text text-lead text-ink-muted">
         Thirty minutes. Confidential. No pitch deck — a clear read on whether an engagement is warranted.
