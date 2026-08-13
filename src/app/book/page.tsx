@@ -112,7 +112,7 @@ export default async function BookPage({ searchParams }: PageProps) {
                 src={bookPortrait}
                 alt={PORTRAIT_ALT}
                 fill
-                className="object-cover object-top"
+                className="object-cover object-[50%_35%]"
                 sizes="80px"
               />
             </div>
