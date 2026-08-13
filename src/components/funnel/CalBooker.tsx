@@ -220,7 +220,7 @@ function FallbackPanel({
   assessment: BookAssessmentContext | null;
 }) {
   const mailto = React.useMemo(() => {
-    const subject = encodeURIComponent("Technical Risk Conversation");
+    const subject = encodeURIComponent("Conversation with Asim Mohammad");
     const body = encodeURIComponent(
       [
         assessment ? `Name: ${assessment.name}` : "Name:",

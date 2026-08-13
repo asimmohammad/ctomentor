@@ -40,7 +40,7 @@ function googleCalendarUrl(startIso: string | null, title: string): string | nul
     action: "TEMPLATE",
     text: title,
     dates: `${fmt(start)}/${fmt(end)}`,
-    details: "Technical Risk Conversation with Asim Mohammad.",
+    details: "Conversation with Asim Mohammad.",
   });
   return `https://calendar.google.com/calendar/render?${params.toString()}`;
 }
@@ -50,7 +50,9 @@ export default function BookConfirmedClient() {
   const assessmentId = params.get("assessment");
   const start = params.get("start");
   const localWhen = formatLocal(start);
-  const gcal = googleCalendarUrl(start, "Technical Risk Conversation");
+  // Noun phrase, not the page heading: this lands as an event title in someone's
+  // calendar, where "Book a Conversation" would read as an unfinished to-do.
+  const gcal = googleCalendarUrl(start, "Conversation with Asim Mohammad");
 
   return (
     <Section spacing="standard" tone="paper">

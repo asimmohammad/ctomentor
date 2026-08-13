@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   // this page says, not what the page calls itself. cta.ts is untouched.
   title: "Book a conversation",
   description:
-    "Book a 30-minute Technical Risk Conversation. Pick a time on the calendar — confidential, no pitch deck.",
+    "Book a 30-minute conversation. Pick a time on the calendar — confidential, no pitch deck.",
   alternates: { canonical: "https://thectomentor.com/book" },
 };
 
