@@ -288,8 +288,10 @@ export default function HomePage() {
             </GridItem>
 
             <GridItem span={12} lg={7} className="relative">
-              <div className="overflow-hidden bg-[#272727] lg:-mr-[calc((100vw-min(100vw,var(--content-max)))/2+var(--gutter))]">
-                {/* Native img: SVG asset URL; natural dimensions, no fixed aspect box */}
+              <div className="overflow-hidden bg-[#272727]">
+                {/* Native img: SVG asset URL; natural dimensions, no fixed aspect box.
+                    Constrained to the content column (no right-edge bleed) so the
+                    right gutter matches the left for an even page margin. */}
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={HOME_HERO_SRC}
