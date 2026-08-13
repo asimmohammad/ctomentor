@@ -1,13 +1,18 @@
 /**
  * Cal.com booking config — username + event from env.
- * Live event: https://cal.com/asim-mohammad-0ydj0s/technical-risk-conversation
+ * Live event: https://cal.com/asim-mohammad-0ydj0s/book-a-conversation
+ *
+ * This slug does not rename anything on Cal.com — it only points the embed at an
+ * event that must already exist under this name. Rename the event in the Cal
+ * dashboard first, and update NEXT_PUBLIC_CAL_EVENT_SLUG wherever it is set,
+ * or the booker loads an event that is not there.
  */
 
 export const CAL_USERNAME =
   process.env.NEXT_PUBLIC_CAL_USERNAME?.trim() || "asim-mohammad-0ydj0s";
 
 export const CAL_EVENT_SLUG =
-  process.env.NEXT_PUBLIC_CAL_EVENT_SLUG?.trim() || "technical-risk-conversation";
+  process.env.NEXT_PUBLIC_CAL_EVENT_SLUG?.trim() || "book-a-conversation";
 
 export const CAL_LINK = `${CAL_USERNAME}/${CAL_EVENT_SLUG}` as const;
 

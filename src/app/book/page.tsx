@@ -6,7 +6,7 @@ import { Eyebrow } from "@/components/Eyebrow";
 import { ProofBand } from "@/components/proof/ProofBand";
 import { Grid, GridItem } from "@/components/layout/Grid";
 import { Section } from "@/components/layout/Section";
-import { PRIMARY_CTA, SECONDARY_CTA } from "@/lib/cta";
+import { PRIMARY_CTA } from "@/lib/cta";
 import { getAssessment } from "@/lib/assessment/store";
 import { toBookAssessmentContext } from "@/lib/cal/assessment-context";
 import type { BookAssessmentContext } from "@/lib/cal/config";
@@ -14,7 +14,9 @@ import { PORTRAIT_ALT, PORTRAIT_SRC } from "@/lib/media";
 import { ENTRY_ENGAGEMENT_LINE } from "@/lib/pricing";
 
 export const metadata: Metadata = {
-  title: SECONDARY_CTA.label,
+  // Deliberately not SECONDARY_CTA.label: the frozen CTA label is what a link to
+  // this page says, not what the page calls itself. cta.ts is untouched.
+  title: "Book a conversation",
   description:
     "Book a 30-minute Technical Risk Conversation. Pick a time on the calendar — confidential, no pitch deck.",
   alternates: { canonical: "https://thectomentor.com/book" },
