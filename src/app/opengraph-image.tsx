@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 
-export const alt = "You own the decision. I make sure it’s an informed one. — Asim Mohammad";
+export const alt = "Technology advisory for consequential decisions — Asim Mohammad";
 export const size = {
   width: 1200,
   height: 630,
@@ -42,15 +42,15 @@ export default function OpenGraphImage() {
             <div
               style={{
                 display: "flex",
-                // 76px was sized for the old 32-character headline. This one is 54 and
-                // wrapped to four lines, driving the rule into the last line's baseline.
+                // 76px was sized for a 32-character headline. At 46 this wraps to four
+                // lines and the rule lands on the last line's baseline.
                 fontSize: 60,
                 lineHeight: 1.05,
                 letterSpacing: "-0.03em",
                 fontWeight: 700,
               }}
             >
-              You own the decision. I make sure it’s an informed one.
+              Technology advisory for consequential decisions
             </div>
             <div
               style={{
@@ -68,8 +68,9 @@ export default function OpenGraphImage() {
                 fontSize: 23,
               }}
             >
-              Technology advisory for consequential decisions. Vested in your success, not
-              encumbered by it.
+              {/* Second half of the OG description only — the first half is now the
+                  headline above, and printing it twice reads as a rendering bug. */}
+              Vested in your success, not encumbered by it.
             </div>
           </div>
 

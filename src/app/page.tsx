@@ -20,7 +20,7 @@ import { PRICING_BY_ID } from "@/lib/pricing";
 
 const SITE_URL = "https://thectomentor.com";
 
-const OG_TITLE = "You own the decision. I make sure it’s an informed one." as const;
+const OG_TITLE = "Technology advisory for consequential decisions" as const;
 
 const OG_DESCRIPTION =
   "Technology advisory for consequential decisions. Vested in your success, not encumbered by it." as const;
@@ -317,7 +317,7 @@ export default function HomePage() {
               className="flex flex-col justify-center lg:pr-[var(--space-5)]"
             >
               <h1 className="max-w-[20ch] font-display text-h1 font-semibold text-ink">
-                You own the decision. I make sure it’s an informed one.
+                Technology advisory for consequential decisions
               </h1>
               <p className="mt-6 max-w-measure font-text text-lead text-ink-muted">
                 Most executives facing a technology decision are not short on opinions. They are
