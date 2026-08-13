@@ -15,12 +15,16 @@ export const metadata: Metadata = {
     default: "The CTO Mentor | Asim Mohammad — Fractional CTO & Technology Leadership",
     template: "%s | The CTO Mentor",
   },
+  // Site-wide fallback for pages that do not set their own. siteName, title.default,
+  // and the "%s | The CTO Mentor" template deliberately keep the brand name — see
+  // PROJECT_BRIEF.md §2.1: the rename was evaluated and rejected. Only the positioning
+  // descriptions moved off the seat.
   description:
-    "Strategic CTO advisory, embedded technology leadership, and technical due diligence from an active CTO with 25+ years of experience.",
+    "Independent technology advisory for executives, boards, and investors. Objective inputs from a 25-year technology executive on decisions you cannot verify alone.",
   openGraph: {
     title: "The CTO Mentor | Asim Mohammad — Fractional CTO & Technology Leadership",
     description:
-      "Strategic CTO advisory, embedded technology leadership, and technical due diligence from an active CTO with 25+ years of experience.",
+      "Technology advisory for consequential decisions. Vested in your success, not encumbered by it.",
     url: "https://thectomentor.com",
     siteName: "The CTO Mentor",
     type: "website",

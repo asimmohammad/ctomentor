@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 
-export const alt = "Independent Technology Leadership — Asim Mohammad";
+export const alt = "You own the decision. I make sure it’s an informed one. — Asim Mohammad";
 export const size = {
   width: 1200,
   height: 630,
@@ -42,13 +42,15 @@ export default function OpenGraphImage() {
             <div
               style={{
                 display: "flex",
-                fontSize: 76,
-                lineHeight: 1.03,
+                // 76px was sized for the old 32-character headline. This one is 54 and
+                // wrapped to four lines, driving the rule into the last line's baseline.
+                fontSize: 60,
+                lineHeight: 1.05,
                 letterSpacing: "-0.03em",
                 fontWeight: 700,
               }}
             >
-              Independent Technology Leadership
+              You own the decision. I make sure it’s an informed one.
             </div>
             <div
               style={{
@@ -66,7 +68,8 @@ export default function OpenGraphImage() {
                 fontSize: 23,
               }}
             >
-              Technical due diligence · CTO advisory · Portfolio support
+              Technology advisory for consequential decisions. Vested in your success, not
+              encumbered by it.
             </div>
           </div>
 

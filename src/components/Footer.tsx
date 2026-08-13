@@ -31,9 +31,9 @@ const DEFAULT_COLUMNS: FooterColumn[] = [
     ],
   },
   {
-    title: "Insights",
+    title: "Writing",
     links: [
-      { label: "Insights", href: "/insights" },
+      { label: "Writing", href: "/insights" },
       { label: "Substack", href: "https://asimmohammad.substack.com", external: true },
     ],
   },

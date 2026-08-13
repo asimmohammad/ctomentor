@@ -17,13 +17,24 @@ export interface NavProps {
   links?: NavLinkItem[];
   /** Wordmark text. Domain/newsletter brand may include “Mentor”; page copy elsewhere must not. */
   wordmark?: string;
+  /** Positioning line under the wordmark. The wordmark labels the brand; this states the practice. */
+  descriptor?: string;
 }
 
+/**
+ * Ordered as the buyer moves: what I have done, how I do it, what it costs, what I think,
+ * then the conversation. "Assessment" is deliberately absent — the primary CTA button sits
+ * at the end of this bar and already carries it, under the frozen label.
+ *
+ * /investors and /about are reachable from the footer (Advisory and Company columns) and
+ * remain in sitemap.ts; neither is orphaned.
+ */
 const DEFAULT_LINKS: NavLinkItem[] = [
-  { label: "Advisory", href: "/engagements" },
-  { label: "Investors", href: "/investors" },
-  { label: "Insights", href: "/insights" },
-  { label: "About", href: "/about" },
+  { label: "The Work", href: "/case-studies" },
+  { label: "How I Work", href: "/#how-i-work" },
+  { label: "Engagements", href: "/engagements" },
+  { label: "Writing", href: "/insights" },
+  { label: "Start a Conversation", href: "/book" },
 ];
 
 function getFocusable(container: HTMLElement) {
@@ -38,7 +49,11 @@ function getFocusable(container: HTMLElement) {
  * Sticky site nav — transparent over the hero, solid on scroll.
  * Mobile drawer reuses Prompt-1 fixes: opaque panel, scroll lock, focus trap, Escape, route close.
  */
-export function Nav({ links = DEFAULT_LINKS, wordmark = "The CTO Mentor" }: NavProps) {
+export function Nav({
+  links = DEFAULT_LINKS,
+  wordmark = "The CTO Mentor",
+  descriptor = "Technology advisory for consequential decisions",
+}: NavProps) {
   const path = usePathname();
   const [scrolled, setScrolled] = React.useState(false);
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -111,6 +126,10 @@ export function Nav({ links = DEFAULT_LINKS, wordmark = "The CTO Mentor" }: NavP
 
   const isActive = (href: string) => path === href || (href !== "/" && path?.startsWith(href));
 
+  // Hidden once scrolled or when the drawer is open, so the drawer's
+  // top-[var(--header-height)] offset always meets the bar it is anchored to.
+  const showDescriptor = !scrolled && !mobileOpen;
+
   return (
     <header
       className={cn(
@@ -120,9 +139,39 @@ export function Nav({ links = DEFAULT_LINKS, wordmark = "The CTO Mentor" }: NavP
           : "border-b border-transparent bg-transparent text-ink",
       )}
     >
-      <nav className="mx-auto flex h-[var(--header-height)] w-full max-w-content items-center justify-between px-gutter" aria-label="Primary">
-        <Link href="/" className="font-display text-h4 font-semibold tracking-tight text-ink">
-          {wordmark}
+      {/* The descriptor shows at rest and collapses on scroll. Two reasons it is not
+          permanent: at ~550px it cannot share a 992px row with the links and the CTA,
+          and a permanent second line would force --header-height up, which would drag
+          main's pt-header-offset, the mobile drawer top, and ReadingProgress with it.
+          Collapsed height stays exactly --header-height, so no token moves. */}
+      <nav
+        className={cn(
+          "mx-auto flex w-full max-w-content items-center justify-between px-gutter",
+          "transition-[height,padding] duration-standard ease-standard",
+          showDescriptor ? "py-[var(--space-4)]" : "h-[var(--header-height)]",
+        )}
+        aria-label="Primary"
+      >
+        <Link href="/" aria-label="Home" className="flex flex-col justify-center">
+          <span
+            className={cn(
+              "font-display font-semibold tracking-tight text-ink",
+              // Demoted to a label only where the descriptor actually renders (sm+).
+              // Below sm it stays the full wordmark, since the descriptor is hidden there.
+              showDescriptor ? "text-h4 sm:text-caption sm:text-ink-muted" : "text-h4",
+            )}
+          >
+            {wordmark}
+          </span>
+          {showDescriptor ? (
+            /* Hidden below sm: at 375px this line wraps to two rows and the header grows
+               to ~7rem, which is exactly where the hero H1 starts (4rem offset + 3rem
+               section padding). Stepping the type down does not fix it — the wrap is what
+               costs the height. From 640px it fits on one line with room to spare. */
+            <span className="mt-1 hidden font-display text-h3 tracking-tight text-ink sm:block">
+              {descriptor}
+            </span>
+          ) : null}
         </Link>
 
         <ul className="hidden items-center gap-8 lg:flex">
