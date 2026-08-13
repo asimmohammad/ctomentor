@@ -213,7 +213,9 @@ a {
   font-family: var(--font-text), "Switzer", -apple-system, "Segoe UI", sans-serif;
 }
 
-/* Proof band marquee — active only above 8 logos; paused on hover/focus */
+/* Proof band marquee — the track is the logo set rendered twice, so translating
+   it -50% lands exactly on the duplicate and the loop is seamless. Paused on
+   hover and focus; the JS falls back to static rows under reduced motion. */
 @media (prefers-reduced-motion: no-preference) {
   .proof-marquee-track {
     animation: proof-marquee 48s linear infinite;

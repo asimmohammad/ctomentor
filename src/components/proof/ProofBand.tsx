@@ -27,16 +27,25 @@ function ProofLogoMark({
   logo,
   lazy,
   onLinkClick,
+  decorative = false,
 }: {
   logo: ProofLogo;
   lazy: boolean;
   onLinkClick?: () => void;
+  /** Marquee duplicate: render the mark without its link so nothing inside aria-hidden takes focus. */
+  decorative?: boolean;
 }) {
-  const scale = logo.opticalScale ?? 1;
-  const maxBoxWidth = 220 * scale;
   const hasDark = Boolean(logo.darkSrc);
-  const markClass = "object-contain opacity-100 h-[36px] w-auto max-h-[36px] lg:h-[48px] lg:max-h-[48px]";
-  const markStyle = { maxWidth: maxBoxWidth };
+  /**
+   * Every mark renders at the same height, width following the aspect ratio.
+   *
+   * Two things previously broke that. The PNG branch passed height:"auto" as an
+   * inline style, which outranks the class and let raster marks size themselves.
+   * And a 220px max-width meant object-contain shrank wide lockups to fit,
+   * taking their height down with it. Both are gone: no width cap, no inline
+   * height. opticalScale no longer applies here — equal height is the rule.
+   */
+  const markClass = "object-contain opacity-100 h-[36px] w-auto max-w-none lg:h-[48px]";
 
   const lightMark =
     logo.format === "svg" ? (
@@ -48,7 +57,6 @@ function ProofLogoMark({
         loading={lazy ? "lazy" : "eager"}
         decoding="async"
         className={cn(markClass, hasDark && "dark:hidden")}
-        style={markStyle}
       />
     ) : (
       <Image
@@ -58,7 +66,6 @@ function ProofLogoMark({
         height={logo.height ?? 40}
         loading={lazy ? "lazy" : "eager"}
         className={cn(markClass, hasDark && "dark:hidden")}
-        style={{ ...markStyle, height: "auto", width: "auto", maxHeight: "48px" }}
       />
     );
 
@@ -71,7 +78,6 @@ function ProofLogoMark({
         loading={lazy ? "lazy" : "eager"}
         decoding="async"
         className={cn(markClass, "hidden dark:block")}
-        style={markStyle}
       />
     ) : (
       <Image
@@ -81,7 +87,6 @@ function ProofLogoMark({
         height={logo.height ?? 40}
         loading={lazy ? "lazy" : "eager"}
         className={cn(markClass, "hidden dark:block")}
-        style={{ ...markStyle, height: "auto", width: "auto", maxHeight: "48px" }}
       />
     )
   ) : null;
@@ -93,7 +98,7 @@ function ProofLogoMark({
     </>
   );
 
-  if (logo.href) {
+  if (logo.href && !decorative) {
     return (
       <a
         href={logo.href}
@@ -138,7 +143,7 @@ function LogoRow({
           ))}
           {logos.map((logo) => (
             <li key={`${logo.slug}-dup`} className="flex shrink-0 items-center px-6" aria-hidden="true">
-              <ProofLogoMark logo={logo} lazy={lazy} />
+              <ProofLogoMark logo={logo} lazy={lazy} decorative />
             </li>
           ))}
         </ul>
@@ -147,14 +152,16 @@ function LogoRow({
   }
 
   const count = logos.length;
-  // <=6 fits one centered row. 7-8 wrap into balanced centered rows via a
-  // narrower track (a 4-col grid would leave the final row left-heavy).
+  /**
+   * Centered flex-wrap up to 8, so every row centers and none ends left-heavy.
+   * The 7-8 case used to ride a 620px track, which was sized for marks capped at
+   * 220px wide. With uniform height and no width cap the eight marks total ~1150px,
+   * so that track would wrap them into three cramped rows instead of two.
+   */
   const layoutClass =
-    count <= 6
+    count <= 8
       ? "flex flex-wrap items-center justify-center gap-x-12 gap-y-8"
-      : count <= 8
-        ? "mx-auto flex max-w-[620px] flex-wrap items-center justify-center gap-x-10 gap-y-10"
-        : "grid grid-cols-2 place-items-center gap-x-12 gap-y-8 sm:grid-cols-3 lg:grid-cols-4";
+      : "grid grid-cols-2 place-items-center gap-x-12 gap-y-8 sm:grid-cols-3 lg:grid-cols-4";
 
   return (
     <ul className={layoutClass}>
@@ -214,7 +221,13 @@ export function ProofBand({ className, embedded = false, priority = false }: Pro
   }
 
   const count = logos.length;
-  const useMarquee = count > 8 && !reduceMotion;
+  /**
+   * The band scrolls whenever there is more than one mark. Under
+   * prefers-reduced-motion it falls back to the static centered rows below —
+   * the CSS also stops the animation, but the static layout is the better
+   * reduced-motion experience than a stalled duplicated track.
+   */
+  const useMarquee = count > 1 && !reduceMotion;
 
   const inner = (
     <div ref={observeRef}>

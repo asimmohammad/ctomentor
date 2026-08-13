@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/Button";
-import { Card } from "@/components/Card";
 import { CTABand } from "@/components/CTABand";
 import { Eyebrow } from "@/components/Eyebrow";
 import { MetricCard } from "@/components/MetricCard";
@@ -16,7 +15,6 @@ import { Section } from "@/components/layout/Section";
 import { PRIMARY_CTA, SECONDARY_CTA } from "@/lib/cta";
 import { estimateReadTimeMinutes, getRecentArticles } from "@/lib/articles";
 import { HOME_HERO_ALT, HOME_HERO_SRC } from "@/lib/media";
-import { PRICING_BY_ID } from "@/lib/pricing";
 
 const SITE_URL = "https://thectomentor.com";
 
@@ -134,26 +132,6 @@ const FOUR_QUESTIONS = [
   },
 ] as const;
 
-/** Published intake questions. Self-selects on problem and budget before a call. */
-const HOW_I_WORK = [
-  {
-    question: "What problem are you going after?",
-    body: "Not the initiative. The problem. If we cannot state it in a sentence, we are not ready to spend against it.",
-  },
-  {
-    question: "Who can you solve this with?",
-    body: "Every plan is constrained by the people you actually have. I assess the team you have, not the team the plan assumes.",
-  },
-  {
-    question: "How fast can you move?",
-    body: "Your real cadence, including procurement, legal, and the two people whose approval everything waits on.",
-  },
-  {
-    question: "What is the budget against this problem?",
-    body: "Not your total spend. The money allocated to this. A problem without a budget is a conversation, and I am happy to have it, but we should both know which one we are having.",
-  },
-] as const;
-
 /** The four business surfaces technology is read through. Widens past engineering risk. */
 const LENS = [
   {
@@ -171,37 +149,6 @@ const LENS = [
   {
     term: "Customer intelligence.",
     body: "What you can actually know about who buys from you, how fast you can know it, and what it takes to make that knowledge routine rather than heroic.",
-  },
-] as const;
-
-/**
- * Homepage engagement cards. `id` keys the canonical tier in lib/pricing.ts — name,
- * sub-label, prices, cadence, and the "not for" disqualifier all read from there, so
- * this page and /engagements can no longer drift apart.
- *
- * Order is the argument: the Diagnostic leads because a single decision examined
- * properly is the honest first engagement.
- */
-const ENGAGEMENTS = [
-  {
-    id: "diagnostic-sprint" as const,
-    description:
-      "One decision, examined properly. You bring the question; I bring objective inputs and a written recommendation you can hand to a board.",
-  },
-  {
-    id: "advisory" as const,
-    description:
-      "A standing outside read. You have decisions arriving continuously and want someone with context who is not inside the politics.",
-  },
-  {
-    id: "fractional-cto" as const,
-    description:
-      "Someone owns the technology agenda and is accountable for it. Strategy, team structure, roadmap, and the board conversation — decided rather than defaulted.",
-  },
-  {
-    id: "interim" as const,
-    description:
-      "A seat is empty and the decisions are not waiting. I hold it, keep momentum, and help you hire the permanent answer.",
   },
 ] as const;
 
@@ -440,27 +387,6 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section spacing="standard" tone="paper" id="how-i-work">
-        <Eyebrow>How I work</Eyebrow>
-        <h2 className="mt-4 max-w-measure font-display text-h2 font-semibold text-ink">
-          These are the questions I will ask you. You may as well see them now.
-        </h2>
-        <Grid className="mt-12">
-          {HOW_I_WORK.map((item) => (
-            <GridItem key={item.question} span={12} md={6}>
-              <div className="flex h-full flex-col border-t border-ink pt-6">
-                <h3 className="max-w-[30ch] font-display text-h3 text-ink">{item.question}</h3>
-                <p className="mt-3 max-w-measure font-text text-body text-ink-muted">{item.body}</p>
-              </div>
-            </GridItem>
-          ))}
-        </Grid>
-        <p className="mt-12 max-w-measure font-text text-lead text-ink">
-          If those four have clean answers, an engagement is usually short and worth it. If they do
-          not, my first job is to get them.
-        </p>
-      </Section>
-
       <Section spacing="standard" tone="alt" id="lens">
         <Eyebrow>The lens</Eyebrow>
         <h2 className="mt-4 max-w-measure font-display text-h2 font-semibold text-ink">
@@ -539,65 +465,6 @@ export default function HomePage() {
           None of this is a talent problem. Your engineers are probably good — that is what makes it
           hard to see.
         </p>
-      </Section>
-
-      <Section spacing="standard" tone="alt" id="engagements">
-        <Eyebrow>Engagements</Eyebrow>
-        <h2 className="mt-4 max-w-measure font-display text-h2 font-semibold text-ink">
-          Priced in problems, not headcount.
-        </h2>
-        <p className="mt-4 max-w-measure font-text text-lead text-ink-muted">
-          Every engagement is designed to end.
-        </p>
-        <Grid className="mt-12">
-          {ENGAGEMENTS.map((item) => {
-            const pricing = PRICING_BY_ID[item.id];
-            return (
-              <GridItem key={item.id} span={12} md={6} lg={3}>
-                <Card variant="default" static className="flex h-full flex-col p-8">
-                  {/* text-h4, not text-h2: these cards are a quarter of the grid at lg,
-                      leaving ~212px of text width. At h2 (≈40px) a single long word like
-                      "Technology" overruns that, and the global overflow-wrap on headings
-                      then breaks it mid-word. text-balance evens the remaining line breaks. */}
-                  <h3 className="text-balance font-display text-h4 font-semibold text-ink">
-                    {pricing.name}
-                  </h3>
-                  {pricing.subLabel ? (
-                    <p className="mt-1 font-text text-caption italic text-ink-muted">
-                      {pricing.subLabel}
-                    </p>
-                  ) : null}
-                  <p className="metric mt-3 font-display text-h3 text-ink">{pricing.priceDisplay}</p>
-                  <p className="mt-1 font-text text-caption text-ink-muted">{pricing.meta}</p>
-                  {pricing.secondary ? (
-                    <>
-                      <p className="metric mt-2 font-display text-h3 text-ink">
-                        {pricing.secondary.priceDisplay}
-                      </p>
-                      <p className="mt-1 font-text text-caption text-ink-muted">
-                        {pricing.secondary.meta}
-                      </p>
-                    </>
-                  ) : null}
-                  <p className="mt-2 font-text text-caption text-ink-faint">{pricing.effort}</p>
-                  <p className="mt-6 max-w-measure flex-1 font-text text-body text-ink-muted">
-                    {item.description}
-                  </p>
-                  <p className="mt-6 border-t border-border pt-5 font-text text-small text-ink">
-                    <span className="font-semibold">Not for. </span>
-                    <span className="text-ink-muted">{pricing.notFor}</span>
-                  </p>
-                  <Link
-                    href="/engagements"
-                    className="mt-6 inline-block font-text text-small font-medium text-accent underline-offset-4 hover:underline"
-                  >
-                    Full engagement details
-                  </Link>
-                </Card>
-              </GridItem>
-            );
-          })}
-        </Grid>
       </Section>
 
       <Section spacing="standard" tone="paper" id="capacity">

@@ -29,7 +29,7 @@ export interface NavProps {
  */
 const DEFAULT_LINKS: NavLinkItem[] = [
   { label: "The Work", href: "/case-studies" },
-  { label: "How I Work", href: "/#how-i-work" },
+  { label: "How I Work", href: "/how-i-work" },
   { label: "Engagements", href: "/engagements" },
   { label: "Assessment", href: "/assessment" },
   { label: "Writing", href: "/insights" },
