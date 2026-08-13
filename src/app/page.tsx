@@ -383,8 +383,13 @@ export default function HomePage() {
           you when the answer is <em>not yet</em> or <em>not at all</em>.
         </p>
         <div className="mt-10">
+          {/* Direct <Link> child (not PrimaryCtaLink) so the Button's filled
+              variant/size actually apply — renders a prominent accent button. */}
           <Button asChild variant="primary" size="lg">
-            <PrimaryCtaLink href={PRIMARY_CTA.href} label={PRIMARY_CTA.label} />
+            <Link href={PRIMARY_CTA.href} className="inline-flex items-center gap-2.5">
+              <span>{PRIMARY_CTA.label}</span>
+              <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
+            </Link>
           </Button>
         </div>
       </Section>
@@ -503,8 +508,13 @@ export default function HomePage() {
             If the assessment says you need a full-time hire, or nothing at all, I will say that.
           </p>
           <div className="mt-10">
+            {/* Direct <Link> child (not PrimaryCtaLink) so the Button's filled
+                onDark variant/size actually apply — renders a prominent button. */}
             <Button asChild variant="onDark" size="lg">
-              <PrimaryCtaLink href={PRIMARY_CTA.href} label={PRIMARY_CTA.label} />
+              <Link href={PRIMARY_CTA.href} className="inline-flex items-center gap-2.5">
+                <span>{PRIMARY_CTA.label}</span>
+                <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
+              </Link>
             </Button>
           </div>
         </div>
@@ -513,7 +523,7 @@ export default function HomePage() {
       <Section spacing="standard" tone="alt" id="newsletter">
         <Eyebrow>Substack</Eyebrow>
         <h2 className="mt-4 max-w-measure font-display text-h2 font-semibold text-ink">
-          Operating notes for people who underwrite technology risk.
+          Subscribe for Technical Newsletters on latest trends
         </h2>
         <p className="mt-6 max-w-measure font-text text-lead text-ink-muted">
           Published on Substack. Subscribe to get new notes in your inbox.
