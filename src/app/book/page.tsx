@@ -107,12 +107,12 @@ export default async function BookPage({ searchParams }: PageProps) {
           <ProofBand embedded />
 
           <div className="flex gap-4 border-t border-border pt-6">
-            <div className="relative h-20 w-20 shrink-0 overflow-hidden border border-border bg-surface-alt">
+            <div className="relative aspect-[4/7] w-20 shrink-0 overflow-hidden border border-border bg-surface-alt">
               <Image
                 src={bookPortrait}
                 alt={PORTRAIT_ALT}
                 fill
-                className="object-cover object-[50%_35%]"
+                className="object-contain object-center"
                 sizes="80px"
               />
             </div>
