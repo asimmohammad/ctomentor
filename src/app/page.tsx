@@ -5,7 +5,6 @@ import { Button } from "@/components/Button";
 import { CTABand } from "@/components/CTABand";
 import { Eyebrow } from "@/components/Eyebrow";
 import { MetricCard } from "@/components/MetricCard";
-import { NewsletterForm } from "@/components/NewsletterForm";
 import { ProofBand } from "@/components/proof/ProofBand";
 import { ProofResults } from "@/components/proof/ProofResults";
 import { ProofTestimonials } from "@/components/proof/ProofTestimonials";
@@ -329,7 +328,10 @@ export default function HomePage() {
         <p className="mt-4 max-w-measure font-text text-lead text-ink">That is the work.</p>
       </Section>
 
-      <Section spacing="standard" tone="paper" id="decision-doors">
+      {/* pt-0: this section shares the "paper" tone with #problem above, so its
+          own top padding would double the gap. Drop it — #problem's bottom
+          padding alone gives the correct single-section rhythm between them. */}
+      <Section spacing="standard" tone="paper" id="decision-doors" className="pt-0">
         <Eyebrow>Start here</Eyebrow>
         <h2 className="mt-4 max-w-measure font-display text-h2 font-semibold text-ink">
           Start with the decision, not the org chart.
@@ -387,7 +389,9 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section spacing="standard" tone="alt" id="lens">
+      {/* pt-0: same "alt" tone as #four-questions above — drop top padding to
+          avoid doubling the inter-section gap. */}
+      <Section spacing="standard" tone="alt" id="lens" className="pt-0">
         <Eyebrow>The lens</Eyebrow>
         <h2 className="mt-4 max-w-measure font-display text-h2 font-semibold text-ink">
           I read technology through the business, not the architecture diagram.
@@ -446,7 +450,8 @@ export default function HomePage() {
         </Grid>
       </Section>
 
-      <Section spacing="standard" tone="paper" id="pattern">
+      {/* pt-0: same "paper" tone as #case-studies above — avoid doubling the gap. */}
+      <Section spacing="standard" tone="paper" id="pattern" className="pt-0">
         <Eyebrow>The pattern</Eyebrow>
         {/* h2 for the document outline, text-h3 for weight — this section continues the
             argument THE PROBLEM opened rather than starting a new one. */}
@@ -467,7 +472,8 @@ export default function HomePage() {
         </p>
       </Section>
 
-      <Section spacing="standard" tone="paper" id="capacity">
+      {/* pt-0: same "paper" tone as #pattern above — avoid doubling the gap. */}
+      <Section spacing="standard" tone="paper" id="capacity" className="pt-0">
         <Eyebrow>Capacity</Eyebrow>
         <h2 className="mt-4 max-w-measure font-display text-h2 font-semibold text-ink">
           Two engagements at a time.
@@ -505,11 +511,38 @@ export default function HomePage() {
       </Section>
 
       <Section spacing="standard" tone="alt" id="newsletter">
-        <Eyebrow>Newsletter</Eyebrow>
+        <Eyebrow>Substack</Eyebrow>
         <h2 className="mt-4 max-w-measure font-display text-h2 font-semibold text-ink">
           Operating notes for people who underwrite technology risk.
         </h2>
-        <NewsletterForm />
+        <p className="mt-6 max-w-measure font-text text-lead text-ink-muted">
+          Published on Substack. Subscribe to get new notes in your inbox.
+        </p>
+        {/* Native GET form hands off to Substack's own subscribe flow — no
+            custom backend, no client JS. The typed email is passed through so
+            Substack can prefill it. */}
+        <form
+          action="https://asimmohammad.substack.com/subscribe"
+          method="get"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-8 flex max-w-measure flex-col gap-4 sm:flex-row sm:items-center"
+        >
+          <label htmlFor="substack-email" className="sr-only">
+            Email address
+          </label>
+          <input
+            id="substack-email"
+            name="email"
+            type="email"
+            autoComplete="email"
+            placeholder="you@company.com"
+            className="w-full border border-border bg-surface px-4 py-3 font-text text-body text-ink placeholder:text-ink-muted focus:border-ink focus:outline-none sm:max-w-xs"
+          />
+          <Button type="submit" variant="primary" size="lg">
+            Subscribe on Substack
+          </Button>
+        </form>
       </Section>
 
       {/* Close. The `scarcity` slot is the component's small muted line under the CTAs —
@@ -518,6 +551,7 @@ export default function HomePage() {
         heading="Do you have a problem, and is there a budget against it?"
         body="If yes, that is a short conversation and probably a useful one. If you are not sure yet, that is also a conversation — it just starts further back."
         scarcity="Chicago, IL · San Francisco, CA"
+        hidePrimary
       />
     </>
   );
