@@ -22,14 +22,15 @@ import {
 const SITE = "https://thectomentor.com";
 
 export const metadata: Metadata = {
-  title: "Engagements — Fractional CTO, Advisory & Technical Diligence",
-  description:
-    "Published pricing: Fractional CTO from $30,000, Advisory from $15,000, Diagnostic Sprint, Technical Due Diligence, and embedded technology leadership.",
+  title: "Engagements — Diagnostic, Advisory & Technology Leadership",
+  // Composed from lib/pricing.ts, never literal — brief-check.sh greps this file for
+  // ladder display strings and fails the build on any of them, comments included.
+  description: `Published pricing: a ${PRICING_BY_ID["diagnostic-sprint"].priceDisplay} Diagnostic, Advisory from ${PRICE_FLOOR_DISPLAY}, Technology Leadership (fractional CTO) from ${PRICING_BY_ID["fractional-cto"].priceDisplay}, and technical due diligence per transaction.`,
   alternates: { canonical: `${SITE}/engagements` },
   openGraph: {
-    title: "Engagements — Fractional CTO, Advisory & Technical Diligence",
+    title: "Engagements — Diagnostic, Advisory & Technology Leadership",
     description:
-      "Fractional technology leadership, advisory access, diagnostic sprints, and technical due diligence — with prices published.",
+      "Every engagement answers a decision and is designed to end. Diagnostic, advisory, technology leadership, and technical due diligence — with prices published.",
     url: `${SITE}/engagements`,
     type: "website",
   },
@@ -49,30 +50,29 @@ type Tier = {
 
 const tiers: Tier[] = [
   {
-    id: "fractional-cto",
-    badge: "Most common engagement",
+    id: "diagnostic-sprint",
+    badge: "Start here",
     emphasized: true,
     description:
-      "The seat, part-time. Senior technical judgment in the room at the moment the consequential decision gets made.",
+      "One decision, examined properly. You bring the question; I bring objective inputs and a written recommendation you can hand to a board.",
     artifacts: [
-      "Strategy and architecture owned end-to-end",
-      "Team structure, hiring decisions, and org design",
-      "Roadmap ownership with dates your team can execute",
-      "Board representation on technology",
+      "Written findings report for the deal team or board",
+      "Scored risk register with severity and owners",
+      "90-day remediation plan with sequencing",
+      "Live board or deal-team readout with Q&A",
     ],
     forWhom:
-      "Companies with real revenue and a full roadmap where every architecture, vendor, and hiring decision is landing on someone who was never hired to make it.",
+      "Funds and CEOs facing a decision — a close, a raise, an AI budget, a reset of the technology plan — that rests on a technical claim nobody in the room can independently check.",
     notFor:
-      "Teams that already have a strong CTO who needs occasional advice, or anyone who needs a read in under three weeks — that is the Diagnostic Sprint.",
-    timeline:
-      "Three-month minimum, or six months at a 17% lower rate. Six months is the engagement that compounds.",
+      "Teams that want ongoing Slack access, weekly standups, or someone to stay and execute. This is a diagnostic, not a retainer.",
+    timeline: "Three weeks, fixed scope. Starts within days of kickoff, not months.",
     weekOne:
-      "Every engineer, the codebase, and the incident history. Listening first — the plan lands at day 30, and your team starts executing it in month two.",
+      "Access and document pull, stakeholder interviews, and a first pass of architecture, delivery, and security posture.",
   },
   {
     id: "advisory",
     description:
-      "Standing access to senior technical judgment for a team that has capable leadership and needs a sounding board.",
+      "A standing outside read. Decisions arrive continuously and you want judgment from someone with context who is not inside the politics.",
     artifacts: [
       "Architecture reviews on request",
       "Vendor and build-versus-buy decisions",
@@ -82,33 +82,34 @@ const tiers: Tier[] = [
     forWhom:
       "CEOs who have engineers and possibly a technical lead, and want an outside read on whether the architecture and the org are actually right.",
     notFor:
-      "Companies that need someone to own the roadmap. That is the fractional seat, and at these hours this tier cannot do it.",
-    timeline: "Three months. Renewable, and often a step toward the fractional seat.",
+      "Companies that need someone to own the roadmap. That is Technology Leadership, and at these hours this tier cannot do it.",
+    timeline: "Three months. Renewable, and often a step toward Technology Leadership.",
     weekOne:
       "A current-state read on architecture and team, then a standing cadence you control.",
   },
   {
-    id: "diagnostic-sprint",
+    id: "fractional-cto",
     description:
-      "A time-boxed read on technology risk before you commit more capital or change the operating plan.",
+      "Someone owns the technology agenda and is accountable for it. Strategy, team structure, roadmap, and the board conversation — decided rather than defaulted.",
     artifacts: [
-      "Written findings report for the deal team or board",
-      "Scored risk register with severity and owners",
-      "90-day remediation plan with sequencing",
-      "Live board or deal-team readout with Q&A",
+      "Strategy and architecture owned end-to-end",
+      "Team structure, hiring decisions, and org design",
+      "Roadmap ownership with dates your team can execute",
+      "Board representation on technology",
     ],
     forWhom:
-      "Funds and CEOs who need a clear picture in three weeks — before a close, a raise, or a reset of the technology plan.",
+      "Companies with real revenue and a full roadmap where every architecture, vendor, and hiring decision is landing on someone who was never hired to make it.",
     notFor:
-      "Teams that want ongoing Slack access, weekly standups, or a fractional seat. This is a diagnostic, not a retainer.",
-    timeline: "Three weeks, fixed scope. Starts within days of kickoff, not months.",
+      "Teams that already have a strong CTO who needs occasional advice, or anyone who needs a read in under three weeks — that is the Diagnostic.",
+    timeline:
+      "Three-month minimum, or six months at a 17% lower rate. Six months is the engagement that compounds.",
     weekOne:
-      "Access and document pull, stakeholder interviews, and a first pass of architecture, delivery, and security posture.",
+      "Every engineer, the codebase, and the incident history. Listening first — the plan lands at day 30, and your team starts executing it in month two.",
   },
   {
     id: "embedded",
     description:
-      "The heavier version of the seat, for companies where technology is on the critical path and the cadence has to be weekly.",
+      "The same ownership at a weekly cadence, for companies where technology is on the critical path to the plan.",
     artifacts: [
       "Weekly operating cadence with the leadership team",
       "Hiring and org-design decisions documented",
@@ -316,7 +317,7 @@ const faqs = [
   },
   {
     id: "faq-fractional-minimum",
-    title: "Why is three months the minimum on the fractional seat?",
+    title: "Why is three months the minimum on Technology Leadership?",
     content: FRACTIONAL_MINIMUM_RATIONALE,
   },
   {
@@ -339,15 +340,15 @@ const faqs = [
   },
   {
     id: "faq-scale",
-    title: "Can I start with a Diagnostic Sprint and move to embedded?",
+    title: "Can I start with a Diagnostic and move to embedded?",
     content:
-      "Yes. Most embedded seats begin after a sprint or an assessment. The sprint clarifies the problem; the embed owns the remediation. There is no obligation to continue after the sprint.",
+      "Yes. Most embedded engagements begin after a Diagnostic or an assessment. The Diagnostic clarifies the problem; the embed owns the remediation. There is no obligation to continue after it.",
   },
   {
     id: "faq-minimum",
     title: "What is the minimum engagement length?",
     content:
-      "Diagnostic Sprint is three weeks, fixed. Embedded Technology Leadership has a three-month minimum, then month-to-month with 30 days' notice. Diligence is scoped per transaction. Portfolio Partner retainers are reviewed quarterly.",
+      "The Diagnostic is three weeks, fixed. Embedded Technology Leadership has a three-month minimum, then month-to-month with 30 days' notice. Diligence is scoped per transaction. Portfolio Partner retainers are reviewed quarterly.",
   },
   {
     id: "faq-equity-old",
@@ -377,7 +378,7 @@ const faqs = [
     id: "faq-light-touch",
     title: "Do you offer light-touch monthly advisory?",
     content:
-      "No. A light advisory seat prices the work like coaching. The work that moves a deal or a portfolio company — diligence-grade findings, remediation plans, embedded ownership — starts with a Diagnostic Sprint or an embedded seat. If your need is lighter than that, you do not need me.",
+      "No. A light advisory retainer prices the work like coaching. The work that moves a deal or a portfolio company — diligence-grade findings, remediation plans, embedded ownership — starts with a Diagnostic or an embedded engagement. If your need is lighter than that, you do not need me.",
   },
   {
     id: "faq-equity-new",
@@ -395,25 +396,25 @@ const faqs = [
     id: "faq-bench",
     title: "What if we need more capacity than one person?",
     content:
-      "That is the bench. Specialized engineers, architects, and security operators deploy under the engagement when the plan requires more hands than one seat. You still get one accountable lead.",
+      "That is the bench. Specialized engineers, architects, and security operators deploy under the engagement when the plan requires more hands than one person. You still get one accountable lead.",
   },
   {
     id: "faq-implement",
     title: "Can you help us implement, or only advise?",
     content:
-      "Both, by design. Sprints and diligence produce written plans. Embedded seats own execution. Where the finding is release quality and test failure, implementation can route to Vigil — with the conflict disclosed below.",
+      "Both, by design. Sprints and diligence produce written plans. Embedded engagements own execution. Where the finding is release quality and test failure, implementation can route to Vigil — with the conflict disclosed below.",
   },
 ];
 
 const tierDescriptions: Record<PricingTierId, string> = {
   "fractional-cto":
-    "Part-time senior technical leadership: strategy, team structure, roadmap ownership, and board representation. Three-month minimum or six months.",
+    "Owned technology leadership, also known as a fractional CTO: strategy, team structure, roadmap ownership, and board representation. Three-month minimum or six months.",
   advisory:
-    "Standing access to senior technical judgment at 4–8 hours per month: architecture reviews, vendor and hiring decisions, board prep. Three months.",
+    "A standing outside read at 4–8 hours per month: architecture reviews, vendor and hiring decisions, board prep. Three months.",
   interim:
     "Interim technology leadership across a transition: hold the function, define the role, recruit for it, hand off cleanly. Six months.",
   "diagnostic-sprint":
-    "Three-week fixed-scope technology diagnostic: findings report, scored risk register, 90-day remediation plan, board readout.",
+    "One decision examined properly over three weeks, fixed scope: findings report, scored risk register, 90-day remediation plan, board readout.",
   embedded: "1–2 days per week embedded technology leadership. Six months.",
   "due-diligence": "Pre-acquisition technical due diligence with IC-ready written report.",
   "portfolio-partner":
@@ -443,10 +444,11 @@ export default function EngagementsPage() {
       <Section spacing="compact" tone="paper">
         <Eyebrow>Engagements</Eyebrow>
         <h1 className="mt-3 max-w-measure font-display text-h1 text-ink">
-          How the work is scoped.
+          Priced in problems, not headcount.
         </h1>
         <p className="mt-6 max-w-measure font-text text-lead text-ink-muted">
-          Artifacts, not activities. Qualification is mutual — each tier says who it is for and who it is not.
+          Every engagement answers a decision, and every engagement is designed to end. Artifacts,
+          not activities — and each tier says who it is for and who it is not.
         </p>
         <div className="mt-8 flex flex-col gap-4 sm:flex-row">
           <Button asChild variant="primary" size="lg">
@@ -478,6 +480,11 @@ export default function EngagementsPage() {
                     <span className="mb-3 block h-[1.125rem]" aria-hidden="true" />
                   )}
                   <h2 className="metric font-display text-h2 text-ink">{pricing.name}</h2>
+                  {pricing.subLabel ? (
+                    <p className="mt-1 font-text text-caption italic text-ink-muted">
+                      {pricing.subLabel}
+                    </p>
+                  ) : null}
                   <p className="metric mt-3 font-display text-h3 text-ink">{pricing.priceDisplay}</p>
                   <p className="mt-1 font-text text-caption text-ink-muted">{pricing.meta}</p>
                   {pricing.secondary ? (

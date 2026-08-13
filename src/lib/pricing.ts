@@ -16,6 +16,11 @@ export type PricingTierId =
 export type PricingTier = {
   id: PricingTierId;
   name: string;
+  /**
+   * Parenthetical under the name. Carries the search term for a tier whose display
+   * name is framed around the decision rather than the staffing shape.
+   */
+  subLabel?: string;
   /** Exact display string shown on cards and tables. */
   priceDisplay: string;
   /** Cadence / shape line under the price. */
@@ -41,15 +46,41 @@ export type PricingTier = {
 };
 
 /**
- * Order is meaningful: it drives the services-page card order, the comparison
- * table columns, and the ItemList schema. The fractional seat leads because it
- * is the highest-volume engagement; Portfolio Technology Partner is last and is
- * kept off the homepage entirely — it is a fund product, not an operating-company one.
+ * Order is meaningful: it drives the engagements-page card order, the comparison
+ * table columns, and the ItemList schema. The Diagnostic leads because a single
+ * decision examined properly is the honest first engagement; the tiers then read
+ * from lightest to heaviest commitment. Portfolio Technology Partner is last —
+ * it is a fund product, not an operating-company one.
+ *
+ * Display names are framed around the decision the tier answers rather than the
+ * staffing shape it takes. "Fractional CTO" survives as a sub-label on Technology
+ * Leadership: it is what buyers search for, and it is still what the tier is.
  */
 export const PRICING_TIERS: readonly PricingTier[] = [
   {
+    id: "diagnostic-sprint",
+    name: "Diagnostic",
+    priceDisplay: "$25,000 fixed",
+    meta: "3 weeks · fixed scope",
+    priceFrom: 25000,
+    effort: "3 weeks, full attention",
+    notFor:
+      "Anyone who needs someone to stay and execute the plan. The Diagnostic ends with the plan.",
+  },
+  {
+    id: "advisory",
+    name: "Advisory Retainer",
+    priceDisplay: "$15,000",
+    meta: "three months",
+    priceFrom: 15000,
+    effort: "4–8 hrs per month",
+    notFor:
+      "Companies that need someone to own the roadmap. That is Technology Leadership.",
+  },
+  {
     id: "fractional-cto",
-    name: "Fractional CTO",
+    name: "Technology Leadership",
+    subLabel: "also known as fractional CTO",
     priceDisplay: "$30,000",
     meta: "three-month minimum",
     priceFrom: 30000,
@@ -60,37 +91,7 @@ export const PRICING_TIERS: readonly PricingTier[] = [
     },
     effort: "20–40 hrs per month",
     notFor:
-      "Teams that already have a strong CTO who needs occasional advice, or anyone who needs a read in under three weeks — that is the Diagnostic Sprint.",
-  },
-  {
-    id: "advisory",
-    name: "Advisory",
-    priceDisplay: "$15,000",
-    meta: "three months",
-    priceFrom: 15000,
-    effort: "4–8 hrs per month",
-    notFor:
-      "Companies that need someone to own the roadmap. That is the fractional seat.",
-  },
-  {
-    id: "diagnostic-sprint",
-    name: "Diagnostic Sprint",
-    priceDisplay: "$25,000 fixed",
-    meta: "3 weeks · fixed scope",
-    priceFrom: 25000,
-    effort: "3 weeks, full attention",
-    notFor:
-      "Anyone who needs someone to stay and execute the plan. The Sprint ends with the plan.",
-  },
-  {
-    id: "due-diligence",
-    name: "Technical Due Diligence",
-    priceDisplay: "$35,000–$50,000",
-    meta: "per transaction",
-    priceFrom: 35000,
-    priceTo: 50000,
-    effort: "2–4 weeks per transaction",
-    notFor: "Post-close remediation. That is the Diagnostic Sprint or the fractional seat.",
+      "Teams that already have a strong CTO who needs occasional advice, or anyone who needs a read in under three weeks — that is the Diagnostic.",
   },
   {
     id: "embedded",
@@ -103,12 +104,22 @@ export const PRICING_TIERS: readonly PricingTier[] = [
   },
   {
     id: "interim",
-    name: "Interim / Transition",
+    name: "Interim",
     priceDisplay: "$50,000",
     meta: "six months · embedded",
     priceFrom: 50000,
     effort: "1–2 days per week",
     notFor: "Indefinite coverage. This tier is designed to end.",
+  },
+  {
+    id: "due-diligence",
+    name: "Technical Due Diligence",
+    priceDisplay: "$35,000–$50,000",
+    meta: "per transaction",
+    priceFrom: 35000,
+    priceTo: 50000,
+    effort: "2–4 weeks per transaction",
+    notFor: "Post-close remediation. That is the Diagnostic or Technology Leadership.",
   },
   {
     id: "portfolio-partner",
@@ -123,15 +134,14 @@ export const PRICING_TIERS: readonly PricingTier[] = [
 
 export type PricingTierEntry = (typeof PRICING_TIERS)[number];
 
-export const PRICING_BY_ID: Record<PricingTierId, PricingTierEntry> = {
-  "fractional-cto": PRICING_TIERS[0],
-  advisory: PRICING_TIERS[1],
-  "diagnostic-sprint": PRICING_TIERS[2],
-  "due-diligence": PRICING_TIERS[3],
-  embedded: PRICING_TIERS[4],
-  interim: PRICING_TIERS[5],
-  "portfolio-partner": PRICING_TIERS[6],
-};
+/**
+ * Derived by id, not by position. This was a positional map (PRICING_TIERS[0], [1], …),
+ * which meant reordering the ladder silently pointed every id at the wrong tier —
+ * prices, names, and schema Offers all shifting one place without a type error.
+ */
+export const PRICING_BY_ID = Object.fromEntries(
+  PRICING_TIERS.map((tier) => [tier.id, tier]),
+) as Record<PricingTierId, PricingTierEntry>;
 
 /**
  * Homepage Engagement Models cards. Portfolio Technology Partner is deliberately
@@ -148,13 +158,13 @@ export const HOMEPAGE_PRICING_TIERS = [
  * Qualification callouts — composed from ladder figures so JSX never hardcodes them.
  */
 export const ENTRY_ENGAGEMENT_LINE =
-  `Most engagements start with a $${PRICING_BY_ID["fractional-cto"].priceFrom.toLocaleString("en-US")} fractional quarter or a $${PRICING_BY_ID["diagnostic-sprint"].priceFrom.toLocaleString("en-US")} Diagnostic Sprint.` as const;
+  `Most engagements start with a $${PRICING_BY_ID["diagnostic-sprint"].priceFrom.toLocaleString("en-US")} Diagnostic or a $${PRICING_BY_ID["fractional-cto"].priceFrom.toLocaleString("en-US")} quarter of technology leadership.` as const;
 
 export const DILIGENCE_PRICE_LINE =
   `${PRICING_BY_ID["due-diligence"].priceDisplay} ${PRICING_BY_ID["due-diligence"].meta}` as const;
 
 /**
- * Why the fractional seat has a three-month floor. Published rather than
+ * Why Technology Leadership has a three-month floor. Published rather than
  * defended in the call (brief §4).
  */
 export const FRACTIONAL_MINIMUM_RATIONALE =

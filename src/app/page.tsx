@@ -175,37 +175,31 @@ const LENS = [
 ] as const;
 
 /**
- * Homepage engagement cards. `id` keys the canonical tier in lib/pricing.ts — prices,
- * cadence, and the "not for" disqualifier are read from there and never hardcoded.
- * `displayName` is a homepage-only label; it does not rename the tier.
+ * Homepage engagement cards. `id` keys the canonical tier in lib/pricing.ts — name,
+ * sub-label, prices, cadence, and the "not for" disqualifier all read from there, so
+ * this page and /engagements can no longer drift apart.
  *
  * Order is the argument: the Diagnostic leads because a single decision examined
- * properly is the honest first engagement. The fractional seat is not shown here —
- * it is demoted to a sub-label on Embedded and published in full on /engagements.
+ * properly is the honest first engagement.
  */
 const ENGAGEMENTS = [
   {
     id: "diagnostic-sprint" as const,
-    displayName: "Diagnostic",
     description:
       "One decision, examined properly. You bring the question; I bring objective inputs and a written recommendation you can hand to a board.",
   },
   {
     id: "advisory" as const,
-    displayName: "Advisory Retainer",
     description:
       "A standing outside read. You have decisions arriving continuously and want someone with context who is not inside the politics.",
   },
   {
-    id: "embedded" as const,
-    displayName: "Embedded Technology Leadership",
-    subLabel: "also known as fractional CTO",
+    id: "fractional-cto" as const,
     description:
-      "I sit in the leadership team, own the technology agenda, and build the function so it does not need me. Departure is part of the plan from week one.",
+      "Someone owns the technology agenda and is accountable for it. Strategy, team structure, roadmap, and the board conversation — decided rather than defaulted.",
   },
   {
     id: "interim" as const,
-    displayName: "Interim",
     description:
       "A seat is empty and the decisions are not waiting. I hold it, keep momentum, and help you hire the permanent answer.",
   },
@@ -566,11 +560,11 @@ export default function HomePage() {
                       "Technology" overruns that, and the global overflow-wrap on headings
                       then breaks it mid-word. text-balance evens the remaining line breaks. */}
                   <h3 className="text-balance font-display text-h4 font-semibold text-ink">
-                    {item.displayName}
+                    {pricing.name}
                   </h3>
-                  {"subLabel" in item && item.subLabel ? (
+                  {pricing.subLabel ? (
                     <p className="mt-1 font-text text-caption italic text-ink-muted">
-                      {item.subLabel}
+                      {pricing.subLabel}
                     </p>
                   ) : null}
                   <p className="metric mt-3 font-display text-h3 text-ink">{pricing.priceDisplay}</p>
