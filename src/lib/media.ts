@@ -1,7 +1,7 @@
 import type { StaticImageData } from "next/image";
 import portrait from "@/assets/asim-headshot2.png";
 import aboutPortrait from "@/assets/about-portrait.jpg";
-import surfaceHero from "@/assets/Surface.svg";
+import surfaceHero from "@/assets/Surface2.svg";
 
 /**
  * Canonical media. Portrait is imported from src/assets so Next can optimize it.
