@@ -215,16 +215,21 @@ a {
 
 /* Proof band marquee — the track is the logo set rendered twice, so translating
    it -50% lands exactly on the duplicate and the loop is seamless. Paused on
-   hover and focus; the JS falls back to static rows under reduced motion. */
-@media (prefers-reduced-motion: no-preference) {
-  .proof-marquee-track {
-    animation: proof-marquee 48s linear infinite;
-  }
+   hover and focus.
+ *
+ * Applied unconditionally rather than inside a prefers-reduced-motion:
+ * no-preference query: that query has to positively match for the band to move
+ * at all, so anything reporting neither value leaves the track sitting still.
+ * Reduced motion is still honoured twice — the CSS below cancels the animation,
+ * and ProofBand swaps to static rows. */
+.proof-marquee-track {
+  animation: proof-marquee 48s linear infinite;
+  will-change: transform;
+}
 
-  .proof-marquee:hover .proof-marquee-track,
-  .proof-marquee:focus-within .proof-marquee-track {
-    animation-play-state: paused;
-  }
+.proof-marquee:hover .proof-marquee-track,
+.proof-marquee:focus-within .proof-marquee-track {
+  animation-play-state: paused;
 }
 
 @keyframes proof-marquee {
