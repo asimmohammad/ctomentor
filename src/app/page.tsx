@@ -13,7 +13,6 @@ import { Container } from "@/components/layout/Container";
 import { Grid, GridItem } from "@/components/layout/Grid";
 import { Section } from "@/components/layout/Section";
 import { PRIMARY_CTA, SECONDARY_CTA } from "@/lib/cta";
-import { estimateReadTimeMinutes, getRecentArticles } from "@/lib/articles";
 import { HOME_HERO_ALT, HOME_HERO_SRC } from "@/lib/media";
 
 const SITE_URL = "https://thectomentor.com";
@@ -236,8 +235,6 @@ function PrimaryCtaLink({ href, label }: { href: string; label: string }) {
 }
 
 export default function HomePage() {
-  const recent = getRecentArticles(3);
-
   return (
     <>
       <script
@@ -501,37 +498,6 @@ export default function HomePage() {
               <PrimaryCtaLink href={PRIMARY_CTA.href} label={PRIMARY_CTA.label} />
             </Button>
           </div>
-        </div>
-      </Section>
-
-      <Section spacing="standard" tone="paper" id="insights">
-        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div>
-            <Eyebrow>Insights</Eyebrow>
-            <h2 className="mt-4 font-display text-h2 font-semibold text-ink">Recent writing.</h2>
-          </div>
-          <Link
-            href="/insights"
-            className="font-text text-small font-medium text-accent underline-offset-4 hover:underline"
-          >
-            All insights
-          </Link>
-        </div>
-        <div className="mt-12 divide-y divide-border border-y border-border">
-          {recent.map(([slug, article]) => (
-            <article key={slug} className="py-8">
-              <Eyebrow>{article.category}</Eyebrow>
-              <h3 className="mt-3 max-w-measure font-display text-h3 font-semibold text-ink">
-                <Link href={`/insights/${slug}`} className="hover:text-accent">
-                  {article.title}
-                </Link>
-              </h3>
-              <p className="mt-3 max-w-measure font-text text-body text-ink-muted">{article.description}</p>
-              <p className="mt-4 font-text text-caption text-ink-faint">
-                {article.date} · {estimateReadTimeMinutes(article)} min read
-              </p>
-            </article>
-          ))}
         </div>
       </Section>
 

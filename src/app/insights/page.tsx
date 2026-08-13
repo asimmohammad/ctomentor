@@ -15,7 +15,7 @@ import {
 } from "@/lib/insights";
 
 export const metadata: Metadata = {
-  title: "Insights — technology risk, diligence, and engineering quality",
+  title: "Writing — technology risk, diligence, and engineering quality",
   description:
     "Long-form writing and gated briefings on technical diligence, security, AI verification, and CTO operating practice.",
   alternates: {
@@ -41,7 +41,7 @@ export default function InsightsPage({ searchParams }: PageProps) {
   return (
     <>
       <Section spacing="compact" tone="paper">
-        <Eyebrow>Insights</Eyebrow>
+        <Eyebrow>Writing</Eyebrow>
         <h1 className="mt-3 max-w-measure font-display text-[clamp(1.875rem,3.25vw,2.875rem)] font-semibold leading-[1.1] tracking-[-0.025em] text-ink">
           Technology risk, written for people who price it.
         </h1>
