@@ -51,21 +51,18 @@ export default function AboutPage() {
             </p>
             <p className="mt-2 text-small font-text text-ink-muted">Product & Technology Leader · Chicago, IL</p>
             <p className="mt-6 text-body font-text text-ink">
-              The companies that got into serious technical trouble almost never lacked talent. They
-              lacked someone senior in the room at the moment the consequential decision was made.
-              And that person is rarely needed forty hours a week. They are needed at the right
-              twenty hours. That is the entire thesis of this practice.
+              Asim Mohammad founded The CTO Mentor to help executives navigate consequential technology decisions. An executive advisor, operator and coach, he brings experience across enterprise technology, data, AI, product development and company building.
             </p>
             <p className="mt-4 text-body font-text text-ink">
-              My experience spans global team leadership, multi-tenant SaaS platforms, and data- and AI-driven systems.
-              I bridge strategy and execution, bringing clarity, structure, and momentum to organizations preparing for
-              scale, investment, or long-term growth.
-            </p>
-            <p className="mt-4 text-body font-text text-ink">
-              I've spent <strong>25+ years</strong> in technology and transformation across banking, retail, data
-              platforms, and SaaS — from global financial institutions and major advisory firms to high-growth data and
-              SaaS companies. I'm also an investor and advisor to startups, and a board member for nonprofit
-              organizations.
+              Explore Asim's broader work in AI, leadership and strategy at{" "}
+              <a
+                href="https://www.asimmohammad.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent underline-offset-4 hover:underline"
+              >
+                asimmohammad.com
+              </a>.
             </p>
             <div className="mt-8 flex flex-wrap gap-2">
               {expertiseTags.map((tag) => (
